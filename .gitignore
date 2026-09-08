@@ -1,28 +1,12 @@
-# 依赖
-node_modules/
-
-# Next.js 构建输出
-.next/
-out/
-
-# 环境变量
-.env
-.env.local
-.env.*.local
-
-# 系统文件
+.venv/
+.venv-akshare/
+__pycache__/
+*.pyc
 .DS_Store
-Thumbs.db
-
-# IDE
-.vscode/
-.idea/
-
-# 日志
-*.log
-
-# TypeScript 构建缓存
-*.tsbuildinfo
-
-# Vercel
-.vercel
+data/raw/
+data/general-tushare/
+data/general-tushare-suspensions/
+data/cross-market-hk/
+data/prices.csv
+data/manifest.json
+runs/
