@@ -1,0 +1,131 @@
+{
+  "execution_id": "c39cb0ea-c53d-4edd-a7aa-ab4717b64d08",
+  "result": {
+    "status_code": 200,
+    "data": [
+      [
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2022-01-21",
+          "证券代码": "000528.SZ",
+          "证券简称": "柳工",
+          "发布时间": "2022-01-20 16:55:05",
+          "公告标题": "柳    工：关于现金选择权派发及实施停牌的进展公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3191713176&token=MzE5MTcxMzE3Njo6OmRzc2VydmljZTo4Mzc1MDY0MDc6OC4yMTkuMTc2LjE3Mzo6MTowOjE3ODg5NDQxMDI6MjA3ZTAyNzZlZjA2YmU4Njg2NTU2NDA0ZTcyZThlOGQ=&userid=837506407&ip=8.219.176.173",
+          "唯一标号": 3191713176
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2022-01-14",
+          "证券代码": "000528.SZ",
+          "证券简称": "柳工",
+          "发布时间": "2022-01-13 18:48:09",
+          "公告标题": "柳    工：关于公司股票连续停牌直至现金选择权实施完毕的公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3187792574&token=MzE4Nzc5MjU3NDo6OmRzc2VydmljZTo4Mzc1MDY0MDc6OC4yMTkuMTc2LjE3Mzo6MTowOjE3ODg5NDQxMDI6NmZkNDY3YjdiYzI1YjljNmM3OTc5YWYxYjc1YjQzNDg=&userid=837506407&ip=8.219.176.173",
+          "唯一标号": 3187792574
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2022-01-13",
+          "证券代码": "000528.SZ",
+          "证券简称": "柳工",
+          "发布时间": "2022-01-12 18:32:04",
+          "公告标题": "柳    工：关于公司股票连续停牌直至现金选择权实施完毕的提示性公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3187248784&token=MzE4NzI0ODc4NDo6OmRzc2VydmljZTo4Mzc1MDY0MDc6OC4yMTkuMTc2LjE3Mzo6MTowOjE3ODg5NDQxMDI6ZjUyNWRlMzk2ZWQ5MzQ0NzUyNDgwNWNkMDg4ZDczNzU=&userid=837506407&ip=8.219.176.173",
+          "唯一标号": 3187248784
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2022-01-12",
+          "证券代码": "000528.SZ",
+          "证券简称": "柳工",
+          "发布时间": "2022-01-11 16:11:03",
+          "公告标题": "柳    工：关于公司股票连续停牌直至现金选择权实施完毕的提示性公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3186303629&token=MzE4NjMwMzYyOTo6OmRzc2VydmljZTo4Mzc1MDY0MDc6OC4yMTkuMTc2LjE3Mzo6MTowOjE3ODg5NDQxMDI6MTY0YmI4ZmNhOWNhYmI1OTdiYmNkYmI5OTc4ZGIzY2M=&userid=837506407&ip=8.219.176.173",
+          "唯一标号": 3186303629
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2022-01-11",
+          "证券代码": "000528.SZ",
+          "证券简称": "柳工",
+          "发布时间": "2022-01-10 15:56:03",
+          "公告标题": "柳    工：关于公司股票连续停牌直至现金选择权实施完毕的提示性公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3185573536&token=MzE4NTU3MzUzNjo6OmRzc2VydmljZTo4Mzc1MDY0MDc6OC4yMTkuMTc2LjE3Mzo6MTowOjE3ODg5NDQxMDI6YjI3YTk0Yjc0NzdhN2ExZWZjNzEyZjQwZjMwN2QyMzk=&userid=837506407&ip=8.219.176.173",
+          "唯一标号": 3185573536
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2022-01-10",
+          "证券代码": "000528.SZ",
+          "证券简称": "柳工",
+          "发布时间": "2022-01-09 16:01:19",
+          "公告标题": "柳    工：关于公司股票连续停牌直至现金选择权实施完毕的提示性公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3185062406&token=MzE4NTA2MjQwNjo6OmRzc2VydmljZTo4Mzc1MDY0MDc6OC4yMTkuMTc2LjE3Mzo6MTowOjE3ODg5NDQxMDI6MmMwZDNiYWUyYzJmY2Q0OWYxMmU4YjA2YjZmZThlNDQ=&userid=837506407&ip=8.219.176.173",
+          "唯一标号": 3185062406
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2022-01-07",
+          "证券代码": "000528.SZ",
+          "证券简称": "柳工",
+          "发布时间": "2022-01-06 16:25:08",
+          "公告标题": "柳    工：关于公司股票连续停牌直至现金选择权实施完毕的提示性公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3183364679&token=MzE4MzM2NDY3OTo6OmRzc2VydmljZTo4Mzc1MDY0MDc6OC4yMTkuMTc2LjE3Mzo6MTowOjE3ODg5NDQxMDI6ZDk0YTQzNWUwODNiNWU3NWQ1Y2Y1Y2U3MmI4MTZkNzU=&userid=837506407&ip=8.219.176.173",
+          "唯一标号": 3183364679
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2022-01-06",
+          "证券代码": "000528.SZ",
+          "证券简称": "柳工",
+          "发布时间": "2022-01-05 19:20:08",
+          "公告标题": "柳    工：关于公司股票连续停牌直至现金选择权实施完毕的提示性公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3182318058&token=MzE4MjMxODA1ODo6OmRzc2VydmljZTo4Mzc1MDY0MDc6OC4yMTkuMTc2LjE3Mzo6MTowOjE3ODg5NDQxMDI6ODc4NDc0YzU3M2FmYmFlZTAwZTU4YmZmNjlhZmFiYmU=&userid=837506407&ip=8.219.176.173",
+          "唯一标号": 3182318058
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2021-12-03",
+          "证券代码": "000528.SZ",
+          "证券简称": "柳工",
+          "发布时间": "2021-12-02 17:58:06",
+          "公告标题": "柳    工：关于中国证监会上市公司并购重组审核委员会审核公司吸收合并事项的停牌公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3161035611&token=MzE2MTAzNTYxMTo6OmRzc2VydmljZTo4Mzc1MDY0MDc6OC4yMTkuMTc2LjE3Mzo6MTowOjE3ODg5NDQxMDI6NzhjNmIwOWVmOGMxMWFmNzMzZmVlM2U0MzFlYjQyMzY=&userid=837506407&ip=8.219.176.173",
+          "唯一标号": 3161035611
+        }
+      ]
+    ],
+    "metadata": {
+      "codes": "000528.SZ",
+      "effective_codes": "000528.SZ",
+      "used_stripped_codes": false,
+      "hk_codes": [],
+      "keyword": "停牌",
+      "beginrDate": "2021-11-19",
+      "endrDate": "2022-02-15",
+      "count": 1,
+      "has_results": true,
+      "result_count_for_billing": 9
+    }
+  },
+  "success": true,
+  "execution_time": 0.4955458641052246,
+  "elapsed_time_ms": 321.03,
+  "billing": {
+    "summary": "Charged 1.8 credits for this call",
+    "list_amount_credits": 1.8,
+    "final_amount_credits": 1.8
+  },
+  "remaining_credits": null,
+  "cost": 1.8
+}

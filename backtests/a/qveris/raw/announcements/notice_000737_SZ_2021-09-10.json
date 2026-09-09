@@ -1,0 +1,43 @@
+{
+  "execution_id": "63109022-5e69-47bd-9c3b-2c356cd4900a",
+  "result": {
+    "status_code": 200,
+    "data": [
+      [
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2021-09-24",
+          "证券代码": "000737.SZ",
+          "证券简称": "南风化工",
+          "发布时间": "2021-09-23 19:33:04",
+          "公告标题": "南风化工：关于中国证监会上市公司并购重组审核委员会审核公司重大资产置换、发行股份及支付现金购买资产并募集配套资金暨关联交易事项的停牌公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3132280769&token=MzEzMjI4MDc2OTo6OmRzc2VydmljZTo4Mzc1MDY0MDc6OC4yMTkuMTc2LjE3Mzo6MTowOjE3ODg5NDQxMDQ6Y2RmMDg0OTgyMGE1MWE1YTVhNzU4YmM1NTFhODhmMzM=&userid=837506407&ip=8.219.176.173",
+          "唯一标号": 3132280769
+        }
+      ]
+    ],
+    "metadata": {
+      "codes": "000737.SZ",
+      "effective_codes": "000737.SZ",
+      "used_stripped_codes": false,
+      "hk_codes": [],
+      "keyword": "停牌",
+      "beginrDate": "2021-09-10",
+      "endrDate": "2021-10-08",
+      "count": 1,
+      "has_results": true,
+      "result_count_for_billing": 1
+    }
+  },
+  "success": true,
+  "execution_time": 0.4610908031463623,
+  "elapsed_time_ms": 314.54,
+  "billing": {
+    "summary": "Charged 1 credit for this call",
+    "list_amount_credits": 1,
+    "final_amount_credits": 1
+  },
+  "remaining_credits": null,
+  "cost": 1
+}

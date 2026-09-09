@@ -1,0 +1,175 @@
+{
+  "execution_id": "104f58f2-20a0-4c15-bd6d-2177e6655aba",
+  "result": {
+    "status_code": 200,
+    "data": [
+      [
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2023-06-15",
+          "证券代码": "600601.SH",
+          "证券简称": "方正科技",
+          "发布时间": "2023-06-14 17:42:40",
+          "公告标题": "方正科技：方正科技关于全资子公司开展外汇套期保值业务的公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3746620697&token=Mzc0NjYyMDY5Nzo6OmRzc2VydmljZTo4Mzc1MDY0MDc6NDMuOTguMTc3LjI6OjE6MDoxNzg4OTQ0NTM5OjBkOTU3OGNmMTc1MWExYTdlNDY2M2RkZTk0MTBmMjJi&userid=837506407&ip=43.98.177.2",
+          "唯一标号": 3746620697
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2023-06-15",
+          "证券代码": "600601.SH",
+          "证券简称": "方正科技",
+          "发布时间": "2023-06-14 17:42:39",
+          "公告标题": "方正科技：方正科技关于投资建设珠海方正PCB高端智能化产业基地HDI项目的公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3746620691&token=Mzc0NjYyMDY5MTo6OmRzc2VydmljZTo4Mzc1MDY0MDc6NDMuOTguMTc3LjI6OjE6MDoxNzg4OTQ0NTM5OmQyYTM3OGM1OGIyYjBhYzU2NjkzYzcxM2Y0YjU4MDQx&userid=837506407&ip=43.98.177.2",
+          "唯一标号": 3746620691
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2023-06-15",
+          "证券代码": "600601.SH",
+          "证券简称": "方正科技",
+          "发布时间": "2023-06-14 17:42:39",
+          "公告标题": "方正科技：方正科技关于全资子公司开展商品期货套期保值业务的公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3746620696&token=Mzc0NjYyMDY5Njo6OmRzc2VydmljZTo4Mzc1MDY0MDc6NDMuOTguMTc3LjI6OjE6MDoxNzg4OTQ0NTM5OmY3NzRiMDNlMDdjOGQ3ZWIwYTU4NDdjOTliNjQ5YjVh&userid=837506407&ip=43.98.177.2",
+          "唯一标号": 3746620696
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2023-06-15",
+          "证券代码": "600601.SH",
+          "证券简称": "方正科技",
+          "发布时间": "2023-06-14 17:42:39",
+          "公告标题": "方正科技：方正科技外汇套期保值业务管理制度（2023年6月修订）",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3746620693&token=Mzc0NjYyMDY5Mzo6OmRzc2VydmljZTo4Mzc1MDY0MDc6NDMuOTguMTc3LjI6OjE6MDoxNzg4OTQ0NTM5OmZhNTU0MTRjMGRjOTNmYTA3ZWI1Njg1NWM5MTE2Mzhh&userid=837506407&ip=43.98.177.2",
+          "唯一标号": 3746620693
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2023-06-15",
+          "证券代码": "600601.SH",
+          "证券简称": "方正科技",
+          "发布时间": "2023-06-14 17:42:38",
+          "公告标题": "方正科技：方正科技第十三届董事会2023年第三次会议独立董事对相关事项的独立意见",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3746620694&token=Mzc0NjYyMDY5NDo6OmRzc2VydmljZTo4Mzc1MDY0MDc6NDMuOTguMTc3LjI6OjE6MDoxNzg4OTQ0NTM5OmY0YjE4ZGM1Njk2YmJlZWVkMjRlOWQzNWFkNzg2YzE5&userid=837506407&ip=43.98.177.2",
+          "唯一标号": 3746620694
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2023-06-15",
+          "证券代码": "600601.SH",
+          "证券简称": "方正科技",
+          "发布时间": "2023-06-14 17:42:38",
+          "公告标题": "方正科技：方正科技第十三届董事会2023年第三次会议决议公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3746620695&token=Mzc0NjYyMDY5NTo6OmRzc2VydmljZTo4Mzc1MDY0MDc6NDMuOTguMTc3LjI6OjE6MDoxNzg4OTQ0NTM5OjkyMTYxYTQyMDU4ZThmMzYyNDIxY2Q3ZWY5NWE5Njdk&userid=837506407&ip=43.98.177.2",
+          "唯一标号": 3746620695
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2023-06-15",
+          "证券代码": "600601.SH",
+          "证券简称": "方正科技",
+          "发布时间": "2023-06-14 17:42:38",
+          "公告标题": "方正科技：方正科技商品期货套期保值业务管理制度（2023年6月制定）",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3746620692&token=Mzc0NjYyMDY5Mjo6OmRzc2VydmljZTo4Mzc1MDY0MDc6NDMuOTguMTc3LjI6OjE6MDoxNzg4OTQ0NTM5Ojg5ODNjOGYyODc1MzQ2Yjk2NGU5MTQ1M2UyOGY4ODAy&userid=837506407&ip=43.98.177.2",
+          "唯一标号": 3746620692
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2023-06-13",
+          "证券代码": "600601.SH",
+          "证券简称": "*ST方科",
+          "发布时间": "2023-06-12 18:37:58",
+          "公告标题": "*ST方科：方正科技集团股份有限公司关于公司股票撤销退市风险警示及其他风险警示暨临时停牌的公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3743689608&token=Mzc0MzY4OTYwODo6OmRzc2VydmljZTo4Mzc1MDY0MDc6NDMuOTguMTc3LjI6OjE6MDoxNzg4OTQ0NTM5OjJhZjg5MDdjNDg2NTVmNjA2YWRkNzM2ZTgxZTE3MGYy&userid=837506407&ip=43.98.177.2",
+          "唯一标号": 3743689608
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2023-06-06",
+          "证券代码": "600601.SH",
+          "证券简称": "*ST方科",
+          "发布时间": "2023-06-05 16:55:31",
+          "公告标题": "*ST方科：方正科技集团股份有限公司关于召开2022年度暨2023年第一季度业绩说明会的公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3734072050&token=MzczNDA3MjA1MDo6OmRzc2VydmljZTo4Mzc1MDY0MDc6NDMuOTguMTc3LjI6OjE6MDoxNzg4OTQ0NTM5OmEyOWM0MTRkZjAzMzUzMmFlNTQ4NDljZmQyNTA0ZmNj&userid=837506407&ip=43.98.177.2",
+          "唯一标号": 3734072050
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2023-05-30",
+          "证券代码": "600601.SH",
+          "证券简称": "*ST方科",
+          "发布时间": "2023-05-29 18:44:23",
+          "公告标题": "*ST方科：方正科技集团股份有限公司关于对《上海证券交易所对公司2022年年度报告的信息披露监管问询函》的回复公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3723252003&token=MzcyMzI1MjAwMzo6OmRzc2VydmljZTo4Mzc1MDY0MDc6NDMuOTguMTc3LjI6OjE6MDoxNzg4OTQ0NTM5OmY5YzM3NjFmYzY5MTIzYTBkOTlmOTA3OGNjMGY2NDBm&userid=837506407&ip=43.98.177.2",
+          "唯一标号": 3723252003
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2023-05-30",
+          "证券代码": "600601.SH",
+          "证券简称": "*ST方科",
+          "发布时间": "2023-05-29 18:44:04",
+          "公告标题": "*ST方科：天职国际会计师事务所（特殊普通合伙）关于方正科技集团股份有限公司2022年年度报告的信息披露监管问询函的回复",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3723250427&token=MzcyMzI1MDQyNzo6OmRzc2VydmljZTo4Mzc1MDY0MDc6NDMuOTguMTc3LjI6OjE6MDoxNzg4OTQ0NTM5OjhjMzAzN2E4MTY0Njg3YWIxMzNkZGJhZWM5NThmODg1&userid=837506407&ip=43.98.177.2",
+          "唯一标号": 3723250427
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2023-05-30",
+          "证券代码": "600601.SH",
+          "证券简称": "*ST方科",
+          "发布时间": "2023-05-29 18:43:57",
+          "公告标题": "*ST方科：关于《关于方正科技集团股份有限公司2022年年度报告的信息披露监管问询函》涉及管理人发表意见问题的回复",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3723250428&token=MzcyMzI1MDQyODo6OmRzc2VydmljZTo4Mzc1MDY0MDc6NDMuOTguMTc3LjI6OjE6MDoxNzg4OTQ0NTM5OmVjZWY3ZjIwZWM2YmI5YzVkOWQ5OTE2MjQ3OTk4YTdl&userid=837506407&ip=43.98.177.2",
+          "唯一标号": 3723250428
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2023-05-30",
+          "证券代码": "600601.SH",
+          "证券简称": "*ST方科",
+          "发布时间": "2023-05-29 18:43:56",
+          "公告标题": "*ST方科：北京市竞天公诚律师事务所关于方正科技2022年年度报告的信息披露监管问询函的专项法律意见书",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3723250425&token=MzcyMzI1MDQyNTo6OmRzc2VydmljZTo4Mzc1MDY0MDc6NDMuOTguMTc3LjI6OjE6MDoxNzg4OTQ0NTM5OmQzNjQyNTQwMmQ3OTI1NDM1ZWZjNjlkNTY4OTViMThj&userid=837506407&ip=43.98.177.2",
+          "唯一标号": 3723250425
+        }
+      ]
+    ],
+    "metadata": {
+      "codes": "600601.SH",
+      "effective_codes": "600601.SH",
+      "used_stripped_codes": false,
+      "hk_codes": [],
+      "keyword": "",
+      "beginrDate": "2023-05-30",
+      "endrDate": "2023-06-27",
+      "count": 1,
+      "has_results": true,
+      "result_count_for_billing": 13
+    }
+  },
+  "success": true,
+  "execution_time": 0.40314531326293945,
+  "elapsed_time_ms": 256.92,
+  "billing": {
+    "summary": "Charged 2.6 credits for this call",
+    "list_amount_credits": 2.6,
+    "final_amount_credits": 2.6
+  },
+  "remaining_credits": null,
+  "cost": 2.6
+}

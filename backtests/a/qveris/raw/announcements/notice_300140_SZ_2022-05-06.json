@@ -1,0 +1,65 @@
+{
+  "execution_id": "18b8de38-90b5-4e9b-89a2-7e3923be67a8",
+  "result": {
+    "status_code": 200,
+    "data": [
+      [
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2022-06-06",
+          "证券代码": "300140.SZ",
+          "证券简称": "中环装备",
+          "发布时间": "2022-06-05 15:31:06",
+          "公告标题": "中环装备：中节能环保装备股份有限公司关于筹划本次资产重组事项停牌前一个交易日前十大股东和前十大无限售条件流通股股东持股情况的公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3307980068&token=MzMwNzk4MDA2ODo6OmRzc2VydmljZTo4Mzc1MDY0MDc6OC4yMTkuMTc2LjE3Mzo6MTowOjE3ODg5NDQxMDQ6MTUxNGUxODY0ZTJmODYwNzYyMGI2NjU5MjFhYWNjYjQ=&userid=837506407&ip=8.219.176.173",
+          "唯一标号": 3307980068
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2022-05-26",
+          "证券代码": "300140.SZ",
+          "证券简称": "中环装备",
+          "发布时间": "2022-05-26 16:17:05",
+          "公告标题": "中环装备：关于筹划重大资产重组事项停牌的进展公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3300525094&token=MzMwMDUyNTA5NDo6OmRzc2VydmljZTo4Mzc1MDY0MDc6OC4yMTkuMTc2LjE3Mzo6MTowOjE3ODg5NDQxMDQ6MWFmZjMxNDk3NmVkN2E2Y2Q1MjdmZTliMDVjNzU4Mzk=&userid=837506407&ip=8.219.176.173",
+          "唯一标号": 3300525094
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2022-05-20",
+          "证券代码": "300140.SZ",
+          "证券简称": "中环装备",
+          "发布时间": "2022-05-19 19:43:03",
+          "公告标题": "中环装备：关于筹划重大资产重组的停牌公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3295624268&token=MzI5NTYyNDI2ODo6OmRzc2VydmljZTo4Mzc1MDY0MDc6OC4yMTkuMTc2LjE3Mzo6MTowOjE3ODg5NDQxMDQ6NjU3YjM4MGE0NzIwZTZiYmViMGVjYzAwZDdmZTY1NTY=&userid=837506407&ip=8.219.176.173",
+          "唯一标号": 3295624268
+        }
+      ]
+    ],
+    "metadata": {
+      "codes": "300140.SZ",
+      "effective_codes": "300140.SZ",
+      "used_stripped_codes": false,
+      "hk_codes": [],
+      "keyword": "停牌",
+      "beginrDate": "2022-05-06",
+      "endrDate": "2022-06-16",
+      "count": 1,
+      "has_results": true,
+      "result_count_for_billing": 3
+    }
+  },
+  "success": true,
+  "execution_time": 0.4132730960845947,
+  "elapsed_time_ms": 280.31,
+  "billing": {
+    "summary": "Charged 1 credit for this call",
+    "list_amount_credits": 1,
+    "final_amount_credits": 1
+  },
+  "remaining_credits": null,
+  "cost": 1
+}

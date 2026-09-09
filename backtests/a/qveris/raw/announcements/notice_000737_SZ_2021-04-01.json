@@ -1,0 +1,21 @@
+{
+  "execution_id": "e1a99792-a02f-4052-b39c-0b7e43413ed2",
+  "result": {
+    "status_code": -6,
+    "data": null,
+    "metadata": {},
+    "error_type": "sdk_business_failure",
+    "error_details": "API error: no data."
+  },
+  "success": false,
+  "error_message": "API error: no data.",
+  "execution_time": 0.6054093837738037,
+  "elapsed_time_ms": 442.64,
+  "billing": {
+    "summary": "No credits charged for this call",
+    "list_amount_credits": 0,
+    "final_amount_credits": 0
+  },
+  "remaining_credits": null,
+  "cost": 0
+}

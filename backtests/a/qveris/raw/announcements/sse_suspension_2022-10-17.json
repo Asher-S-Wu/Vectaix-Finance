@@ -1,0 +1,182 @@
+{
+  "url": "https://query.sse.com.cn/sseQuery/commonQuery.do?isPagination=true&sqlId=COMMON_SSE_XXPL_JYTS_TFPXX_L&SEARCH_DATE=2022-10-17&pageHelp.pageSize=25&pageHelp.pageNo=1&pageHelp.beginPage=1&pageHelp.cacheSize=1&pageHelp.endPage=1",
+  "response": {
+    "actionErrors": [],
+    "actionMessages": [],
+    "fieldErrors": {},
+    "isPagination": "true",
+    "jsonCallBack": null,
+    "locale": "en_CN",
+    "pageHelp": {
+      "beginPage": 1,
+      "cacheSize": 1,
+      "data": [
+        {
+          "STOP_REASON": "重要事项未公告",
+          "CONTROLTYPE": "TR",
+          "STOP_DATE": "2022-10-17",
+          "NUM": "1",
+          "PRODUCT_NAME": "南钢股份",
+          "SHOW_START_DATE": "2022-10-17",
+          "BULLETIN_TYPE": "1",
+          "PRODUCT_CODE": "600282",
+          "STOP_TIME": "全天",
+          "SHOW_END_DATE": "2022-10-17"
+        },
+        {
+          "STOP_REASON": "重要事项未公告",
+          "CONTROLTYPE": "TR",
+          "STOP_DATE": "2022-10-17",
+          "NUM": "2",
+          "PRODUCT_NAME": "万盛股份",
+          "SHOW_START_DATE": "2022-10-17",
+          "BULLETIN_TYPE": "1",
+          "PRODUCT_CODE": "603010",
+          "STOP_TIME": "全天",
+          "SHOW_END_DATE": "2022-10-17"
+        },
+        {
+          "STOP_REASON": "重要事项未公告",
+          "CONTROLTYPE": "GP",
+          "STOP_DATE": "-",
+          "NUM": "3",
+          "PRODUCT_NAME": "东风转债",
+          "SHOW_START_DATE": "2022-10-11",
+          "BULLETIN_TYPE": "3",
+          "PRODUCT_CODE": "113030",
+          "STOP_TIME": "自2022-10-11起连续停牌",
+          "SHOW_END_DATE": "2022-10-19"
+        },
+        {
+          "STOP_REASON": "重要事项未公告",
+          "CONTROLTYPE": "GB",
+          "STOP_DATE": "-",
+          "NUM": "4",
+          "PRODUCT_NAME": "东风转债",
+          "SHOW_START_DATE": "2022-10-11",
+          "BULLETIN_TYPE": "3",
+          "PRODUCT_CODE": "113030",
+          "STOP_TIME": "自2022-10-11起连续停牌",
+          "SHOW_END_DATE": "2022-10-19"
+        },
+        {
+          "STOP_REASON": "重要事项未公告",
+          "CONTROLTYPE": "TR",
+          "STOP_DATE": "-",
+          "NUM": "5",
+          "PRODUCT_NAME": "东风股份",
+          "SHOW_START_DATE": "2022-10-11",
+          "BULLETIN_TYPE": "3",
+          "PRODUCT_CODE": "601515",
+          "STOP_TIME": "自2022-10-11起连续停牌",
+          "SHOW_END_DATE": "2022-10-19"
+        },
+        {
+          "STOP_REASON": "拟筹划重大资产重组",
+          "CONTROLTYPE": "TR",
+          "STOP_DATE": "-",
+          "NUM": "6",
+          "PRODUCT_NAME": "山东华鹏",
+          "SHOW_START_DATE": "2022-10-11",
+          "BULLETIN_TYPE": "3",
+          "PRODUCT_CODE": "603021",
+          "STOP_TIME": "自2022-10-11起连续停牌",
+          "SHOW_END_DATE": "2022-10-24"
+        }
+      ],
+      "endDate": null,
+      "endPage": 1,
+      "objectResult": null,
+      "pageCount": 1,
+      "pageNo": 1,
+      "pageSize": 25,
+      "pageSizeWithOutLimit": 25,
+      "searchDate": null,
+      "sort": null,
+      "startDate": null,
+      "total": 6
+    },
+    "pageNo": null,
+    "pageSize": null,
+    "queryDate": "",
+    "result": [
+      {
+        "STOP_REASON": "重要事项未公告",
+        "CONTROLTYPE": "TR",
+        "STOP_DATE": "2022-10-17",
+        "NUM": "1",
+        "PRODUCT_NAME": "南钢股份",
+        "SHOW_START_DATE": "2022-10-17",
+        "BULLETIN_TYPE": "1",
+        "PRODUCT_CODE": "600282",
+        "STOP_TIME": "全天",
+        "SHOW_END_DATE": "2022-10-17"
+      },
+      {
+        "STOP_REASON": "重要事项未公告",
+        "CONTROLTYPE": "TR",
+        "STOP_DATE": "2022-10-17",
+        "NUM": "2",
+        "PRODUCT_NAME": "万盛股份",
+        "SHOW_START_DATE": "2022-10-17",
+        "BULLETIN_TYPE": "1",
+        "PRODUCT_CODE": "603010",
+        "STOP_TIME": "全天",
+        "SHOW_END_DATE": "2022-10-17"
+      },
+      {
+        "STOP_REASON": "重要事项未公告",
+        "CONTROLTYPE": "GP",
+        "STOP_DATE": "-",
+        "NUM": "3",
+        "PRODUCT_NAME": "东风转债",
+        "SHOW_START_DATE": "2022-10-11",
+        "BULLETIN_TYPE": "3",
+        "PRODUCT_CODE": "113030",
+        "STOP_TIME": "自2022-10-11起连续停牌",
+        "SHOW_END_DATE": "2022-10-19"
+      },
+      {
+        "STOP_REASON": "重要事项未公告",
+        "CONTROLTYPE": "GB",
+        "STOP_DATE": "-",
+        "NUM": "4",
+        "PRODUCT_NAME": "东风转债",
+        "SHOW_START_DATE": "2022-10-11",
+        "BULLETIN_TYPE": "3",
+        "PRODUCT_CODE": "113030",
+        "STOP_TIME": "自2022-10-11起连续停牌",
+        "SHOW_END_DATE": "2022-10-19"
+      },
+      {
+        "STOP_REASON": "重要事项未公告",
+        "CONTROLTYPE": "TR",
+        "STOP_DATE": "-",
+        "NUM": "5",
+        "PRODUCT_NAME": "东风股份",
+        "SHOW_START_DATE": "2022-10-11",
+        "BULLETIN_TYPE": "3",
+        "PRODUCT_CODE": "601515",
+        "STOP_TIME": "自2022-10-11起连续停牌",
+        "SHOW_END_DATE": "2022-10-19"
+      },
+      {
+        "STOP_REASON": "拟筹划重大资产重组",
+        "CONTROLTYPE": "TR",
+        "STOP_DATE": "-",
+        "NUM": "6",
+        "PRODUCT_NAME": "山东华鹏",
+        "SHOW_START_DATE": "2022-10-11",
+        "BULLETIN_TYPE": "3",
+        "PRODUCT_CODE": "603021",
+        "STOP_TIME": "自2022-10-11起连续停牌",
+        "SHOW_END_DATE": "2022-10-24"
+      }
+    ],
+    "securityCode": "",
+    "sqlId": "COMMON_SSE_XXPL_JYTS_TFPXX_L",
+    "texts": null,
+    "type": "",
+    "validateCode": ""
+  }
+}

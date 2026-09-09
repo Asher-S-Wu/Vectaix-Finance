@@ -1,0 +1,43 @@
+{
+  "execution_id": "b065df32-769c-49fc-9a27-008e81cec322",
+  "result": {
+    "status_code": 200,
+    "data": [
+      [
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2021-09-25",
+          "证券代码": "000737.SZ",
+          "证券简称": "南风化工",
+          "发布时间": "2021-09-24 20:12:59",
+          "公告标题": "南风化工：关于重大资产置换、发行股份及支付现金购买资产并募集配套资金暨关联交易事项获得中国证监会并购重组委员会审核有条件通过暨股票复牌的公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3132549422&token=MzEzMjU0OTQyMjo6OmRzc2VydmljZTo4Mzc1MDY0MDc6OC4yMTkuMTc2LjE3Mzo6MTowOjE3ODg5NDQyMjY6MzIxODg2NDlmNmE0ODY0OGM4Y2M3ZmFhMGIzNTVlYjM=&userid=837506407&ip=8.219.176.173",
+          "唯一标号": 3132549422
+        }
+      ]
+    ],
+    "metadata": {
+      "codes": "000737.SZ",
+      "effective_codes": "000737.SZ",
+      "used_stripped_codes": false,
+      "hk_codes": [],
+      "keyword": "复牌",
+      "beginrDate": "2021-09-10",
+      "endrDate": "2021-10-08",
+      "count": 1,
+      "has_results": true,
+      "result_count_for_billing": 1
+    }
+  },
+  "success": true,
+  "execution_time": 1.004744052886963,
+  "elapsed_time_ms": 839.03,
+  "billing": {
+    "summary": "Charged 1 credit for this call",
+    "list_amount_credits": 1,
+    "final_amount_credits": 1
+  },
+  "remaining_credits": null,
+  "cost": 1
+}

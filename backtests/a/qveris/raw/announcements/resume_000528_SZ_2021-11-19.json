@@ -1,0 +1,54 @@
+{
+  "execution_id": "62df9f38-b40f-49f6-9fcc-e90df2a4dad2",
+  "result": {
+    "status_code": 200,
+    "data": [
+      [
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2022-01-28",
+          "证券代码": "000528.SZ",
+          "证券简称": "柳工",
+          "发布时间": "2022-01-27 16:36:06",
+          "公告标题": "柳    工：关于公司股票复牌的公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3196267550&token=MzE5NjI2NzU1MDo6OmRzc2VydmljZTo4Mzc1MDY0MDc6NDMuOTguMTc3LjE5MDo6MTowOjE3ODg5NDQyMjQ6ZjZkODYxYWZkZmQyNWJjZTgyNWQ0NzU3MDY1MjliYzE=&userid=837506407&ip=43.98.177.190",
+          "唯一标号": 3196267550
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2021-12-04",
+          "证券代码": "000528.SZ",
+          "证券简称": "柳工",
+          "发布时间": "2021-12-03 19:47:06",
+          "公告标题": "柳    工：关于公司发行股份吸收合并广西柳工集团机械有限公司暨关联交易事项获得中国证监会上市公司并购重组审核委员会审核通过暨公司股票复牌的公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3162445238&token=MzE2MjQ0NTIzODo6OmRzc2VydmljZTo4Mzc1MDY0MDc6NDMuOTguMTc3LjE5MDo6MTowOjE3ODg5NDQyMjQ6Y2FjYmE4ZTYyNzcxNWY5Y2VlMjhlMDc1YmNhMzQ1NGE=&userid=837506407&ip=43.98.177.190",
+          "唯一标号": 3162445238
+        }
+      ]
+    ],
+    "metadata": {
+      "codes": "000528.SZ",
+      "effective_codes": "000528.SZ",
+      "used_stripped_codes": false,
+      "hk_codes": [],
+      "keyword": "复牌",
+      "beginrDate": "2021-11-19",
+      "endrDate": "2022-02-15",
+      "count": 1,
+      "has_results": true,
+      "result_count_for_billing": 2
+    }
+  },
+  "success": true,
+  "execution_time": 0.5173134803771973,
+  "elapsed_time_ms": 341.84,
+  "billing": {
+    "summary": "Charged 1 credit for this call",
+    "list_amount_credits": 1,
+    "final_amount_credits": 1
+  },
+  "remaining_credits": null,
+  "cost": 1
+}

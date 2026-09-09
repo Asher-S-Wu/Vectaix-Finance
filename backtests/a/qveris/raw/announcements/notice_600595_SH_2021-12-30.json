@@ -1,0 +1,43 @@
+{
+  "execution_id": "e8ec4983-9b40-4e29-b9aa-9e430cbbcfc6",
+  "result": {
+    "status_code": 200,
+    "data": [
+      [
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2022-01-13",
+          "证券代码": "600595.SH",
+          "证券简称": "*ST中孚",
+          "发布时间": "2022-01-12 18:04:39",
+          "公告标题": "*ST中孚：河南中孚实业股份有限公司关于撤销退市风险警示并继续被实施其他风险警示暨临时停牌的公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3187222348&token=MzE4NzIyMjM0ODo6OmRzc2VydmljZTo4Mzc1MDY0MDc6NDMuOTguMTc3LjE5MDo6MTowOjE3ODg5NDQxMjM6YzQyZDI2NTMxZjExNDAzZGFmMWQwN2QxZmFiYmE5OGI=&userid=837506407&ip=43.98.177.190",
+          "唯一标号": 3187222348
+        }
+      ]
+    ],
+    "metadata": {
+      "codes": "600595.SH",
+      "effective_codes": "600595.SH",
+      "used_stripped_codes": false,
+      "hk_codes": [],
+      "keyword": "停牌",
+      "beginrDate": "2021-12-30",
+      "endrDate": "2022-01-27",
+      "count": 1,
+      "has_results": true,
+      "result_count_for_billing": 1
+    }
+  },
+  "success": true,
+  "execution_time": 0.5206670761108398,
+  "elapsed_time_ms": 359.67,
+  "billing": {
+    "summary": "Charged 1 credit for this call",
+    "list_amount_credits": 1,
+    "final_amount_credits": 1
+  },
+  "remaining_credits": null,
+  "cost": 1
+}

@@ -1,12 +1,4 @@
 .venv/
-.venv-akshare/
 __pycache__/
 *.pyc
 .DS_Store
-data/raw/
-data/general-tushare/
-data/general-tushare-suspensions/
-data/cross-market-hk/
-data/prices.csv
-data/manifest.json
-runs/

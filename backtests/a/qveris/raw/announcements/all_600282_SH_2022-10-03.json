@@ -1,0 +1,175 @@
+{
+  "execution_id": "2d4931b5-36d3-42d9-aab2-e167fae64e98",
+  "result": {
+    "status_code": 200,
+    "data": [
+      [
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2022-10-29",
+          "证券代码": "600282.SH",
+          "证券简称": "南钢股份",
+          "发布时间": "2022-10-28 21:00:26",
+          "公告标题": "南钢股份：南京钢铁股份有限公司2022年第三季度报告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3460487968&token=MzQ2MDQ4Nzk2ODo6OmRzc2VydmljZTo4Mzc1MDY0MDc6OC4yMTkuMTc2LjE3Mzo6MTowOjE3ODg5NDQyMjg6MGM0MTMxNWZiYmNmNmQxMGJjNzFkMDUxZGEzMTVlMzY=&userid=837506407&ip=8.219.176.173",
+          "唯一标号": 3460487968
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2022-10-29",
+          "证券代码": "600282.SH",
+          "证券简称": "南钢股份",
+          "发布时间": "2022-10-28 21:00:25",
+          "公告标题": "南钢股份：南京钢铁股份有限公司关于召开2022年第三次临时股东大会的通知",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3460487964&token=MzQ2MDQ4Nzk2NDo6OmRzc2VydmljZTo4Mzc1MDY0MDc6OC4yMTkuMTc2LjE3Mzo6MTowOjE3ODg5NDQyMjg6YTcyMzVmMTEwYTYxZjQ4OWZjYTA3ZDBlMTIxZWZmMTk=&userid=837506407&ip=8.219.176.173",
+          "唯一标号": 3460487964
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2022-10-29",
+          "证券代码": "600282.SH",
+          "证券简称": "南钢股份",
+          "发布时间": "2022-10-28 21:00:25",
+          "公告标题": "南钢股份：南京钢铁股份有限公司关于拟注销回购专用证券账户剩余股份并减少注册资本的公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3460487967&token=MzQ2MDQ4Nzk2Nzo6OmRzc2VydmljZTo4Mzc1MDY0MDc6OC4yMTkuMTc2LjE3Mzo6MTowOjE3ODg5NDQyMjg6NjU0MTM5N2VlNzg2M2ZjZWU3NjBlZTk3MDVkMjZjNTk=&userid=837506407&ip=8.219.176.173",
+          "唯一标号": 3460487967
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2022-10-29",
+          "证券代码": "600282.SH",
+          "证券简称": "南钢股份",
+          "发布时间": "2022-10-28 21:00:24",
+          "公告标题": "南钢股份：南京钢铁股份有限公司章程（尚需公司股东大会批准）",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3460487965&token=MzQ2MDQ4Nzk2NTo6OmRzc2VydmljZTo4Mzc1MDY0MDc6OC4yMTkuMTc2LjE3Mzo6MTowOjE3ODg5NDQyMjg6NmIyYjM5NzJkM2JmZjc4NzY4YjU3YzA3N2Q4Y2E3MjY=&userid=837506407&ip=8.219.176.173",
+          "唯一标号": 3460487965
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2022-10-29",
+          "证券代码": "600282.SH",
+          "证券简称": "南钢股份",
+          "发布时间": "2022-10-28 21:00:24",
+          "公告标题": "南钢股份：南京钢铁股份有限公司关于2022年第三季度主要经营数据的公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3460487969&token=MzQ2MDQ4Nzk2OTo6OmRzc2VydmljZTo4Mzc1MDY0MDc6OC4yMTkuMTc2LjE3Mzo6MTowOjE3ODg5NDQyMjg6NDZlMjA2ZGJiOWVjYTcxZGExYzAwNTU4MmQzYjQ4NjY=&userid=837506407&ip=8.219.176.173",
+          "唯一标号": 3460487969
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2022-10-29",
+          "证券代码": "600282.SH",
+          "证券简称": "南钢股份",
+          "发布时间": "2022-10-28 21:00:24",
+          "公告标题": "南钢股份：江苏泰和律师事务所关于南京钢铁股份有限公司注销2019年股票期权激励计划部分已授予尚未行权的股票期权的法律意见书",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3460487959&token=MzQ2MDQ4Nzk1OTo6OmRzc2VydmljZTo4Mzc1MDY0MDc6OC4yMTkuMTc2LjE3Mzo6MTowOjE3ODg5NDQyMjg6YThhYmJkNzIzNjgyMjQwNmEyNDkyZTg5ODRiZjkyNGU=&userid=837506407&ip=8.219.176.173",
+          "唯一标号": 3460487959
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2022-10-29",
+          "证券代码": "600282.SH",
+          "证券简称": "南钢股份",
+          "发布时间": "2022-10-28 21:00:24",
+          "公告标题": "南钢股份：南京钢铁股份有限公司第八届监事会第二十次会议决议公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3460487961&token=MzQ2MDQ4Nzk2MTo6OmRzc2VydmljZTo4Mzc1MDY0MDc6OC4yMTkuMTc2LjE3Mzo6MTowOjE3ODg5NDQyMjg6ZGZiZTVhYTdiNjNjNjk5ODkzZmViNDRjMTE1OWIwNzg=&userid=837506407&ip=8.219.176.173",
+          "唯一标号": 3460487961
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2022-10-29",
+          "证券代码": "600282.SH",
+          "证券简称": "南钢股份",
+          "发布时间": "2022-10-28 21:00:23",
+          "公告标题": "南钢股份：南京钢铁股份有限公司关于注销股票期权激励计划部分期权的公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3460487960&token=MzQ2MDQ4Nzk2MDo6OmRzc2VydmljZTo4Mzc1MDY0MDc6OC4yMTkuMTc2LjE3Mzo6MTowOjE3ODg5NDQyMjg6ZDZmNDMzMzE4NTNiY2QyYTBkZTk0ODBkNTI0ZDIxODg=&userid=837506407&ip=8.219.176.173",
+          "唯一标号": 3460487960
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2022-10-29",
+          "证券代码": "600282.SH",
+          "证券简称": "南钢股份",
+          "发布时间": "2022-10-28 21:00:23",
+          "公告标题": "南钢股份：南京钢铁股份有限公司第八届董事会第二十三次会议决议公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3460487963&token=MzQ2MDQ4Nzk2Mzo6OmRzc2VydmljZTo4Mzc1MDY0MDc6OC4yMTkuMTc2LjE3Mzo6MTowOjE3ODg5NDQyMjg6ZWMyMjlkNDZlMjk0M2YyOGQ1Mzg0MjM4OTk0MjkwN2Q=&userid=837506407&ip=8.219.176.173",
+          "唯一标号": 3460487963
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2022-10-29",
+          "证券代码": "600282.SH",
+          "证券简称": "南钢股份",
+          "发布时间": "2022-10-28 21:00:23",
+          "公告标题": "南钢股份：南京钢铁股份有限公司独立董事关于第八届董事会第二十三次会议相关审议事项的独立意见",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3460487962&token=MzQ2MDQ4Nzk2Mjo6OmRzc2VydmljZTo4Mzc1MDY0MDc6OC4yMTkuMTc2LjE3Mzo6MTowOjE3ODg5NDQyMjg6ZjZiZmY4Y2E1MTVlZDEwYTE4MzUwYTJhMjhkZTA4ZTE=&userid=837506407&ip=8.219.176.173",
+          "唯一标号": 3460487962
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2022-10-29",
+          "证券代码": "600282.SH",
+          "证券简称": "南钢股份",
+          "发布时间": "2022-10-28 21:00:23",
+          "公告标题": "南钢股份：南京钢铁股份有限公司关于修订《公司章程》的公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3460487966&token=MzQ2MDQ4Nzk2Njo6OmRzc2VydmljZTo4Mzc1MDY0MDc6OC4yMTkuMTc2LjE3Mzo6MTowOjE3ODg5NDQyMjg6MjVjMzVhN2FhMDkwNjEzNjhjOGNjNmEyODc3OGYyOGU=&userid=837506407&ip=8.219.176.173",
+          "唯一标号": 3460487966
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2022-10-20",
+          "证券代码": "600282.SH",
+          "证券简称": "南钢股份",
+          "发布时间": "2022-10-19 23:08:55",
+          "公告标题": "南钢股份：南京钢铁股份有限公司关于控股股东的股东签署《投资框架协议》暨复牌公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3448900081&token=MzQ0ODkwMDA4MTo6OmRzc2VydmljZTo4Mzc1MDY0MDc6OC4yMTkuMTc2LjE3Mzo6MTowOjE3ODg5NDQyMjg6MDhlMWZmNjZhM2FlMGEzMjU1Y2UwOTNmNDg3ZDEzODg=&userid=837506407&ip=8.219.176.173",
+          "唯一标号": 3448900081
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2022-10-11",
+          "证券代码": "600282.SH",
+          "证券简称": "南钢股份",
+          "发布时间": "2022-10-10 16:57:51",
+          "公告标题": "南钢股份：南京钢铁股份有限公司关于股票期权激励计划2022年第三季度行权结果暨股份上市公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3435866830&token=MzQzNTg2NjgzMDo6OmRzc2VydmljZTo4Mzc1MDY0MDc6OC4yMTkuMTc2LjE3Mzo6MTowOjE3ODg5NDQyMjg6ZWJlZTliZmFhOTgzNjBhMmZlNzRiOGE2OTM0MGNhMzg=&userid=837506407&ip=8.219.176.173",
+          "唯一标号": 3435866830
+        }
+      ]
+    ],
+    "metadata": {
+      "codes": "600282.SH",
+      "effective_codes": "600282.SH",
+      "used_stripped_codes": false,
+      "hk_codes": [],
+      "keyword": "",
+      "beginrDate": "2022-10-03",
+      "endrDate": "2022-11-02",
+      "count": 1,
+      "has_results": true,
+      "result_count_for_billing": 13
+    }
+  },
+  "success": true,
+  "execution_time": 0.4443089962005615,
+  "elapsed_time_ms": 304.54,
+  "billing": {
+    "summary": "Charged 2.6 credits for this call",
+    "list_amount_credits": 2.6,
+    "final_amount_credits": 2.6
+  },
+  "remaining_credits": null,
+  "cost": 2.6
+}

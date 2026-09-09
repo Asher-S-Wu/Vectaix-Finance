@@ -1,0 +1,219 @@
+{
+  "execution_id": "38366e92-1d78-46c5-864b-29dca2718840",
+  "result": {
+    "status_code": 200,
+    "data": [
+      [
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2021-05-25",
+          "证券代码": "000408.SZ",
+          "证券简称": "藏格控股",
+          "发布时间": "2021-05-24 17:18:04",
+          "公告标题": "藏格控股：关于四川省永鸿实业有限公司所持公司部分股份将被司法拍卖暨可能被动减持股票的提示性公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3026820397&token=MzAyNjgyMDM5Nzo6OmRzc2VydmljZTo4Mzc1MDY0MDc6NDMuOTguMTc3LjE5MDo6MTowOjE3ODg5NDQyMjI6ZWQ3OGYzYmE3NGVlMDMyYTkzZGE4NjVjODc3YmVlNTk=&userid=837506407&ip=43.98.177.190",
+          "唯一标号": 3026820397
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2021-05-21",
+          "证券代码": "000408.SZ",
+          "证券简称": "藏格矿业",
+          "发布时间": "2021-05-21 18:53:12",
+          "公告标题": "藏格控股：000408藏格控股调研活动信息20210521",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3024911886&token=MzAyNDkxMTg4Njo6OmRzc2VydmljZTo4Mzc1MDY0MDc6NDMuOTguMTc3LjE5MDo6MTowOjE3ODg5NDQyMjI6NzNlNWEyNzMzNDA1YTU0ZjZmOGY0MjU3YjhlMTI3OTY=&userid=837506407&ip=43.98.177.190",
+          "唯一标号": 3024911886
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2021-05-21",
+          "证券代码": "000408.SZ",
+          "证券简称": "藏格矿业",
+          "发布时间": "2021-05-20 19:17:31",
+          "公告标题": "藏格控股：关于股票交易异常波动公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3023724910&token=MzAyMzcyNDkxMDo6OmRzc2VydmljZTo4Mzc1MDY0MDc6NDMuOTguMTc3LjE5MDo6MTowOjE3ODg5NDQyMjI6ZjI5NWEwZjczZjY1OTAzYzk0MGVmOTlhMTlhYzg5OTI=&userid=837506407&ip=43.98.177.190",
+          "唯一标号": 3023724910
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2021-05-19",
+          "证券代码": "000408.SZ",
+          "证券简称": "藏格矿业",
+          "发布时间": "2021-05-18 19:14:23",
+          "公告标题": "藏格控股：关于全资子公司格尔木藏格钾肥有限公司部分资产解除查封冻结的公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3022266770&token=MzAyMjI2Njc3MDo6OmRzc2VydmljZTo4Mzc1MDY0MDc6NDMuOTguMTc3LjE5MDo6MTowOjE3ODg5NDQyMjI6YzI0NTQ0M2E1YzdlMzZiNzkwNmQ5YjFmYjI5OTIzNzA=&userid=837506407&ip=43.98.177.190",
+          "唯一标号": 3022266770
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2021-05-17",
+          "证券代码": "000408.SZ",
+          "证券简称": "藏格控股",
+          "发布时间": "2021-05-16 16:03:40",
+          "公告标题": "藏格控股：关于参加2021年青海辖区上市公司投资者集体接待日活动的公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3020527420&token=MzAyMDUyNzQyMDo6OmRzc2VydmljZTo4Mzc1MDY0MDc6NDMuOTguMTc3LjE5MDo6MTowOjE3ODg5NDQyMjI6ZTA5NGUwMTQxNGJmMDhiOTJiZGI3YjA1MDE2OWE4MGI=&userid=837506407&ip=43.98.177.190",
+          "唯一标号": 3020527420
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2021-05-17",
+          "证券代码": "000408.SZ",
+          "证券简称": "藏格控股",
+          "发布时间": "2021-05-16 16:03:39",
+          "公告标题": "藏格控股：关于控股股东及其关联方所持公司股份将被司法拍卖暨可能被动减持股票的提示性公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3020527419&token=MzAyMDUyNzQxOTo6OmRzc2VydmljZTo4Mzc1MDY0MDc6NDMuOTguMTc3LjE5MDo6MTowOjE3ODg5NDQyMjI6OGFlYTNkMmM1MjI5ODc5NjAzMTdlZjE1ZDAzYzk3NDg=&userid=837506407&ip=43.98.177.190",
+          "唯一标号": 3020527419
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2021-05-11",
+          "证券代码": "000408.SZ",
+          "证券简称": "藏格控股",
+          "发布时间": "2021-05-11 10:30:42",
+          "公告标题": "000408_*ST藏格:2021-04-22年报问询函公司回复_LSD000408159937102084HF",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3015660359&token=MzAxNTY2MDM1OTo6OmRzc2VydmljZTo4Mzc1MDY0MDc6NDMuOTguMTc3LjE5MDo6MTowOjE3ODg5NDQyMjI6ZmYyYWI1NjE4MWY3YWJmZGNhYTZhZDdlMDFhNmZmMGM=&userid=837506407&ip=43.98.177.190",
+          "唯一标号": 3015660359
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2021-05-11",
+          "证券代码": "000408.SZ",
+          "证券简称": "藏格控股",
+          "发布时间": "2021-05-10 20:49:27",
+          "公告标题": "*ST藏格：关于深交所公司部2020年报问询函的回复",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3015047666&token=MzAxNTA0NzY2Njo6OmRzc2VydmljZTo4Mzc1MDY0MDc6NDMuOTguMTc3LjE5MDo6MTowOjE3ODg5NDQyMjI6ZmIyZTllMjgxMjYzY2Y5NjY5MjBlZjNkNjA0NmUzNjc=&userid=837506407&ip=43.98.177.190",
+          "唯一标号": 3015047666
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2021-05-11",
+          "证券代码": "000408.SZ",
+          "证券简称": "藏格控股",
+          "发布时间": "2021-05-10 20:49:27",
+          "公告标题": "*ST藏格：关于撤销对公司股票交易实施退市风险警示的公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3015047664&token=MzAxNTA0NzY2NDo6OmRzc2VydmljZTo4Mzc1MDY0MDc6NDMuOTguMTc3LjE5MDo6MTowOjE3ODg5NDQyMjI6OWJiMzRhMjI0ZWIyODk1MzA1Y2I1YzY5ODRmMmVkMWM=&userid=837506407&ip=43.98.177.190",
+          "唯一标号": 3015047664
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2021-05-10",
+          "证券代码": "000408.SZ",
+          "证券简称": "藏格矿业",
+          "发布时间": "2021-05-09 16:06:38",
+          "公告标题": "*ST藏格：关于股票交易异常波动公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3014018064&token=MzAxNDAxODA2NDo6OmRzc2VydmljZTo4Mzc1MDY0MDc6NDMuOTguMTc3LjE5MDo6MTowOjE3ODg5NDQyMjI6ZjMyNDVjMDQzNTAxYTA3MjY2YmRjYWFkMGIyZTQ2MzE=&userid=837506407&ip=43.98.177.190",
+          "唯一标号": 3014018064
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2021-05-08",
+          "证券代码": "000408.SZ",
+          "证券简称": "藏格控股",
+          "发布时间": "2021-05-07 18:34:04",
+          "公告标题": "*ST藏格：关于公司回购股份进展情况的公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3012770711&token=MzAxMjc3MDcxMTo6OmRzc2VydmljZTo4Mzc1MDY0MDc6NDMuOTguMTc3LjE5MDo6MTowOjE3ODg5NDQyMjI6NGFjNjM1OWRjZjc4OGNkYWFjOWFjYjJlNGM2MmJkZWY=&userid=837506407&ip=43.98.177.190",
+          "唯一标号": 3012770711
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2021-05-06",
+          "证券代码": "000408.SZ",
+          "证券简称": "藏格矿业",
+          "发布时间": "2021-05-05 16:10:37",
+          "公告标题": "*ST藏格：关于股票交易异常波动公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3010239176&token=MzAxMDIzOTE3Njo6OmRzc2VydmljZTo4Mzc1MDY0MDc6NDMuOTguMTc3LjE5MDo6MTowOjE3ODg5NDQyMjI6MjE2MTgwY2YzN2JkODBmOGY3NmJmZGNlODQwMmQ0M2I=&userid=837506407&ip=43.98.177.190",
+          "唯一标号": 3010239176
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2021-04-30",
+          "证券代码": "000408.SZ",
+          "证券简称": "藏格控股",
+          "发布时间": "2021-04-29 19:13:17",
+          "公告标题": "*ST藏格：关于延期回复深圳证券交易所2020年年报问询函的公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3005025964&token=MzAwNTAyNTk2NDo6OmRzc2VydmljZTo4Mzc1MDY0MDc6NDMuOTguMTc3LjE5MDo6MTowOjE3ODg5NDQyMjI6N2JjYTRlMjRhMDE1MmRiZmU3NWQ1ZWU1YjVkOTkxODI=&userid=837506407&ip=43.98.177.190",
+          "唯一标号": 3005025964
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2021-04-30",
+          "证券代码": "000408.SZ",
+          "证券简称": "藏格控股",
+          "发布时间": "2021-04-29 19:09:49",
+          "公告标题": "*ST藏格：2021年第一季度报告全文",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3005025613&token=MzAwNTAyNTYxMzo6OmRzc2VydmljZTo4Mzc1MDY0MDc6NDMuOTguMTc3LjE5MDo6MTowOjE3ODg5NDQyMjI6YmE4NDA3ODI0NTFkYTc1ZWZhZDhiNWFlMWMxOWVlMDE=&userid=837506407&ip=43.98.177.190",
+          "唯一标号": 3005025613
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2021-04-30",
+          "证券代码": "000408.SZ",
+          "证券简称": "藏格控股",
+          "发布时间": "2021-04-29 19:09:42",
+          "公告标题": "*ST藏格：2021年第一季度报告正文",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3005025611&token=MzAwNTAyNTYxMTo6OmRzc2VydmljZTo4Mzc1MDY0MDc6NDMuOTguMTc3LjE5MDo6MTowOjE3ODg5NDQyMjI6ODVkM2MwNzM1YTkxNzRkNWVmMjM4MTBlNmZjYzE2MGU=&userid=837506407&ip=43.98.177.190",
+          "唯一标号": 3005025611
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2021-04-27",
+          "证券代码": "000408.SZ",
+          "证券简称": "藏格控股",
+          "发布时间": "2021-04-26 22:14:14",
+          "公告标题": "*ST藏格：藏格控股股份有限公司关于控股股东破产重整相关事项的公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3002046141&token=MzAwMjA0NjE0MTo6OmRzc2VydmljZTo4Mzc1MDY0MDc6NDMuOTguMTc3LjE5MDo6MTowOjE3ODg5NDQyMjI6ODY2ZWFhOTc2ODk5MDcyZjc0OTYzMDg5MTUwYTI0YWU=&userid=837506407&ip=43.98.177.190",
+          "唯一标号": 3002046141
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2021-04-27",
+          "证券代码": "000408.SZ",
+          "证券简称": "藏格控股",
+          "发布时间": "2021-04-26 18:43:44",
+          "公告标题": "*ST藏格：国信证券股份有限公司关于公司重大资产出售及发行股份购买资产并募集配套资金暨关联交易之2020年度持续督导意见书",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3001717759&token=MzAwMTcxNzc1OTo6OmRzc2VydmljZTo4Mzc1MDY0MDc6NDMuOTguMTc3LjE5MDo6MTowOjE3ODg5NDQyMjI6ODRiMTU1NzFmNjg4NmQ1NDFkMmU5Njk0M2RjYWJlMWM=&userid=837506407&ip=43.98.177.190",
+          "唯一标号": 3001717759
+        }
+      ]
+    ],
+    "metadata": {
+      "codes": "000408.SZ",
+      "effective_codes": "000408.SZ",
+      "used_stripped_codes": false,
+      "hk_codes": [],
+      "keyword": "",
+      "beginrDate": "2021-04-27",
+      "endrDate": "2021-05-25",
+      "count": 1,
+      "has_results": true,
+      "result_count_for_billing": 17
+    }
+  },
+  "success": true,
+  "execution_time": 1.3140828609466553,
+  "elapsed_time_ms": 1138.78,
+  "billing": {
+    "summary": "Charged 3.4 credits for this call",
+    "list_amount_credits": 3.4,
+    "final_amount_credits": 3.4
+  },
+  "remaining_credits": null,
+  "cost": 3.4
+}

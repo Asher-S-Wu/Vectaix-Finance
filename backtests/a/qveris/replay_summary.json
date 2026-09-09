@@ -1,0 +1,222 @@
+{
+  "status": "complete_execution_incomplete_ideal_comparison",
+  "source": "QVeris downloaded historical daily quotes; frozen original out-of-sample selections",
+  "assumptions": {
+    "initial_cash_each_market": 1000000.0,
+    "currency": {
+      "a": "CNY",
+      "hk": "HKD"
+    },
+    "execution": "market-calendar T+1 closing price; fixed target units until next monthly signal",
+    "portfolio": "fractional adjusted units, dividend-reinvestment return convention; not actual-share tax-account bookkeeping",
+    "participation_cap": 0.01,
+    "fees_per_side": [
+      0.0015,
+      0.003,
+      0.005
+    ],
+    "rebalance": "sell first, then proportionally allocate available cash to executable buys",
+    "blocked_orders": "continue original unfilled units on following trading days until next signal",
+    "end_date": "2026-09-01",
+    "terminal_liquidation": false,
+    "round_lots": false,
+    "closing_auction_capacity": "not separately modeled; 1% of full-day amount is only a proxy",
+    "benchmark": "unadjusted price indices; stock returns include QVeris adjustment",
+    "selection_bias": "original frozen stock selections retain original universe and model-selection biases"
+  },
+  "markets": {
+    "a": {
+      "start_date": "2020-02-03",
+      "end_date": "2026-09-01",
+      "months": 79,
+      "scenarios": {
+        "0.0015": {
+          "total_return": 9.399120199057737,
+          "cagr": 0.427727414446885,
+          "max_drawdown": -0.37237372416908887,
+          "annualized_volatility": 0.24619935407147822,
+          "sharpe_zero_rf": 1.62241584030094,
+          "initial_cash": 1000000.0,
+          "final_equity": 10399120.199057737,
+          "total_fees_paid": 564257.4225914271,
+          "mean_cash_weight": 0.008699555352710454,
+          "trade_count": 4477,
+          "total_gross_traded": 376171615.06095135,
+          "blocked_order_days_by_reason": {
+            "confirmed_nontrading": 42,
+            "daily_amount_capacity": 8,
+            "insufficient_unreserved_cash": 3084,
+            "limit_down": 11,
+            "limit_up": 195
+          },
+          "days_with_stale_valuation": 84,
+          "max_stale_trading_days": 10,
+          "final_pending_orders": 0,
+          "final_cash_weight": 4.477891190736816e-17,
+          "accounting_audit": {
+            "daily_cash_holdings_fee_identity_passed": true,
+            "negative_cash_or_holdings_observed": false,
+            "monthly_compound_matches_daily_final_equity": true,
+            "daily_records": 1600
+          },
+          "signal_excluded_stock_months": 14,
+          "monthly": {
+            "months": 79,
+            "arithmetic_annual_return": 0.3942270898093826,
+            "compound_annual_return_month_count": 0.4271857340555667,
+            "total_return": 9.399120199057736,
+            "monthly_max_drawdown": -0.2885666948094834,
+            "arithmetic_annual_excess_vs_price_index": 0.34077986325428045,
+            "monthly_win_vs_price_index": 0.7215189873417721,
+            "benchmark_comparison_complete": true
+          },
+          "latest_12_months": {
+            "months": 12,
+            "arithmetic_annual_return": 0.4949539845505808,
+            "compound_annual_return_month_count": 0.5896568051178519,
+            "total_return": 0.5896568051178519,
+            "monthly_max_drawdown": -0.05243339365343014,
+            "arithmetic_annual_excess_vs_price_index": 0.4656746713090133,
+            "monthly_win_vs_price_index": 0.6666666666666666,
+            "benchmark_comparison_complete": true
+          },
+          "benchmark_price_index": {
+            "total_return": 0.25026899505248656,
+            "cagr": 0.03454746831230926,
+            "max_drawdown": -0.4560262048486471,
+            "annualized_volatility": 0.18741632583930318,
+            "sharpe_zero_rf": 0.28136980069188994
+          },
+          "status": "complete_account"
+        },
+        "0.003": {
+          "total_return": 7.7296312670509675,
+          "cagr": 0.39023613669750556,
+          "max_drawdown": -0.37778966499246525,
+          "annualized_volatility": 0.24588322993581418,
+          "sharpe_zero_rf": 1.5119447411542846,
+          "initial_cash": 1000000.0,
+          "final_equity": 8729631.267050967,
+          "total_fees_paid": 1007777.2513727347,
+          "mean_cash_weight": 0.00869952382335495,
+          "trade_count": 4475,
+          "total_gross_traded": 335925750.4575782,
+          "blocked_order_days_by_reason": {
+            "confirmed_nontrading": 42,
+            "daily_amount_capacity": 7,
+            "insufficient_unreserved_cash": 3067,
+            "limit_down": 11,
+            "limit_up": 195
+          },
+          "days_with_stale_valuation": 84,
+          "max_stale_trading_days": 10,
+          "final_pending_orders": 0,
+          "final_cash_weight": 5.000869378054302e-16,
+          "accounting_audit": {
+            "daily_cash_holdings_fee_identity_passed": true,
+            "negative_cash_or_holdings_observed": false,
+            "monthly_compound_matches_daily_final_equity": true,
+            "daily_records": 1600
+          },
+          "signal_excluded_stock_months": 14,
+          "monthly": {
+            "months": 79,
+            "arithmetic_annual_return": 0.3667682724460711,
+            "compound_annual_return_month_count": 0.3897480906754258,
+            "total_return": 7.729631267050959,
+            "monthly_max_drawdown": -0.2966445047275178,
+            "arithmetic_annual_excess_vs_price_index": 0.313321045890969,
+            "monthly_win_vs_price_index": 0.6962025316455697,
+            "benchmark_comparison_complete": true
+          },
+          "latest_12_months": {
+            "months": 12,
+            "arithmetic_annual_return": 0.4696595944639672,
+            "compound_annual_return_month_count": 0.5517797267587834,
+            "total_return": 0.5517797267587834,
+            "monthly_max_drawdown": -0.055922793370609236,
+            "arithmetic_annual_excess_vs_price_index": 0.4403802812223997,
+            "monthly_win_vs_price_index": 0.5833333333333334,
+            "benchmark_comparison_complete": true
+          },
+          "benchmark_price_index": {
+            "total_return": 0.25026899505248656,
+            "cagr": 0.03454746831230926,
+            "max_drawdown": -0.4560262048486471,
+            "annualized_volatility": 0.18741632583930318,
+            "sharpe_zero_rf": 0.28136980069188994
+          },
+          "status": "complete_account"
+        },
+        "0.005": {
+          "total_return": 5.913257730781265,
+          "cagr": 0.3417846395418569,
+          "max_drawdown": -0.3849394285317541,
+          "annualized_volatility": 0.24582199059923915,
+          "sharpe_zero_rf": 1.362616819738552,
+          "initial_cash": 1000000.0,
+          "final_equity": 6913257.730781265,
+          "total_fees_paid": 1450178.5187242432,
+          "mean_cash_weight": 0.008698155545994225,
+          "trade_count": 4446,
+          "total_gross_traded": 290035703.74484855,
+          "blocked_order_days_by_reason": {
+            "confirmed_nontrading": 42,
+            "daily_amount_capacity": 6,
+            "insufficient_unreserved_cash": 3064,
+            "limit_down": 11,
+            "limit_up": 195
+          },
+          "days_with_stale_valuation": 84,
+          "max_stale_trading_days": 10,
+          "final_pending_orders": 0,
+          "final_cash_weight": 9.261686674825925e-17,
+          "accounting_audit": {
+            "daily_cash_holdings_fee_identity_passed": true,
+            "negative_cash_or_holdings_observed": false,
+            "monthly_compound_matches_daily_final_equity": true,
+            "daily_records": 1600
+          },
+          "signal_excluded_stock_months": 14,
+          "monthly": {
+            "months": 79,
+            "arithmetic_annual_return": 0.33026076250829633,
+            "compound_annual_return_month_count": 0.3413643092128469,
+            "total_return": 5.913257730781268,
+            "monthly_max_drawdown": -0.30730500372773983,
+            "arithmetic_annual_excess_vs_price_index": 0.27681353595319425,
+            "monthly_win_vs_price_index": 0.6582278481012658,
+            "benchmark_comparison_complete": true
+          },
+          "latest_12_months": {
+            "months": 12,
+            "arithmetic_annual_return": 0.4360327757634449,
+            "compound_annual_return_month_count": 0.5027011482907286,
+            "total_return": 0.5027011482907286,
+            "monthly_max_drawdown": -0.06055404096480477,
+            "arithmetic_annual_excess_vs_price_index": 0.4067534625218774,
+            "monthly_win_vs_price_index": 0.5833333333333334,
+            "benchmark_comparison_complete": true
+          },
+          "benchmark_price_index": {
+            "total_return": 0.25026899505248656,
+            "cagr": 0.03454746831230926,
+            "max_drawdown": -0.4560262048486471,
+            "annualized_volatility": 0.18741632583930318,
+            "sharpe_zero_rf": 0.28136980069188994
+          },
+          "status": "complete_account"
+        }
+      },
+      "ideal_equal_weight": {
+        "status": "missing_endpoint",
+        "performance_withheld": true
+      },
+      "status": "some_evidence_incomplete"
+    }
+  },
+  "gap_count": 11,
+  "execution_gap_count": 0,
+  "ideal_endpoint_gap_count": 11,
+  "execution_status": "complete"
+}

@@ -1,0 +1,54 @@
+{
+  "execution_id": "89b5e506-3a78-42a8-90d5-9131650d82e6",
+  "result": {
+    "status_code": 200,
+    "data": [
+      [
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2021-07-21",
+          "证券代码": "600816.SH",
+          "证券简称": "ST安信",
+          "发布时间": "2021-07-20 16:54:12",
+          "公告标题": "ST安信：重大事项继续停牌公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3097212138&token=MzA5NzIxMjEzODo6OmRzc2VydmljZTo4Mzc1MDY0MDc6NDMuOTguMTc3LjE5MDo6MTowOjE3ODg5NDQxMjM6YWU5YjFjNzE0Y2Q1NWEwZjA0NDY4NzFkMzM2Y2RmZDI=&userid=837506407&ip=43.98.177.190",
+          "唯一标号": 3097212138
+        },
+        {
+          "thscode": "",
+          "time": null,
+          "公告日期": "2021-07-17",
+          "证券代码": "600816.SH",
+          "证券简称": "ST安信",
+          "发布时间": "2021-07-16 18:11:59",
+          "公告标题": "ST安信：重大事项停牌公告",
+          "公告链接": "http://ft.10jqka.com.cn/standardgwapi/api/news_service/pubnote/download/resource?seq=3092046551&token=MzA5MjA0NjU1MTo6OmRzc2VydmljZTo4Mzc1MDY0MDc6NDMuOTguMTc3LjE5MDo6MTowOjE3ODg5NDQxMjM6YTQ4Y2I5Y2MzZDMwNDM4YjY2YTMwNjJkMTdiZTgwMTI=&userid=837506407&ip=43.98.177.190",
+          "唯一标号": 3092046551
+        }
+      ]
+    ],
+    "metadata": {
+      "codes": "600816.SH",
+      "effective_codes": "600816.SH",
+      "used_stripped_codes": false,
+      "hk_codes": [],
+      "keyword": "停牌",
+      "beginrDate": "2021-07-05",
+      "endrDate": "2021-08-06",
+      "count": 1,
+      "has_results": true,
+      "result_count_for_billing": 2
+    }
+  },
+  "success": true,
+  "execution_time": 0.5258142948150635,
+  "elapsed_time_ms": 394.41,
+  "billing": {
+    "summary": "Charged 1 credit for this call",
+    "list_amount_credits": 1,
+    "final_amount_credits": 1
+  },
+  "remaining_credits": null,
+  "cost": 1
+}
