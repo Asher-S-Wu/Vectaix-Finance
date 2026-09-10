@@ -11,6 +11,7 @@ from scipy import stats
 
 from project_paths import ROOT, data_dir, model_dir, backtest_dir
 from factor_lib import compute_factors, forward_labels, month_ends
+from hk_universe import load_memberships, quarterly_pool, complete_factors, require_full_portfolio
 
 
 market = sys.argv[1]
@@ -54,7 +55,8 @@ else:
     ], ignore_index=True)
     factors = factors.merge(eligible, on=["date", "code"], how="inner")
     factors.to_pickle(processed / "factors.pkl")
-labels = forward_labels(close)
+label_prices = close.where(amt.gt(0) & vol.gt(0)) if market == 'hk2' else close
+labels = forward_labels(label_prices)
 df = factors.merge(labels, on=["date", "code"], how="left")
 FEATS = [c for c in factors.columns if c not in ("date", "code")]
 if cfg.get("feats"):
@@ -90,10 +92,16 @@ def cs_norm(g):
         g["y"] = 0.5 * stats.norm.ppf((r - 0.5) / n) + 0.5 * median_side
     return g
 
-df = pd.concat([cs_norm(g.copy()) for _, g in df.groupby("date")], ignore_index=True)
+if market != 'hk2':
+    df = pd.concat([cs_norm(g.copy()) for _, g in df.groupby("date")], ignore_index=True)
 
 dates = sorted(df["date"].unique())
 realized_dates = sorted(df.loc[df["label_end"].le(close.index[-1]), "date"].unique())
+if market == 'hk2':
+    memberships = load_memberships()
+    # 新股票池的评价期明确从 2024 年起；更早数据只用于当时已知候选股的训练。
+    dates = [d for d in dates if d >= pd.Timestamp('2024-01-01')]
+    realized_dates = [d for d in realized_dates if d >= pd.Timestamp('2024-01-01')]
 print(f"预处理后月份: {len(dates)}, 首个: {pd.Timestamp(dates[0]).date()}, 最后: {pd.Timestamp(dates[-1]).date()}")
 
 # ---------- 单因子 IC(全样本, 供参考) ----------
@@ -141,13 +149,31 @@ def sample_weights(frame, as_of):
 
 holdout_start = realized_dates[-HOLDOUT_M]
 preds = []
+quarter_frames = {}
+
+
+def training_frame(as_of):
+    if market != 'hk2':
+        return df
+    quarter = pd.Timestamp(as_of).to_period('Q')
+    if quarter not in quarter_frames:
+        pool = quarterly_pool(close, amt, vol, memberships, as_of)
+        codes = pool.loc[pool.selected, 'code']
+        frame = df[df.code.isin(codes) & df.date.le(quarter.end_time)]
+        frame = frame[complete_factors(frame, FEATS)]
+        quarter_frames[quarter] = pd.concat([cs_norm(g.copy()) for _, g in frame.groupby('date')], ignore_index=True)
+    return quarter_frames[quarter]
+
+
 for i, dtest in enumerate(dates):
-    tr = df[df["date"].lt(dtest) & df["label_end"].le(dtest) & df["y"].notna()]
+    current = training_frame(dtest)
+    tr = current[current["date"].lt(dtest) & current["label_end"].le(dtest) & current["y"].notna()]
     if TRAIN_WINDOW > 0:
         tr = tr[tr["date"].isin(tr["date"].drop_duplicates().iloc[-TRAIN_WINDOW:])]
     if tr["date"].nunique() < TRAIN_MIN:
         continue
-    te = df[df["date"] == dtest]
+    te = current[current["date"] == dtest]
+    require_full_portfolio(te, TOPN)
     Xtr, ytr = tr[FEATS], tr["y"]
     wtr = sample_weights(tr, pd.Timestamp(dtest))
     Xte = te[FEATS]
@@ -225,7 +251,8 @@ json.dump(m_all, open(training_results / "metrics.json", "w"), indent=2)
 json.dump(m_ho, open(training_results / "metrics_recent.json", "w"), indent=2)
 
 # ---------- 全量终训, 保存活体模型(用于实盘选股) ----------
-training = df[df["label_end"].le(close.index[-1]) & df["y"].notna()].copy()
+current = training_frame(close.index[-1])
+training = current[current["label_end"].le(close.index[-1]) & current["y"].notna()].copy()
 if TRAIN_WINDOW > 0:
     training = training[training["date"].isin(training["date"].drop_duplicates().iloc[-TRAIN_WINDOW:])]
 w_full = sample_weights(training, close.index[-1])
@@ -236,6 +263,7 @@ pd.to_pickle({"model": final_model, "features": FEATS, "trained_at": str(pd.Time
               "month_balanced": MONTH_BALANCED, "data_as_of": str(close.index[-1].date()),
               "last_training_signal": str(training["date"].max().date()),
               "latest_label_end": str(training["label_end"].max().date()),
+              "universe_policy": "HSCI quarterly, max 500, 60-day amount >= HKD 10m, two-year history" if market == 'hk2' else None,
               "library_version": lgb.__version__, "selection_history": "historically tuned; not a fresh holdout"},
              open(models / "model.pkl", "wb"))
 # 特征重要性(首个seed)

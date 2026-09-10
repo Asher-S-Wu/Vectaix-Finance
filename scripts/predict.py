@@ -12,6 +12,7 @@ import pandas as pd
 from project_paths import ROOT, data_dir, model_dir, backtest_dir
 from factor_lib import compute_factors, month_ends
 from portfolio_scores import blend_scores, smooth_scores
+from hk_universe import filter_candidates, load_memberships, require_full_portfolio
 
 class LGBEnsemble:  # 与 train_backtest.py 中定义同名同构, 供 unpickle 使用
     def __init__(self, params, seeds=(42, 7, 2024)):
@@ -59,6 +60,9 @@ eligible = pd.concat([
     for d in evals
 ], ignore_index=True)
 f = f.merge(eligible, on=["date", "code"], how="inner")
+if market == 'hk2':
+    f = filter_candidates(f, close, amt, vol, load_memberships(), feats)
+    require_full_portfolio(f, CONF['topn'])
 raw_factors = f.copy()
 
 def cs_norm(g):
@@ -87,6 +91,8 @@ if CONF["smooth"] > 0:
     f = pd.concat([historical, f], ignore_index=True)
 f = smooth_scores(f, CONF["smooth"])
 cur = f[f["date"] == last_day].dropna(subset=["score"]).copy()
+if market == 'hk2':
+    require_full_portfolio(cur, CONF['topn'])
 cur = cur.sort_values("score", ascending=False, kind="stable")
 
 # 名称映射

@@ -1,32 +1,30 @@
 # A股与港股多因子量化模型报告
 
-生成时间：2026-09-10 00:18:33
+生成时间：2026-09-10 02:08:25
 
-quant_model 是同时支持A股和港股的一套量化系统。两个市场共用因子计算、训练、预测、回测评价和报告模板，各自使用对应市场训练好的模型。本次同步展示内容及选股日期，现用模型没有重新训练。
+quant_model 同时支持A股和港股。港股使用按季度筛选的新股票池并已重新训练；A股使用其现有模型。
 
 ## 双市场概览
 
 | 项目 | A股 | 港股 |
 | --- | --- | --- |
 | 选股计算日期 | 2026-09-08 | 2026-09-08 |
-| 有分数的股票数量 | 781 | 339 |
+| 有分数的股票数量 | 781 | 419 |
 | 组合持股数 | 30 | 15 |
-| QVeris回放区间 | 2020-02-03 — 2026-09-01 | 2020-03-02 — 2026-09-01 |
-| QVeris复合年化收益 | 42.77% | 37.15% |
-| QVeris每日最大回撤 | -37.24% | -36.65% |
-| 账户执行数据缺项 | 0 | 0 |
-| 理想等权比较缺失端点 | 11 | 0 |
-| 现有门槛 | 9/9 项通过，达到现有门槛。 | 7/9 项通过，未达到全部门槛。组合相对基准月胜率未达 ≥55%；选股命中率(TopN跑赢中位数比例)未达 ≥55%。 |
+| 月度回测信号区间 | 2020-01-23 — 2026-07-31 | 2024-02-29 — 2026-07-31 |
+| 月度回测复合年化收益 | 58.28% | 9.97% |
+| 月度端点最大回撤 | -27.53% | -26.36% |
+| 现有门槛 | 9/9 项通过，达到现有门槛。 | 4/9 项通过，未达到全部门槛。TopN年化超额(扣费后)未达 ≥8%；超额信息比率未达 ≥0.5；组合相对基准月胜率未达 ≥55%；选股命中率(TopN跑赢中位数比例)未达 ≥55%；样本外月份数未达 ≥36。 |
 
-收益和回撤均来自各自现存区间的 QVeris 逐日成交模拟，买卖每边各0.15%综合费用；区间、股票池、币种和基准见各市场章节。两组区间起点不同，不能仅凭上表认定哪个市场模型更强。
+上表统一展示月度持有期端点回测，区间和股票池不同。A股章节另列原有逐日成交模拟；港股章节展示新股票池的回测结果。
 
 ## 共用计算与阅读口径
 
-两市场均展示模型与数据、成交账户、费用敏感性、月度回测与门槛、前10名选股、前10项因子、文件与使用，字段及顺序相同。A股前30只、港股前15只及各自评分规则沿用已验证的组合设置。
+两市场均展示月度回测与现有评价门槛。A股持仓30只，港股持仓15只。
 
 选股名单统一包含计算日期、市场、排名、股票代码、名称、最终分数、是否入选和目标权重。以下名单是现在用保留的模型、截至指定日期的行情重新计算的结果，不能当作该历史日期实时发布过的信号。两边都只在指定日价格、成交量、成交额为正的股票中计算截面。
 
-成交模拟采用月末信号后首个市场交易日收盘价，先卖后买，未完成订单在本轮调仓期内继续处理；使用复权单位及股息再投资收益口径，未约束整手交易，也未单独模拟收盘竞价容量。期末持仓按市值计价，没有强制清仓。这些是模拟账户结果。股票收益含复权影响，沪深300和恒生基准均为价格指数，股息口径不同。
+A股章节的逐日成交账户采用月末信号后首个市场交易日收盘价，先卖后买；未约束整手交易，也未单独模拟收盘竞价容量。该账户的指数基准与复权股票收益的股息口径不同。
 
 月度表中“算术年化”是月平均收益或超额乘以12，不等于复合年化；“月末净值最大回撤”只查看月度端点，不等于逐日账户回撤。两个市场沿用同一套9项门槛，没有调整达标要求。全部历史和最后12个月已被查看或参与选型，不能替代新的独立检验。
 
@@ -117,11 +115,11 @@ QVeris 回放区间为 2020-02-03 至 2026-09-01，共 79 个调仓月份；币�
 | 池内等权基准月末净值最大回撤 | -20.44% | -6.94% | — | 参考 |
 | 历史滚动预测月份数 | 79 | 12 | ≥36 | 通过 |
 
-![A股月度端点回测净值](/Users/noah/Work/Websites/Vectaix/Vectaix-Finance/reports/equity_a.png)
+![A股月度端点回测净值](W:\Websites\Vectaix\Vectaix-Finance\reports\equity_a.png)
 
 ### 最新选股预览（前10名）
 
-计算日期：2026-09-08。两市场均展示前10名；完整组合为前30名，见[完整名单](/Users/noah/Work/Websites/Vectaix/Vectaix-Finance/models/a/signals.csv)中入选标记为真的股票。目标权重为组合目标，实际成交受现金和可交易性约束；分数表示排序，不是预期收益率。
+计算日期：2026-09-08。两市场均展示前10名；完整组合为前30名，见[完整名单](W:\Websites\Vectaix\Vectaix-Finance\models\a\signals.csv)中入选标记为真的股票。目标权重为组合目标，实际成交受现金和可交易性约束；分数表示排序，不是预期收益率。
 
 | 排名 | 股票代码 | 名称 | 最终分数 | 是否入选 | 目标权重 |
 | --- | --- | --- | --- | --- | --- |
@@ -157,17 +155,17 @@ QVeris 回放区间为 2020-02-03 至 2026-09-01，共 79 个调仓月份；币�
 
 | 内容 | 文件 |
 | --- | --- |
-| 现用模型 | [model.pkl](/Users/noah/Work/Websites/Vectaix/Vectaix-Finance/models/a/model.pkl) |
-| 完整选股名单 | [signals.csv](/Users/noah/Work/Websites/Vectaix/Vectaix-Finance/models/a/signals.csv) |
-| 因子重要性 | [importance.csv](/Users/noah/Work/Websites/Vectaix/Vectaix-Finance/models/a/importance.csv) |
-| 历史预测 | [predictions.pkl](/Users/noah/Work/Websites/Vectaix/Vectaix-Finance/backtests/a/predictions.pkl) |
-| 月度回测指标 | [metrics.json](/Users/noah/Work/Websites/Vectaix/Vectaix-Finance/backtests/a/metrics.json) |
-| 最后12个月指标 | [metrics_recent.json](/Users/noah/Work/Websites/Vectaix/Vectaix-Finance/backtests/a/metrics_recent.json) |
-| 单因子历史统计 | [factor_ic.csv](/Users/noah/Work/Websites/Vectaix/Vectaix-Finance/backtests/a/factor_ic.csv) |
-| QVeris成交模拟汇总 | [replay_summary.json](/Users/noah/Work/Websites/Vectaix/Vectaix-Finance/backtests/a/qveris/replay_summary.json) |
-| QVeris取数记录 | [requests.json](/Users/noah/Work/Websites/Vectaix/Vectaix-Finance/backtests/a/qveris/requests.json) |
-| 逐日账户 | [daily_accounts.csv](/Users/noah/Work/Websites/Vectaix/Vectaix-Finance/backtests/a/qveris/daily_accounts.csv) |
-| 逐笔成交 | [trades.csv](/Users/noah/Work/Websites/Vectaix/Vectaix-Finance/backtests/a/qveris/trades.csv) |
+| 现用模型 | [model.pkl](W:\Websites\Vectaix\Vectaix-Finance\models\a\model.pkl) |
+| 完整选股名单 | [signals.csv](W:\Websites\Vectaix\Vectaix-Finance\models\a\signals.csv) |
+| 因子重要性 | [importance.csv](W:\Websites\Vectaix\Vectaix-Finance\models\a\importance.csv) |
+| 历史预测 | [predictions.pkl](W:\Websites\Vectaix\Vectaix-Finance\backtests\a\predictions.pkl) |
+| 月度回测指标 | [metrics.json](W:\Websites\Vectaix\Vectaix-Finance\backtests\a\metrics.json) |
+| 最后12个月指标 | [metrics_recent.json](W:\Websites\Vectaix\Vectaix-Finance\backtests\a\metrics_recent.json) |
+| 单因子历史统计 | [factor_ic.csv](W:\Websites\Vectaix\Vectaix-Finance\backtests\a\factor_ic.csv) |
+| QVeris成交模拟汇总 | [replay_summary.json](W:\Websites\Vectaix\Vectaix-Finance\backtests\a\qveris\replay_summary.json) |
+| QVeris取数记录 | [requests.json](W:\Websites\Vectaix\Vectaix-Finance\backtests\a\qveris\requests.json) |
+| 逐日账户 | [daily_accounts.csv](W:\Websites\Vectaix\Vectaix-Finance\backtests\a\qveris\daily_accounts.csv) |
+| 逐笔成交 | [trades.csv](W:\Websites\Vectaix\Vectaix-Finance\backtests\a\qveris\trades.csv) |
 
 在项目目录运行以下命令，使用现有模型生成指定日期的名单，不触发训练：
 
@@ -177,154 +175,74 @@ QVeris 回放区间为 2020-02-03 至 2026-09-01，共 79 个调仓月份；币�
 
 ## 港股
 
-### 模型与数据
+### 股票池与数据
 
-| 模型与数据项目 | 内容 |
-| --- | --- |
-| 模型结构 | 28个输入因子，3个随机种子的 LightGBM 集成 |
-| 组合规模与调仓 | 前15只，等权，每月调仓 |
-| 股票池数量 | 345 |
-| 原始行情最后日期 | 2026-09-08 |
-| 原始最后日期有效成交股票数 | 339 |
-| 本次选股计算日期 | 2026-09-08 |
-| 当日有效成交股票数 | 339 |
-| 有最终分数的股票数 | 339 |
-| 输入因子数量／有历史IC统计的数量 | 28／28 |
-| 验收结论 | 7/9 项通过，未达到全部门槛。组合相对基准月胜率未达 ≥55%；选股命中率(TopN跑赢中位数比例)未达 ≥55%。 |
-| 回放证据状态 | 逐日成交账户完整；理想等权端点比较完整。 |
+以当季度恒生综合指数名单为基础，按上一季度末的数据筛选，最多保留500只。要求至少两年且480个有效交易日的行情，近60个交易日日均成交额不低于1000万港元；评分当天还需有成交且因子齐全。
 
-评分规则：预测分数与52周高点因子分别标准化后，按1与0.5混合，再将本期与该股上次有效月度混合分数各取一半，等权选取前15只。上期分数读取当时模型留存结果。
+当前指数名单有537条记录，428只满足季度筛选条件，419只具备完整评分条件，实际组合为15只、每只目标权重6.67%。历史行情面板覆盖685只股票，包括已调出指数的股票。
 
-行情情况：港股行情已按交易日历及核实的证券实体边界清理；计算日期由生成名单时明确指定。
+行情来自QVeris，使用复权收盘价与实际成交额。历史季度名单覆盖2023年末至2026年二季度；新方案从2024年开始评价，首个预测月份用于分数平滑。更早行情用于当时已知候选股的训练。个别历史证券及两条缺少代码的指数记录仍有数据缺口，未用其他股票代替。
 
-因子情况：downside_vol 已修复并参与当前港股模型训练，28项因子都有历史 IC 统计。
+评分规则：在当季合格股票池内，预测分数与52周高点因子分别标准化后按1与0.5混合，再将本期与上一个月的混合分数各取一半，等权选取前15只。缺少上月分数的股票不入选。
 
-### 按成交约束模拟的账户结果
+### 新股票池回测
 
-QVeris 回放区间为 2020-03-02 至 2026-09-01，共 78 个调仓月份；币种为港元，基准为恒生价格指数。以下主结果采用买卖每边各0.15%的综合费用、单日成交额1%的参与上限。
+信号区间为2024-02-29至2026-07-31，共30个完整持有期。累计收益26.82%，复合年化收益9.97%，月度端点最大回撤-26.36%。最近12个月累计收益-18.24%。
 
-| 成交模拟指标 | 结果 |
-| --- | --- |
-| 初始资金 | 1,000,000 港元 |
-| 期末账户价值 | 7,794,854 港元 |
-| 扣费后累计收益 | 679.49% |
-| 按实际天数计算的复合年化收益 | 37.15% |
-| 每日账户净值最大回撤 | -36.65% |
-| 年化波动率 | 23.12% |
-| 夏普比率（无风险收益设为0） | 1.517 |
-| 相对恒生价格指数的月胜率 | 73.08% |
-| 恒生价格指数复合年化收益 | -0.57% |
-| 恒生价格指数每日最大回撤 | -52.75% |
-| 累计费用 | 228,890.46 港元 |
-| 平均现金占比 | 3.38% |
-| 成交笔数 | 7519 |
-| 期末未完成订单数 | 13 |
-| 持仓存在无成交的天数 | 624 |
-| 单只持仓最长连续无成交交易日数 | 106 |
-| 信号日排除的股票月份数 | 0 |
-| 账户执行数据缺项数 | 0 |
-| 理想等权比较缺失端点数 | 0 |
+每月等权调整15只持仓，费用按换手比例乘以双边0.3%估算。买卖端点没有成交量时不确认该笔收益。这是持有期端点回测，尚未对新名单重跑逐日订单及整手成交模拟。
 
-证据状态：逐日成交账户完整；理想等权端点比较完整。“理想等权比较”是单独核对买入、卖出端点的计算，其缺项与逐日成交账户分别统计。
-
-无成交持仓估值：港股记录中的无成交持仓均有当日有效报价，使用当日报价估值；零成交量没有被当作缺失价格。
-
-最后12个月账户累计收益为 147.46%，相对恒生价格指数的月胜率为 91.67%。该时间段已参与历史方案选择，不属于新的独立留出检验。
-
-### 费用敏感性
-
-保持同一持仓方案，只提高假设费用：
-
-| 每边假设综合费用 | 复合年化收益 | 每日最大回撤 | 期末账户价值（港元） |
-| --- | --- | --- | --- |
-| 0.15% | 37.15% | -36.65% | 7,794,854 |
-| 0.30% | 34.81% | -37.82% | 6,968,841 |
-| 0.50% | 31.71% | -39.33% | 5,990,935 |
-
-### 月度回测与现有门槛
-
-月度持有期端点回测的信号区间为 2020-02-28 至 2026-07-31。按换手率乘以双边0.3%扣费，基准为当期股票池等权收益；统计口径与逐日成交账户分开。
+4/9 项通过，未达到全部门槛。TopN年化超额(扣费后)未达 ≥8%；超额信息比率未达 ≥0.5；组合相对基准月胜率未达 ≥55%；选股命中率(TopN跑赢中位数比例)未达 ≥55%；样本外月份数未达 ≥36。
 
 | 指标 | 全部历史滚动预测 | 最后12个月（已参与历史选型） | 现有 v2 门槛 | 全部历史结果 |
 | --- | --- | --- | --- | --- |
-| 月度排名相关性 IC | 0.0626 | 0.1208 | ≥0.03 | 通过 |
-| IC 均值／标准差 | 0.370 | 1.273 | ≥0.3 | 通过 |
-| IC 为正的月份占比 | 64.10% | 83.33% | ≥55% | 通过 |
-| 算术年化超额（扣费后，相对池内等权） | 15.86% | 88.69% | ≥8% | 通过 |
-| 超额信息比率 | 0.782 | 3.579 | ≥0.5 | 通过 |
-| 相对池内等权基准的月胜率 | 53.85% | 91.67% | ≥55% | 未通过 |
-| 选股命中率（跑赢池中位数） | 53.59% | 60.56% | ≥55% | 未通过 |
-| 选股命中率（跑赢池均值，仅参考） | 46.84% | 53.33% | — | 参考 |
-| 年化换手（倍） | 5.61 | 5.00 | ≤30 | 通过 |
-| Top15 算术年化收益 | 34.34% | 91.81% | — | 参考 |
-| 池内等权基准算术年化收益 | 18.48% | 3.12% | — | 参考 |
-| 组合月末净值最大回撤 | -31.22% | -6.47% | — | 参考 |
-| 池内等权基准月末净值最大回撤 | -30.07% | -14.93% | — | 参考 |
-| 历史滚动预测月份数 | 78 | 12 | ≥36 | 通过 |
+| 月度排名相关性 IC | 0.0793 | 0.1330 | ≥0.03 | 通过 |
+| IC 均值／标准差 | 0.371 | 1.002 | ≥0.3 | 通过 |
+| IC 为正的月份占比 | 63.33% | 83.33% | ≥55% | 通过 |
+| 算术年化超额（扣费后，相对池内等权） | -9.53% | -8.16% | ≥8% | 未通过 |
+| 超额信息比率 | -0.376 | -0.484 | ≥0.5 | 未通过 |
+| 相对池内等权基准的月胜率 | 53.33% | 50.00% | ≥55% | 未通过 |
+| 选股命中率（跑赢池中位数） | 54.67% | 52.22% | ≥55% | 未通过 |
+| 选股命中率（跑赢池均值，仅参考） | 48.22% | 45.00% | — | 参考 |
+| 年化换手（倍） | 6.35 | 6.33 | ≤30 | 通过 |
+| Top15 算术年化收益 | 11.29% | -18.38% | — | 参考 |
+| 池内等权基准算术年化收益 | 20.82% | -10.22% | — | 参考 |
+| 组合月末净值最大回撤 | -26.36% | -26.36% | — | 参考 |
+| 池内等权基准月末净值最大回撤 | -19.63% | -19.63% | — | 参考 |
+| 历史滚动预测月份数 | 30 | 12 | ≥36 | 未通过 |
 
-![港股月度端点回测净值](/Users/noah/Work/Websites/Vectaix/Vectaix-Finance/reports/equity_hk.png)
+![港股月度回测净值](W:\Websites\Vectaix\Vectaix-Finance\reports\equity_hk.png)
 
-### 最新选股预览（前10名）
+### 最新15只模型持仓
 
-计算日期：2026-09-08。两市场均展示前10名；完整组合为前15名，见[完整名单](/Users/noah/Work/Websites/Vectaix/Vectaix-Finance/models/hk/signals.csv)中入选标记为真的股票。目标权重为组合目标，实际成交受现金和可交易性约束；分数表示排序，不是预期收益率。
+计算日期：2026-09-08。分数表示模型排序，不是预期收益率。
 
-| 排名 | 股票代码 | 名称 | 最终分数 | 是否入选 | 目标权重 |
-| --- | --- | --- | --- | --- | --- |
-| 1 | 00613.HK | 梧桐国际 | 3.9614 | 是 | 6.67% |
-| 2 | 00992.HK | 联想集团 | 2.6649 | 是 | 6.67% |
-| 3 | 03600.HK | 现代牙科 | 2.5345 | 是 | 6.67% |
-| 4 | 00315.HK | 数码通电讯 | 2.4093 | 是 | 6.67% |
-| 5 | 00215.HK | 和记电讯香港 | 2.0456 | 是 | 6.67% |
-| 6 | 03328.HK | 交通银行 | 2.0048 | 是 | 6.67% |
-| 7 | 00116.HK | 周生生 | 1.9852 | 是 | 6.67% |
-| 8 | 06198.HK | 青岛港 | 1.9708 | 是 | 6.67% |
-| 9 | 02607.HK | 上海医药 | 1.9600 | 是 | 6.67% |
-| 10 | 01866.HK | 中国心连心化肥 | 1.9208 | 是 | 6.67% |
+| 排名 | 股票代码 | 名称 | 分数 | 目标权重 |
+| --- | --- | --- | --- | --- |
+| 1 | 01112.HK | H&H国际控股 | 3.3072 | 6.67% |
+| 2 | 02877.HK | 神威药业 | 2.5685 | 6.67% |
+| 3 | 00992.HK | 联想集团 | 2.2332 | 6.67% |
+| 4 | 01883.HK | 中信国际电讯 | 2.2088 | 6.67% |
+| 5 | 00939.HK | 建设银行 | 2.1219 | 6.67% |
+| 6 | 01070.HK | TCL电子 | 2.0711 | 6.67% |
+| 7 | 03328.HK | 交通银行 | 2.0592 | 6.67% |
+| 8 | 00363.HK | 上海实业控股 | 2.0585 | 6.67% |
+| 9 | 01773.HK | 天立国际控股 | 2.0220 | 6.67% |
+| 10 | 02016.HK | 浙商银行 | 2.0041 | 6.67% |
+| 11 | 02607.HK | 上海医药 | 1.9050 | 6.67% |
+| 12 | 03968.HK | 招商银行 | 1.8860 | 6.67% |
+| 13 | 06110.HK | 滔搏 | 1.8727 | 6.67% |
+| 14 | 00883.HK | 中国海洋石油 | 1.8578 | 6.67% |
+| 15 | 00267.HK | 中信股份 | 1.7478 | 6.67% |
 
-### 因子历史表现（前10项）
+### 数据与完整名单
 
-按历史 IC 绝对值排列，属于全历史描述性统计；因子数量和缺失情况见上方模型与数据表。
-
-| 因子 | IC 均值 | IC 均值／标准差 | IC 为正占比 |
-| --- | --- | --- | --- |
-| high_52w | 0.0521 | 0.289 | 65.85% |
-| downside_vol | -0.0478 | -0.258 | 40.00% |
-| vol_60 | -0.0462 | -0.248 | 40.80% |
-| vol_20 | -0.0411 | -0.230 | 41.41% |
-| ep_ttm | 0.0388 | 0.244 | 57.03% |
-| mom_12m_s1 | 0.0374 | 0.228 | 62.39% |
-| max_20 | -0.0363 | -0.240 | 42.97% |
-| bp | 0.0269 | 0.161 | 57.03% |
-| mom_6m_s1 | 0.0260 | 0.177 | 57.72% |
-| pb | -0.0232 | -0.142 | 42.19% |
-
-### 文件与使用
-
-| 内容 | 文件 |
-| --- | --- |
-| 现用模型 | [model.pkl](/Users/noah/Work/Websites/Vectaix/Vectaix-Finance/models/hk/model.pkl) |
-| 完整选股名单 | [signals.csv](/Users/noah/Work/Websites/Vectaix/Vectaix-Finance/models/hk/signals.csv) |
-| 因子重要性 | [importance.csv](/Users/noah/Work/Websites/Vectaix/Vectaix-Finance/models/hk/importance.csv) |
-| 历史预测 | [predictions.pkl](/Users/noah/Work/Websites/Vectaix/Vectaix-Finance/backtests/hk/predictions.pkl) |
-| 月度回测指标 | [metrics.json](/Users/noah/Work/Websites/Vectaix/Vectaix-Finance/backtests/hk/metrics.json) |
-| 最后12个月指标 | [metrics_recent.json](/Users/noah/Work/Websites/Vectaix/Vectaix-Finance/backtests/hk/metrics_recent.json) |
-| 单因子历史统计 | [factor_ic.csv](/Users/noah/Work/Websites/Vectaix/Vectaix-Finance/backtests/hk/factor_ic.csv) |
-| QVeris成交模拟汇总 | [replay_summary.json](/Users/noah/Work/Websites/Vectaix/Vectaix-Finance/backtests/hk/qveris/replay_summary.json) |
-| QVeris取数记录 | [requests.json](/Users/noah/Work/Websites/Vectaix/Vectaix-Finance/backtests/hk/qveris/requests.json) |
-| 逐日账户 | [daily_accounts.csv](/Users/noah/Work/Websites/Vectaix/Vectaix-Finance/backtests/hk/qveris/daily_accounts.csv) |
-| 逐笔成交 | [trades.csv](/Users/noah/Work/Websites/Vectaix/Vectaix-Finance/backtests/hk/qveris/trades.csv) |
-
-在项目目录运行以下命令，使用现有模型生成指定日期的名单，不触发训练：
-
-```sh
-.venv/bin/python scripts/predict.py hk2 --as-of 2026-09-08
-```
+[当前可评分股票](W:\Websites\Vectaix\Vectaix-Finance\data\hk\reference\universe_eligible.csv)、[筛选及缺口明细](W:\Websites\Vectaix\Vectaix-Finance\data\hk\reference\universe_audit.csv)、[完整评分](W:\Websites\Vectaix\Vectaix-Finance\models\hk\signals.csv)、[历史持仓](W:\Websites\Vectaix\Vectaix-Finance\backtests\hk\targets.csv)。
 
 ## 共用文件与数据范围
 
-[因子计算](/Users/noah/Work/Websites/Vectaix/Vectaix-Finance/scripts/factor_lib.py)、[训练](/Users/noah/Work/Websites/Vectaix/Vectaix-Finance/scripts/train_backtest.py)、[预测](/Users/noah/Work/Websites/Vectaix/Vectaix-Finance/scripts/predict.py)、[月度复算](/Users/noah/Work/Websites/Vectaix/Vectaix-Finance/scripts/rebacktest.py)、[成交模拟](/Users/noah/Work/Websites/Vectaix/Vectaix-Finance/scripts/execution_replay.py)、[指标判定](/Users/noah/Work/Websites/Vectaix/Vectaix-Finance/scripts/check_metrics.py)和[报告生成](/Users/noah/Work/Websites/Vectaix/Vectaix-Finance/scripts/make_report.py)供两个市场共用。
+[因子计算](W:\Websites\Vectaix\Vectaix-Finance\scripts\factor_lib.py)、[训练](W:\Websites\Vectaix\Vectaix-Finance\scripts\train_backtest.py)、[预测](W:\Websites\Vectaix\Vectaix-Finance\scripts\predict.py)、[月度复算](W:\Websites\Vectaix\Vectaix-Finance\scripts\rebacktest.py)、[成交模拟](W:\Websites\Vectaix\Vectaix-Finance\scripts\execution_replay.py)、[指标判定](W:\Websites\Vectaix\Vectaix-Finance\scripts\check_metrics.py)和[报告生成](W:\Websites\Vectaix\Vectaix-Finance\scripts\make_report.py)供两个市场共用。
 
-训练使用现有行情与半月频估值数据。股票池依据当前收集的股票构建，并未完整还原每一历史时点的市场成分，历史结果仍受股票池选择影响。报告直接读取保留的训练结果、回测指标和QVeris账户记录，不用当前选股名单替代历史组合。
+港股训练使用当季已知候选股的历史行情和估值数据，并按实际季度名单回测；残余历史数据缺口已披露。A股继续沿用原有股票池。报告从各自保存的历史预测和回测读取结果。
 
 更新两市场名单后，同步生成本报告及两张净值图：
 

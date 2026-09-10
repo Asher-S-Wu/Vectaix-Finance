@@ -1,0 +1,2551 @@
+{
+  "price_provider": "QVeris / Hang Seng Poly Source",
+  "initial_prices": [
+    {
+      "batch": 0,
+      "execution_id": "a1b4240a-2868-44ba-8eb3-2bcebc8dd759",
+      "success": true
+    },
+    {
+      "batch": 1,
+      "execution_id": "07e8e32a-1d80-40ba-9fcb-25f6abc54d20",
+      "success": true
+    },
+    {
+      "batch": 2,
+      "execution_id": "649076ed-dd16-4467-999c-1073a3218670",
+      "success": true
+    },
+    {
+      "batch": 3,
+      "execution_id": "90955aaf-4b1c-42f4-9996-6bfc79081af4",
+      "success": true
+    }
+  ],
+  "price_batches": [
+    {
+      "id": 80,
+      "codes": [
+        "00388.HK",
+        "00390.HK",
+        "00392.HK",
+        "00405.HK",
+        "00410.HK"
+      ],
+      "success": false
+    },
+    {
+      "id": 85,
+      "codes": [
+        "00412.HK",
+        "00425.HK",
+        "00440.HK",
+        "00460.HK",
+        "00467.HK"
+      ],
+      "execution_id": "9382c069-99f8-42a1-8934-137edb0a24f5",
+      "success": true
+    },
+    {
+      "id": 100,
+      "codes": [
+        "00552.HK",
+        "00558.HK",
+        "00570.HK",
+        "00576.HK",
+        "00581.HK"
+      ],
+      "execution_id": "bb37aee8-df57-461e-acaf-103876fc1705",
+      "success": true
+    },
+    {
+      "id": 115,
+      "codes": [
+        "00658.HK",
+        "00659.HK",
+        "00665.HK",
+        "00666.HK",
+        "00667.HK"
+      ],
+      "execution_id": "f09baf39-966a-40ba-97d8-47631dfee4dc",
+      "success": true
+    },
+    {
+      "id": 120,
+      "codes": [
+        "00669.HK",
+        "00670.HK",
+        "00683.HK",
+        "00688.HK",
+        "00694.HK"
+      ],
+      "execution_id": "3fd6ff8c-4d1a-412b-92c3-fd7db223f50a",
+      "success": true
+    },
+    {
+      "id": 95,
+      "codes": [
+        "00520.HK",
+        "00522.HK",
+        "00535.HK",
+        "00546.HK",
+        "00551.HK"
+      ],
+      "execution_id": "283ec6ba-88c5-4bf7-ba4b-7d92aa1fbc6c",
+      "success": true
+    },
+    {
+      "id": 105,
+      "codes": [
+        "00586.HK",
+        "00587.HK",
+        "00590.HK",
+        "00598.HK",
+        "00604.HK"
+      ],
+      "execution_id": "4aca7d3f-010b-424a-9791-0242020b508c",
+      "success": true
+    },
+    {
+      "id": 125,
+      "codes": [
+        "00696.HK",
+        "00697.HK",
+        "00700.HK",
+        "00710.HK",
+        "00728.HK"
+      ],
+      "execution_id": "ff8646b9-2d26-43eb-ae00-a9a3eec2469b",
+      "success": true
+    },
+    {
+      "id": 90,
+      "codes": [
+        "00486.HK",
+        "00489.HK",
+        "00493.HK",
+        "00506.HK",
+        "00512.HK"
+      ],
+      "execution_id": "88bec23a-e5e0-4867-8472-651df9eb6e12",
+      "success": true
+    },
+    {
+      "id": 110,
+      "codes": [
+        "00631.HK",
+        "00636.HK",
+        "00639.HK",
+        "00650.HK",
+        "00656.HK"
+      ],
+      "execution_id": "88137517-1973-4f0a-a61f-958fb9d79bca",
+      "success": true
+    },
+    {
+      "id": 145,
+      "codes": [
+        "00817.HK",
+        "00819.HK",
+        "00823.HK",
+        "00826.HK",
+        "00836.HK"
+      ],
+      "success": false
+    },
+    {
+      "id": 135,
+      "codes": [
+        "00763.HK",
+        "00772.HK",
+        "00775.HK",
+        "00777.HK",
+        "00778.HK"
+      ],
+      "success": false
+    },
+    {
+      "id": 130,
+      "codes": [
+        "00743.HK",
+        "00751.HK",
+        "00753.HK",
+        "00754.HK",
+        "00762.HK"
+      ],
+      "execution_id": "5de492b5-47e2-4a0a-9da1-85457b5b0a36",
+      "success": true
+    },
+    {
+      "id": 150,
+      "codes": [
+        "00839.HK",
+        "00853.HK",
+        "00855.HK",
+        "00856.HK",
+        "00857.HK"
+      ],
+      "execution_id": "c45ce19e-3408-45d1-8367-021ff521f95f",
+      "success": true
+    },
+    {
+      "id": 140,
+      "codes": [
+        "00780.HK",
+        "00788.HK",
+        "00800.HK",
+        "00806.HK",
+        "00813.HK"
+      ],
+      "execution_id": "3655c5f5-e473-49d5-8e61-dd3ffd73c90c",
+      "success": true
+    },
+    {
+      "id": 155,
+      "codes": [
+        "00861.HK",
+        "00863.HK",
+        "00867.HK",
+        "00868.HK",
+        "00873.HK"
+      ],
+      "execution_id": "eb410e62-e7da-4fcb-acae-66779f22accb",
+      "success": true
+    },
+    {
+      "id": 170,
+      "codes": [
+        "00921.HK",
+        "00933.HK",
+        "00934.HK",
+        "00939.HK",
+        "00941.HK"
+      ],
+      "execution_id": "2bfca8b9-b471-41fe-bfb3-534c540f9a5b",
+      "success": true
+    },
+    {
+      "id": 185,
+      "codes": [
+        "00998.HK",
+        "00999.HK",
+        "01024.HK",
+        "01030.HK",
+        "01038.HK"
+      ],
+      "execution_id": "0fba50bb-9bef-4b94-8a2a-db6c2eb25224",
+      "success": true
+    },
+    {
+      "id": 190,
+      "codes": [
+        "01044.HK",
+        "01052.HK",
+        "01055.HK",
+        "01060.HK",
+        "01066.HK"
+      ],
+      "execution_id": "c4c81509-d19f-46b5-9c63-f4529c8c10ab",
+      "success": true
+    },
+    {
+      "id": 175,
+      "codes": [
+        "00956.HK",
+        "00960.HK",
+        "00966.HK",
+        "00968.HK",
+        "00973.HK"
+      ],
+      "execution_id": "739777f1-df3a-43a0-a77e-086df5783fb5",
+      "success": true
+    },
+    {
+      "id": 165,
+      "codes": [
+        "00906.HK",
+        "00909.HK",
+        "00914.HK",
+        "00916.HK",
+        "00917.HK"
+      ],
+      "execution_id": "5089893e-d467-4c03-833f-5a18b4b2cf50",
+      "success": true
+    },
+    {
+      "id": 160,
+      "codes": [
+        "00880.HK",
+        "00881.HK",
+        "00883.HK",
+        "00884.HK",
+        "00902.HK"
+      ],
+      "execution_id": "2734ac11-83bc-4d6b-9347-8fdd6dd35764",
+      "success": true
+    },
+    {
+      "id": 180,
+      "codes": [
+        "00975.HK",
+        "00981.HK",
+        "00990.HK",
+        "00991.HK",
+        "00992.HK"
+      ],
+      "execution_id": "d35e1819-7582-4db8-ac3f-35ba2264fa7d",
+      "success": true
+    },
+    {
+      "id": 200,
+      "codes": [
+        "01099.HK",
+        "01109.HK",
+        "01112.HK",
+        "01113.HK",
+        "01114.HK"
+      ],
+      "execution_id": "027a848f-901d-4413-ad4c-157146c53218",
+      "success": true
+    },
+    {
+      "id": 215,
+      "codes": [
+        "01177.HK",
+        "01179.HK",
+        "01186.HK",
+        "01193.HK",
+        "01196.HK"
+      ],
+      "execution_id": "2d4fc825-549d-45be-ba97-e5166aeb418a",
+      "success": true
+    },
+    {
+      "id": 195,
+      "codes": [
+        "01070.HK",
+        "01071.HK",
+        "01083.HK",
+        "01088.HK",
+        "01093.HK"
+      ],
+      "execution_id": "da0ecb73-ecfc-4d08-9180-d980a4d8a2c1",
+      "success": true
+    },
+    {
+      "id": 205,
+      "codes": [
+        "01117.HK",
+        "01119.HK",
+        "01128.HK",
+        "01137.HK",
+        "01138.HK"
+      ],
+      "execution_id": "427ac57f-ddb0-411a-95f6-d871bc85cbdf",
+      "success": true
+    },
+    {
+      "id": 210,
+      "codes": [
+        "01157.HK",
+        "01164.HK",
+        "01167.HK",
+        "01171.HK",
+        "01176.HK"
+      ],
+      "execution_id": "e7342b5c-2d17-4c0b-9ba4-646e866d9b0b",
+      "success": true
+    },
+    {
+      "id": 235,
+      "codes": [
+        "01308.HK",
+        "01310.HK",
+        "01313.HK",
+        "01316.HK",
+        "01318.HK"
+      ],
+      "execution_id": "3e901ce3-436f-47ba-aab5-932fd848e7c6",
+      "success": true
+    },
+    {
+      "id": 225,
+      "codes": [
+        "01244.HK",
+        "01250.HK",
+        "01258.HK",
+        "01268.HK",
+        "01274.HK"
+      ],
+      "execution_id": "6ad9dd14-b9aa-4700-91e5-213e70a8379d",
+      "success": true
+    },
+    {
+      "id": 240,
+      "codes": [
+        "01333.HK",
+        "01336.HK",
+        "01339.HK",
+        "01341.HK",
+        "01347.HK"
+      ],
+      "execution_id": "d3f9c269-8fef-4d8e-8625-6dc29c4111c0",
+      "success": true
+    },
+    {
+      "id": 220,
+      "codes": [
+        "01199.HK",
+        "01208.HK",
+        "01209.HK",
+        "01211.HK",
+        "01238.HK"
+      ],
+      "execution_id": "94b2a454-8b47-40f3-bbaf-857e6a7888d1",
+      "success": true
+    },
+    {
+      "id": 250,
+      "codes": [
+        "01378.HK",
+        "01381.HK",
+        "01384.HK",
+        "01385.HK",
+        "01398.HK"
+      ],
+      "execution_id": "76b093c7-1336-4a55-ba5f-a1067abbb7bb",
+      "success": true
+    },
+    {
+      "id": 255,
+      "codes": [
+        "01405.HK",
+        "01415.HK",
+        "01428.HK",
+        "01448.HK",
+        "01458.HK"
+      ],
+      "execution_id": "8c991b6e-08b1-4fe7-bc20-9c077dad6d4e",
+      "success": true
+    },
+    {
+      "id": 230,
+      "codes": [
+        "01276.HK",
+        "01277.HK",
+        "01288.HK",
+        "01299.HK",
+        "01302.HK"
+      ],
+      "execution_id": "b0f754bb-ecd5-4524-8738-92dabed394ae",
+      "success": true
+    },
+    {
+      "id": 245,
+      "codes": [
+        "01357.HK",
+        "01359.HK",
+        "01361.HK",
+        "01364.HK",
+        "01368.HK"
+      ],
+      "execution_id": "63d8fe7e-9b6f-4efd-8971-c8adf54e4d40",
+      "success": true
+    },
+    {
+      "id": 275,
+      "codes": [
+        "01585.HK",
+        "01600.HK",
+        "01610.HK",
+        "01658.HK",
+        "01668.HK"
+      ],
+      "execution_id": "bde6fa8d-7447-4b58-b7c0-caa6ead5dbbe",
+      "success": true
+    },
+    {
+      "id": 260,
+      "codes": [
+        "01468.HK",
+        "01475.HK",
+        "01477.HK",
+        "01478.HK",
+        "01513.HK"
+      ],
+      "execution_id": "67ff27b5-0807-4eb5-9eab-357be50bc49c",
+      "success": true
+    },
+    {
+      "id": 270,
+      "codes": [
+        "01541.HK",
+        "01548.HK",
+        "01558.HK",
+        "01563.HK",
+        "01579.HK"
+      ],
+      "execution_id": "dedbcabf-843e-4f93-bdb1-eb9bf064bccf",
+      "success": true
+    },
+    {
+      "id": 280,
+      "codes": [
+        "01675.HK",
+        "01681.HK",
+        "01686.HK",
+        "01691.HK",
+        "01698.HK"
+      ],
+      "execution_id": "e03b21a6-96d2-4a86-a602-1f3dda9237a1",
+      "success": true
+    },
+    {
+      "id": 290,
+      "codes": [
+        "01766.HK",
+        "01768.HK",
+        "01772.HK",
+        "01773.HK",
+        "01776.HK"
+      ],
+      "success": false
+    },
+    {
+      "id": 285,
+      "codes": [
+        "01709.HK",
+        "01729.HK",
+        "01735.HK",
+        "01755.HK",
+        "01765.HK"
+      ],
+      "execution_id": "f1b1b8c7-0e93-4706-a488-ee530efd2852",
+      "success": true
+    },
+    {
+      "id": 265,
+      "codes": [
+        "01515.HK",
+        "01516.HK",
+        "01519.HK",
+        "01521.HK",
+        "01530.HK"
+      ],
+      "execution_id": "d834e73d-6529-4ddb-99e0-9d6350281ca2",
+      "success": true
+    },
+    {
+      "id": 300,
+      "codes": [
+        "01798.HK",
+        "01799.HK",
+        "01800.HK",
+        "01801.HK",
+        "01810.HK"
+      ],
+      "execution_id": "1895a42f-4e7f-414e-a68b-77cf350048ef",
+      "success": true
+    },
+    {
+      "id": 310,
+      "codes": [
+        "01828.HK",
+        "01833.HK",
+        "01836.HK",
+        "01855.HK",
+        "01860.HK"
+      ],
+      "execution_id": "8577be31-4391-45f4-bc73-3c7609875e92",
+      "success": true
+    },
+    {
+      "id": 305,
+      "codes": [
+        "01811.HK",
+        "01813.HK",
+        "01816.HK",
+        "01818.HK",
+        "01821.HK"
+      ],
+      "execution_id": "fb806a85-0d1a-4ac5-b91f-eda521a9dcf9",
+      "success": true
+    },
+    {
+      "id": 315,
+      "codes": [
+        "01876.HK",
+        "01877.HK",
+        "01880.HK",
+        "01882.HK",
+        "01883.HK"
+      ],
+      "execution_id": "12385eb1-1543-4997-96a0-6f4dcc2b668d",
+      "success": true
+    },
+    {
+      "id": 295,
+      "codes": [
+        "01783.HK",
+        "01787.HK",
+        "01788.HK",
+        "01789.HK",
+        "01797.HK"
+      ],
+      "execution_id": "dea5c67d-3f85-49e7-a23a-f37c15e8e0cf",
+      "success": true
+    },
+    {
+      "id": 320,
+      "codes": [
+        "01888.HK",
+        "01890.HK",
+        "01896.HK",
+        "01898.HK",
+        "01907.HK"
+      ],
+      "execution_id": "40190aa7-6620-4e49-8c5c-8eaa33fe41df",
+      "success": true
+    },
+    {
+      "id": 325,
+      "codes": [
+        "01908.HK",
+        "01910.HK",
+        "01913.HK",
+        "01918.HK",
+        "01919.HK"
+      ],
+      "execution_id": "b4d97076-d933-498a-bcde-d670053f866e",
+      "success": true
+    },
+    {
+      "id": 350,
+      "codes": [
+        "02020.HK",
+        "02026.HK",
+        "02038.HK",
+        "02039.HK",
+        "02050.HK"
+      ],
+      "execution_id": "2844f3cb-d9e5-425e-bfcb-a3539c70a68c",
+      "success": true
+    },
+    {
+      "id": 355,
+      "codes": [
+        "02057.HK",
+        "02096.HK",
+        "02097.HK",
+        "02099.HK",
+        "02105.HK"
+      ],
+      "execution_id": "360ae05d-86c8-41a2-be6e-3552a5577ec3",
+      "success": true
+    },
+    {
+      "id": 330,
+      "codes": [
+        "01921.HK",
+        "01928.HK",
+        "01929.HK",
+        "01942.HK",
+        "01951.HK"
+      ],
+      "execution_id": "9eae9a4f-c8cf-41cd-9038-5bee9c668bff",
+      "success": true
+    },
+    {
+      "id": 335,
+      "codes": [
+        "01952.HK",
+        "01958.HK",
+        "01963.HK",
+        "01969.HK",
+        "01972.HK"
+      ],
+      "execution_id": "eb29c9d1-af32-439e-8c70-45715462bda1",
+      "success": true
+    },
+    {
+      "id": 360,
+      "codes": [
+        "02121.HK",
+        "02128.HK",
+        "02137.HK",
+        "02138.HK",
+        "02145.HK"
+      ],
+      "execution_id": "ff43d72b-1ba1-487d-ae67-7ec6bc99e204",
+      "success": true
+    },
+    {
+      "id": 365,
+      "codes": [
+        "02150.HK",
+        "02155.HK",
+        "02157.HK",
+        "02158.HK",
+        "02160.HK"
+      ],
+      "execution_id": "832fb919-a06c-46b2-8b27-2c153f6449fa",
+      "success": true
+    },
+    {
+      "id": 345,
+      "codes": [
+        "02007.HK",
+        "02013.HK",
+        "02015.HK",
+        "02016.HK",
+        "02018.HK"
+      ],
+      "execution_id": "b24c168a-36c9-4fb3-a4fd-752ad3f3eb32",
+      "success": true
+    },
+    {
+      "id": 370,
+      "codes": [
+        "02162.HK",
+        "02169.HK",
+        "02171.HK",
+        "02172.HK",
+        "02186.HK"
+      ],
+      "execution_id": "928228db-edb5-4f0a-98d3-be6243a5e440",
+      "success": true
+    },
+    {
+      "id": 385,
+      "codes": [
+        "02257.HK",
+        "02259.HK",
+        "02268.HK",
+        "02269.HK",
+        "02273.HK"
+      ],
+      "execution_id": "dd95aa83-3b8e-4b3d-a637-db467c822cc9",
+      "success": true
+    },
+    {
+      "id": 340,
+      "codes": [
+        "01988.HK",
+        "01992.HK",
+        "01997.HK",
+        "01999.HK",
+        "02005.HK"
+      ],
+      "execution_id": "b9766a74-d5a8-48a9-8c15-6ffd3e6c4768",
+      "success": true
+    },
+    {
+      "id": 395,
+      "codes": [
+        "02313.HK",
+        "02314.HK",
+        "02318.HK",
+        "02319.HK",
+        "02328.HK"
+      ],
+      "execution_id": "cc2ca4d5-5618-46c7-b9d3-437dd03d0001",
+      "success": true
+    },
+    {
+      "id": 390,
+      "codes": [
+        "02276.HK",
+        "02279.HK",
+        "02282.HK",
+        "02285.HK",
+        "02291.HK"
+      ],
+      "execution_id": "45ad3371-8642-40a4-8e27-76b3e73d6f30",
+      "success": true
+    },
+    {
+      "id": 380,
+      "codes": [
+        "02232.HK",
+        "02233.HK",
+        "02238.HK",
+        "02252.HK",
+        "02255.HK"
+      ],
+      "execution_id": "ef16323d-38b4-42fa-9725-3dc12a64738b",
+      "success": true
+    },
+    {
+      "id": 375,
+      "codes": [
+        "02192.HK",
+        "02196.HK",
+        "02202.HK",
+        "02208.HK",
+        "02228.HK"
+      ],
+      "execution_id": "e5c92228-159a-4ac1-9c7d-6a71983d0338",
+      "success": true
+    },
+    {
+      "id": 400,
+      "codes": [
+        "02331.HK",
+        "02333.HK",
+        "02338.HK",
+        "02343.HK",
+        "02356.HK"
+      ],
+      "execution_id": "4a7114b9-39a0-44c0-a066-daba2e0a8221",
+      "success": true
+    },
+    {
+      "id": 410,
+      "codes": [
+        "02380.HK",
+        "02382.HK",
+        "02386.HK",
+        "02388.HK",
+        "02390.HK"
+      ],
+      "execution_id": "ba0542a4-b4fc-499e-afe4-7ed436e8261b",
+      "success": true
+    },
+    {
+      "id": 420,
+      "codes": [
+        "02416.HK",
+        "02419.HK",
+        "02423.HK",
+        "02429.HK",
+        "02431.HK"
+      ],
+      "execution_id": "738d9a50-6563-4f11-a427-5edcfd96ba16",
+      "success": true
+    },
+    {
+      "id": 405,
+      "codes": [
+        "02357.HK",
+        "02359.HK",
+        "02362.HK",
+        "02367.HK",
+        "02378.HK"
+      ],
+      "execution_id": "6d004347-6f63-44b3-a923-bf881885ec4c",
+      "success": true
+    },
+    {
+      "id": 415,
+      "codes": [
+        "02400.HK",
+        "02407.HK",
+        "02410.HK",
+        "02411.HK",
+        "02415.HK"
+      ],
+      "execution_id": "cba6dec5-c081-4b82-a007-1bebadeadc72",
+      "success": true
+    },
+    {
+      "id": 425,
+      "codes": [
+        "02432.HK",
+        "02443.HK",
+        "02453.HK",
+        "02460.HK",
+        "02469.HK"
+      ],
+      "execution_id": "c120fa5f-109f-4c55-b08c-7921269f01e6",
+      "success": true
+    },
+    {
+      "id": 430,
+      "codes": [
+        "02473.HK",
+        "02477.HK",
+        "02487.HK",
+        "02498.HK",
+        "02500.HK"
+      ],
+      "execution_id": "e4e6d92f-0dcc-4ad0-9ec1-ff2ea665acc5",
+      "success": true
+    },
+    {
+      "id": 445,
+      "codes": [
+        "02555.HK",
+        "02556.HK",
+        "02562.HK",
+        "02563.HK",
+        "02565.HK"
+      ],
+      "execution_id": "1d05dd76-786c-4bf7-a301-638975de9804",
+      "success": true
+    },
+    {
+      "id": 435,
+      "codes": [
+        "02506.HK",
+        "02507.HK",
+        "02510.HK",
+        "02511.HK",
+        "02513.HK"
+      ],
+      "execution_id": "37166d68-d821-414a-8b47-7fe6ac56efa7",
+      "success": true
+    },
+    {
+      "id": 450,
+      "codes": [
+        "02570.HK",
+        "02575.HK",
+        "02577.HK",
+        "02580.HK",
+        "02582.HK"
+      ],
+      "execution_id": "5749b21e-1ac3-450c-a164-0e2cfe86eac0",
+      "success": true
+    },
+    {
+      "id": 440,
+      "codes": [
+        "02517.HK",
+        "02522.HK",
+        "02525.HK",
+        "02533.HK",
+        "02550.HK"
+      ],
+      "execution_id": "3ca0022f-9f5e-4b61-9b93-169915f030bc",
+      "success": true
+    },
+    {
+      "id": 455,
+      "codes": [
+        "02583.HK",
+        "02586.HK",
+        "02587.HK",
+        "02588.HK",
+        "02589.HK"
+      ],
+      "execution_id": "023430ba-b38f-41c2-aaa6-d13e843dfeaf",
+      "success": true
+    },
+    {
+      "id": 465,
+      "codes": [
+        "02602.HK",
+        "02607.HK",
+        "02609.HK",
+        "02610.HK",
+        "02611.HK"
+      ],
+      "execution_id": "0cf60504-87c3-4206-a7c9-fc32d7d17a61",
+      "success": true
+    },
+    {
+      "id": 460,
+      "codes": [
+        "02590.HK",
+        "02591.HK",
+        "02595.HK",
+        "02600.HK",
+        "02601.HK"
+      ],
+      "execution_id": "9ce6b3cf-c297-4647-82a2-fcae11ac43dc",
+      "success": true
+    },
+    {
+      "id": 475,
+      "codes": [
+        "02629.HK",
+        "02635.HK",
+        "02637.HK",
+        "02638.HK",
+        "02643.HK"
+      ],
+      "success": false
+    },
+    {
+      "id": 470,
+      "codes": [
+        "02616.HK",
+        "02617.HK",
+        "02618.HK",
+        "02627.HK",
+        "02628.HK"
+      ],
+      "execution_id": "b2de0da3-af19-42ac-92ee-41c0beabe713",
+      "success": true
+    },
+    {
+      "id": 490,
+      "codes": [
+        "02678.HK",
+        "02685.HK",
+        "02687.HK",
+        "02688.HK",
+        "02689.HK"
+      ],
+      "execution_id": "c15b2a40-0c1a-4f58-b8e7-f7a09f892dbf",
+      "success": true
+    },
+    {
+      "id": 495,
+      "codes": [
+        "02698.HK",
+        "02706.HK",
+        "02718.HK",
+        "02727.HK",
+        "02777.HK"
+      ],
+      "execution_id": "93a6db37-5c94-46ea-adbd-18892f56dba2",
+      "success": true
+    },
+    {
+      "id": 500,
+      "codes": [
+        "02778.HK",
+        "02788.HK",
+        "02799.HK",
+        "02858.HK",
+        "02869.HK"
+      ],
+      "success": false
+    },
+    {
+      "id": 480,
+      "codes": [
+        "02650.HK",
+        "02652.HK",
+        "02655.HK",
+        "02656.HK",
+        "02659.HK"
+      ],
+      "execution_id": "f070deb9-1adb-440b-9cc0-d2902faac67c",
+      "success": true
+    },
+    {
+      "id": 485,
+      "codes": [
+        "02661.HK",
+        "02665.HK",
+        "02666.HK",
+        "02669.HK",
+        "02675.HK"
+      ],
+      "execution_id": "4674712f-7d13-428c-a7a0-bae669fd1a94",
+      "success": true
+    },
+    {
+      "id": 505,
+      "codes": [
+        "02877.HK",
+        "02883.HK",
+        "02888.HK",
+        "02889.HK",
+        "02899.HK"
+      ],
+      "execution_id": "f5762a1d-cfaa-4cce-aa19-a573816e1a7f",
+      "success": true
+    },
+    {
+      "id": 510,
+      "codes": [
+        "03288.HK",
+        "03306.HK",
+        "03309.HK",
+        "03311.HK",
+        "03317.HK"
+      ],
+      "execution_id": "d5508d66-69e9-4006-a8b6-c0492a3d8d13",
+      "success": true
+    },
+    {
+      "id": 515,
+      "codes": [
+        "03319.HK",
+        "03320.HK",
+        "03323.HK",
+        "03328.HK",
+        "03330.HK"
+      ],
+      "execution_id": "d669d0df-5924-4b4e-8e02-9a783206012a",
+      "success": true
+    },
+    {
+      "id": 520,
+      "codes": [
+        "03331.HK",
+        "03339.HK",
+        "03347.HK",
+        "03360.HK",
+        "03377.HK"
+      ],
+      "execution_id": "31203653-4737-41d8-932f-4e085c3ab78b",
+      "success": true
+    },
+    {
+      "id": 525,
+      "codes": [
+        "03380.HK",
+        "03383.HK",
+        "03393.HK",
+        "03396.HK",
+        "03606.HK"
+      ],
+      "execution_id": "dd09484f-dd4c-492d-9400-b19d40cc55bf",
+      "success": true
+    },
+    {
+      "id": 530,
+      "codes": [
+        "03613.HK",
+        "03618.HK",
+        "03633.HK",
+        "03650.HK",
+        "03660.HK"
+      ],
+      "execution_id": "9d2e15c8-2ba1-4d62-a026-58d167a2ae5a",
+      "success": true
+    },
+    {
+      "id": 545,
+      "codes": [
+        "03759.HK",
+        "03800.HK",
+        "03808.HK",
+        "03858.HK",
+        "03868.HK"
+      ],
+      "execution_id": "5c5759c5-7ede-49ec-9145-9261a7722120",
+      "success": true
+    },
+    {
+      "id": 535,
+      "codes": [
+        "03668.HK",
+        "03669.HK",
+        "03677.HK",
+        "03690.HK",
+        "03692.HK"
+      ],
+      "execution_id": "b4b8e970-75e0-4ec1-b916-96cd04ead1c2",
+      "success": true
+    },
+    {
+      "id": 540,
+      "codes": [
+        "03696.HK",
+        "03698.HK",
+        "03709.HK",
+        "03738.HK",
+        "03750.HK"
+      ],
+      "execution_id": "2ae9598e-8b1a-46e1-93b8-8a0401cffcad",
+      "success": true
+    },
+    {
+      "id": 550,
+      "codes": [
+        "03877.HK",
+        "03881.HK",
+        "03887.HK",
+        "03888.HK",
+        "03896.HK"
+      ],
+      "execution_id": "780fc06d-1c70-4083-a05e-96e90a7ac4bb",
+      "success": true
+    },
+    {
+      "id": 570,
+      "codes": [
+        "06030.HK",
+        "06031.HK",
+        "06049.HK",
+        "06055.HK",
+        "06060.HK"
+      ],
+      "execution_id": "425c498f-3630-4c73-a9a7-1d05225c1fa5",
+      "success": true
+    },
+    {
+      "id": 575,
+      "codes": [
+        "06066.HK",
+        "06069.HK",
+        "06078.HK",
+        "06082.HK",
+        "06086.HK"
+      ],
+      "execution_id": "38af0d35-160b-429f-9185-2b74b09c8937",
+      "success": true
+    },
+    {
+      "id": 585,
+      "codes": [
+        "06110.HK",
+        "06160.HK",
+        "06168.HK",
+        "06181.HK",
+        "06185.HK"
+      ],
+      "execution_id": "e408e0de-7126-4808-afdd-54ce9e3085a1",
+      "success": true
+    },
+    {
+      "id": 590,
+      "codes": [
+        "06186.HK",
+        "06600!AB.HK",
+        "06600.HK",
+        "06603.HK",
+        "06606.HK"
+      ],
+      "execution_id": "190f6530-d257-45a2-ba6d-93c4b114d5b5",
+      "success": true
+    },
+    {
+      "id": 595,
+      "codes": [
+        "06608.HK",
+        "06610.HK",
+        "06616.HK",
+        "06618.HK",
+        "06623.HK"
+      ],
+      "execution_id": "1d7c5ada-a275-49aa-b13b-6f31d8b8d57b",
+      "success": true
+    },
+    {
+      "id": 555,
+      "codes": [
+        "03898.HK",
+        "03899.HK",
+        "03900.HK",
+        "03908.HK",
+        "03918.HK"
+      ],
+      "execution_id": "27628176-7160-4dd6-9237-b49471bffaac",
+      "success": true
+    },
+    {
+      "id": 560,
+      "codes": [
+        "03931.HK",
+        "03933.HK",
+        "03939.HK",
+        "03968.HK",
+        "03969.HK"
+      ],
+      "execution_id": "de215475-5923-411a-8858-a1a831d04486",
+      "success": true
+    },
+    {
+      "id": 565,
+      "codes": [
+        "03988.HK",
+        "03990.HK",
+        "03993.HK",
+        "03996.HK",
+        "03998.HK"
+      ],
+      "execution_id": "2dd30bf9-b938-4bc7-b573-8e7801b19f56",
+      "success": true
+    },
+    {
+      "id": 580,
+      "codes": [
+        "06088.HK",
+        "06090.HK",
+        "06098.HK",
+        "06099.HK",
+        "06100.HK"
+      ],
+      "execution_id": "201bc591-9d94-4b8d-8d8b-ed1f219318ff",
+      "success": true
+    },
+    {
+      "id": 625,
+      "codes": [
+        "06955.HK",
+        "06963.HK",
+        "06969.HK",
+        "06979.HK",
+        "06990.HK"
+      ],
+      "execution_id": "7cdd21bd-8bc1-4c4c-869d-844b0d45b059",
+      "success": true
+    },
+    {
+      "id": 605,
+      "codes": [
+        "06681.HK",
+        "06682.HK",
+        "06683.HK",
+        "06687.HK",
+        "06689.HK"
+      ],
+      "execution_id": "f473a23d-a919-44f1-a337-43e802ab46ce",
+      "success": true
+    },
+    {
+      "id": 615,
+      "codes": [
+        "06823.HK",
+        "06837.HK",
+        "06855.HK",
+        "06862.HK",
+        "06865.HK"
+      ],
+      "success": false
+    },
+    {
+      "id": 630,
+      "codes": [
+        "06993.HK",
+        "07618.HK",
+        "09606.HK",
+        "09618.HK",
+        "09626.HK"
+      ],
+      "execution_id": "cd17ce65-d2b7-46df-adf5-576989712124",
+      "success": true
+    },
+    {
+      "id": 600,
+      "codes": [
+        "06639.HK",
+        "06651.HK",
+        "06655.HK",
+        "06660.HK",
+        "06666.HK"
+      ],
+      "execution_id": "90465106-f376-472c-9ea1-635935c32d80",
+      "success": true
+    },
+    {
+      "id": 610,
+      "codes": [
+        "06690.HK",
+        "06698.HK",
+        "06699.HK",
+        "06808.HK",
+        "06818.HK"
+      ],
+      "execution_id": "acaa9763-924a-4256-a572-b058a348de91",
+      "success": true
+    },
+    {
+      "id": 645,
+      "codes": [
+        "09688.HK",
+        "09690.HK",
+        "09696.HK",
+        "09698.HK",
+        "09699.HK"
+      ],
+      "execution_id": "5b1101f6-2e52-486f-a943-72f7c9ffe2da",
+      "success": true
+    },
+    {
+      "id": 620,
+      "codes": [
+        "06869.HK",
+        "06878.HK",
+        "06881.HK",
+        "06886.HK",
+        "06929.HK"
+      ],
+      "execution_id": "fbd6c9a2-b1aa-470d-a85b-aa7fdbfd5e9e",
+      "success": true
+    },
+    {
+      "id": 635,
+      "codes": [
+        "09633.HK",
+        "09636.HK",
+        "09638.HK",
+        "09658.HK",
+        "09660.HK"
+      ],
+      "execution_id": "ce9c7d40-c646-4bae-ba97-b10bb1ce760a",
+      "success": true
+    },
+    {
+      "id": 660,
+      "codes": [
+        "09885.HK",
+        "09886.HK",
+        "09887.HK",
+        "09888.HK",
+        "09890.HK"
+      ],
+      "execution_id": "a4e556c3-5484-42e0-8568-ff2e6edb7a94",
+      "success": true
+    },
+    {
+      "id": 650,
+      "codes": [
+        "09857.HK",
+        "09858.HK",
+        "09860.HK",
+        "09863.HK",
+        "09866.HK"
+      ],
+      "execution_id": "7ccc1ccf-9073-49fe-8570-05ff203691c3",
+      "success": true
+    },
+    {
+      "id": 640,
+      "codes": [
+        "09666.HK",
+        "09668.HK",
+        "09669.HK",
+        "09676.HK",
+        "09678.HK"
+      ],
+      "execution_id": "6e7773de-7d0e-4ff0-a910-9a10169dc3cc",
+      "success": true
+    },
+    {
+      "id": 665,
+      "codes": [
+        "09896.HK",
+        "09898.HK",
+        "09899.HK",
+        "09901.HK",
+        "09903.HK"
+      ],
+      "execution_id": "eb217a11-ca6e-472a-a0a9-3c2e675ea7c1",
+      "success": true
+    },
+    {
+      "id": 655,
+      "codes": [
+        "09868.HK",
+        "09869.HK",
+        "09877.HK",
+        "09878.HK",
+        "09880.HK"
+      ],
+      "execution_id": "14b8f451-0c93-4236-b76e-04a8c6c7ae48",
+      "success": true
+    },
+    {
+      "id": 670,
+      "codes": [
+        "09911.HK",
+        "09922.HK",
+        "09923.HK",
+        "09926.HK",
+        "09927.HK"
+      ],
+      "execution_id": "455e1be5-1cb8-4b94-b952-71d82edf291a",
+      "success": true
+    },
+    {
+      "id": 675,
+      "codes": [
+        "09930.HK",
+        "09939.HK",
+        "09955.HK",
+        "09956.HK",
+        "09959.HK"
+      ],
+      "execution_id": "14756891-2e4e-4f5d-92db-620f0d217e2b",
+      "success": true
+    },
+    {
+      "id": 680,
+      "codes": [
+        "09961.HK",
+        "09966.HK",
+        "09969.HK",
+        "09973.HK",
+        "09979.HK"
+      ],
+      "execution_id": "2072a531-65b7-47e0-b433-0dd311c05acc",
+      "success": true
+    },
+    {
+      "id": 685,
+      "codes": [
+        "09985.HK",
+        "09987.HK",
+        "09988.HK",
+        "09992.HK",
+        "09993.HK"
+      ],
+      "execution_id": "3e0880f4-9159-4768-963b-51a594ffbad5",
+      "success": true
+    },
+    {
+      "id": 690,
+      "codes": [
+        "09995.HK",
+        "09996.HK",
+        "09997.HK",
+        "09999.HK",
+        null
+      ],
+      "execution_id": "6aeb1005-51ee-4ab2-a06e-1b1928eacb6e",
+      "success": true
+    }
+  ],
+  "price_individual": [
+    {
+      "code": "00392.HK",
+      "success": true,
+      "execution_id": "e58e37db-aac9-44d9-8567-a4c095b68cf9"
+    },
+    {
+      "code": "00390.HK",
+      "success": true,
+      "execution_id": "e0f5fc7e-144c-4f4c-bb59-e6a5869914f1"
+    },
+    {
+      "code": "00388.HK",
+      "success": true,
+      "execution_id": "800cafb7-2155-44f7-acc5-b1c7e461e46e"
+    },
+    {
+      "code": "00410.HK",
+      "success": true,
+      "execution_id": "43fe6463-7bf3-459f-97c8-4b13a461cb84"
+    },
+    {
+      "code": "00817.HK",
+      "success": true,
+      "execution_id": "bc8691fd-416d-4dbd-a7b0-80f03da7124e"
+    },
+    {
+      "code": "00819.HK",
+      "success": true,
+      "execution_id": "c7ebb486-8d5c-4ba8-aaad-ffd12b512539"
+    },
+    {
+      "code": "00826.HK",
+      "success": true,
+      "execution_id": "c1580579-344c-40e4-b179-9ca51c03bb2f"
+    },
+    {
+      "code": "00836.HK",
+      "success": true,
+      "execution_id": "84bdb5b5-f611-4b43-9204-d7b0a5aaf47a"
+    },
+    {
+      "code": "00763.HK",
+      "success": true,
+      "execution_id": "6b7a85b6-1c9b-4a59-99b2-98b92e63ded7"
+    },
+    {
+      "code": "00775.HK",
+      "success": true,
+      "execution_id": "1a88c4ed-20ef-43e5-91fe-cf0521d61c8a"
+    },
+    {
+      "code": "00772.HK",
+      "success": true,
+      "execution_id": "b6994660-68c2-4bf6-b3e0-020620d49f72"
+    },
+    {
+      "code": "00777.HK",
+      "success": true,
+      "execution_id": "c6d6dcfd-4964-43d5-9c93-5b8d5dd63df5"
+    },
+    {
+      "code": "01766.HK",
+      "success": true,
+      "execution_id": "c0b6315f-750e-45e4-9d47-35ed65fc64c1"
+    },
+    {
+      "code": "01772.HK",
+      "success": true,
+      "execution_id": "35afc47b-b2b3-4dc7-8b7b-6f676d5e422d"
+    },
+    {
+      "code": "01773.HK",
+      "success": true,
+      "execution_id": "712bd60a-9377-473d-bcfc-ad27a43f33c8"
+    },
+    {
+      "code": "01776.HK",
+      "success": true,
+      "execution_id": "f8d8fe85-d432-4cce-ae29-5bcffb21a1f0"
+    },
+    {
+      "code": "02629.HK",
+      "success": true,
+      "execution_id": "2b37fc2c-8db6-40e0-8c53-493637534bee"
+    },
+    {
+      "code": "02635.HK",
+      "success": true,
+      "execution_id": "8e1b928a-3550-4363-a4fb-f3bf8a212687"
+    },
+    {
+      "code": "02637.HK",
+      "success": true,
+      "execution_id": "825d510d-adfd-4c87-a98e-4977bcee13f2"
+    },
+    {
+      "code": "02643.HK",
+      "success": true,
+      "execution_id": "7db16e24-141b-4a76-9b5c-86fde3d213e8"
+    },
+    {
+      "code": "02788.HK",
+      "success": true,
+      "execution_id": "8e3f9735-89a8-4147-8d37-019ea5a98331"
+    },
+    {
+      "code": "02799.HK",
+      "success": true,
+      "execution_id": "574cad25-f15e-4ed9-8cdd-1061ef2a2a9f"
+    },
+    {
+      "code": "02858.HK",
+      "success": true,
+      "execution_id": "7d32eaae-165a-4085-a907-16fc364ec19e"
+    },
+    {
+      "code": "02869.HK",
+      "success": true,
+      "execution_id": "39b198bb-3517-4ce3-8535-976bf6b887fd"
+    },
+    {
+      "code": "06837.HK",
+      "success": false,
+      "error": "操作成功 The call did not return valid data. Please verify the request parameters against this tool's parameter definitions and try again."
+    },
+    {
+      "code": "06855.HK",
+      "success": true,
+      "execution_id": "33afe27b-df9e-45f0-9e58-4a80d7190f1a"
+    },
+    {
+      "code": "06862.HK",
+      "success": true,
+      "execution_id": "c149d7a4-2f93-48bd-8e05-43387ba778c2"
+    },
+    {
+      "code": "06865.HK",
+      "success": true,
+      "execution_id": "a3ba207e-3cab-439a-b9fa-d5f4babb6910"
+    }
+  ],
+  "special_securities": [
+    "18b9989a-3b7e-4dd0-b5a1-eebf7e14ad29",
+    "ed260320-0f04-4a36-aa24-6993dda89d01"
+  ],
+  "valuation_batches": [
+    {
+      "id": 0,
+      "codes": [
+        "00010.HK",
+        "00011.HK",
+        "00014.HK",
+        "00020.HK",
+        "00023.HK"
+      ],
+      "execution_id": "561c78e9-2316-41f2-b1b7-947643e47c62",
+      "success": true
+    },
+    {
+      "id": 20,
+      "codes": [
+        "00272.HK",
+        "00290.HK",
+        "00297.HK",
+        "00302.HK",
+        "00314.HK"
+      ],
+      "execution_id": "acc848cf-a1c0-4b69-a194-26dd75b7f32e",
+      "success": true
+    },
+    {
+      "id": 5,
+      "codes": [
+        "00041.HK",
+        "00069.HK",
+        "00081.HK",
+        "00095.HK",
+        "00119.HK"
+      ],
+      "execution_id": "010ffae3-82df-45c4-b71a-c21e5e41afc3",
+      "success": true
+    },
+    {
+      "id": 25,
+      "codes": [
+        "00317.HK",
+        "00325.HK",
+        "00327.HK",
+        "00338.HK",
+        "00341.HK"
+      ],
+      "execution_id": "236ecf09-ace3-4f69-bb2d-528c4898d019",
+      "success": true
+    },
+    {
+      "id": 10,
+      "codes": [
+        "00120.HK",
+        "00123.HK",
+        "00135.HK",
+        "00142.HK",
+        "00151.HK"
+      ],
+      "execution_id": "47226eb7-e997-4507-a151-0af41213e8ce",
+      "success": true
+    },
+    {
+      "id": 15,
+      "codes": [
+        "00179.HK",
+        "00200.HK",
+        "00256.HK",
+        "00257.HK",
+        "00270.HK"
+      ],
+      "execution_id": "ea345b18-01e1-4ece-97bb-6444328cd27e",
+      "success": true
+    },
+    {
+      "id": 30,
+      "codes": [
+        "00354.HK",
+        "00363.HK",
+        "00371.HK",
+        "00392.HK",
+        "00405.HK"
+      ],
+      "execution_id": "bc7f7f6e-4489-4c00-bd42-d15870ca0f31",
+      "success": true
+    },
+    {
+      "id": 35,
+      "codes": [
+        "00410.HK",
+        "00412.HK",
+        "00440.HK",
+        "00460.HK",
+        "00489.HK"
+      ],
+      "execution_id": "5d805417-7738-4701-a0ac-388e5f8f8335",
+      "success": true
+    },
+    {
+      "id": 45,
+      "codes": [
+        "00552.HK",
+        "00558.HK",
+        "00581.HK",
+        "00587.HK",
+        "00650.HK"
+      ],
+      "execution_id": "6ebb7112-c98d-488a-bfa2-8775a0f5eee8",
+      "success": true
+    },
+    {
+      "id": 50,
+      "codes": [
+        "00656.HK",
+        "00658.HK",
+        "00665.HK",
+        "00666.HK",
+        "00670.HK"
+      ],
+      "execution_id": "0e9d7397-8d0b-4060-a2b2-b188be2c4a0f",
+      "success": true
+    },
+    {
+      "id": 40,
+      "codes": [
+        "00493.HK",
+        "00506.HK",
+        "00512.HK",
+        "00520.HK",
+        "00535.HK"
+      ],
+      "execution_id": "4179cdec-4c08-4f6d-9310-2f5c6d97b941",
+      "success": true
+    },
+    {
+      "id": 60,
+      "codes": [
+        "00777.HK",
+        "00778.HK",
+        "00780.HK",
+        "00788.HK",
+        "00806.HK"
+      ],
+      "execution_id": "47992274-424b-412c-bd9c-8db4c98be04f",
+      "success": true
+    },
+    {
+      "id": 65,
+      "codes": [
+        "00813.HK",
+        "00817.HK",
+        "00819.HK",
+        "00823.HK",
+        "00826.HK"
+      ],
+      "execution_id": "af76c620-b68c-4575-b12d-b0cfbca7d2ec",
+      "success": true
+    },
+    {
+      "id": 55,
+      "codes": [
+        "00683.HK",
+        "00710.HK",
+        "00743.HK",
+        "00763.HK",
+        "00772.HK"
+      ],
+      "execution_id": "e462fab8-25b4-4d81-985f-cfd62374b698",
+      "success": true
+    },
+    {
+      "id": 80,
+      "codes": [
+        "00933.HK",
+        "00956.HK",
+        "00973.HK",
+        "00975.HK",
+        "00999.HK"
+      ],
+      "execution_id": "74740179-518a-4bf0-afd9-d06c12e225b1",
+      "success": true
+    },
+    {
+      "id": 70,
+      "codes": [
+        "00853.HK",
+        "00861.HK",
+        "00873.HK",
+        "00880.HK",
+        "00884.HK"
+      ],
+      "execution_id": "bfc5c476-b32a-49c0-9bd6-da77cd54ea64",
+      "success": true
+    },
+    {
+      "id": 75,
+      "codes": [
+        "00902.HK",
+        "00906.HK",
+        "00909.HK",
+        "00914.HK",
+        "00917.HK"
+      ],
+      "execution_id": "3e8fb3da-8b02-4fae-9715-49ca46b5fb90",
+      "success": true
+    },
+    {
+      "id": 90,
+      "codes": [
+        "01112.HK",
+        "01119.HK",
+        "01137.HK",
+        "01164.HK",
+        "01167.HK"
+      ],
+      "execution_id": "091b77a1-01d2-4ce0-87f0-99ac8f90d2b8",
+      "success": true
+    },
+    {
+      "id": 85,
+      "codes": [
+        "01030.HK",
+        "01066.HK",
+        "01070.HK",
+        "01071.HK",
+        "01083.HK"
+      ],
+      "execution_id": "7bdcf08d-a69a-489b-a576-4e84b5821567",
+      "success": true
+    },
+    {
+      "id": 95,
+      "codes": [
+        "01176.HK",
+        "01179.HK",
+        "01193.HK",
+        "01196.HK",
+        "01199.HK"
+      ],
+      "execution_id": "af0674d2-02a9-4334-90b6-920b3dd5a403",
+      "success": true
+    },
+    {
+      "id": 110,
+      "codes": [
+        "01313.HK",
+        "01316.HK",
+        "01333.HK",
+        "01341.HK",
+        "01357.HK"
+      ],
+      "execution_id": "ccacd42b-4538-45ae-b31e-9947e9b5b8a3",
+      "success": true
+    },
+    {
+      "id": 100,
+      "codes": [
+        "01238.HK",
+        "01244.HK",
+        "01250.HK",
+        "01258.HK",
+        "01268.HK"
+      ],
+      "execution_id": "bee75834-cb3a-4dea-bebc-11ab2f1da151",
+      "success": true
+    },
+    {
+      "id": 105,
+      "codes": [
+        "01274.HK",
+        "01276.HK",
+        "01288.HK",
+        "01302.HK",
+        "01310.HK"
+      ],
+      "execution_id": "143dcd70-53d7-435a-9cc3-db00cb35d1c8",
+      "success": true
+    },
+    {
+      "id": 120,
+      "codes": [
+        "01415.HK",
+        "01458.HK",
+        "01468.HK",
+        "01477.HK",
+        "01513.HK"
+      ],
+      "execution_id": "2012f286-9b92-4ba1-97ec-f16f1198cdec",
+      "success": true
+    },
+    {
+      "id": 115,
+      "codes": [
+        "01361.HK",
+        "01364.HK",
+        "01381.HK",
+        "01385.HK",
+        "01405.HK"
+      ],
+      "execution_id": "8ccf42b7-e611-40cf-9e73-702928841249",
+      "success": true
+    },
+    {
+      "id": 125,
+      "codes": [
+        "01515.HK",
+        "01516.HK",
+        "01521.HK",
+        "01530.HK",
+        "01541.HK"
+      ],
+      "execution_id": "04a75dea-538c-4175-8d7d-ecc991321c05",
+      "success": true
+    },
+    {
+      "id": 130,
+      "codes": [
+        "01548.HK",
+        "01558.HK",
+        "01563.HK",
+        "01585.HK",
+        "01600.HK"
+      ],
+      "execution_id": "15539c8e-22b7-4e49-96e8-cf6b48f54fb4",
+      "success": true
+    },
+    {
+      "id": 135,
+      "codes": [
+        "01610.HK",
+        "01658.HK",
+        "01668.HK",
+        "01675.HK",
+        "01691.HK"
+      ],
+      "execution_id": "2489f1eb-cb87-4a71-b07d-a3a24d092ff8",
+      "success": true
+    },
+    {
+      "id": 140,
+      "codes": [
+        "01709.HK",
+        "01729.HK",
+        "01735.HK",
+        "01755.HK",
+        "01765.HK"
+      ],
+      "execution_id": "629bb2e4-f662-41e1-8a5e-e857c613dd2e",
+      "success": true
+    },
+    {
+      "id": 145,
+      "codes": [
+        "01766.HK",
+        "01772.HK",
+        "01773.HK",
+        "01783.HK",
+        "01799.HK"
+      ],
+      "execution_id": "ab443a00-1d65-44ca-94b5-ddcc20701d9b",
+      "success": true
+    },
+    {
+      "id": 155,
+      "codes": [
+        "01833.HK",
+        "01855.HK",
+        "01877.HK",
+        "01882.HK",
+        "01890.HK"
+      ],
+      "execution_id": "98905935-58f1-4363-98ce-72fab384af1e",
+      "success": true
+    },
+    {
+      "id": 150,
+      "codes": [
+        "01800.HK",
+        "01813.HK",
+        "01816.HK",
+        "01821.HK",
+        "01828.HK"
+      ],
+      "execution_id": "b4bad805-ac23-4b14-bbac-b2cc342b75ef",
+      "success": true
+    },
+    {
+      "id": 160,
+      "codes": [
+        "01910.HK",
+        "01918.HK",
+        "01942.HK",
+        "01958.HK",
+        "01969.HK"
+      ],
+      "execution_id": "340d9d44-9671-406e-b79b-419e11ab6a3a",
+      "success": true
+    },
+    {
+      "id": 170,
+      "codes": [
+        "02016.HK",
+        "02039.HK",
+        "02050.HK",
+        "02097.HK",
+        "02105.HK"
+      ],
+      "execution_id": "e8ce2449-038a-4b22-8e75-0cf7a84a4921",
+      "success": true
+    },
+    {
+      "id": 165,
+      "codes": [
+        "01972.HK",
+        "01992.HK",
+        "01999.HK",
+        "02005.HK",
+        "02013.HK"
+      ],
+      "execution_id": "943f321d-5d8e-444f-8362-23bfc6c270a9",
+      "success": true
+    },
+    {
+      "id": 175,
+      "codes": [
+        "02121.HK",
+        "02137.HK",
+        "02138.HK",
+        "02150.HK",
+        "02155.HK"
+      ],
+      "execution_id": "88a84086-96dd-4077-823c-3a05ad14e32a",
+      "success": true
+    },
+    {
+      "id": 180,
+      "codes": [
+        "02158.HK",
+        "02160.HK",
+        "02169.HK",
+        "02171.HK",
+        "02172.HK"
+      ],
+      "execution_id": "00d9038a-6b2e-430e-8464-a7a4e932a51d",
+      "success": true
+    },
+    {
+      "id": 190,
+      "codes": [
+        "02238.HK",
+        "02255.HK",
+        "02257.HK",
+        "02268.HK",
+        "02273.HK"
+      ],
+      "execution_id": "f65d780f-0aa3-4d0e-b9a8-40a8e5e7c8c0",
+      "success": true
+    },
+    {
+      "id": 185,
+      "codes": [
+        "02192.HK",
+        "02196.HK",
+        "02228.HK",
+        "02232.HK",
+        "02233.HK"
+      ],
+      "execution_id": "cc5e3690-5102-494f-924b-9cfc757e0e1d",
+      "success": true
+    },
+    {
+      "id": 195,
+      "codes": [
+        "02276.HK",
+        "02279.HK",
+        "02282.HK",
+        "02285.HK",
+        "02291.HK"
+      ],
+      "execution_id": "51569757-b664-4b0b-a75c-400ce4cae8ae",
+      "success": true
+    },
+    {
+      "id": 205,
+      "codes": [
+        "02390.HK",
+        "02407.HK",
+        "02410.HK",
+        "02411.HK",
+        "02415.HK"
+      ],
+      "execution_id": "21134903-012f-4987-a67f-9ee802badaca",
+      "success": true
+    },
+    {
+      "id": 210,
+      "codes": [
+        "02416.HK",
+        "02423.HK",
+        "02429.HK",
+        "02431.HK",
+        "02443.HK"
+      ],
+      "execution_id": "1668394f-2ef4-4e93-a4bf-0f3301629fc2",
+      "success": true
+    },
+    {
+      "id": 200,
+      "codes": [
+        "02314.HK",
+        "02343.HK",
+        "02356.HK",
+        "02378.HK",
+        "02386.HK"
+      ],
+      "execution_id": "45b67a6d-fe3d-4347-99d8-2e434938c1c7",
+      "success": true
+    },
+    {
+      "id": 215,
+      "codes": [
+        "02453.HK",
+        "02460.HK",
+        "02469.HK",
+        "02473.HK",
+        "02477.HK"
+      ],
+      "execution_id": "03e57c69-934a-4a72-beb2-3f3920747cd0",
+      "success": true
+    },
+    {
+      "id": 220,
+      "codes": [
+        "02487.HK",
+        "02498.HK",
+        "02500.HK",
+        "02507.HK",
+        "02511.HK"
+      ],
+      "execution_id": "4653dfc6-0097-44c3-bb91-1af04c8be410",
+      "success": true
+    },
+    {
+      "id": 230,
+      "codes": [
+        "02556.HK",
+        "02562.HK",
+        "02563.HK",
+        "02565.HK",
+        "02570.HK"
+      ],
+      "execution_id": "18011578-2be6-43bb-950c-7df77eb0955a",
+      "success": true
+    },
+    {
+      "id": 225,
+      "codes": [
+        "02513.HK",
+        "02517.HK",
+        "02522.HK",
+        "02533.HK",
+        "02550.HK"
+      ],
+      "execution_id": "ac6e4695-0641-49fd-9b3e-dfc56c65ec2f",
+      "success": true
+    },
+    {
+      "id": 235,
+      "codes": [
+        "02577.HK",
+        "02582.HK",
+        "02583.HK",
+        "02586.HK",
+        "02587.HK"
+      ],
+      "execution_id": "e89f3c2c-9adf-41f3-84b0-6ead2c8ec110",
+      "success": true
+    },
+    {
+      "id": 245,
+      "codes": [
+        "02602.HK",
+        "02609.HK",
+        "02610.HK",
+        "02611.HK",
+        "02617.HK"
+      ],
+      "execution_id": "81bb3843-7571-46f7-9b59-ce7f77b9268c",
+      "success": true
+    },
+    {
+      "id": 250,
+      "codes": [
+        "02629.HK",
+        "02635.HK",
+        "02637.HK",
+        "02638.HK",
+        "02643.HK"
+      ],
+      "execution_id": "fe7c33fb-0974-4ce7-b271-836a9a82cbc3",
+      "success": true
+    },
+    {
+      "id": 240,
+      "codes": [
+        "02588.HK",
+        "02589.HK",
+        "02590.HK",
+        "02591.HK",
+        "02601.HK"
+      ],
+      "execution_id": "a60bfc03-64ad-44ee-9bd9-ef070b52009d",
+      "success": true
+    },
+    {
+      "id": 255,
+      "codes": [
+        "02650.HK",
+        "02652.HK",
+        "02655.HK",
+        "02656.HK",
+        "02661.HK"
+      ],
+      "execution_id": "710cdaeb-c41e-4704-8778-d50c1d03a782",
+      "success": true
+    },
+    {
+      "id": 260,
+      "codes": [
+        "02665.HK",
+        "02666.HK",
+        "02669.HK",
+        "02675.HK",
+        "02678.HK"
+      ],
+      "execution_id": "c8b9fc8e-9a31-4f8e-92d1-ecb3d1d8137e",
+      "success": true
+    },
+    {
+      "id": 265,
+      "codes": [
+        "02685.HK",
+        "02687.HK",
+        "02698.HK",
+        "02727.HK",
+        "02777.HK"
+      ],
+      "execution_id": "f181a5a8-aa50-4daf-b576-6ade1f6f2087",
+      "success": true
+    },
+    {
+      "id": 270,
+      "codes": [
+        "02778.HK",
+        "02788.HK",
+        "02858.HK",
+        "02869.HK",
+        "02877.HK"
+      ],
+      "execution_id": "5ece1a1f-5e57-48e2-8058-833a75ec9cc9",
+      "success": true
+    },
+    {
+      "id": 275,
+      "codes": [
+        "02889.HK",
+        "03288.HK",
+        "03306.HK",
+        "03309.HK",
+        "03319.HK"
+      ],
+      "execution_id": "1de97071-5482-4a13-87f1-a187f4fc5fd1",
+      "success": true
+    },
+    {
+      "id": 285,
+      "codes": [
+        "03650.HK",
+        "03669.HK",
+        "03677.HK",
+        "03698.HK",
+        "03709.HK"
+      ],
+      "execution_id": "1e48f66d-b2d3-43d1-9475-7ba82a6c6d62",
+      "success": true
+    },
+    {
+      "id": 280,
+      "codes": [
+        "03331.HK",
+        "03377.HK",
+        "03383.HK",
+        "03396.HK",
+        "03633.HK"
+      ],
+      "execution_id": "fd949623-3f8e-4402-8128-76ab91ab8603",
+      "success": true
+    },
+    {
+      "id": 290,
+      "codes": [
+        "03738.HK",
+        "03759.HK",
+        "03800.HK",
+        "03808.HK",
+        "03868.HK"
+      ],
+      "execution_id": "172b64d4-2a04-4e3d-9072-da682179d755",
+      "success": true
+    },
+    {
+      "id": 295,
+      "codes": [
+        "03877.HK",
+        "03881.HK",
+        "03898.HK",
+        "03899.HK",
+        "03918.HK"
+      ],
+      "execution_id": "6e99e5d1-ae2f-4026-a864-030aac026392",
+      "success": true
+    },
+    {
+      "id": 305,
+      "codes": [
+        "06049.HK",
+        "06060.HK",
+        "06082.HK",
+        "06086.HK",
+        "06090.HK"
+      ],
+      "execution_id": "59fdfa45-4c97-4170-8a15-d443ea63ac1a",
+      "success": true
+    },
+    {
+      "id": 300,
+      "codes": [
+        "03931.HK",
+        "03939.HK",
+        "03990.HK",
+        "03996.HK",
+        "06030.HK"
+      ],
+      "execution_id": "44bd7859-192d-4294-ac50-5d537549fd5d",
+      "success": true
+    },
+    {
+      "id": 310,
+      "codes": [
+        "06098.HK",
+        "06100.HK",
+        "06185.HK",
+        "06600!AB.HK",
+        "06600.HK"
+      ],
+      "execution_id": "2c0e5ebf-b982-4c0d-bb62-726cb9707829",
+      "success": true
+    },
+    {
+      "id": 315,
+      "codes": [
+        "06603.HK",
+        "06606.HK",
+        "06608.HK",
+        "06610.HK",
+        "06623.HK"
+      ],
+      "execution_id": "e2971423-8f56-48d2-91ed-614ff7b978b5",
+      "success": true
+    },
+    {
+      "id": 325,
+      "codes": [
+        "06681.HK",
+        "06683.HK",
+        "06689.HK",
+        "06698.HK",
+        "06699.HK"
+      ],
+      "execution_id": "fe5b1ea2-a1fd-45a5-88eb-80e0c20e64a3",
+      "success": true
+    },
+    {
+      "id": 330,
+      "codes": [
+        "06808.HK",
+        "06837.HK",
+        "06865.HK",
+        "06869.HK",
+        "06878.HK"
+      ],
+      "execution_id": "d1357c1a-6c60-4921-b9d3-b57141dc3459",
+      "success": true
+    },
+    {
+      "id": 320,
+      "codes": [
+        "06639.HK",
+        "06651.HK",
+        "06655.HK",
+        "06660.HK",
+        "06666.HK"
+      ],
+      "execution_id": "5178324c-0237-42c2-8c10-b8916ed4134e",
+      "success": true
+    },
+    {
+      "id": 335,
+      "codes": [
+        "06929.HK",
+        "06955.HK",
+        "06963.HK",
+        "09606.HK",
+        "09626.HK"
+      ],
+      "execution_id": "40a7e840-3997-4192-bb2b-0bf87a1b8fff",
+      "success": true
+    },
+    {
+      "id": 340,
+      "codes": [
+        "09638.HK",
+        "09658.HK",
+        "09660.HK",
+        "09666.HK",
+        "09669.HK"
+      ],
+      "execution_id": "5f5e844b-a886-4d97-a403-a190d385c3ea",
+      "success": true
+    },
+    {
+      "id": 345,
+      "codes": [
+        "09676.HK",
+        "09678.HK",
+        "09688.HK",
+        "09698.HK",
+        "09699.HK"
+      ],
+      "execution_id": "629d4a93-f9db-4877-8e5e-d05d8cf429d0",
+      "success": true
+    },
+    {
+      "id": 350,
+      "codes": [
+        "09857.HK",
+        "09860.HK",
+        "09863.HK",
+        "09869.HK",
+        "09877.HK"
+      ],
+      "execution_id": "e26c39bb-3632-4ff6-99ef-d86b67711b61",
+      "success": true
+    },
+    {
+      "id": 355,
+      "codes": [
+        "09878.HK",
+        "09885.HK",
+        "09886.HK",
+        "09890.HK",
+        "09896.HK"
+      ],
+      "execution_id": "1ef40e78-1f8d-4642-9ad2-95dc87e13b6b",
+      "success": true
+    },
+    {
+      "id": 360,
+      "codes": [
+        "09922.HK",
+        "09923.HK",
+        "09926.HK",
+        "09930.HK",
+        "09939.HK"
+      ],
+      "execution_id": "22ff5529-14f2-46b1-9360-c9183f6d1293",
+      "success": true
+    },
+    {
+      "id": 370,
+      "codes": [
+        "09987.HK",
+        "09993.HK",
+        "09995.HK",
+        "09996.HK",
+        "09997.HK"
+      ],
+      "execution_id": "f314f471-91be-4720-8b94-3fd47ef7fa17",
+      "success": true
+    },
+    {
+      "id": 365,
+      "codes": [
+        "09955.HK",
+        "09956.HK",
+        "09959.HK",
+        "09969.HK",
+        "09979.HK"
+      ],
+      "execution_id": "29d9f265-57e0-4751-83c8-28cda6fd9994",
+      "success": true
+    }
+  ],
+  "delisted_history": {
+    "execution_id": "08183a88-f4ec-42a9-8ae8-4e146a31182d",
+    "start": "2021-12-01",
+    "end": "2026-09-08",
+    "stocks": 15,
+    "provider": "QVeris / iFinD"
+  }
+}

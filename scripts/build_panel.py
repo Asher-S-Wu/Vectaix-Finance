@@ -13,7 +13,9 @@ valdir = data_dir(market) / "raw/valuations"
 
 # 1) 行情合并
 frames = []
-for f in sorted(glob.glob(f"{pxdir}/batch_*.csv")):
+price_files = (sorted((data_dir(market) / 'raw/qveris_prices').glob('*.csv'))
+               if is_hk else sorted(glob.glob(f"{pxdir}/batch_*.csv")))
+for f in price_files:
     d = pd.read_csv(f, dtype={"wind_code": str})
     frames.append(d)
 px = pd.concat(frames).drop_duplicates(["trade_date", "wind_code"])
@@ -32,9 +34,10 @@ if is_hk:
     close, amt, vol = (frame.reindex(dates) for frame in (close, amt, vol))
     close.index.name = amt.index.name = vol.index.name = "trade_date"
 
-# 剔除数据严重不足的股票(<300个交易日)
-enough = ((close > 0) & (amt > 0) & (vol > 0)).sum() >= 300 if is_hk else close.notna().sum() >= 300
-close, amt, vol = close.loc[:, enough], amt.loc[:, enough], vol.loc[:, enough]
+# 港股按每个历史季度检查两年行情，面板不按全时期样本数删列。
+if not is_hk:
+    enough = close.notna().sum() >= 300
+    close, amt, vol = close.loc[:, enough], amt.loc[:, enough], vol.loc[:, enough]
 print("有效股票:", close.shape[1])
 
 # 2) 估值: 半月频采样 asof 对齐到交易日

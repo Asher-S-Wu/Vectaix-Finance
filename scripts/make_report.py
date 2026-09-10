@@ -100,7 +100,7 @@ MARKETS = {
         "name": "港股", "currency": "港元", "benchmark": "恒生价格指数",
         "replay_key": "hk", "replay_dir": "backtests/hk/qveris",
         "replay_file": "backtests/hk/qveris/replay_summary.json",
-        "scoring": "预测分数与52周高点因子分别标准化后，按1与0.5混合，再将本期与该股上次有效月度混合分数各取一半，等权选取前15只。上期分数读取当时模型留存结果。",
+        "scoring": "在当季合格股票池内，预测分数与52周高点因子分别标准化后按1与0.5混合，再将本期与上一个月的混合分数各取一半，等权选取前15只。缺少上月分数的股票不入选。",
         "data_note": "港股行情已按交易日历及核实的证券实体边界清理；计算日期由生成名单时明确指定。",
         "valuation_note": "港股记录中的无成交持仓均有当日有效报价，使用当日报价估值；零成交量没有被当作缺失价格。",
         "factor_note": "downside_vol 已修复并参与当前港股模型训练，28项因子都有历史 IC 统计。",
@@ -126,6 +126,9 @@ def read_market(market):
     bt, metrics, latest, ic = load(market)
     panel = pd.read_pickle(data_dir(market) / "processed/prices.pkl", compression="gzip" if market == "a" else None)
     signals = pd.read_csv(model_dir(market) / "signals.csv", dtype={"code": str}, parse_dates=["date"])
+    if market == 'hk2':
+        return dict(cfg=cfg, bt=bt, metrics=metrics, latest=latest, ic=ic, panel=panel,
+                    signals=signals, date=signals['date'].iloc[0])
     replay = json.loads((BASE / cfg["replay_file"]).read_text())
     replay_market = replay["markets"][cfg["replay_key"]]
     for account in replay_market["scenarios"].values():
@@ -164,7 +167,52 @@ def account_table(data):
     ])
 
 
+def hk_section(data):
+    audit = pd.read_csv(data_dir('hk2') / 'reference/universe_audit.csv')
+    picks = markdown_table(['排名', '股票代码', '名称', '分数', '目标权重'], [
+        [r['rank'], r['code'], r['name'], f"{r['score']:.4f}", f"{r['target_weight']:.2%}"]
+        for r in data['signals'].head(15).to_dict('records')
+    ])
+    metrics, latest = data['metrics'], data['latest']
+    return f"""## 港股
+
+### 股票池与数据
+
+以当季度恒生综合指数名单为基础，按上一季度末的数据筛选，最多保留500只。要求至少两年且480个有效交易日的行情，近60个交易日日均成交额不低于1000万港元；评分当天还需有成交且因子齐全。
+
+当前指数名单有{len(audit)}条记录，{int(audit.selected.sum())}只满足季度筛选条件，{len(data['signals'])}只具备完整评分条件，实际组合为15只、每只目标权重6.67%。历史行情面板覆盖{data['panel']['close'].shape[1]}只股票，包括已调出指数的股票。
+
+行情来自QVeris，使用复权收盘价与实际成交额。历史季度名单覆盖2023年末至2026年二季度；新方案从2024年开始评价，首个预测月份用于分数平滑。更早行情用于当时已知候选股的训练。个别历史证券及两条缺少代码的指数记录仍有数据缺口，未用其他股票代替。
+
+评分规则：{data['cfg']['scoring']}
+
+### 新股票池回测
+
+信号区间为{data['bt'].index.min():%Y-%m-%d}至{data['bt'].index.max():%Y-%m-%d}，共{len(data['bt'])}个完整持有期。累计收益{metrics['total_return_top']:.2%}，复合年化收益{metrics['compound_annual_return_top']:.2%}，月度端点最大回撤{metrics['max_dd_top']:.2%}。最近12个月累计收益{latest['total_return_top']:.2%}。
+
+每月等权调整15只持仓，费用按换手比例乘以双边0.3%估算。买卖端点没有成交量时不确认该笔收益。这是持有期端点回测，尚未对新名单重跑逐日订单及整手成交模拟。
+
+{assessment(metrics)}
+
+{metrics_table('hk2', metrics, latest)}
+
+![港股月度回测净值]({REPORTS / 'equity_hk.png'})
+
+### 最新15只模型持仓
+
+计算日期：{data['date']:%Y-%m-%d}。分数表示模型排序，不是预期收益率。
+
+{picks}
+
+### 数据与完整名单
+
+{file_link('data/hk/reference/universe_eligible.csv', '当前可评分股票')}、{file_link('data/hk/reference/universe_audit.csv', '筛选及缺口明细')}、{file_link('models/hk/signals.csv', '完整评分')}、{file_link('backtests/hk/targets.csv', '历史持仓')}。
+"""
+
+
 def market_section(market, data):
+    if market == 'hk2':
+        return hk_section(data)
     cfg, account, replay_market = data["cfg"], data["account"], data["replay_market"]
     signals, ic, signal_day = data["signals"], data["ic"], data["date"]
     panel = data["panel"]
@@ -278,11 +326,9 @@ for label, value in [
     ("选股计算日期", lambda d: f"{d['date']:%Y-%m-%d}"),
     ("有分数的股票数量", lambda d: str(len(d['signals']))),
     ("组合持股数", lambda d: str(TOPN[d['signals']['market'].iloc[0]])),
-    ("QVeris回放区间", lambda d: f"{d['replay_market']['start_date']} — {d['replay_market']['end_date']}"),
-    ("QVeris复合年化收益", lambda d: f"{d['account']['cagr']:.2%}"),
-    ("QVeris每日最大回撤", lambda d: f"{d['account']['max_drawdown']:.2%}"),
-    ("账户执行数据缺项", lambda d: str(d['replay']['execution_gap_count'])),
-    ("理想等权比较缺失端点", lambda d: str(d['replay']['ideal_endpoint_gap_count'])),
+    ("月度回测信号区间", lambda d: f"{d['bt'].index.min():%Y-%m-%d} — {d['bt'].index.max():%Y-%m-%d}"),
+    ("月度回测复合年化收益", lambda d: f"{(1 + d['bt'].r_top).prod() ** (12 / len(d['bt'])) - 1:.2%}"),
+    ("月度端点最大回撤", lambda d: f"{d['metrics']['max_dd_top']:.2%}"),
     ("现有门槛", lambda d: assessment(d['metrics'])),
 ]:
     summary_rows.append([label, *[value(data) for data in results.values()]])
@@ -291,21 +337,21 @@ parts = [f"""# A股与港股多因子量化模型报告
 
 生成时间：{pd.Timestamp.now():%Y-%m-%d %H:%M:%S}
 
-quant_model 是同时支持A股和港股的一套量化系统。两个市场共用因子计算、训练、预测、回测评价和报告模板，各自使用对应市场训练好的模型。本次同步展示内容及选股日期，现用模型没有重新训练。
+quant_model 同时支持A股和港股。港股使用按季度筛选的新股票池并已重新训练；A股使用其现有模型。
 
 ## 双市场概览
 
 {summary}
 
-收益和回撤均来自各自现存区间的 QVeris 逐日成交模拟，买卖每边各0.15%综合费用；区间、股票池、币种和基准见各市场章节。两组区间起点不同，不能仅凭上表认定哪个市场模型更强。
+上表统一展示月度持有期端点回测，区间和股票池不同。A股章节另列原有逐日成交模拟；港股章节展示新股票池的回测结果。
 
 ## 共用计算与阅读口径
 
-两市场均展示模型与数据、成交账户、费用敏感性、月度回测与门槛、前10名选股、前10项因子、文件与使用，字段及顺序相同。A股前30只、港股前15只及各自评分规则沿用已验证的组合设置。
+两市场均展示月度回测与现有评价门槛。A股持仓30只，港股持仓15只。
 
 选股名单统一包含计算日期、市场、排名、股票代码、名称、最终分数、是否入选和目标权重。以下名单是现在用保留的模型、截至指定日期的行情重新计算的结果，不能当作该历史日期实时发布过的信号。两边都只在指定日价格、成交量、成交额为正的股票中计算截面。
 
-成交模拟采用月末信号后首个市场交易日收盘价，先卖后买，未完成订单在本轮调仓期内继续处理；使用复权单位及股息再投资收益口径，未约束整手交易，也未单独模拟收盘竞价容量。期末持仓按市值计价，没有强制清仓。这些是模拟账户结果。股票收益含复权影响，沪深300和恒生基准均为价格指数，股息口径不同。
+A股章节的逐日成交账户采用月末信号后首个市场交易日收盘价，先卖后买；未约束整手交易，也未单独模拟收盘竞价容量。该账户的指数基准与复权股票收益的股息口径不同。
 
 月度表中“算术年化”是月平均收益或超额乘以12，不等于复合年化；“月末净值最大回撤”只查看月度端点，不等于逐日账户回撤。两个市场沿用同一套9项门槛，没有调整达标要求。全部历史和最后12个月已被查看或参与选型，不能替代新的独立检验。
 """]
@@ -316,7 +362,7 @@ parts.append(f"""## 共用文件与数据范围
 
 {file_link('scripts/factor_lib.py', '因子计算')}、{file_link('scripts/train_backtest.py', '训练')}、{file_link('scripts/predict.py', '预测')}、{file_link('scripts/rebacktest.py', '月度复算')}、{file_link('scripts/execution_replay.py', '成交模拟')}、{file_link('scripts/check_metrics.py', '指标判定')}和{file_link('scripts/make_report.py', '报告生成')}供两个市场共用。
 
-训练使用现有行情与半月频估值数据。股票池依据当前收集的股票构建，并未完整还原每一历史时点的市场成分，历史结果仍受股票池选择影响。报告直接读取保留的训练结果、回测指标和QVeris账户记录，不用当前选股名单替代历史组合。
+港股训练使用当季已知候选股的历史行情和估值数据，并按实际季度名单回测；残余历史数据缺口已披露。A股继续沿用原有股票池。报告从各自保存的历史预测和回测读取结果。
 
 更新两市场名单后，同步生成本报告及两张净值图：
 

@@ -7,6 +7,8 @@ import pandas as pd
 from factor_lib import forward_labels
 from portfolio_scores import blend_scores, smooth_scores
 from project_paths import data_dir, backtest_dir
+from hk_universe import filter_candidates, load_memberships, require_full_portfolio
+from pathlib import Path
 
 parser = argparse.ArgumentParser(description="复用 A 股或港股现用模型的历史预测生成组合回测")
 parser.add_argument("market", choices=("a", "hk2"), help="a 为 A 股，hk2 为港股")
@@ -18,7 +20,7 @@ LIQ_GATE = cfg.get("liq_gate", 0.0)
 SMOOTH = cfg.get("smooth", 0.5 if market == "hk2" else 0.0)
 COST = cfg.get("cost", 0.003)
 results = backtest_dir(market)
-results.mkdir(parents=True, exist_ok=True)
+output = Path(cfg['output_dir']) if 'output_dir' in cfg else results
 
 pred = pd.read_pickle(results / "predictions.pkl")
 
@@ -32,9 +34,29 @@ pred = pred.dropna(subset=["pred"])
 # 先处理全部可预测日期，再只评价已到卖出日的持有期。
 compression = "gzip" if market == "a" else None
 px = pd.read_pickle(data_dir(market) / "processed/prices.pkl", compression=compression)
-realized = forward_labels(px["close"])[["date", "label_end"]].drop_duplicates()
+label_prices = px['close'].where(px['amt'].gt(0) & px['volume'].gt(0)) if market == 'hk2' else px['close']
+labels = forward_labels(label_prices)
+if market == 'hk2':
+    pred = pred.drop(columns=['fwd_ret', 'label_start', 'label_end']).merge(
+        labels, on=['date', 'code'], how='left', validate='one_to_one')
+realized = labels[["date", "label_end"]].drop_duplicates()
 realized = realized.loc[realized["label_end"].le(px["close"].index[-1]), "date"]
 pred = pred[pred["date"].isin(realized)]
+if 'start_date' in cfg:
+    pred = pred[pred.date.ge(pd.Timestamp(cfg['start_date']))]
+expected_dates = set(pred.date)
+if market == 'hk2':
+    factors = pd.read_pickle(data_dir(market) / 'processed/factors.pkl')
+    features = [c for c in factors if c not in ('date', 'code')]
+    # 用原始因子检查完整性，评分仍沿用已冻结的历史预测。
+    quality_frame = factors[factors.date.isin(pred.date)]
+    eligible = filter_candidates(quality_frame, px['close'], px['amt'], px['volume'],
+                                 load_memberships(), features)
+    pred = pred.merge(eligible[['date', 'code']], on=['date', 'code'], validate='one_to_one')
+if expected_dates != set(pred.date):
+    raise ValueError(f'以下月份没有完整候选股票，不能跳过: {sorted(expected_dates - set(pred.date))}')
+if pred.empty:
+    raise ValueError('没有满足股票池规则的完整回测月份')
 
 bench = pred.groupby("date")["fwd_ret"].mean()
 recs = []
@@ -46,6 +68,7 @@ for d, g in pred.groupby("date"):
         thr = g["amt_log_20"].quantile(LIQ_GATE)
         gsel = g[g["amt_log_20"] >= thr]
     top = gsel.nlargest(TOPN, "pred")
+    require_full_portfolio(top, TOPN)
     selected = top.copy()
     selected["target_weight"] = 1.0 / TOPN
     selected["rank"] = np.arange(1, len(selected) + 1)
@@ -65,8 +88,9 @@ for d, g in pred.groupby("date"):
                  "is_holdout": bool(g["is_holdout"].iloc[0]),
                  "ic": g["pred"].corr(g["fwd_ret"], method="spearman")})
 bt = pd.DataFrame(recs).set_index("date")
-bt.to_pickle(results / "returns.pkl")
-pd.concat(selections, ignore_index=True).to_csv(results / "targets.csv", index=False)
+output.mkdir(parents=True, exist_ok=True)
+bt.to_pickle(output / "returns.pkl")
+pd.concat(selections, ignore_index=True).to_csv(output / "targets.csv", index=False)
 
 def metrics_of(sub):
     if sub["r_top"].isna().any():
@@ -90,13 +114,15 @@ def metrics_of(sub):
         "oos_months": int(n),
         "ann_ret_top": float(sub["r_top"].mean() * 12),
         "ann_ret_bench": float(sub["r_bench"].mean() * 12),
-        "max_dd_top": float((nav_t / nav_t.cummax() - 1).min()),
-        "max_dd_bench": float((nav_b / nav_b.cummax() - 1).min()),
+        "total_return_top": float(nav_t.iloc[-1] - 1),
+        "compound_annual_return_top": float(nav_t.iloc[-1] ** (12 / n) - 1),
+        "max_dd_top": float((nav_t / nav_t.cummax().clip(lower=1) - 1).min()),
+        "max_dd_bench": float((nav_b / nav_b.cummax().clip(lower=1) - 1).min()),
     }
 
 m_all = metrics_of(bt)
 m_ho = metrics_of(bt[bt["is_holdout"]])
-json.dump(m_all, open(results / "metrics.json", "w"), indent=2)
-json.dump(m_ho, open(results / "metrics_recent.json", "w"), indent=2)
+json.dump(m_all, open(output / "metrics.json", "w"), indent=2)
+json.dump(m_ho, open(output / "metrics_recent.json", "w"), indent=2)
 print(json.dumps({k: round(v, 4) if isinstance(v, float) else v for k, v in m_all.items()}, ensure_ascii=False, indent=1))
 print("最后12个月:", json.dumps(m_ho, ensure_ascii=False))

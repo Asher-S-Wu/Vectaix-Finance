@@ -27,5 +27,7 @@ def smooth_scores(scores, weight):
     out["score"] = out["base_score"]
     if weight > 0:
         previous = out.groupby("code")["base_score"].shift(1)
+        previous_date = out.groupby('code')['date'].shift(1)
+        previous = previous.where(previous_date.dt.to_period('M').eq(out.date.dt.to_period('M') - 1))
         out["score"] = (1 - weight) * out["base_score"] + weight * previous
     return out

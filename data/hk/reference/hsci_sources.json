@@ -1,0 +1,79 @@
+[
+  {
+    "as_of": "2023-12-29",
+    "index": "HSCI.HK",
+    "rows": 519,
+    "execution_id": "44cb0454-1467-410d-bf7a-0afbcd1ccce4",
+    "provider": "QVeris / Hang Seng Poly Source"
+  },
+  {
+    "as_of": "2024-03-28",
+    "index": "HSCI.HK",
+    "rows": 514,
+    "execution_id": "124ece9a-dd66-4cfa-bd3e-f55797355385",
+    "provider": "QVeris / Hang Seng Poly Source"
+  },
+  {
+    "as_of": "2024-06-28",
+    "index": "HSCI.HK",
+    "rows": 513,
+    "execution_id": "4a5bbe97-139d-4ae3-ab9e-0621a5e740aa",
+    "provider": "QVeris / Hang Seng Poly Source"
+  },
+  {
+    "as_of": "2024-09-30",
+    "index": "HSCI.HK",
+    "rows": 517,
+    "execution_id": "594108e7-69d8-49ab-ba93-94c4bdec5439",
+    "provider": "QVeris / Hang Seng Poly Source"
+  },
+  {
+    "as_of": "2024-12-31",
+    "index": "HSCI.HK",
+    "rows": 519,
+    "execution_id": "06b91ecd-93ae-4bb6-9ae9-3b18ca0c1c35",
+    "provider": "QVeris / Hang Seng Poly Source"
+  },
+  {
+    "as_of": "2025-03-31",
+    "index": "HSCI.HK",
+    "rows": 504,
+    "execution_id": "cd105cb5-9e7e-4068-ad9b-31a14fd6ac25",
+    "provider": "QVeris / Hang Seng Poly Source"
+  },
+  {
+    "as_of": "2025-06-30",
+    "index": "HSCI.HK",
+    "rows": 504,
+    "execution_id": "2a8a0523-3e02-4dbd-8afd-dc06d19dcfe1",
+    "provider": "QVeris / Hang Seng Poly Source"
+  },
+  {
+    "as_of": "2025-09-30",
+    "index": "HSCI.HK",
+    "rows": 504,
+    "execution_id": "6ec8e646-04bc-4653-af1b-95195efb1921",
+    "provider": "QVeris / Hang Seng Poly Source"
+  },
+  {
+    "as_of": "2025-12-31",
+    "index": "HSCI.HK",
+    "rows": 509,
+    "execution_id": "1760f501-7ae9-4266-8ee9-728fad0b5286",
+    "provider": "QVeris / Hang Seng Poly Source"
+  },
+  {
+    "as_of": "2026-03-31",
+    "index": "HSCI.HK",
+    "rows": 532,
+    "execution_id": "b50bfa48-02dc-48fb-98e2-4da058050635",
+    "provider": "QVeris / Hang Seng Poly Source"
+  },
+  {
+    "as_of": "2026-06-30",
+    "index": "HSCI.HK",
+    "rows": 537,
+    "execution_id": "f8cadab6-cf4a-4510-9509-52dc241647e6",
+    "provider": "QVeris / Hang Seng Poly Source"
+  }
+]
