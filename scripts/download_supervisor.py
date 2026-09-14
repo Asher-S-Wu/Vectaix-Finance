@@ -1,129 +1,118 @@
 #!/usr/bin/env python3
-"""download_supervisor.py — 双通道(Wind优先,iFinD兜底)补齐全部行情批次
-Wind: 单次全区间 3标的/批; iFinD: 3年分段. 断点续传, 限流自动退避."""
-import os, time
-from pathlib import Path
-import pandas as pd
+"""download_supervisor.py — 补齐 A 股行情批次，Wind 优先、iFinD 补充。"""
+import os
+import time
+import argparse
 from io import StringIO
-from agent_gw import AgentGwClient
-from hk_market_data import clean_hk_price_file, filter_hk_prices, hk_calendar, hk_ifind_code
+from pathlib import Path
+
+import pandas as pd
+
 from project_paths import data_dir
 
-CHUNKS = [("2015-12-01","2018-11-30"), ("2018-12-01","2021-11-30"),
-          ("2021-12-01","2024-11-30"), ("2024-12-01","2026-09-09")]
+CHUNKS = [("2015-12-01", "2018-11-30"), ("2018-12-01", "2021-11-30"),
+          ("2021-12-01", "2024-11-30"), ("2024-12-01", "2026-09-09")]
 START, END = "2015-12-01", "2026-09-09"
 
-def save_files(raw, is_hk):
-    n = 0
-    for f in (raw.get("files") or []):
-        if f.get("name") and f.get("content"):
-            os.makedirs(os.path.dirname(f["name"]), exist_ok=True)
-            if is_hk:
-                frame = pd.read_csv(StringIO(str(f["content"])), dtype={"wind_code": str})
-                filter_hk_prices(frame).to_csv(f["name"], index=False, date_format="%Y-%m-%d")
-            else:
-                with open(f["name"], "w") as fh:
-                    fh.write(str(f["content"]))
-            n += 1
-    return n
 
-def wind_batch(tickers, bp, is_hk):
-    start, end = hk_calendar()[[0, -1]].strftime("%Y-%m-%d") if is_hk else (START, END)
-    with AgentGwClient(timeout=120) as c:
-        r = c.tools.call_data_source_tool({"data_source_name":"wind","api_name":"wind_get_price",
-            "params":{"ticker":tickers,"file_path":bp,"start_date":start,"end_date":end,"price_adj":"F"}})
-        raw = r.raw
-    if raw.get("is_success"):
-        return save_files(raw, is_hk) > 0, ""
-    return False, str(raw.get("error"))[:80]
+def save_files(raw):
+    count = 0
+    for item in raw.get("files") or []:
+        if item.get("name") and item.get("content"):
+            os.makedirs(os.path.dirname(item["name"]), exist_ok=True)
+            with open(item["name"], "w", encoding="utf-8") as stream:
+                stream.write(str(item["content"]))
+            count += 1
+    return count
 
-def ifind_batch(tickers_q, bp, is_hk):
+
+def wind_batch(tickers, output):
+    from agent_gw import AgentGwClient
+    with AgentGwClient(timeout=120) as client:
+        response = client.tools.call_data_source_tool({"data_source_name": "wind", "api_name": "wind_get_price",
+            "params": {"ticker": tickers, "file_path": output, "start_date": START, "end_date": END, "price_adj": "F"}})
+    raw = response.raw
+    return (save_files(raw) > 0, "") if raw.get("is_success") else (False, str(raw.get("error"))[:80])
+
+
+def ifind_batch(tickers, output):
+    from agent_gw import AgentGwClient
     parts = []
-    chunks = CHUNKS
-    if is_hk:
-        end = hk_calendar()[-1].strftime("%Y-%m-%d")
-        chunks = [(s, min(e, end)) for s, e in CHUNKS if s <= end]
-    for (s,e) in chunks:
-        with AgentGwClient(timeout=120) as c:
-            r = c.tools.call_data_source_tool({"data_source_name":"ifind","api_name":"ifind_get_price",
-                "params":{"ticker":tickers_q,"file_path":"/tmp/_ifind_sup.csv","start_date":s,"end_date":e,"adjust":"forward"}})
-            raw = r.raw
+    for start, end in CHUNKS:
+        with AgentGwClient(timeout=120) as client:
+            response = client.tools.call_data_source_tool({"data_source_name": "ifind", "api_name": "ifind_get_price",
+                "params": {"ticker": tickers, "file_path": "/tmp/_ifind_sup.csv", "start_date": start, "end_date": end, "adjust": "forward"}})
+        raw = response.raw
         if raw.get("is_success") and raw.get("files"):
-            content = str(raw["files"][0].get("content",""))
+            content = str(raw["files"][0].get("content", ""))
             if len(content) > 100:
                 parts.append(pd.read_csv(StringIO(content)))
-        else:
-            err = str(raw.get("error"))[:80]
-            if "EMPTY_DATA" not in err:
-                return False, err
+        elif "EMPTY_DATA" not in str(raw.get("error")):
+            return False, str(raw.get("error"))[:80]
     if not parts:
         return False, "empty"
-    d = pd.concat(parts).drop_duplicates(["time","thscode"]).sort_values("time")
-    d = d.rename(columns={"time":"trade_date","thscode":"wind_code"})
-    if is_hk:
-        d["wind_code"] = d["wind_code"].map(lambda c: c.split(".")[0].zfill(5)+".HK")
-    d["trade_date"] = pd.to_datetime(d["trade_date"].astype(str).str.replace("-",""), format="%Y%m%d")
-    d["amt"] = d["volume"] * (d["open"]+d["close"])/2
-    if is_hk:
-        d = filter_hk_prices(d)
-    d[["trade_date","wind_code","open","high","low","close","volume","amt"]].to_csv(bp, index=False)
+    data = pd.concat(parts).drop_duplicates(["time", "thscode"]).sort_values("time")
+    data = data.rename(columns={"time": "trade_date", "thscode": "wind_code"})
+    data["trade_date"] = pd.to_datetime(data["trade_date"].astype(str).str.replace("-", ""), format="%Y%m%d")
+    data["amt"] = data["volume"] * (data["open"] + data["close"]) / 2
+    data[["trade_date", "wind_code", "open", "high", "low", "close", "volume", "amt"]].to_csv(output, index=False)
     return True, ""
 
-def run_market(uni_csv, outdir, is_hk):
-    uni = pd.read_csv(uni_csv, dtype=str)
-    codes = uni["windcode"].tolist()
-    batches = [(i//3, codes[i:i+3]) for i in range(0, len(codes), 3)]
-    if is_hk:
-        for bi, _ in batches:
-            path = Path(outdir) / f"batch_{bi:04d}.csv"
-            if path.exists() and path.stat().st_size > 100:
-                clean_hk_price_file(path)
-    missing = [(bi,b) for bi,b in batches
-               if not (os.path.exists(f"{outdir}/batch_{bi:04d}.csv") and os.path.getsize(f"{outdir}/batch_{bi:04d}.csv")>100)]
-    print(f"{outdir}: {len(batches)-len(missing)}/{len(batches)} 已存在, 缺 {len(missing)}", flush=True)
-    ok=fail=0
-    for bi, batch in missing:
-        bp = f"{outdir}/batch_{bi:04d}.csv"
-        tickers = ",".join(batch)
-        tickers_q = ",".join(hk_ifind_code(w) if is_hk else w for w in batch)
-        done = False
-        # 先试 Wind(单call全区间)
+
+def run_market(universe_file, output_dir):
+    universe = pd.read_csv(universe_file, dtype=str)
+    codes = universe["windcode"].tolist()
+    if any(code.endswith(".HK") for code in codes):
+        raise ValueError("旧港股行情下载已移除")
+    batches = [(index // 3, codes[index:index + 3]) for index in range(0, len(codes), 3)]
+    missing = [(index, batch) for index, batch in batches if not (os.path.exists(f"{output_dir}/batch_{index:04d}.csv") and os.path.getsize(f"{output_dir}/batch_{index:04d}.csv") > 100)]
+    print(f"{output_dir}: {len(batches) - len(missing)}/{len(batches)} 已存在, 缺 {len(missing)}", flush=True)
+    ok = fail = 0
+    for index, batch in missing:
+        output, tickers = f"{output_dir}/batch_{index:04d}.csv", ",".join(batch)
         try:
-            done, err = wind_batch(tickers, bp, is_hk)
-        except Exception as ex:
-            err = repr(ex)[:80]
+            done, error = wind_batch(tickers, output)
+        except Exception as exc:
+            done, error = False, repr(exc)[:80]
         if not done:
             time.sleep(6)
-            for att in range(3):
+            for attempt in range(3):
                 try:
-                    done, err = ifind_batch(tickers_q, bp, is_hk)
-                except Exception as ex:
-                    err = repr(ex)[:80]
-                if done: break
-                time.sleep(10*(att+1))
-        if done: ok+=1
+                    done, error = ifind_batch(tickers, output)
+                except Exception as exc:
+                    done, error = False, repr(exc)[:80]
+                if done:
+                    break
+                time.sleep(10 * (attempt + 1))
+        if done:
+            ok += 1
         else:
-            fail+=1
-            print(f"  FAIL batch {bi} {tickers} {err}", flush=True)
+            fail += 1
+            print(f"  FAIL batch {index} {tickers} {error}", flush=True)
         time.sleep(3)
-    print(f"{outdir} 本轮 ok={ok} fail={fail}", flush=True)
+    print(f"{output_dir} 本轮 ok={ok} fail={fail}", flush=True)
     return fail
 
+
+def parse_arguments(argv=None):
+    parser = argparse.ArgumentParser(
+        description="补齐 A 股行情批次；可选指定 A 股 universe.csv 和输出目录。")
+    parser.add_argument("paths", nargs="*", metavar="PATH",
+                        help="可选：<universe.csv> <outdir>")
+    args = parser.parse_args(argv)
+    if len(args.paths) not in {0, 2}:
+        parser.error("只接受两个可选位置参数：<universe.csv> <outdir>；旧 is_hk 参数已移除")
+    if not args.paths:
+        return data_dir("a") / "reference/universe.csv", data_dir("a") / "raw/prices"
+    return Path(args.paths[0]), Path(args.paths[1])
+
+
 if __name__ == "__main__":
-    import sys
-    if len(sys.argv) >= 4:  # 单市场模式: uni_csv outdir is_hk
-        uni_csv, outdir, is_hk = sys.argv[1], sys.argv[2], sys.argv[3] == "1"
-        for rnd in range(8):
-            f = run_market(uni_csv, outdir, is_hk)
-            if f == 0:
-                print("ALL COMPLETE", flush=True); break
-            print(f"轮次 {rnd+1} 结束, 剩余失败={f}, 休息90s", flush=True)
-            time.sleep(90)
-    else:
-        for rnd in range(8):  # 最多8轮补漏
-            f1 = run_market(data_dir("a") / "reference/universe.csv", data_dir("a") / "raw/prices", False)
-            f2 = run_market(data_dir("hk2") / "reference/universe.csv", data_dir("hk2") / "raw/prices", True)
-            if f1==0 and f2==0:
-                print("ALL COMPLETE", flush=True); break
-            print(f"轮次 {rnd+1} 结束, 剩余失败 a={f1} hk={f2}, 休息90s", flush=True)
-            time.sleep(90)
+    universe_file, output_dir = parse_arguments()
+    for round_number in range(8):
+        failures = run_market(universe_file, output_dir)
+        if failures == 0:
+            print("ALL COMPLETE", flush=True)
+            break
+        print(f"轮次 {round_number + 1} 结束, 剩余失败={failures}, 休息90s", flush=True)
+        time.sleep(90)

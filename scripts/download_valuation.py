@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""download_valuation.py <market:a|hk2> — akshare 百度估值历史下载(多线程)
+"""download_valuation.py a — 下载 A 股百度估值历史(多线程)
 指标: 总市值 + 市盈率(TTM) + 市净率(可选). 半月频采样, 月度模型前向填充."""
 import sys, os, time
 import warnings; warnings.filterwarnings("ignore")
@@ -9,17 +9,15 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from project_paths import data_dir
 
 market = sys.argv[1]
+if market != "a":
+    raise ValueError("旧港股估值下载已移除；本脚本仅支持 a")
 uni = pd.read_csv(data_dir(market) / "reference/universe.csv", dtype=str)
 outdir = data_dir(market) / "raw/valuations"
 os.makedirs(outdir, exist_ok=True)
 
 indicators = ["总市值", "市盈率(TTM)", "市净率"]
-if market == "a":
-    fn = ak.stock_zh_valuation_baidu
-    def code_of(w): return str(w)[:6]
-else:
-    fn = ak.stock_hk_valuation_baidu
-    def code_of(w): return str(w).split(".")[0].zfill(5)
+fn = ak.stock_zh_valuation_baidu
+def code_of(w): return str(w)[:6]
 
 codes = uni["windcode"].tolist()
 

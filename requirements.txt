@@ -4,3 +4,12 @@ scipy==1.18.1
 scikit-learn==1.9.0
 lightgbm==4.7.0
 matplotlib==3.11.1
+pyarrow==25.0.1
+fastapi==0.141.1
+uvicorn==0.52.4
+cvxpy==1.9.2
+pypdf[crypto]==6.15.0
+lxml==6.1.3
+beautifulsoup4==4.14.3
+py7zr==1.1.3
+gdown==6.2.0

@@ -1,28 +1,21 @@
 #!/usr/bin/env python3
-"""download_prices_ifind.py <universe.csv> <outdir> [hk2] — 经 iFinD 下载日K线
+"""download_prices_ifind.py <universe.csv> <outdir> — 经 iFinD 下载 A 股日K线
 3标的/批 × 3年分段, 重试, 断点续传. 输出列统一为: trade_date,wind_code,open,high,low,close,volume,amt(近似)"""
 import sys, os, time
 import pandas as pd
 from agent_gw import AgentGwClient
-from hk_market_data import clean_hk_price_file, filter_hk_prices, hk_calendar, hk_ifind_code
 
 universe_csv, outdir = sys.argv[1], sys.argv[2]
-IS_HK = len(sys.argv) > 3 and sys.argv[3] == "hk2"
 os.makedirs(outdir, exist_ok=True)
 CHUNKS = [("2015-12-01","2018-11-30"), ("2018-12-01","2021-11-30"),
           ("2021-12-01","2024-11-30"), ("2024-12-01","2026-09-09")]
-if IS_HK:
-    end = hk_calendar()[-1].strftime("%Y-%m-%d")
-    CHUNKS = [(s, min(e, end)) for s, e in CHUNKS if s <= end]
 
 uni = pd.read_csv(universe_csv, dtype=str)
 codes = uni["windcode"].tolist()
+if any(code.endswith(".HK") for code in codes):
+    raise ValueError("旧港股行情下载已移除")
 def qcode(w):
-    return hk_ifind_code(w) if IS_HK else w
-def ncode(c):  # 输出规范代码(港股5位)
-    if IS_HK and c.endswith(".HK"):
-        return c.split(".")[0].zfill(5) + ".HK"
-    return c
+    return w
 
 def batches(lst, n=3):
     for i in range(0, len(lst), n):
@@ -36,8 +29,6 @@ total = (len(codes) + 2) // 3
 for bi, batch in batches(codes):
     bp = os.path.join(outdir, f"batch_{bi:04d}.csv")
     if os.path.exists(bp) and os.path.getsize(bp) > 100:
-        if IS_HK:
-            clean_hk_price_file(bp)
         ok += 1; continue
     tickers = ",".join(qcode(w) for w in batch)
     parts = []
@@ -70,13 +61,10 @@ for bi, batch in batches(codes):
     if parts:
         d = pd.concat(parts).drop_duplicates(["time", "thscode"]).sort_values("time")
         d = d.rename(columns={"time": "trade_date", "thscode": "wind_code"})
-        d["wind_code"] = d["wind_code"].map(ncode)
         d["trade_date"] = pd.to_datetime(d["trade_date"].astype(str).str.replace("-",""), format="%Y%m%d")
         # 成交额近似 = 量 × (开+收)/2
         d["amt"] = d["volume"] * (d["open"] + d["close"]) / 2
         d = d[["trade_date","wind_code","open","high","low","close","volume","amt"]]
-        if IS_HK:
-            d = filter_hk_prices(d)
         d.to_csv(bp, index=False)
         ok += 1
     else:

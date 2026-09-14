@@ -2,3 +2,10 @@
 __pycache__/
 *.pyc
 .DS_Store
+.firecrawl/
+# Local research artifacts (large/generated)
+data/
+tmp/
+output/
+models/
+backtests/

@@ -15,7 +15,7 @@ BASE: Path
 INITIAL_CASH = 1_000_000.0
 PARTICIPATION = 0.01
 FEES = (0.0015, 0.003, 0.005)
-BENCHMARK = {'a': '000300.SH', 'hk': 'HSI.HK'}
+BENCHMARK = {'a': '000300.SH'}
 
 
 def read_json(path):
@@ -72,8 +72,6 @@ def load_tape(requests):
     tape['confirmed_nontrading'] = read_json(evidence_file) if evidence_file.exists() else []
     gaps, conflicts = [], []
     source_requests = requests + [{'id': 'benchmark_indices', 'file': 'raw/benchmark_indices.json', 'kind': 'benchmark'}]
-    if (BASE / 'raw/benchmark_hk2.json').exists():
-        source_requests.append({'id': 'benchmark_hk2', 'file': 'raw/benchmark_hk2.json', 'kind': 'benchmark'})
     for request in source_requests:
         path = BASE / request['file']
         if not path.exists():
@@ -480,13 +478,12 @@ def account_replay(market, periods, calendar, tape, fee, benchmark):
 def main():
     global BASE
     parser = argparse.ArgumentParser(description='使用已下载的 QVeris 行情复算指定市场的历史账户。')
-    parser.add_argument('--market', choices=('a', 'hk2'), required=True,
-                        help='a 为 A 股，hk2 为港股')
+    parser.add_argument('--market', choices=('a',), required=True, help='a 为 A 股')
     parser.add_argument('--directory', type=Path,
-                        help='指定行情及回放结果目录；默认使用 backtests/a/qveris 或 backtests/hk/qveris')
+                        help='指定行情及回放结果目录；默认使用 backtests/a/qveris')
     args = parser.parse_args()
     BASE = (args.directory if args.directory is not None else qveris_dir(args.market)).resolve()
-    markets = ('hk' if args.market == 'hk2' else 'a',)
+    markets = ('a',)
     requests = read_json(BASE / 'requests.json')
     requests = [request for request in requests if request['market'] == args.market]
     tape, load_gaps = load_tape(requests)
@@ -497,15 +494,12 @@ def main():
         return
     with (BASE / 'targets.csv').open() as stream:
         targets = list(csv.DictReader(stream))
-    for row in targets:
-        if row['market'] == 'hk2':
-            row['market'] = 'hk'
     gaps = []
     all_daily, all_months, all_trades, all_blocks, all_stale = [], [], [], [], []
     all_signal_exclusions = []
     ideal_months, ideal_stocks = [], []
     summary = {'status': 'complete', 'source': 'QVeris downloaded historical daily quotes; monthly target selections supplied in targets.csv',
-               'assumptions': {'initial_cash_each_market': INITIAL_CASH, 'currency': {'a': 'CNY', 'hk': 'HKD'},
+               'assumptions': {'initial_cash_each_market': INITIAL_CASH, 'currency': {'a': 'CNY'},
                                'execution': 'market-calendar T+1 closing price; fixed target units until next monthly signal',
                                'portfolio': 'fractional adjusted units, dividend-reinvestment return convention; not actual-share tax-account bookkeeping',
                                'participation_cap': PARTICIPATION, 'fees_per_side': list(FEES),
@@ -517,8 +511,7 @@ def main():
                                'selection_bias': 'target selections retain the source model universe and historical model-selection biases'},
                'markets': {}}
     for market in markets:
-        filename = 'calendar_a.json' if market == 'a' else 'calendar_hk2.json'
-        calendar = read_json(BASE / 'raw' / filename)['result']['data']['time']
+        calendar = read_json(BASE / 'raw' / 'calendar_a.json')['result']['data']['time']
         periods = period_groups([row for row in targets if row['market'] == market], calendar)
         benchmark, bench_gaps = benchmark_returns(market, periods, tape)
         ideal, stock_rows, ideal_gaps = ideal_replay(market, periods, tape, benchmark)

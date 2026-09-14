@@ -1,60 +1,34 @@
 #!/usr/bin/env python3
-"""rebacktest.py <market:a|hk2> [config_json] — 复用现用模型的已存预测重跑组合回测
-cfg: {"topn":30, "liq_gate":0.0, "smooth":0.0}  smooth=与上月预测的混合权重(0~1)"""
+"""rebacktest.py a [config_json] — 复用现用 A 股模型的已存预测重跑组合回测。"""
 import argparse, json
 import numpy as np
 import pandas as pd
 from factor_lib import forward_labels
-from portfolio_scores import blend_scores, smooth_scores
 from project_paths import data_dir, backtest_dir
-from hk_universe import filter_candidates, load_memberships, require_full_portfolio
 from pathlib import Path
 
-parser = argparse.ArgumentParser(description="复用 A 股或港股现用模型的历史预测生成组合回测")
-parser.add_argument("market", choices=("a", "hk2"), help="a 为 A 股，hk2 为港股")
+parser = argparse.ArgumentParser(description="复用 A 股现用模型的历史预测生成组合回测")
+parser.add_argument("market", choices=("a",), help="a 为 A 股")
 parser.add_argument("config_json", nargs="?", type=json.loads, default={}, help="组合参数 JSON")
 args = parser.parse_args()
 market, cfg = args.market, args.config_json
-TOPN = cfg.get("topn", 15 if market == "hk2" else 30)
+TOPN = cfg.get("topn", 30)
 LIQ_GATE = cfg.get("liq_gate", 0.0)
-SMOOTH = cfg.get("smooth", 0.5 if market == "hk2" else 0.0)
 COST = cfg.get("cost", 0.003)
 results = backtest_dir(market)
 output = Path(cfg['output_dir']) if 'output_dir' in cfg else results
 
 pred = pd.read_pickle(results / "predictions.pkl")
 
-BLEND_F = cfg.get("blend_factor", "high_52w" if market == "hk2" else None)
-BLEND_W = cfg.get("blend_w", 0.5 if market == "hk2" else 0.0)
-fac = pd.read_pickle(data_dir(market) / "processed/factors.pkl") if BLEND_F and BLEND_W else None
-pred = smooth_scores(blend_scores(pred, fac, BLEND_F, BLEND_W), SMOOTH)
-pred["pred"] = pred["score"]
-pred = pred.dropna(subset=["pred"])
 
 # 先处理全部可预测日期，再只评价已到卖出日的持有期。
-compression = "gzip" if market == "a" else None
-px = pd.read_pickle(data_dir(market) / "processed/prices.pkl", compression=compression)
-label_prices = px['close'].where(px['amt'].gt(0) & px['volume'].gt(0)) if market == 'hk2' else px['close']
-labels = forward_labels(label_prices)
-if market == 'hk2':
-    pred = pred.drop(columns=['fwd_ret', 'label_start', 'label_end']).merge(
-        labels, on=['date', 'code'], how='left', validate='one_to_one')
+px = pd.read_pickle(data_dir(market) / "processed/prices.pkl", compression="gzip")
+labels = forward_labels(px['close'])
 realized = labels[["date", "label_end"]].drop_duplicates()
 realized = realized.loc[realized["label_end"].le(px["close"].index[-1]), "date"]
 pred = pred[pred["date"].isin(realized)]
 if 'start_date' in cfg:
     pred = pred[pred.date.ge(pd.Timestamp(cfg['start_date']))]
-expected_dates = set(pred.date)
-if market == 'hk2':
-    factors = pd.read_pickle(data_dir(market) / 'processed/factors.pkl')
-    features = [c for c in factors if c not in ('date', 'code')]
-    # 用原始因子检查完整性，评分仍沿用已冻结的历史预测。
-    quality_frame = factors[factors.date.isin(pred.date)]
-    eligible = filter_candidates(quality_frame, px['close'], px['amt'], px['volume'],
-                                 load_memberships(), features)
-    pred = pred.merge(eligible[['date', 'code']], on=['date', 'code'], validate='one_to_one')
-if expected_dates != set(pred.date):
-    raise ValueError(f'以下月份没有完整候选股票，不能跳过: {sorted(expected_dates - set(pred.date))}')
 if pred.empty:
     raise ValueError('没有满足股票池规则的完整回测月份')
 
@@ -68,7 +42,6 @@ for d, g in pred.groupby("date"):
         thr = g["amt_log_20"].quantile(LIQ_GATE)
         gsel = g[g["amt_log_20"] >= thr]
     top = gsel.nlargest(TOPN, "pred")
-    require_full_portfolio(top, TOPN)
     selected = top.copy()
     selected["target_weight"] = 1.0 / TOPN
     selected["rank"] = np.arange(1, len(selected) + 1)

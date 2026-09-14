@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""train_backtest.py <market:a|hk2> [config_json]
+"""train_backtest.py a [config_json]
 多因子 walk-forward 训练 + 样本外回测 + 指标输出
 防未来函数: 信号=T月末, 成交=T+1收盘, 训练样本剔除标签实现日晚于信号日的月份(purge 1个月)
 """
@@ -11,12 +11,13 @@ from scipy import stats
 
 from project_paths import ROOT, data_dir, model_dir, backtest_dir
 from factor_lib import compute_factors, forward_labels, month_ends
-from hk_universe import load_memberships, quarterly_pool, complete_factors, require_full_portfolio
 
 
 market = sys.argv[1]
+if market != "a":
+    raise ValueError("旧港股训练已移除；本脚本仅支持 a")
 cfg = json.loads(sys.argv[2]) if len(sys.argv) > 2 else {}
-TOPN = cfg.get("topn", 15 if market == "hk2" else 30)
+TOPN = cfg.get("topn", 30)
 LIQ_GATE = cfg.get("liq_gate", 0.0)      # 流动性门槛: amt_log_20 截面分位数下限
 TRAIN_MIN = cfg.get("train_min", 48)     # 最少训练月数
 COST = cfg.get("cost", 0.003)            # 双边成本
@@ -55,8 +56,7 @@ else:
     ], ignore_index=True)
     factors = factors.merge(eligible, on=["date", "code"], how="inner")
     factors.to_pickle(processed / "factors.pkl")
-label_prices = close.where(amt.gt(0) & vol.gt(0)) if market == 'hk2' else close
-labels = forward_labels(label_prices)
+labels = forward_labels(close)
 df = factors.merge(labels, on=["date", "code"], how="left")
 FEATS = [c for c in factors.columns if c not in ("date", "code")]
 if cfg.get("feats"):
@@ -92,16 +92,10 @@ def cs_norm(g):
         g["y"] = 0.5 * stats.norm.ppf((r - 0.5) / n) + 0.5 * median_side
     return g
 
-if market != 'hk2':
-    df = pd.concat([cs_norm(g.copy()) for _, g in df.groupby("date")], ignore_index=True)
+df = pd.concat([cs_norm(g.copy()) for _, g in df.groupby("date")], ignore_index=True)
 
 dates = sorted(df["date"].unique())
 realized_dates = sorted(df.loc[df["label_end"].le(close.index[-1]), "date"].unique())
-if market == 'hk2':
-    memberships = load_memberships()
-    # 新股票池的评价期明确从 2024 年起；更早数据只用于当时已知候选股的训练。
-    dates = [d for d in dates if d >= pd.Timestamp('2024-01-01')]
-    realized_dates = [d for d in realized_dates if d >= pd.Timestamp('2024-01-01')]
 print(f"预处理后月份: {len(dates)}, 首个: {pd.Timestamp(dates[0]).date()}, 最后: {pd.Timestamp(dates[-1]).date()}")
 
 # ---------- 单因子 IC(全样本, 供参考) ----------
@@ -149,20 +143,8 @@ def sample_weights(frame, as_of):
 
 holdout_start = realized_dates[-HOLDOUT_M]
 preds = []
-quarter_frames = {}
-
-
 def training_frame(as_of):
-    if market != 'hk2':
-        return df
-    quarter = pd.Timestamp(as_of).to_period('Q')
-    if quarter not in quarter_frames:
-        pool = quarterly_pool(close, amt, vol, memberships, as_of)
-        codes = pool.loc[pool.selected, 'code']
-        frame = df[df.code.isin(codes) & df.date.le(quarter.end_time)]
-        frame = frame[complete_factors(frame, FEATS)]
-        quarter_frames[quarter] = pd.concat([cs_norm(g.copy()) for _, g in frame.groupby('date')], ignore_index=True)
-    return quarter_frames[quarter]
+    return df
 
 
 for i, dtest in enumerate(dates):
@@ -173,7 +155,6 @@ for i, dtest in enumerate(dates):
     if tr["date"].nunique() < TRAIN_MIN:
         continue
     te = current[current["date"] == dtest]
-    require_full_portfolio(te, TOPN)
     Xtr, ytr = tr[FEATS], tr["y"]
     wtr = sample_weights(tr, pd.Timestamp(dtest))
     Xte = te[FEATS]
@@ -263,7 +244,6 @@ pd.to_pickle({"model": final_model, "features": FEATS, "trained_at": str(pd.Time
               "month_balanced": MONTH_BALANCED, "data_as_of": str(close.index[-1].date()),
               "last_training_signal": str(training["date"].max().date()),
               "latest_label_end": str(training["label_end"].max().date()),
-              "universe_policy": "HSCI quarterly, max 500, 60-day amount >= HKD 10m, two-year history" if market == 'hk2' else None,
               "library_version": lgb.__version__, "selection_history": "historically tuned; not a fresh holdout"},
              open(models / "model.pkl", "wb"))
 # 特征重要性(首个seed)
