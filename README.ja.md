@@ -11,8 +11,6 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md) · **日本語** · [한국어](README.ko.md)
 
-<strong>Shuai Wu</strong> · WorldQuant Challenge Gold Level · <a href="#credentials">認定証</a>
-
 </div>
 
 Vectaix Financeは価格・売買高・市場環境に関する37項目をスコアにまとめ、毎月上位30銘柄の香港株を選びます。2024-02-01～2026-09-16の過去データによるバックテストで、小型LightGBMは手数料控除後の年率リターン **35.56%** を記録し、100万香港ドルが **222.09万香港ドル** になりました。
@@ -37,39 +35,6 @@ Vectaix Financeは価格・売買高・市場環境に関する37項目をスコ
 利益が出た割合は、**手数料控除後の損益がプラスになった決済済みポジション数**で計算します。小型モデルは891件中438件で49.16%。片道手数料0.50%の条件では年率リターンが31.41%です。モデルは模擬手数料控除後、指数は配当を含まない価格指数で手数料控除なしです。
 
 [日次の資産推移](docs/showcase/performance_curve.csv) · [4モデル・2種類の手数料条件](docs/showcase/model_comparison.csv) · [日付・条件・データ出典](docs/showcase/summary.json)
-
-<a id="credentials"></a>
-
-## 作者の認定・修了証
-
-作者の **Shuai Wu** はWorldQuant Challengeで **Gold Level** を取得し、WorldQuant Universityの応用データサイエンス、深層学習基礎、コンピュータビジョンの各Labを修了しています。
-
-<table>
-  <tr>
-    <td width="50%" align="center" valign="top">
-      <img src="docs/assets/credentials/worldquant-challenge-gold.png" width="420" alt="Shuai Wu — WorldQuant Challenge Gold Level">
-      <br><strong>WorldQuant Challenge · Gold Level</strong>
-      <br><sub>WorldQuant · ゴールドレベル達成証明</sub>
-    </td>
-    <td width="50%" align="center" valign="top">
-      <img src="docs/assets/credentials/applied-data-science.png" width="420" alt="Shuai Wu — Applied Data Science Lab">
-      <br><strong>応用データサイエンス</strong>
-      <br><sub>WorldQuant University · 2026-02-13</sub>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" align="center" valign="top">
-      <img src="docs/assets/credentials/deep-learning-fundamentals.png" width="420" alt="Shuai Wu — Deep Learning Fundamentals Lab">
-      <br><strong>深層学習基礎</strong>
-      <br><sub>WorldQuant University · 2026-09-05</sub>
-    </td>
-    <td width="50%" align="center" valign="top">
-      <img src="docs/assets/credentials/computer-vision.png" width="420" alt="Shuai Wu — Computer Vision Lab">
-      <br><strong>コンピュータビジョン</strong>
-      <br><sub>WorldQuant University · 2026-09-06</sub>
-    </td>
-  </tr>
-</table>
 
 ## 銘柄の順位を決める入力
 
@@ -195,3 +160,21 @@ python -m hk_quant.api --host 0.0.0.0 --port 8000
 ヘルスチェック以外のAPIには `X-API-Key` が必要です。ポートフォリオ提案は香港ドルで計算し、利用者の判断に向けて売買単位に合わせた注文案を返します。
 
 Zeabur DevのPython環境でデプロイします。インストールは `pip install -r requirements.txt`、起動は `python -m hk_quant.api --host 0.0.0.0 --port $PORT`。`HK_QUANT_API_KEY` を設定し、対応するデータと正式スナップショットを別途マウントします。Dockerは不要です。
+
+<a id="credentials"></a>
+
+## 作者について
+
+作者の **Shuai Wu** はWorldQuant Challengeで **Gold Level** を取得しています。
+
+<p align="center">
+  <img src="docs/assets/credentials/worldquant-challenge-gold.png" width="420" alt="Shuai Wu — WorldQuant Challenge Gold Level">
+</p>
+
+## Stars
+
+<p align="center">
+  <a href="https://github.com/Asher-S-Wu/Vectaix-Finance/stargazers">
+    <img src="https://img.shields.io/github/stars/Asher-S-Wu/Vectaix-Finance?style=for-the-badge&amp;logo=github&amp;label=Stars&amp;color=00866F" alt="GitHub Stars">
+  </a>
+</p>

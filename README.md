@@ -11,8 +11,6 @@ Multi-factor stock selection for Hong Kong equities, from scores to a trade-by-t
 
 **English** · [简体中文](README.zh-CN.md) · [日本語](README.ja.md) · [한국어](README.ko.md)
 
-<strong>Shuai Wu</strong> · WorldQuant Challenge Gold Level · <a href="#credentials">Credentials</a>
-
 </div>
 
 Vectaix Finance combines 37 price, volume, and market features to select 30 Hong Kong stocks each month. In the historical backtest from February 1, 2024 to September 16, 2026, the small LightGBM model returned **35.56% annualized after fees**, taking HK$1 million to **HK$2.22 million**.
@@ -37,39 +35,6 @@ The small model exceeded the Hang Seng Index by **16.28 percentage points annual
 The profitable-position rate counts **closed positions with positive returns after fees**: 438 of 891 for the small model, or 49.16%. At 0.50% fees per side, the model returns 31.41% annualized. Model returns deduct simulated fees; benchmarks are price indices excluding dividends and fees.
 
 [Daily wealth curves](docs/showcase/performance_curve.csv) · [Four models, two fee scenarios](docs/showcase/model_comparison.csv) · [Dates, settings, and sources](docs/showcase/summary.json)
-
-<a id="credentials"></a>
-
-## Author credentials
-
-**Shuai Wu** holds **Gold Level** in the WorldQuant Challenge and has completed WorldQuant University labs in applied data science, deep learning fundamentals, and computer vision.
-
-<table>
-  <tr>
-    <td width="50%" align="center" valign="top">
-      <img src="docs/assets/credentials/worldquant-challenge-gold.png" width="420" alt="Shuai Wu — WorldQuant Challenge Gold Level">
-      <br><strong>WorldQuant Challenge · Gold Level</strong>
-      <br><sub>WorldQuant · Certificate of accomplishment</sub>
-    </td>
-    <td width="50%" align="center" valign="top">
-      <img src="docs/assets/credentials/applied-data-science.png" width="420" alt="Shuai Wu — Applied Data Science Lab">
-      <br><strong>Applied Data Science Lab</strong>
-      <br><sub>WorldQuant University · 2026-02-13</sub>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" align="center" valign="top">
-      <img src="docs/assets/credentials/deep-learning-fundamentals.png" width="420" alt="Shuai Wu — Deep Learning Fundamentals Lab">
-      <br><strong>Deep Learning Fundamentals Lab</strong>
-      <br><sub>WorldQuant University · 2026-09-05</sub>
-    </td>
-    <td width="50%" align="center" valign="top">
-      <img src="docs/assets/credentials/computer-vision.png" width="420" alt="Shuai Wu — Computer Vision Lab">
-      <br><strong>Computer Vision Lab</strong>
-      <br><sub>WorldQuant University · 2026-09-06</sub>
-    </td>
-  </tr>
-</table>
 
 ## What goes into the ranking
 
@@ -195,3 +160,21 @@ python -m hk_quant.api --host 0.0.0.0 --port 8000
 Endpoints other than the health check require `X-API-Key`. Portfolio advice uses HKD cash and returns whole-lot order suggestions for the user to assess.
 
 Deploy with the Python runtime on Zeabur Dev. Install with `pip install -r requirements.txt` and start with `python -m hk_quant.api --host 0.0.0.0 --port $PORT`. Set `HK_QUANT_API_KEY` and mount matching data and published snapshots separately. Docker is not required.
+
+<a id="credentials"></a>
+
+## About the author
+
+**Shuai Wu** holds **Gold Level** in the WorldQuant Challenge.
+
+<p align="center">
+  <img src="docs/assets/credentials/worldquant-challenge-gold.png" width="420" alt="Shuai Wu — WorldQuant Challenge Gold Level">
+</p>
+
+## Stars
+
+<p align="center">
+  <a href="https://github.com/Asher-S-Wu/Vectaix-Finance/stargazers">
+    <img src="https://img.shields.io/github/stars/Asher-S-Wu/Vectaix-Finance?style=for-the-badge&amp;logo=github&amp;label=Stars&amp;color=00866F" alt="GitHub Stars">
+  </a>
+</p>

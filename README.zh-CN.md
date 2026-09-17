@@ -11,8 +11,6 @@
 
 [English](README.md) · **简体中文** · [日本語](README.ja.md) · [한국어](README.ko.md)
 
-<strong>Shuai Wu</strong> · WorldQuant Challenge Gold Level · <a href="#credentials">资质证书</a>
-
 </div>
 
 Vectaix Finance 将37项量价与市场特征合成选股分数，每月选取排名前30的港股。在2024-02-01～2026-09-16的历史回测中，小型 LightGBM 扣费年化收益为 **35.56%**，100万港元增至 **222.09万港元**。
@@ -37,39 +35,6 @@ Vectaix Finance 将37项量价与市场特征合成选股分数，每月选取�
 盈利持仓占比按**已平仓持仓扣费后是否盈利**统计：小型模型为438／891，即49.16%。在单边费用0.50%的压力情景下，年化收益为31.41%。模型收益已扣模拟交易费，基准采用不含分红、未扣费的价格指数。
 
 [逐日净值](docs/showcase/performance_curve.csv) · [四模型与两档费用结果](docs/showcase/model_comparison.csv) · [日期、参数和数据来源](docs/showcase/summary.json)
-
-<a id="credentials"></a>
-
-## 作者资质
-
-作者 **Shuai Wu** 获得 WorldQuant Challenge **Gold Level（金级）**，并完成 WorldQuant University 的应用数据科学、深度学习基础和计算机视觉课程。
-
-<table>
-  <tr>
-    <td width="50%" align="center" valign="top">
-      <img src="docs/assets/credentials/worldquant-challenge-gold.png" width="420" alt="Shuai Wu — WorldQuant Challenge Gold Level">
-      <br><strong>WorldQuant Challenge · Gold Level</strong>
-      <br><sub>WorldQuant · 金级成就证书</sub>
-    </td>
-    <td width="50%" align="center" valign="top">
-      <img src="docs/assets/credentials/applied-data-science.png" width="420" alt="Shuai Wu — Applied Data Science Lab">
-      <br><strong>应用数据科学</strong>
-      <br><sub>WorldQuant University · 2026-02-13</sub>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" align="center" valign="top">
-      <img src="docs/assets/credentials/deep-learning-fundamentals.png" width="420" alt="Shuai Wu — Deep Learning Fundamentals Lab">
-      <br><strong>深度学习基础</strong>
-      <br><sub>WorldQuant University · 2026-09-05</sub>
-    </td>
-    <td width="50%" align="center" valign="top">
-      <img src="docs/assets/credentials/computer-vision.png" width="420" alt="Shuai Wu — Computer Vision Lab">
-      <br><strong>计算机视觉</strong>
-      <br><sub>WorldQuant University · 2026-09-06</sub>
-    </td>
-  </tr>
-</table>
 
 ## 因子如何参与选股
 
@@ -195,3 +160,21 @@ python -m hk_quant.api --host 0.0.0.0 --port 8000
 除健康检查外，接口均需 `X-API-Key` 请求头。持仓建议以港元记账，输出整手订单建议，供使用者决策。
 
 部署使用 Zeabur Dev 的 Python运行环境，安装命令为 `pip install -r requirements.txt`，启动命令为 `python -m hk_quant.api --host 0.0.0.0 --port $PORT`。设置 `HK_QUANT_API_KEY`，并单独挂载匹配的数据和正式快照，无需 Docker。
+
+<a id="credentials"></a>
+
+## 关于作者
+
+作者 **Shuai Wu** 获得 WorldQuant Challenge **Gold Level（金级）**。
+
+<p align="center">
+  <img src="docs/assets/credentials/worldquant-challenge-gold.png" width="420" alt="Shuai Wu — WorldQuant Challenge Gold Level">
+</p>
+
+## Stars
+
+<p align="center">
+  <a href="https://github.com/Asher-S-Wu/Vectaix-Finance/stargazers">
+    <img src="https://img.shields.io/github/stars/Asher-S-Wu/Vectaix-Finance?style=for-the-badge&amp;logo=github&amp;label=Stars&amp;color=00866F" alt="GitHub Stars">
+  </a>
+</p>

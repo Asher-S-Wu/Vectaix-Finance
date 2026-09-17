@@ -11,8 +11,6 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md) · [日本語](README.ja.md) · **한국어**
 
-<strong>Shuai Wu</strong> · WorldQuant Challenge Gold Level · <a href="#credentials">인증서</a>
-
 </div>
 
 Vectaix Finance는 가격·거래량·시장 특성 37개를 점수로 합쳐 매월 상위 30개 홍콩 주식을 선정합니다. 2024-02-01~2026-09-16 과거 데이터 백테스트에서 소형 LightGBM의 비용 차감 후 연환산 수익률은 **35.56%**였으며, 100만 홍콩달러가 **222.09만 홍콩달러**가 됐습니다.
@@ -37,39 +35,6 @@ Vectaix Finance는 가격·거래량·시장 특성 37개를 점수로 합쳐 �
 수익 포지션 비율은 **청산을 마친 포지션 중 비용 차감 후 수익을 낸 비율**입니다. 소형 모델은 891개 중 438개로 49.16%입니다. 편도 비용 0.50%의 스트레스 조건에서는 연환산 수익률이 31.41%입니다. 모델에는 모의 거래 비용이 반영됐으며, 지수는 배당을 제외한 가격 지수로 비용을 차감하지 않았습니다.
 
 [일별 자산 곡선](docs/showcase/performance_curve.csv) · [네 모델과 두 비용 조건](docs/showcase/model_comparison.csv) · [기간·조건·출처](docs/showcase/summary.json)
-
-<a id="credentials"></a>
-
-## 작성자 인증 및 수료 이력
-
-작성자 **Shuai Wu**는 WorldQuant Challenge **Gold Level**을 달성하고, WorldQuant University의 응용 데이터 과학, 딥러닝 기초, 컴퓨터 비전 Lab을 수료했습니다.
-
-<table>
-  <tr>
-    <td width="50%" align="center" valign="top">
-      <img src="docs/assets/credentials/worldquant-challenge-gold.png" width="420" alt="Shuai Wu — WorldQuant Challenge Gold Level">
-      <br><strong>WorldQuant Challenge · Gold Level</strong>
-      <br><sub>WorldQuant · 골드 레벨 달성 인증서</sub>
-    </td>
-    <td width="50%" align="center" valign="top">
-      <img src="docs/assets/credentials/applied-data-science.png" width="420" alt="Shuai Wu — Applied Data Science Lab">
-      <br><strong>응용 데이터 과학</strong>
-      <br><sub>WorldQuant University · 2026-02-13</sub>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" align="center" valign="top">
-      <img src="docs/assets/credentials/deep-learning-fundamentals.png" width="420" alt="Shuai Wu — Deep Learning Fundamentals Lab">
-      <br><strong>딥러닝 기초</strong>
-      <br><sub>WorldQuant University · 2026-09-05</sub>
-    </td>
-    <td width="50%" align="center" valign="top">
-      <img src="docs/assets/credentials/computer-vision.png" width="420" alt="Shuai Wu — Computer Vision Lab">
-      <br><strong>컴퓨터 비전</strong>
-      <br><sub>WorldQuant University · 2026-09-06</sub>
-    </td>
-  </tr>
-</table>
 
 ## 종목 순위를 만드는 입력
 
@@ -195,3 +160,21 @@ python -m hk_quant.api --host 0.0.0.0 --port 8000
 상태 확인 외의 API는 `X-API-Key` 헤더가 필요합니다. 포트폴리오 제안은 홍콩달러로 계산하며, 사용자가 판단할 수 있도록 매매 단위에 맞춘 주문 제안을 반환합니다.
 
 Zeabur Dev의 Python 환경에 배포합니다. 설치 명령은 `pip install -r requirements.txt`, 시작 명령은 `python -m hk_quant.api --host 0.0.0.0 --port $PORT`입니다. `HK_QUANT_API_KEY`를 설정하고 일치하는 데이터와 공식 스냅샷을 별도로 마운트합니다. Docker는 필요하지 않습니다.
+
+<a id="credentials"></a>
+
+## 작성자 소개
+
+작성자 **Shuai Wu**는 WorldQuant Challenge **Gold Level**을 달성했습니다.
+
+<p align="center">
+  <img src="docs/assets/credentials/worldquant-challenge-gold.png" width="420" alt="Shuai Wu — WorldQuant Challenge Gold Level">
+</p>
+
+## Stars
+
+<p align="center">
+  <a href="https://github.com/Asher-S-Wu/Vectaix-Finance/stargazers">
+    <img src="https://img.shields.io/github/stars/Asher-S-Wu/Vectaix-Finance?style=for-the-badge&amp;logo=github&amp;label=Stars&amp;color=00866F" alt="GitHub Stars">
+  </a>
+</p>
