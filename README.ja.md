@@ -171,10 +171,10 @@ Zeabur DevのPython環境でデプロイします。インストールは `pip i
   <img src="docs/assets/credentials/worldquant-challenge-gold.png" width="420" alt="Shuai Wu — WorldQuant Challenge Gold Level">
 </p>
 
-## Stars
+## Star History
 
 <p align="center">
-  <a href="https://github.com/Asher-S-Wu/Vectaix-Finance/stargazers">
-    <img src="https://img.shields.io/github/stars/Asher-S-Wu/Vectaix-Finance?style=for-the-badge&amp;logo=github&amp;label=Stars&amp;color=00866F" alt="GitHub Stars">
+  <a href="https://www.star-history.com/#Asher-S-Wu/Vectaix-Finance&amp;Date">
+    <img src="https://api.star-history.com/svg?repos=Asher-S-Wu/Vectaix-Finance&amp;type=Date" width="800" alt="GitHub Stars の推移">
   </a>
 </p>
