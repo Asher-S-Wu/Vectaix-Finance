@@ -3,9 +3,12 @@ __pycache__/
 *.pyc
 .DS_Store
 .firecrawl/
+.pytest_cache/
 # Local research artifacts (large/generated)
 data/
 tmp/
 output/
 models/
 backtests/
+# Generated reports; historical criteria are in legacy/.
+/reports/

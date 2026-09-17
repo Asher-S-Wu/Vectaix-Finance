@@ -1,0 +1,82 @@
+{
+  "status": "historical_backtest",
+  "live_trading": false,
+  "training_performed": false,
+  "model": "lightgbm_small",
+  "model_version": "all-market-pit-task-outputs-v31-price-research-lightgbm_small-2024",
+  "trained_as_of": "2023-12-29",
+  "feature_count": 37,
+  "start_date": "2024-02-01",
+  "end_date": "2026-09-16",
+  "case": {
+    "selection_rule": "First entry cohort in the completed backtest, not selected by profit.",
+    "signal_date": "2024-01-31",
+    "entry_date": "2024-02-01",
+    "scheduled_exit_date": "2024-03-01",
+    "final_exit_date": "2024-03-14",
+    "positions": 30,
+    "fills": 85,
+    "winners": 18,
+    "entry_cost_hkd": 716281.5240135366,
+    "net_proceeds_hkd": 781194.8858198081,
+    "net_pnl_hkd": 64913.36180627152,
+    "return_on_entry_cost": 0.09062548680935228,
+    "contribution_to_initial_capital": 0.06491336180627152,
+    "total_fees_hkd": 3744.120133845488,
+    "initial_cash_hkd": 1000000.0,
+    "entry_cash_hkd": 283718.47598646366,
+    "entry_equity_hkd": 998213.7617855028,
+    "cohort_final_cash_hkd": 1064913.3618062714,
+    "accounting": "Only the first entry cohort; subsequent rebalances excluded from cohort cash.",
+    "unit_basis": "Fractional source-adjusted research units, not raw shares or board-lot fills."
+  },
+  "benchmarks": {
+    "HSI": {
+      "name": "恒生指数",
+      "start_close": 15566.21,
+      "end_close": 24713.78,
+      "total_return": 0.587655569338972,
+      "cagr": 0.1927267388521574,
+      "max_drawdown_daily": -0.19954027146106312,
+      "rows": 644,
+      "missing_sessions": 0,
+      "basis": "price_index_excluding_dividends_no_fees"
+    },
+    "HKTECH": {
+      "name": "恒生科技指数",
+      "start_close": 3065.95,
+      "end_close": 4325.45,
+      "total_return": 0.4108025245030089,
+      "cagr": 0.14021289881308396,
+      "max_drawdown_daily": -0.36320826711916754,
+      "rows": 644,
+      "missing_sessions": 0,
+      "basis": "price_index_excluding_dividends_no_fees"
+    }
+  },
+  "sources": {
+    "market_api": [
+      "hk_daily_adj",
+      "hk_adjfactor"
+    ],
+    "index_api": "index_global",
+    "provider": "Tushare relay",
+    "results": "backtests/hk/fixed_execution_20260916"
+  },
+  "methodology": {
+    "signal": "Month-end 20-session score, common score-available universe, top 30.",
+    "fees_per_side": 0.0025,
+    "participation_cap": 0.01,
+    "initial_cash_hkd": 1000000,
+    "budget": "95% of available cash, 30 fixed slots.",
+    "execution": "Next-session adjusted close, positive volume required; delayed sales retain positions."
+  },
+  "limitations": [
+    "Not live trading or a broker statement.",
+    "Synthetic adjusted units; historical board lots and exact dividend payment timing are not reconstructed.",
+    "Benchmarks are price indices excluding dividends and fees.",
+    "End value includes unsold positions; reference marks may not be executable.",
+    "Candidates have been compared using this history; it is not a pristine holdout.",
+    "Feature gain measures training usage, not independent factor performance."
+  ]
+}
