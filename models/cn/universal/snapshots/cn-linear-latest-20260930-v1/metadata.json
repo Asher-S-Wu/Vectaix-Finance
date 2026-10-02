@@ -1,0 +1,218 @@
+{
+  "kind": "linear",
+  "model_version": "cn-linear-latest-20260930-v1",
+  "features": [
+    "momentum_20",
+    "momentum_60",
+    "volatility_20",
+    "near_high_252",
+    "log_amount_20",
+    "intraday_range",
+    "intraday_return",
+    "market_momentum_60",
+    "market_volatility_60",
+    "market_breadth_60",
+    "log_horizon"
+  ],
+  "target_schema": "arithmetic-return-sqrt-horizon-v1",
+  "prediction_schema": "independent-task-availability-v1",
+  "horizons": [
+    1,
+    5,
+    20,
+    60
+  ],
+  "as_of": "2026-09-30T00:00:00",
+  "sample_counts": {
+    "train": {
+      "input": 2317731,
+      "used": 2279468,
+      "excluded": 38263,
+      "horizons": {
+        "1": {
+          "samples": 577955,
+          "positive": 277173,
+          "negative_or_zero": 300782,
+          "full_loss": 0
+        },
+        "5": {
+          "samples": 575683,
+          "positive": 277459,
+          "negative_or_zero": 298224,
+          "full_loss": 0
+        },
+        "20": {
+          "samples": 569592,
+          "positive": 271110,
+          "negative_or_zero": 298482,
+          "full_loss": 0
+        },
+        "60": {
+          "samples": 556238,
+          "positive": 256203,
+          "negative_or_zero": 300035,
+          "full_loss": 0
+        }
+      }
+    },
+    "calibration": {
+      "input": 225226,
+      "used": 224595,
+      "excluded": 631,
+      "horizons": {
+        "1": {
+          "samples": 61433,
+          "positive": 29117,
+          "negative_or_zero": 32316,
+          "full_loss": 0
+        },
+        "5": {
+          "samples": 60365,
+          "positive": 28148,
+          "negative_or_zero": 32217,
+          "full_loss": 0
+        },
+        "20": {
+          "samples": 56501,
+          "positive": 25714,
+          "negative_or_zero": 30787,
+          "full_loss": 0
+        },
+        "60": {
+          "samples": 46296,
+          "positive": 18028,
+          "negative_or_zero": 28268,
+          "full_loss": 0
+        }
+      }
+    }
+  },
+  "parameters": {
+    "alpha": 10.0,
+    "scaler": "StandardScaler"
+  },
+  "return_basis": "CNY source-adjusted price return",
+  "cash_dividend_accounting": "Source-adjusted research return; no separate actual-share dividend cash entitlement implied.",
+  "sigma_basis": "historical unranked CNY source-adjusted daily log-price-return standard deviation",
+  "training_target": "fwd_return / sqrt(horizon); arithmetic returns include -1 without sigma division or return clipping",
+  "prediction_arithmetic_return": "regressor_prediction * sqrt(horizon)",
+  "interval_model": "held-out arithmetic-return residual quantiles around the point arithmetic-return prediction",
+  "baseline": {
+    "probability": "common legal historical training label frequency, independent of candidate feature missingness",
+    "quantiles": "exp(normal_quantile * historical sigma_daily * sqrt(horizon)) - 1"
+  },
+  "calibration": {
+    "probability": "per-horizon Platt logistic calibration on held-out raw margin (factor/linear: regression score)",
+    "probability_anchor": "held_out_logistic_without_training_rate_shift",
+    "probability_baseline_blend": {
+      "1": 0.0,
+      "5": 0.0,
+      "20": 0.0,
+      "60": 0.0
+    },
+    "probability_centering": "none",
+    "probability_anchor_offset": {
+      "1": 0.0,
+      "5": 0.0,
+      "20": 0.0,
+      "60": 0.0
+    },
+    "intervals": "per-horizon empirical log1p-return residual distribution",
+    "expected_return": "predicted_arithmetic_return + mean(held_out_arithmetic_return_residual) per horizon",
+    "residual_assumption": "Within each horizon, held-out arithmetic-return residuals represent prediction errors; the correction is unconditional within horizon.",
+    "residual_quantiles": {},
+    "interval_log_residual_quantiles": {
+      "1": [
+        -1.2984967790337307,
+        -0.044970607747537215,
+        1.258721891104964
+      ],
+      "5": [
+        -1.3570494263500357,
+        -0.08358029883062777,
+        1.2711214769484833
+      ],
+      "20": [
+        -1.4579957308560612,
+        -0.12809712726717074,
+        1.2699481799045969
+      ],
+      "60": [
+        -1.4491499831917691,
+        -0.24349890935222077,
+        1.285458039468694
+      ]
+    },
+    "interval_log_residual_audit": {
+      "1": {
+        "fit_rows": 61433,
+        "excluded_invalid_point_or_scale_rows": 0,
+        "negative_infinity_atoms": 0,
+        "domain": "log1p_arithmetic_return"
+      },
+      "5": {
+        "fit_rows": 60365,
+        "excluded_invalid_point_or_scale_rows": 0,
+        "negative_infinity_atoms": 0,
+        "domain": "log1p_arithmetic_return"
+      },
+      "20": {
+        "fit_rows": 56501,
+        "excluded_invalid_point_or_scale_rows": 0,
+        "negative_infinity_atoms": 0,
+        "domain": "log1p_arithmetic_return"
+      },
+      "60": {
+        "fit_rows": 46296,
+        "excluded_invalid_point_or_scale_rows": 0,
+        "negative_infinity_atoms": 0,
+        "domain": "log1p_arithmetic_return"
+      }
+    },
+    "quantile_affine": {},
+    "mean_return_residual": {
+      "1": -0.00031428371346391094,
+      "5": -0.001964638099926354,
+      "20": -0.005407171616287622,
+      "60": -0.018017078898406286
+    },
+    "interval_width_multiplier": {
+      "1": 1.0,
+      "5": 1.0,
+      "20": 1.0,
+      "60": 1.0
+    }
+  },
+  "train_start": "2016-04-06T00:00:00",
+  "train_end": "2025-09-26T00:00:00",
+  "calibration_start": "2025-09-30T00:00:00",
+  "calibration_end": "2026-09-29T00:00:00",
+  "latest_label_end": "2026-09-30T00:00:00",
+  "versions": {
+    "numpy": "2.5.2",
+    "sklearn": "1.9.0",
+    "lightgbm": "4.7.0"
+  },
+  "fit_executed_at": "2026-09-30T22:36:12.417733+00:00",
+  "evaluation_context": "Retrospective chronological research; not a claim of live deployment at the logical training cutoff",
+  "market": "CN",
+  "currency": "CNY",
+  "data_as_of": "2026-09-30",
+  "model_trained_as_of": "2026-09-30T00:00:00",
+  "data_lineage": {
+    "feature_manifest_sha256": "c6aad80942e3004f98ec9abae54a97d8fe0c1b02aacafe056a5be6abd334f6df",
+    "training_sample_sha256": {
+      "2016.parquet": "c0c5f740fac3c6aac27a73e80b2d75685afba34252cc001e5d5b694418646329",
+      "2017.parquet": "3de75d1408ee3f63aa58211f63fb86f805580a9de831b5e1c2bb911a75e86472",
+      "2018.parquet": "416f687e5a12a1555199d3bf30f450ba702466479c3c8e52bff2291caf27c391",
+      "2019.parquet": "63de82cc1bd2eeb091f47875c7efadfbe889ff5af80076d2f6254904cee430d7",
+      "2020.parquet": "0ca71ef036241d209d6abc482af67a07d164309f4a35674fcb9dc2de31dcba01",
+      "2021.parquet": "1e5b5de6334ea08bb4afe46b07ff67e89bf85df0705d4eac6db529d357c1311d",
+      "2022.parquet": "7b789ec243352f6aec47586363446a97066f17084c1c11fbe74de7925e1df906",
+      "2023.parquet": "bd05dc732b1c9fe36a920cc44d04b9ccd06ffb6308cc4e2f1c0811ca5297cac9",
+      "2024.parquet": "622e42476c641d5e84caf5e3f704af027c0e04c251b18ddadb147e1cf9c7a539",
+      "2025.parquet": "25aaa21afff4844ad4313db74069a2a62b0def696e6fa60ee4e9e973cd647eaa",
+      "2026.parquet": "7b25d4ce8e1ce5c2faedb774e483bc1646841cd94ba0be91af311145057e02e2"
+    }
+  }
+}

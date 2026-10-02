@@ -1,0 +1,4 @@
+security_id,break_date,classification,source_url,handling
+000998.SZ,2018-08-23,vendor_adjustment_conflict,https://static.cninfo.com.cn/finalpage/2018-08-23/1205315822.PDF,Preserve vendor data; separate continuity segments; no labels across unresolved factor break
+000998.SZ,2018-08-28,vendor_adjustment_conflict,https://static.cninfo.com.cn/finalpage/2018-08-28/1205339240.PDF,Correction concerns subsidiary investment amount and does not support listed-share adjustment; quarantine crossing windows
+600733.SH,2018-09-27,shareholder_specific_restructuring,https://static.sse.com.cn/disclosure/listedinfo/announcement/c/2018-09-26/600733_20180926_3.pdf,Do not infer investor share quantity from vendor factor; reset model history after unresolved continuity break

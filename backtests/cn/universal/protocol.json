@@ -1,0 +1,27 @@
+{
+  "version": "cn-price37-chronological-v1",
+  "history_start": "2016-01-01",
+  "training_as_of": "2023-12-29",
+  "calibration_start": "2023-01-01",
+  "development_start": "2024-01-01",
+  "development_end": "2024-12-31",
+  "confirmation_start": "2025-01-01",
+  "selection_rule": "maximum 20-session mean daily rank IC",
+  "selection_universe": "common contemporaneous score-available identities across all four candidates",
+  "tie_break": [
+    "factor",
+    "linear",
+    "lightgbm_small",
+    "lightgbm_large"
+  ],
+  "training_stocks_per_date": 256,
+  "inference_scope": "all available eligible historical A shares; no test-data-based universe screen",
+  "purge": "train label_end < calibration_start; calibration label_end <= training_as_of",
+  "preprocessing": "same-day cross-sectional ranks; unranked sigma; training-only linear scaler",
+  "horizons": [
+    1,
+    5,
+    20,
+    60
+  ]
+}

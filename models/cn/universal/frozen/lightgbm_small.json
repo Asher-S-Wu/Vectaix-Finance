@@ -1,0 +1,234 @@
+{
+  "kind": "lightgbm_small",
+  "model_version": "cn-lightgbm_small-frozen-20231229-v1",
+  "features": [
+    "return_1",
+    "history_sessions",
+    "momentum_5",
+    "momentum_20",
+    "momentum_60",
+    "momentum_120",
+    "momentum_252",
+    "momentum_252_skip20",
+    "volatility_20",
+    "volatility_60",
+    "volatility_252",
+    "downside_volatility_60",
+    "max_return_20",
+    "return_skew_60",
+    "near_high_252",
+    "near_low_252",
+    "bias_20",
+    "bias_60",
+    "log_amount_20",
+    "amount_ratio_20_120",
+    "amount_cv_20",
+    "volume_cv_20",
+    "amihud_20",
+    "intraday_range",
+    "intraday_return",
+    "log_market_cap",
+    "log_free_market_cap",
+    "free_share_ratio",
+    "turnover_20",
+    "share_change_60",
+    "share_change_252",
+    "sessions_since_quote",
+    "market_breadth_60",
+    "market_momentum_20",
+    "market_momentum_60",
+    "market_momentum_252",
+    "market_volatility_60",
+    "log_horizon"
+  ],
+  "target_schema": "arithmetic-return-sqrt-horizon-v1",
+  "prediction_schema": "independent-task-availability-v1",
+  "horizons": [
+    1,
+    5,
+    20,
+    60
+  ],
+  "as_of": "2023-12-29T00:00:00",
+  "sample_counts": {
+    "train": {
+      "input": 1637438,
+      "used": 1637438,
+      "excluded": 0,
+      "horizons": {
+        "1": {
+          "samples": 417533,
+          "positive": 200873,
+          "negative_or_zero": 216660,
+          "full_loss": 0
+        },
+        "5": {
+          "samples": 415210,
+          "positive": 199839,
+          "negative_or_zero": 215371,
+          "full_loss": 0
+        },
+        "20": {
+          "samples": 409070,
+          "positive": 191333,
+          "negative_or_zero": 217737,
+          "full_loss": 0
+        },
+        "60": {
+          "samples": 395625,
+          "positive": 174637,
+          "negative_or_zero": 220988,
+          "full_loss": 0
+        }
+      }
+    },
+    "calibration": {
+      "input": 225317,
+      "used": 225317,
+      "excluded": 0,
+      "horizons": {
+        "1": {
+          "samples": 61633,
+          "positive": 28116,
+          "negative_or_zero": 33517,
+          "full_loss": 0
+        },
+        "5": {
+          "samples": 60588,
+          "positive": 27767,
+          "negative_or_zero": 32821,
+          "full_loss": 0
+        },
+        "20": {
+          "samples": 56694,
+          "positive": 25987,
+          "negative_or_zero": 30707,
+          "full_loss": 0
+        },
+        "60": {
+          "samples": 46402,
+          "positive": 19466,
+          "negative_or_zero": 26936,
+          "full_loss": 0
+        }
+      }
+    }
+  },
+  "parameters": {
+    "num_leaves": 15,
+    "n_estimators": 160,
+    "min_child_samples": 100,
+    "reg_lambda": 5.0,
+    "learning_rate": 0.05,
+    "n_jobs": 8,
+    "random_state": 42,
+    "verbosity": -1
+  },
+  "return_basis": "CNY source-adjusted price return",
+  "cash_dividend_accounting": "Source-adjusted research return; no separate actual-share dividend cash entitlement implied.",
+  "sigma_basis": "historical unranked CNY source-adjusted daily log-price-return standard deviation",
+  "training_target": "fwd_return / sqrt(horizon); arithmetic returns include -1 without sigma division or return clipping",
+  "prediction_arithmetic_return": "regressor_prediction * sqrt(horizon)",
+  "interval_model": "three LightGBM quantile regressors with alpha 0.1, 0.5, 0.9, jointly calibrated in log1p return space",
+  "baseline": {
+    "probability": "common legal historical training label frequency, independent of candidate feature missingness",
+    "quantiles": "exp(normal_quantile * historical sigma_daily * sqrt(horizon)) - 1"
+  },
+  "calibration": {
+    "probability": "per-horizon Platt logistic calibration on held-out raw margin (factor/linear: regression score)",
+    "probability_anchor": "held_out_logistic_without_training_rate_shift",
+    "probability_baseline_blend": {
+      "1": 0.0,
+      "5": 0.0,
+      "20": 0.0,
+      "60": 0.0
+    },
+    "probability_centering": "none",
+    "probability_anchor_offset": {
+      "1": 0.0,
+      "5": 0.0,
+      "20": 0.0,
+      "60": 0.0
+    },
+    "intervals": "per-horizon joint positive-scale log1p calibration; raw crossing rows remain unavailable, never sorted",
+    "expected_return": "predicted_arithmetic_return + mean(held_out_arithmetic_return_residual) per horizon",
+    "residual_assumption": "Within each horizon, held-out arithmetic-return residuals represent prediction errors; the correction is unconditional within horizon.",
+    "residual_quantiles": {},
+    "interval_log_residual_quantiles": {},
+    "interval_log_residual_audit": {},
+    "quantile_affine": {
+      "1": {
+        "location": 0.005224168380171372,
+        "scale": 0.7774315886226288,
+        "fit_rows": 61633,
+        "excluded_unordered_or_nonfinite_rows": 0,
+        "boundary_represented_rows": 0,
+        "pinball": 0.005459666498096839,
+        "objective_evaluations": 270,
+        "positive_scale": true,
+        "domain": "log1p_arithmetic_return"
+      },
+      "5": {
+        "location": 0.014376240420194185,
+        "scale": 0.7858056125697724,
+        "fit_rows": 60588,
+        "excluded_unordered_or_nonfinite_rows": 0,
+        "boundary_represented_rows": 0,
+        "pinball": 0.01243855809213791,
+        "objective_evaluations": 267,
+        "positive_scale": true,
+        "domain": "log1p_arithmetic_return"
+      },
+      "20": {
+        "location": 0.03453169367909666,
+        "scale": 0.7699730055523741,
+        "fit_rows": 56694,
+        "excluded_unordered_or_nonfinite_rows": 0,
+        "boundary_represented_rows": 0,
+        "pinball": 0.024396559363193453,
+        "objective_evaluations": 328,
+        "positive_scale": true,
+        "domain": "log1p_arithmetic_return"
+      },
+      "60": {
+        "location": 0.04797687213242842,
+        "scale": 0.7535275237946184,
+        "fit_rows": 46402,
+        "excluded_unordered_or_nonfinite_rows": 0,
+        "boundary_represented_rows": 0,
+        "pinball": 0.040843961555722695,
+        "objective_evaluations": 461,
+        "positive_scale": true,
+        "domain": "log1p_arithmetic_return"
+      }
+    },
+    "mean_return_residual": {
+      "1": 0.009689444302704638,
+      "5": 0.02321216481516152,
+      "20": 0.048851723351233424,
+      "60": 0.06939937253723666
+    },
+    "interval_width_multiplier": {
+      "1": 1.0,
+      "5": 1.0,
+      "20": 1.0,
+      "60": 1.0
+    }
+  },
+  "train_start": "2016-04-01T00:00:00",
+  "train_end": "2022-12-29T00:00:00",
+  "calibration_start": "2023-01-03T00:00:00",
+  "calibration_end": "2023-12-28T00:00:00",
+  "latest_label_end": "2023-12-29T00:00:00",
+  "versions": {
+    "numpy": "2.5.2",
+    "sklearn": "1.9.0",
+    "lightgbm": "4.7.0"
+  },
+  "fit_executed_at": "2026-09-30T22:29:20.588694+00:00",
+  "evaluation_context": "Retrospective chronological research; not a claim of live deployment at the logical training cutoff",
+  "market": "CN",
+  "currency": "CNY",
+  "model_sha256": "e54db6d347e932136642df0f39f9c062ded3099c06f85e8c24e93a98f61609b0",
+  "feature_manifest_sha256": "c6aad80942e3004f98ec9abae54a97d8fe0c1b02aacafe056a5be6abd334f6df"
+}

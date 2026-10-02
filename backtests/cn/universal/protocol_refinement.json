@@ -1,0 +1,7 @@
+{
+  "changed_at": "2026-09-30T18:55:36.009663+00:00",
+  "stage": "before authentic training or candidate evaluation",
+  "preserved_prior_protocol": "protocol_pretraining_20260930T1835.json",
+  "reason": "Independent audit requires common contemporaneous score universe for fair model comparison; chronological split unchanged",
+  "new_policy": "common contemporaneous score-available identities across all four candidates"
+}

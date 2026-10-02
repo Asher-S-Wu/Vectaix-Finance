@@ -1,0 +1,9 @@
+{
+  "selected_kind": "linear",
+  "selection_set": "development",
+  "selection_rule": "maximum 20-session mean daily rank IC",
+  "development_sha256": "dd307312e3ee48db4dff17bbb33f2c93925a0d48218db1f38efb3d9da7df7eb7",
+  "selection_statistic": 0.05559809440534042,
+  "confirmation_used": false,
+  "selection_universe": "common contemporaneous score availability"
+}

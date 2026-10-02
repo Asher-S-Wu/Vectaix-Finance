@@ -1,0 +1,18 @@
+{
+  "change_type": "post_training_cached_corporate_action_schema_correction",
+  "reason": "Explicit finite aggregate stk_div zero proves no stock distribution; missing breakdown alone was over-rejected. Provided contradictions/nonfinite values still fail closed. Raw nulls and all source records preserved.",
+  "changed_code": "ashare_quant/corporate_actions.py",
+  "before_code_sha256": "966deafd8218693653fc2a49564c3cbf5cdf68d9c76c42184b584220be232531",
+  "after_code_sha256": "03df082ef9d52619f16576532f394718f588a9e4d0e3a24fde4913836cbae8ce",
+  "external_queries_during_recompute": 0,
+  "no_query_enforcement": "Injected CacheOnly.query raises AssertionError",
+  "accepted_cash_events": 2459,
+  "equivalent_alias_rows_reconciled": 49,
+  "unhandled_raw_rows": 10485,
+  "reference_summary_byte_identical": true,
+  "model_sha256_unchanged": true,
+  "forecast_sha256_unchanged": true,
+  "prior_replay_audit": "replay_before_cash_schema_fix/audit.json",
+  "terminal_claim_evidence": "terminal_claim_evidence.json",
+  "final_total_returns_certified": false
+}

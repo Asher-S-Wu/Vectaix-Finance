@@ -1,0 +1,443 @@
+{
+  "as_of": "2024-12-31",
+  "horizons": {
+    "1": {
+      "predictions": 1296743,
+      "mature_labels": 1287903,
+      "score_available": 1278533,
+      "probability_available": 1278533,
+      "interval_available": 1278533,
+      "expected_return_available": 1278533,
+      "correct_direction": 668329,
+      "actual_up": 610204,
+      "interval_covered": 994526,
+      "task_failures": {
+        "score_status:ok": 1284204,
+        "score_status:insufficient_model_inputs": 12539,
+        "probability_status:ok": 1284204,
+        "probability_status:insufficient_model_inputs": 12539,
+        "interval_status:ok": 1284204,
+        "interval_status:insufficient_model_inputs": 12539,
+        "expected_return_status:ok": 1284204,
+        "expected_return_status:insufficient_model_inputs": 12539
+      },
+      "rank_ic_mean": 0.04662423523231027,
+      "ic_dates": 241,
+      "ic_ci_lower": 0.02879098965603786,
+      "ic_ci_upper": 0.06310438372970945,
+      "direction_accuracy": 0.5227311301311738,
+      "actual_up_ratio": 0.4772688698688262,
+      "brier": 0.24993065742638382,
+      "baseline_brier": 0.249497934286673,
+      "brier_skill": -0.001734375641016861,
+      "ece": 0.021151219853394996,
+      "interval_coverage": 0.7778649436502617,
+      "pinball": 0.008553330791974434,
+      "baseline_pinball": 0.008509235561368542,
+      "mae": 0.025256142679051775,
+      "probability_bins": [
+        {
+          "lower": 0.0,
+          "upper": 0.1,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.3,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        },
+        {
+          "lower": 0.3,
+          "upper": 0.4,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "count": 1278533,
+          "mean_probability": 0.45611765001543125,
+          "observed_up": 0.4772688698688262
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.7,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        },
+        {
+          "lower": 0.7,
+          "upper": 0.8,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        },
+        {
+          "lower": 0.9,
+          "upper": 1.0,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        }
+      ]
+    },
+    "5": {
+      "predictions": 1296743,
+      "mature_labels": 1265719,
+      "score_available": 1256618,
+      "probability_available": 1256618,
+      "interval_available": 1256618,
+      "expected_return_available": 1256618,
+      "correct_direction": 677480,
+      "actual_up": 579138,
+      "interval_covered": 975804,
+      "task_failures": {
+        "score_status:ok": 1284204,
+        "score_status:insufficient_model_inputs": 12539,
+        "probability_status:ok": 1284204,
+        "probability_status:insufficient_model_inputs": 12539,
+        "interval_status:ok": 1284204,
+        "interval_status:insufficient_model_inputs": 12539,
+        "expected_return_status:ok": 1284204,
+        "expected_return_status:insufficient_model_inputs": 12539
+      },
+      "rank_ic_mean": 0.062242965176010835,
+      "ic_dates": 237,
+      "ic_ci_lower": 0.031922192942751317,
+      "ic_ci_upper": 0.09251621659526395,
+      "direction_accuracy": 0.5391296320759371,
+      "actual_up_ratio": 0.46087036792406283,
+      "brier": 0.2484761072109239,
+      "baseline_brier": 0.2488860869816617,
+      "brier_skill": 0.0016472586945690537,
+      "ece": 0.002699376881302864,
+      "interval_coverage": 0.7765319293532322,
+      "pinball": 0.020585995547529667,
+      "baseline_pinball": 0.020533661142823956,
+      "mae": 0.05985500889998937,
+      "probability_bins": [
+        {
+          "lower": 0.0,
+          "upper": 0.1,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.3,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        },
+        {
+          "lower": 0.3,
+          "upper": 0.4,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "count": 1256618,
+          "mean_probability": 0.45817099104276,
+          "observed_up": 0.46087036792406283
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.7,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        },
+        {
+          "lower": 0.7,
+          "upper": 0.8,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        },
+        {
+          "lower": 0.9,
+          "upper": 1.0,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        }
+      ]
+    },
+    "20": {
+      "predictions": 1296743,
+      "mature_labels": 1183970,
+      "score_available": 1175839,
+      "probability_available": 1175839,
+      "interval_available": 1175839,
+      "expected_return_available": 1175839,
+      "correct_direction": 604763,
+      "actual_up": 571076,
+      "interval_covered": 878862,
+      "task_failures": {
+        "score_status:ok": 1284204,
+        "score_status:insufficient_model_inputs": 12539,
+        "probability_status:ok": 1284204,
+        "probability_status:insufficient_model_inputs": 12539,
+        "interval_status:ok": 1284204,
+        "interval_status:insufficient_model_inputs": 12539,
+        "expected_return_status:ok": 1284204,
+        "expected_return_status:insufficient_model_inputs": 12539
+      },
+      "rank_ic_mean": 0.05562899666341995,
+      "ic_dates": 222,
+      "ic_ci_lower": -0.0070654316459793426,
+      "ic_ci_upper": 0.11800438760422648,
+      "direction_accuracy": 0.5143246651965108,
+      "actual_up_ratio": 0.48567533480348923,
+      "brier": 0.2500355664031296,
+      "baseline_brier": 0.25011695405077494,
+      "brier_skill": 0.00032539836395417687,
+      "ece": 0.022766364487262516,
+      "interval_coverage": 0.7474339599213838,
+      "pinball": 0.04302810529752325,
+      "baseline_pinball": 0.04294806045402268,
+      "mae": 0.12290922836843299,
+      "probability_bins": [
+        {
+          "lower": 0.0,
+          "upper": 0.1,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.3,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        },
+        {
+          "lower": 0.3,
+          "upper": 0.4,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "count": 1175839,
+          "mean_probability": 0.46290897031622674,
+          "observed_up": 0.48567533480348923
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.7,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        },
+        {
+          "lower": 0.7,
+          "upper": 0.8,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        },
+        {
+          "lower": 0.9,
+          "upper": 1.0,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        }
+      ]
+    },
+    "60": {
+      "predictions": 1296743,
+      "mature_labels": 968248,
+      "score_available": 961986,
+      "probability_available": 961986,
+      "interval_available": 961986,
+      "expected_return_available": 961986,
+      "correct_direction": 462497,
+      "actual_up": 499489,
+      "interval_covered": 653364,
+      "task_failures": {
+        "score_status:ok": 1284204,
+        "score_status:insufficient_model_inputs": 12539,
+        "probability_status:ok": 1284204,
+        "probability_status:insufficient_model_inputs": 12539,
+        "interval_status:ok": 1284204,
+        "interval_status:insufficient_model_inputs": 12539,
+        "expected_return_status:ok": 1284204,
+        "expected_return_status:insufficient_model_inputs": 12539
+      },
+      "rank_ic_mean": 0.03860811986504548,
+      "ic_dates": 182,
+      "ic_ci_lower": -0.07179159194588311,
+      "ic_ci_upper": 0.1314800996403292,
+      "direction_accuracy": 0.4807731089641637,
+      "actual_up_ratio": 0.5192268910358363,
+      "brier": 0.25843720284514554,
+      "baseline_brier": 0.25568415537002515,
+      "brier_skill": -0.010767376144744656,
+      "ece": 0.09398230503381315,
+      "interval_coverage": 0.6791824413245099,
+      "pinball": 0.08044772126611031,
+      "baseline_pinball": 0.08049119908976113,
+      "mae": 0.22911100507745824,
+      "probability_bins": [
+        {
+          "lower": 0.0,
+          "upper": 0.1,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.3,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        },
+        {
+          "lower": 0.3,
+          "upper": 0.4,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "count": 961986,
+          "mean_probability": 0.42524458600202314,
+          "observed_up": 0.5192268910358363
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.7,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        },
+        {
+          "lower": 0.7,
+          "upper": 0.8,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        },
+        {
+          "lower": 0.9,
+          "upper": 1.0,
+          "count": 0,
+          "mean_probability": null,
+          "observed_up": null
+        }
+      ]
+    }
+  },
+  "probability_bin_method": "10 fixed equal-width bins",
+  "ic_minimum_cross_section": 20,
+  "common_score_universe": {
+    "rank_ic_mean": 0.05559809440534042,
+    "ic_dates": 222,
+    "common_score_rows": 1283811,
+    "common_mature_rows": 1175479,
+    "universe": "intersection of contemporaneously score-available identities across all candidates",
+    "outcome_policy": "membership independent of unknown future outcomes; IC uses mature observed outcomes only"
+  }
+}

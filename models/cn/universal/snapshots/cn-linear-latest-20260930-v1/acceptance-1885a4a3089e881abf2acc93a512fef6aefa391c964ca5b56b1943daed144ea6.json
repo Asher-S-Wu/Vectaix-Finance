@@ -1,0 +1,77 @@
+{
+  "model_version": "cn-linear-latest-20260930-v1",
+  "data_as_of": "2026-09-30",
+  "research_ready": true,
+  "eligible": false,
+  "execution_validated": false,
+  "limitations": [
+    "Provider historical revisions and terminal outcome completeness are not independently certified.",
+    "Source-adjusted return is not an actual-share-plus-cash total-return account.",
+    "Rows without observed horizon-end prices have missing labels, not assumed zero or fabricated liquidation.",
+    "Research readiness does not imply performance acceptance or broker execution validation.",
+    "冻结 Ridge 模型的未参与选型确认集在1/5/20/60交易日期限上的概率 Brier skill 均为负，概率表现未超过基准；最新重训模型本身尚未经过样本外评估。"
+  ],
+  "performance_evidence": {
+    "schema_version": "frozen-confirmation-disclosure-v1",
+    "frozen_model_version": "cn-linear-frozen-20231229-v1",
+    "latest_model_version": "cn-linear-latest-20260930-v1",
+    "confirmation_as_of": "2026-09-30",
+    "confirmation_sha256": "7c689e0ff17d0722baada1a194ff731688208e716d8b357919bdd21cb356aa75",
+    "confirmation_source_name": "confirmation_summary.json",
+    "model_family": "Ridge",
+    "selection_set": "development",
+    "evaluation_set": "frozen_confirmation",
+    "horizons": {
+      "1": {
+        "brier": 0.2506868202171903,
+        "baseline_brier": 0.24982369445787464,
+        "brier_skill": -0.003454939537215207,
+        "rank_ic_mean": 0.06082304757262482,
+        "probability_available": 2279416,
+        "ic_ci_lower": 0.045454587628313635,
+        "ic_ci_upper": 0.07578186145135793,
+        "ic_dates": 423,
+        "mature_labels": 2303476,
+        "score_available": 2279416
+      },
+      "5": {
+        "brier": 0.25166225926812086,
+        "baseline_brier": 0.25031075078540677,
+        "brier_skill": -0.005399322555956765,
+        "rank_ic_mean": 0.08223480497981972,
+        "probability_available": 2255601,
+        "ic_ci_lower": 0.05034134175677928,
+        "ic_ci_upper": 0.11453988363364012,
+        "ic_dates": 419,
+        "mature_labels": 2279223,
+        "score_available": 2255601
+      },
+      "20": {
+        "brier": 0.2529958575459868,
+        "baseline_brier": 0.2524286164111847,
+        "brier_skill": -0.0022471348251504875,
+        "rank_ic_mean": 0.11112162752244786,
+        "probability_available": 2171663,
+        "ic_ci_lower": 0.06081709404168707,
+        "ic_ci_upper": 0.1625963488943814,
+        "ic_dates": 404,
+        "mature_labels": 2193979,
+        "score_available": 2171663
+      },
+      "60": {
+        "brier": 0.25703291026876296,
+        "baseline_brier": 0.25410091796038187,
+        "brier_skill": -0.011538692311368282,
+        "rank_ic_mean": 0.16095010893225936,
+        "probability_available": 1951673,
+        "ic_ci_lower": 0.08120386124063814,
+        "ic_ci_upper": 0.24499579001877977,
+        "ic_dates": 364,
+        "mature_labels": 1971635,
+        "score_available": 1951673
+      }
+    },
+    "latest_refit_out_of_sample_evaluated": false,
+    "all_horizon_probability_brier_skill_negative": true
+  }
+}

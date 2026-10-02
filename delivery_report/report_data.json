@@ -1,0 +1,1543 @@
+{
+  "manifest": {
+    "status": "complete",
+    "market": "CN",
+    "currency": "CNY",
+    "start_date": "2016-01-04",
+    "data_as_of": "2026-09-30",
+    "rows": 11315237,
+    "eligible_rows": 10785152,
+    "securities": 5822,
+    "features": [
+      "return_1",
+      "history_sessions",
+      "momentum_5",
+      "momentum_20",
+      "momentum_60",
+      "momentum_120",
+      "momentum_252",
+      "momentum_252_skip20",
+      "volatility_20",
+      "volatility_60",
+      "volatility_252",
+      "downside_volatility_60",
+      "max_return_20",
+      "return_skew_60",
+      "near_high_252",
+      "near_low_252",
+      "bias_20",
+      "bias_60",
+      "log_amount_20",
+      "amount_ratio_20_120",
+      "amount_cv_20",
+      "volume_cv_20",
+      "amihud_20",
+      "intraday_range",
+      "intraday_return",
+      "log_market_cap",
+      "log_free_market_cap",
+      "free_share_ratio",
+      "turnover_20",
+      "share_change_60",
+      "share_change_252",
+      "sessions_since_quote",
+      "market_breadth_60",
+      "market_momentum_20",
+      "market_momentum_60",
+      "market_momentum_252",
+      "market_volatility_60"
+    ],
+    "horizons": [
+      1,
+      5,
+      20,
+      60
+    ],
+    "label_coverage": {
+      "1": {
+        "eligible_mature": 10779640,
+        "eligible_mature_observed": 10771628,
+        "eligible_mature_missing": 8012
+      },
+      "5": {
+        "eligible_mature": 10757600,
+        "eligible_mature_observed": 10729697,
+        "eligible_mature_missing": 27903
+      },
+      "20": {
+        "eligible_mature": 10675011,
+        "eligible_mature_observed": 10615238,
+        "eligible_mature_missing": 59773
+      },
+      "60": {
+        "eligible_mature": 10455161,
+        "eligible_mature_observed": 10353006,
+        "eligible_mature_missing": 102155
+      }
+    },
+    "delisted_master_identities": 338,
+    "input_status_counts": {
+      "ok": 10785152,
+      "insufficient_history": 342332,
+      "no_trade_quote": 17190,
+      "data_issue": 170552,
+      "unresolved_adjustment": 11
+    },
+    "identities_without_source_bars": 3,
+    "universe_policy": "Dated master/calendar membership; missing quotes remain unavailable without filling prices or returns",
+    "adjustment_policy": "Separate continuity segments; past-only re-warmup and no labels across unresolved source breaks; raw records retained",
+    "coverage": {
+      "return_1": 0.9821453143226253,
+      "history_sessions": 0.9984808095491062,
+      "momentum_5": 0.978222285578287,
+      "momentum_20": 0.9676301963449816,
+      "momentum_60": 0.9437022839203456,
+      "momentum_120": 0.9121857544830921,
+      "momentum_252": 0.8481551027168057,
+      "momentum_252_skip20": 0.8479069417635706,
+      "volatility_20": 0.9771387908180801,
+      "volatility_60": 0.9707110862989436,
+      "volatility_252": 0.9259607200450154,
+      "downside_volatility_60": 0.9707110862989436,
+      "max_return_20": 0.9771387908180801,
+      "return_skew_60": 0.8115749586155376,
+      "near_high_252": 0.9528191057774574,
+      "near_low_252": 0.9528191057774574,
+      "bias_20": 0.9746691121007894,
+      "bias_60": 0.9649143009554285,
+      "log_amount_20": 0.9781174711585803,
+      "amount_ratio_20_120": 0.9494592115039217,
+      "amount_cv_20": 0.9781174711585803,
+      "volume_cv_20": 0.9781174711585803,
+      "amihud_20": 0.9771387908180801,
+      "intraday_range": 0.9834080364379465,
+      "intraday_return": 0.9834080364379465,
+      "log_market_cap": 0.9834080364379465,
+      "log_free_market_cap": 0.9833234602156367,
+      "free_share_ratio": 0.9833234602156367,
+      "turnover_20": 0.9781174711585803,
+      "share_change_60": 0.9437022839203456,
+      "share_change_252": 0.8481551027168057,
+      "sessions_since_quote": 0.9984808095491062,
+      "market_breadth_60": 0.9927982065245297,
+      "market_momentum_20": 0.9947869408303158,
+      "market_momentum_60": 0.9848157842385449,
+      "market_momentum_252": 0.9353462061819827,
+      "market_volatility_60": 0.9925493385600319
+    },
+    "training_sample_sha256": {
+      "2016.parquet": "c0c5f740fac3c6aac27a73e80b2d75685afba34252cc001e5d5b694418646329",
+      "2017.parquet": "3de75d1408ee3f63aa58211f63fb86f805580a9de831b5e1c2bb911a75e86472",
+      "2018.parquet": "416f687e5a12a1555199d3bf30f450ba702466479c3c8e52bff2291caf27c391",
+      "2019.parquet": "63de82cc1bd2eeb091f47875c7efadfbe889ff5af80076d2f6254904cee430d7",
+      "2020.parquet": "0ca71ef036241d209d6abc482af67a07d164309f4a35674fcb9dc2de31dcba01",
+      "2021.parquet": "1e5b5de6334ea08bb4afe46b07ff67e89bf85df0705d4eac6db529d357c1311d",
+      "2022.parquet": "7b789ec243352f6aec47586363446a97066f17084c1c11fbe74de7925e1df906",
+      "2023.parquet": "bd05dc732b1c9fe36a920cc44d04b9ccd06ffb6308cc4e2f1c0811ca5297cac9",
+      "2024.parquet": "622e42476c641d5e84caf5e3f704af027c0e04c251b18ddadb147e1cf9c7a539",
+      "2025.parquet": "25aaa21afff4844ad4313db74069a2a62b0def696e6fa60ee4e9e973cd647eaa",
+      "2026.parquet": "7b25d4ce8e1ce5c2faedb774e483bc1646841cd94ba0be91af311145057e02e2"
+    },
+    "return_basis": "CNY source-adjusted price return",
+    "signal_cutoff": "19:00 Asia/Shanghai after complete source session",
+    "normalization": "same-date available cross-sectional ranks; historical sigma retained unranked",
+    "financial_features": "not included in 37-factor baseline; announcement-time adapter separate",
+    "limitations": [
+      "Provider historical revisions and terminal outcome completeness are not independently certified.",
+      "Source-adjusted return is not an actual-share-plus-cash total-return account.",
+      "Rows without observed horizon-end prices have missing labels, not assumed zero or fabricated liquidation."
+    ],
+    "artifact_sha256": {
+      "normalized/2016.parquet": "1e69201e5a756ac6bce9fc8d877cd686d337b6884df097a1fb0cb33af66e0fbd",
+      "normalized/2017.parquet": "742b156243379a39c688a1c6ea901918909c9f10113852ca5d3e77848a7b069e",
+      "normalized/2018.parquet": "1999f7c3c86a9627587845fb7a73ea542919b47f518b5d106013a49aeb2a657f",
+      "normalized/2019.parquet": "390e8a36306cc61df36b906d71a89a1d0700ae9e353cf2238b3a054e00b055a6",
+      "normalized/2020.parquet": "a362ca2cd20e19a57771bcc87b1451fad389c543865886002e8e592593448f61",
+      "normalized/2021.parquet": "f4cde94c2db364b1bf798f4d390d4902b8815a3c6408d4305ef065a2f65daf38",
+      "normalized/2022.parquet": "25fb1b97637c87b312686a9b44c1ceb5f15d26de250d4e7824916ed5d7031ce5",
+      "normalized/2023.parquet": "2248a69b20cba33e454db5f94d83c368336593c0e6a28237d9035b29addbf45a",
+      "normalized/2024.parquet": "6f779aa748d59b97af397e7b0db27ecf8f98cfd3d1f569470f53d1fc3d103650",
+      "normalized/2025.parquet": "a62ccf543141fe27388c9666ce66246abcdbcafb0e96cab7d27edbfac239ec36",
+      "normalized/2026.parquet": "15565114f0336cfe43a43afce714f3665b343567bdd0f1058439e65c11854c16",
+      "latest_inputs.parquet": "09c545dd073d5c50e76f08492d5a2470d6587cb0060e4d0578d91e7a4c156960",
+      "securities.parquet": "704cb678a751f98e82c462af40bf84879430c5508061c9252fcee2e34ad4f8a4",
+      "calendar.parquet": "12ae00e41461fb88b65a9b80b496d49d867ed8df0120d59f69fa3e9166da1a06"
+    }
+  },
+  "audit": {
+    "status": "complete",
+    "start": "2016-01-04",
+    "end": "2026-09-30",
+    "market": "CN",
+    "securities": 5910,
+    "missing": [],
+    "calendar_policy": "SSE calendar used for mainland research; BSE endpoint was empty, BSE dates cross-checked by actual observed quotes",
+    "name_policy": "Current display names/industry never feed historical model inputs",
+    "return_basis": "CNY source-adjusted price return"
+  },
+  "protocol": {
+    "version": "cn-price37-chronological-v1",
+    "history_start": "2016-01-01",
+    "training_as_of": "2023-12-29",
+    "calibration_start": "2023-01-01",
+    "development_start": "2024-01-01",
+    "development_end": "2024-12-31",
+    "confirmation_start": "2025-01-01",
+    "selection_rule": "maximum 20-session mean daily rank IC",
+    "selection_universe": "common contemporaneous score-available identities across all four candidates",
+    "tie_break": [
+      "factor",
+      "linear",
+      "lightgbm_small",
+      "lightgbm_large"
+    ],
+    "training_stocks_per_date": 256,
+    "inference_scope": "all available eligible historical A shares; no test-data-based universe screen",
+    "purge": "train label_end < calibration_start; calibration label_end <= training_as_of",
+    "preprocessing": "same-day cross-sectional ranks; unranked sigma; training-only linear scaler",
+    "horizons": [
+      1,
+      5,
+      20,
+      60
+    ]
+  },
+  "selection": {
+    "selected_kind": "linear",
+    "selection_set": "development",
+    "selection_rule": "maximum 20-session mean daily rank IC",
+    "development_sha256": "dd307312e3ee48db4dff17bbb33f2c93925a0d48218db1f38efb3d9da7df7eb7",
+    "selection_statistic": 0.05559809440534042,
+    "confirmation_used": false,
+    "selection_universe": "common contemporaneous score availability"
+  },
+  "common": {
+    "factor": {
+      "rank_ic_mean": -0.012841102391291326,
+      "ic_dates": 222,
+      "common_score_rows": 1283811,
+      "common_mature_rows": 1175479,
+      "universe": "intersection of contemporaneously score-available identities across all candidates",
+      "outcome_policy": "membership independent of unknown future outcomes; IC uses mature observed outcomes only"
+    },
+    "linear": {
+      "rank_ic_mean": 0.05559809440534042,
+      "ic_dates": 222,
+      "common_score_rows": 1283811,
+      "common_mature_rows": 1175479,
+      "universe": "intersection of contemporaneously score-available identities across all candidates",
+      "outcome_policy": "membership independent of unknown future outcomes; IC uses mature observed outcomes only"
+    },
+    "lightgbm_small": {
+      "rank_ic_mean": 0.0016159220430142227,
+      "ic_dates": 222,
+      "common_score_rows": 1283811,
+      "common_mature_rows": 1175479,
+      "universe": "intersection of contemporaneously score-available identities across all candidates",
+      "outcome_policy": "membership independent of unknown future outcomes; IC uses mature observed outcomes only"
+    },
+    "lightgbm_large": {
+      "rank_ic_mean": 0.026433199243157554,
+      "ic_dates": 222,
+      "common_score_rows": 1283811,
+      "common_mature_rows": 1175479,
+      "universe": "intersection of contemporaneously score-available identities across all candidates",
+      "outcome_policy": "membership independent of unknown future outcomes; IC uses mature observed outcomes only"
+    }
+  },
+  "confirmation": {
+    "as_of": "2026-09-30",
+    "horizons": {
+      "1": {
+        "predictions": 2315685,
+        "mature_labels": 2303476,
+        "score_available": 2279416,
+        "probability_available": 2279416,
+        "interval_available": 2279416,
+        "expected_return_available": 2279416,
+        "correct_direction": 1171883,
+        "actual_up": 1107533,
+        "interval_covered": 1824091,
+        "task_failures": {
+          "score_status:ok": 2285910,
+          "score_status:insufficient_model_inputs": 29775,
+          "probability_status:ok": 2285910,
+          "probability_status:insufficient_model_inputs": 29775,
+          "interval_status:ok": 2285910,
+          "interval_status:insufficient_model_inputs": 29775,
+          "expected_return_status:ok": 2285910,
+          "expected_return_status:insufficient_model_inputs": 29775
+        },
+        "rank_ic_mean": 0.06082304757262482,
+        "ic_dates": 423,
+        "ic_ci_lower": 0.045454587628313635,
+        "ic_ci_upper": 0.07578186145135793,
+        "direction_accuracy": 0.5141154576435367,
+        "actual_up_ratio": 0.4858845423564632,
+        "brier": 0.2506868202171903,
+        "baseline_brier": 0.24982369445787464,
+        "brier_skill": -0.003454939537215207,
+        "ece": 0.02976701823556347,
+        "interval_coverage": 0.8002448872869191,
+        "pinball": 0.007194039057086378,
+        "baseline_pinball": 0.007185434563187096,
+        "mae": 0.021365724276637476,
+        "probability_bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.1,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          },
+          {
+            "lower": 0.1,
+            "upper": 0.2,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.3,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          },
+          {
+            "lower": 0.3,
+            "upper": 0.4,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.5,
+            "count": 2279416,
+            "mean_probability": 0.4561175241208998,
+            "observed_up": 0.4858845423564632
+          },
+          {
+            "lower": 0.5,
+            "upper": 0.6,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.7,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          },
+          {
+            "lower": 0.7,
+            "upper": 0.8,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          },
+          {
+            "lower": 0.8,
+            "upper": 0.9,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          },
+          {
+            "lower": 0.9,
+            "upper": 1.0,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          }
+        ]
+      },
+      "5": {
+        "predictions": 2315685,
+        "mature_labels": 2279223,
+        "score_available": 2255601,
+        "probability_available": 2255601,
+        "interval_available": 2255601,
+        "expected_return_available": 2255601,
+        "correct_direction": 1130157,
+        "actual_up": 1125444,
+        "interval_covered": 1811773,
+        "task_failures": {
+          "score_status:ok": 2285910,
+          "score_status:insufficient_model_inputs": 29775,
+          "probability_status:ok": 2285910,
+          "probability_status:insufficient_model_inputs": 29775,
+          "interval_status:ok": 2285910,
+          "interval_status:insufficient_model_inputs": 29775,
+          "expected_return_status:ok": 2285910,
+          "expected_return_status:insufficient_model_inputs": 29775
+        },
+        "rank_ic_mean": 0.08223480497981972,
+        "ic_dates": 419,
+        "ic_ci_lower": 0.05034134175677928,
+        "ic_ci_upper": 0.11453988363364012,
+        "direction_accuracy": 0.5010447326455344,
+        "actual_up_ratio": 0.4989552673544656,
+        "brier": 0.25166225926812086,
+        "baseline_brier": 0.25031075078540677,
+        "brier_skill": -0.005399322555956765,
+        "ece": 0.04078449850800036,
+        "interval_coverage": 0.8032329299375199,
+        "pinball": 0.016422994605003505,
+        "baseline_pinball": 0.01640256840520592,
+        "mae": 0.048610075219252535,
+        "probability_bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.1,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          },
+          {
+            "lower": 0.1,
+            "upper": 0.2,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.3,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          },
+          {
+            "lower": 0.3,
+            "upper": 0.4,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.5,
+            "count": 2255601,
+            "mean_probability": 0.45817076884646524,
+            "observed_up": 0.4989552673544656
+          },
+          {
+            "lower": 0.5,
+            "upper": 0.6,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.7,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          },
+          {
+            "lower": 0.7,
+            "upper": 0.8,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          },
+          {
+            "lower": 0.8,
+            "upper": 0.9,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          },
+          {
+            "lower": 0.9,
+            "upper": 1.0,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          }
+        ]
+      },
+      "20": {
+        "predictions": 2315685,
+        "mature_labels": 2193979,
+        "score_available": 2171663,
+        "probability_available": 2171663,
+        "interval_available": 2171663,
+        "expected_return_available": 2171663,
+        "correct_direction": 1039164,
+        "actual_up": 1132499,
+        "interval_covered": 1700079,
+        "task_failures": {
+          "score_status:ok": 2285910,
+          "score_status:insufficient_model_inputs": 29775,
+          "probability_status:ok": 2285910,
+          "probability_status:insufficient_model_inputs": 29775,
+          "interval_status:ok": 2285910,
+          "interval_status:insufficient_model_inputs": 29775,
+          "expected_return_status:ok": 2285910,
+          "expected_return_status:insufficient_model_inputs": 29775
+        },
+        "rank_ic_mean": 0.11112162752244786,
+        "ic_dates": 404,
+        "ic_ci_lower": 0.06081709404168707,
+        "ic_ci_upper": 0.1625963488943814,
+        "direction_accuracy": 0.47851070815315266,
+        "actual_up_ratio": 0.5214892918468473,
+        "brier": 0.2529958575459868,
+        "baseline_brier": 0.2524286164111847,
+        "brier_skill": -0.0022471348251504875,
+        "ece": 0.06114520851085486,
+        "interval_coverage": 0.7828466018898881,
+        "pinball": 0.03397878779002551,
+        "baseline_pinball": 0.03387718603898876,
+        "mae": 0.09970306331014729,
+        "probability_bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.1,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          },
+          {
+            "lower": 0.1,
+            "upper": 0.2,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.3,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          },
+          {
+            "lower": 0.3,
+            "upper": 0.4,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.5,
+            "count": 2171663,
+            "mean_probability": 0.46034408333599247,
+            "observed_up": 0.5214892918468473
+          },
+          {
+            "lower": 0.5,
+            "upper": 0.6,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.7,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          },
+          {
+            "lower": 0.7,
+            "upper": 0.8,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          },
+          {
+            "lower": 0.8,
+            "upper": 0.9,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          },
+          {
+            "lower": 0.9,
+            "upper": 1.0,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          }
+        ]
+      },
+      "60": {
+        "predictions": 2315685,
+        "mature_labels": 1971635,
+        "score_available": 1951673,
+        "probability_available": 1951673,
+        "interval_available": 1951673,
+        "expected_return_available": 1951673,
+        "correct_direction": 964686,
+        "actual_up": 986987,
+        "interval_covered": 1507790,
+        "task_failures": {
+          "score_status:ok": 2285910,
+          "score_status:insufficient_model_inputs": 29775,
+          "probability_status:ok": 2285910,
+          "probability_status:insufficient_model_inputs": 29775,
+          "interval_status:ok": 2285910,
+          "interval_status:insufficient_model_inputs": 29775,
+          "expected_return_status:ok": 2285910,
+          "expected_return_status:insufficient_model_inputs": 29775
+        },
+        "rank_ic_mean": 0.16095010893225936,
+        "ic_dates": 364,
+        "ic_ci_lower": 0.08120386124063814,
+        "ic_ci_upper": 0.24499579001877977,
+        "direction_accuracy": 0.49428669659312807,
+        "actual_up_ratio": 0.5057133034068719,
+        "brier": 0.25703291026876296,
+        "baseline_brier": 0.25410091796038187,
+        "brier_skill": -0.011538692311368282,
+        "ece": 0.08476443131851262,
+        "interval_coverage": 0.7725628217431916,
+        "pinball": 0.060090546889627915,
+        "baseline_pinball": 0.059791291616589935,
+        "mae": 0.1716852474739896,
+        "probability_bins": [
+          {
+            "lower": 0.0,
+            "upper": 0.1,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          },
+          {
+            "lower": 0.1,
+            "upper": 0.2,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.3,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          },
+          {
+            "lower": 0.3,
+            "upper": 0.4,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.5,
+            "count": 1951673,
+            "mean_probability": 0.42094887208835935,
+            "observed_up": 0.5057133034068719
+          },
+          {
+            "lower": 0.5,
+            "upper": 0.6,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.7,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          },
+          {
+            "lower": 0.7,
+            "upper": 0.8,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          },
+          {
+            "lower": 0.8,
+            "upper": 0.9,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          },
+          {
+            "lower": 0.9,
+            "upper": 1.0,
+            "count": 0,
+            "mean_probability": null,
+            "observed_up": null
+          }
+        ]
+      }
+    },
+    "probability_bin_method": "10 fixed equal-width bins",
+    "ic_minimum_cross_section": 20
+  },
+  "execution": {
+    "status": "research_limited",
+    "initial_cash": 1000000.0,
+    "ending_cash": 46322.81999999949,
+    "ending_equity": null,
+    "ending_raw_mark_equity": 2571484.55,
+    "ending_reference_equity": 2644167.741020666,
+    "total_return": null,
+    "max_drawdown": null,
+    "fees": 4695.370000000003,
+    "trade_count": 267,
+    "open_positions": 30,
+    "pending_sell_orders": 0,
+    "valuation_valid": false,
+    "execution_valid": false,
+    "execution_data_complete": false,
+    "audit_counts": {
+      "at_lower_limit": 1,
+      "below_lot_or_cash_or_participation": 8,
+      "partial_fill": 1,
+      "rebalance_valuation_unavailable": 15,
+      "unresolved_corporate_action": 5
+    },
+    "start_date": "2025-01-01",
+    "end_date": "2026-09-30",
+    "currency": "CNY",
+    "top_k": 30,
+    "horizon": 20,
+    "participation_rate": 0.01,
+    "commission_rate": 0.0003,
+    "min_commission": 5.0,
+    "commission_basis": "gross_all_in_including_exchange_and_regulatory_fees",
+    "execution_model": "next_session_raw_open_with_daily_liquidity_cap_not_auction_queue",
+    "corporate_action_policy": "freeze_unresolved_never_convert_adjustment_ratio_to_shares",
+    "reference_valuation": "adjusted_price_reference_only_not_verified_cash_or_share_accounting",
+    "cash_dividends_paid": 34308.61,
+    "dividend_tax_reserve": 8577.170000000002,
+    "dividend_tax_policy": "conservative_20_percent_reserve",
+    "exact_investor_tax_known": false,
+    "accounting_basis": "cash_equity_with_conservative_upfront_tax_reserve",
+    "cash_timing_complete": true,
+    "ending_receivables": 0,
+    "training_performed": false,
+    "unresolved_corporate_actions_count": 44,
+    "frozen_corporate_action_positions_count": 5
+  },
+  "reference": {
+    "fee_0.0010": {
+      "status": "incomplete_valuation",
+      "methodology": "research_only_adjusted_unit_monthly_replay",
+      "execution_validated": false,
+      "actual_shares": false,
+      "training_performed": false,
+      "initial_cash": 1000000.0,
+      "ending_cash": 73293.60115937339,
+      "ending_equity": null,
+      "ending_reference_equity": null,
+      "total_return": null,
+      "cagr": null,
+      "max_drawdown_daily": null,
+      "max_drawdown": null,
+      "fees": 52059.81203912861,
+      "fee_per_side": 0.001,
+      "cost_model": "simplified_symmetric_fee_plus_slippage_not_exact_tax_or_brokerage",
+      "top_k": 30,
+      "equity_weight": 0.95,
+      "participation_rate": 0.01,
+      "open_positions": 31,
+      "pending_sells": 1,
+      "trade_count": 1224,
+      "completed_positions": 596,
+      "profitable_hit_rate": 0.5989932885906041,
+      "missing_valuation_days": 97,
+      "stale_valuation_days": 0,
+      "terminal_valuation_complete": false,
+      "reference_continuity_valid": true,
+      "unresolved_reference_continuity": [],
+      "unverified_entry_outcomes": [],
+      "start_date": "2025-01-02",
+      "end_date": "2026-09-30",
+      "currency": "CNY",
+      "execution_price_basis": "next_session_adjusted_close_raw_close_limit_check",
+      "corporate_action_policy": "provider_adjusted_reference_no_verified_share_cash_accounting"
+    },
+    "fee_0.0025": {
+      "status": "incomplete_valuation",
+      "methodology": "research_only_adjusted_unit_monthly_replay",
+      "execution_validated": false,
+      "actual_shares": false,
+      "training_performed": false,
+      "initial_cash": 1000000.0,
+      "ending_cash": 69294.41625168765,
+      "ending_equity": null,
+      "ending_reference_equity": null,
+      "total_return": null,
+      "cagr": null,
+      "max_drawdown_daily": null,
+      "max_drawdown": null,
+      "fees": 126315.84785834933,
+      "fee_per_side": 0.0025,
+      "cost_model": "simplified_symmetric_fee_plus_slippage_not_exact_tax_or_brokerage",
+      "top_k": 30,
+      "equity_weight": 0.95,
+      "participation_rate": 0.01,
+      "open_positions": 31,
+      "pending_sells": 1,
+      "trade_count": 1224,
+      "completed_positions": 596,
+      "profitable_hit_rate": 0.5822147651006712,
+      "missing_valuation_days": 97,
+      "stale_valuation_days": 0,
+      "terminal_valuation_complete": false,
+      "reference_continuity_valid": true,
+      "unresolved_reference_continuity": [],
+      "unverified_entry_outcomes": [],
+      "start_date": "2025-01-02",
+      "end_date": "2026-09-30",
+      "currency": "CNY",
+      "execution_price_basis": "next_session_adjusted_close_raw_close_limit_check",
+      "corporate_action_policy": "provider_adjusted_reference_no_verified_share_cash_accounting"
+    },
+    "fee_0.0050": {
+      "status": "incomplete_valuation",
+      "methodology": "research_only_adjusted_unit_monthly_replay",
+      "execution_validated": false,
+      "actual_shares": false,
+      "training_performed": false,
+      "initial_cash": 1000000.0,
+      "ending_cash": 63090.670445753865,
+      "ending_equity": null,
+      "ending_reference_equity": null,
+      "total_return": null,
+      "cagr": null,
+      "max_drawdown_daily": null,
+      "max_drawdown": null,
+      "fees": 240391.13588519886,
+      "fee_per_side": 0.005,
+      "cost_model": "simplified_symmetric_fee_plus_slippage_not_exact_tax_or_brokerage",
+      "top_k": 30,
+      "equity_weight": 0.95,
+      "participation_rate": 0.01,
+      "open_positions": 31,
+      "pending_sells": 1,
+      "trade_count": 1224,
+      "completed_positions": 596,
+      "profitable_hit_rate": 0.5536912751677853,
+      "missing_valuation_days": 97,
+      "stale_valuation_days": 0,
+      "terminal_valuation_complete": false,
+      "reference_continuity_valid": true,
+      "unresolved_reference_continuity": [],
+      "unverified_entry_outcomes": [],
+      "start_date": "2025-01-02",
+      "end_date": "2026-09-30",
+      "currency": "CNY",
+      "execution_price_basis": "next_session_adjusted_close_raw_close_limit_check",
+      "corporate_action_policy": "provider_adjusted_reference_no_verified_share_cash_accounting"
+    }
+  },
+  "benchmarks": {
+    "000001.SH": {
+      "status": "complete",
+      "missing_sessions": 0,
+      "total_return": 0.17766225774741895,
+      "cagr": 0.0984661658218473,
+      "max_drawdown": -0.11276586466888483,
+      "basis": "price index, excluding dividends and trading costs"
+    },
+    "000300.SH": {
+      "status": "complete",
+      "missing_sessions": 0,
+      "total_return": 0.14061903857485736,
+      "cagr": 0.0784882669333482,
+      "max_drawdown": -0.14208532900503035,
+      "basis": "price index, excluding dividends and trading costs"
+    },
+    "000905.SH": {
+      "status": "complete",
+      "missing_sessions": 0,
+      "total_return": 0.34067953625736025,
+      "cagr": 0.18337332484726598,
+      "max_drawdown": -0.19064680356447894,
+      "basis": "price index, excluding dividends and trading costs"
+    }
+  },
+  "actions": {
+    "raw_rows": 12993,
+    "accepted_events": 2459,
+    "unhandled_rows": 10485,
+    "equivalent_duplicate_rows": 49,
+    "rejection_counts": {
+      "conflicting_final_versions": 24,
+      "invalid_event_dates": 2,
+      "invalid_gross_cash": 4137,
+      "missing_ex_date": 9992,
+      "missing_implementation_publication": 9992,
+      "missing_payment_date": 10127,
+      "missing_record_date": 9992,
+      "missing_stock_distribution_fields": 737,
+      "no_cash_distribution": 2318,
+      "not_implemented": 9992,
+      "not_yet_visible": 3,
+      "publication_not_before_record": 1,
+      "superseded_provider_version": 11,
+      "unsupported_stock_distribution": 38
+    },
+    "evidence_basis": "provider_final_schedule_simulated",
+    "issuer_verified": false,
+    "actual_accounting_verified": false,
+    "point_in_time_complete": false,
+    "asof_date": "2026-09-30",
+    "collection_status": "complete",
+    "selected_canonical_count": 298,
+    "source_endpoint": "tushare.dividend",
+    "source_url": "https://tushare.pro/document/2?doc_id=103",
+    "limitations": [
+      "Provider history fetched after model selection is not proven point-in-time complete.",
+      "Issuer filings have not independently verified these schedules.",
+      "cash_div is provider after-tax cash, not investor-specific net cash.",
+      "A 20% gross-cash reserve is a research assumption, not actual broker withholding.",
+      "Bonus/conversion, rights and identified differential distributions are unhandled.",
+      "The dividend endpoint cannot rule out unflagged buyback-excluded distributions, rights, or omitted revisions.",
+      "Date-only final announcements become usable no earlier than the next calendar day.",
+      "Empty, failed or capped history is incomplete evidence, never proof of no actions."
+    ]
+  },
+  "latest": {
+    "kind": "linear",
+    "model_version": "cn-linear-latest-20260930-v1",
+    "features": [
+      "momentum_20",
+      "momentum_60",
+      "volatility_20",
+      "near_high_252",
+      "log_amount_20",
+      "intraday_range",
+      "intraday_return",
+      "market_momentum_60",
+      "market_volatility_60",
+      "market_breadth_60",
+      "log_horizon"
+    ],
+    "target_schema": "arithmetic-return-sqrt-horizon-v1",
+    "prediction_schema": "independent-task-availability-v1",
+    "horizons": [
+      1,
+      5,
+      20,
+      60
+    ],
+    "as_of": "2026-09-30T00:00:00",
+    "sample_counts": {
+      "train": {
+        "input": 2317731,
+        "used": 2279468,
+        "excluded": 38263,
+        "horizons": {
+          "1": {
+            "samples": 577955,
+            "positive": 277173,
+            "negative_or_zero": 300782,
+            "full_loss": 0
+          },
+          "5": {
+            "samples": 575683,
+            "positive": 277459,
+            "negative_or_zero": 298224,
+            "full_loss": 0
+          },
+          "20": {
+            "samples": 569592,
+            "positive": 271110,
+            "negative_or_zero": 298482,
+            "full_loss": 0
+          },
+          "60": {
+            "samples": 556238,
+            "positive": 256203,
+            "negative_or_zero": 300035,
+            "full_loss": 0
+          }
+        }
+      },
+      "calibration": {
+        "input": 225226,
+        "used": 224595,
+        "excluded": 631,
+        "horizons": {
+          "1": {
+            "samples": 61433,
+            "positive": 29117,
+            "negative_or_zero": 32316,
+            "full_loss": 0
+          },
+          "5": {
+            "samples": 60365,
+            "positive": 28148,
+            "negative_or_zero": 32217,
+            "full_loss": 0
+          },
+          "20": {
+            "samples": 56501,
+            "positive": 25714,
+            "negative_or_zero": 30787,
+            "full_loss": 0
+          },
+          "60": {
+            "samples": 46296,
+            "positive": 18028,
+            "negative_or_zero": 28268,
+            "full_loss": 0
+          }
+        }
+      }
+    },
+    "parameters": {
+      "alpha": 10.0,
+      "scaler": "StandardScaler"
+    },
+    "return_basis": "CNY source-adjusted price return",
+    "cash_dividend_accounting": "Source-adjusted research return; no separate actual-share dividend cash entitlement implied.",
+    "sigma_basis": "historical unranked CNY source-adjusted daily log-price-return standard deviation",
+    "training_target": "fwd_return / sqrt(horizon); arithmetic returns include -1 without sigma division or return clipping",
+    "prediction_arithmetic_return": "regressor_prediction * sqrt(horizon)",
+    "interval_model": "held-out arithmetic-return residual quantiles around the point arithmetic-return prediction",
+    "baseline": {
+      "probability": "common legal historical training label frequency, independent of candidate feature missingness",
+      "quantiles": "exp(normal_quantile * historical sigma_daily * sqrt(horizon)) - 1"
+    },
+    "calibration": {
+      "probability": "per-horizon Platt logistic calibration on held-out raw margin (factor/linear: regression score)",
+      "probability_anchor": "held_out_logistic_without_training_rate_shift",
+      "probability_baseline_blend": {
+        "1": 0.0,
+        "5": 0.0,
+        "20": 0.0,
+        "60": 0.0
+      },
+      "probability_centering": "none",
+      "probability_anchor_offset": {
+        "1": 0.0,
+        "5": 0.0,
+        "20": 0.0,
+        "60": 0.0
+      },
+      "intervals": "per-horizon empirical log1p-return residual distribution",
+      "expected_return": "predicted_arithmetic_return + mean(held_out_arithmetic_return_residual) per horizon",
+      "residual_assumption": "Within each horizon, held-out arithmetic-return residuals represent prediction errors; the correction is unconditional within horizon.",
+      "residual_quantiles": {},
+      "interval_log_residual_quantiles": {
+        "1": [
+          -1.2984967790337307,
+          -0.044970607747537215,
+          1.258721891104964
+        ],
+        "5": [
+          -1.3570494263500357,
+          -0.08358029883062777,
+          1.2711214769484833
+        ],
+        "20": [
+          -1.4579957308560612,
+          -0.12809712726717074,
+          1.2699481799045969
+        ],
+        "60": [
+          -1.4491499831917691,
+          -0.24349890935222077,
+          1.285458039468694
+        ]
+      },
+      "interval_log_residual_audit": {
+        "1": {
+          "fit_rows": 61433,
+          "excluded_invalid_point_or_scale_rows": 0,
+          "negative_infinity_atoms": 0,
+          "domain": "log1p_arithmetic_return"
+        },
+        "5": {
+          "fit_rows": 60365,
+          "excluded_invalid_point_or_scale_rows": 0,
+          "negative_infinity_atoms": 0,
+          "domain": "log1p_arithmetic_return"
+        },
+        "20": {
+          "fit_rows": 56501,
+          "excluded_invalid_point_or_scale_rows": 0,
+          "negative_infinity_atoms": 0,
+          "domain": "log1p_arithmetic_return"
+        },
+        "60": {
+          "fit_rows": 46296,
+          "excluded_invalid_point_or_scale_rows": 0,
+          "negative_infinity_atoms": 0,
+          "domain": "log1p_arithmetic_return"
+        }
+      },
+      "quantile_affine": {},
+      "mean_return_residual": {
+        "1": -0.00031428371346391094,
+        "5": -0.001964638099926354,
+        "20": -0.005407171616287622,
+        "60": -0.018017078898406286
+      },
+      "interval_width_multiplier": {
+        "1": 1.0,
+        "5": 1.0,
+        "20": 1.0,
+        "60": 1.0
+      }
+    },
+    "train_start": "2016-04-06T00:00:00",
+    "train_end": "2025-09-26T00:00:00",
+    "calibration_start": "2025-09-30T00:00:00",
+    "calibration_end": "2026-09-29T00:00:00",
+    "latest_label_end": "2026-09-30T00:00:00",
+    "versions": {
+      "numpy": "2.5.2",
+      "sklearn": "1.9.0",
+      "lightgbm": "4.7.0"
+    },
+    "fit_executed_at": "2026-09-30T22:36:12.417733+00:00",
+    "evaluation_context": "Retrospective chronological research; not a claim of live deployment at the logical training cutoff",
+    "market": "CN",
+    "currency": "CNY",
+    "data_as_of": "2026-09-30",
+    "model_trained_as_of": "2026-09-30T00:00:00",
+    "data_lineage": {
+      "feature_manifest_sha256": "c6aad80942e3004f98ec9abae54a97d8fe0c1b02aacafe056a5be6abd334f6df",
+      "training_sample_sha256": {
+        "2016.parquet": "c0c5f740fac3c6aac27a73e80b2d75685afba34252cc001e5d5b694418646329",
+        "2017.parquet": "3de75d1408ee3f63aa58211f63fb86f805580a9de831b5e1c2bb911a75e86472",
+        "2018.parquet": "416f687e5a12a1555199d3bf30f450ba702466479c3c8e52bff2291caf27c391",
+        "2019.parquet": "63de82cc1bd2eeb091f47875c7efadfbe889ff5af80076d2f6254904cee430d7",
+        "2020.parquet": "0ca71ef036241d209d6abc482af67a07d164309f4a35674fcb9dc2de31dcba01",
+        "2021.parquet": "1e5b5de6334ea08bb4afe46b07ff67e89bf85df0705d4eac6db529d357c1311d",
+        "2022.parquet": "7b789ec243352f6aec47586363446a97066f17084c1c11fbe74de7925e1df906",
+        "2023.parquet": "bd05dc732b1c9fe36a920cc44d04b9ccd06ffb6308cc4e2f1c0811ca5297cac9",
+        "2024.parquet": "622e42476c641d5e84caf5e3f704af027c0e04c251b18ddadb147e1cf9c7a539",
+        "2025.parquet": "25aaa21afff4844ad4313db74069a2a62b0def696e6fa60ee4e9e973cd647eaa",
+        "2026.parquet": "7b25d4ce8e1ce5c2faedb774e483bc1646841cd94ba0be91af311145057e02e2"
+      }
+    }
+  },
+  "frozen": {
+    "kind": "linear",
+    "model_version": "cn-linear-frozen-20231229-v1",
+    "features": [
+      "momentum_20",
+      "momentum_60",
+      "volatility_20",
+      "near_high_252",
+      "log_amount_20",
+      "intraday_range",
+      "intraday_return",
+      "market_momentum_60",
+      "market_volatility_60",
+      "market_breadth_60",
+      "log_horizon"
+    ],
+    "target_schema": "arithmetic-return-sqrt-horizon-v1",
+    "prediction_schema": "independent-task-availability-v1",
+    "horizons": [
+      1,
+      5,
+      20,
+      60
+    ],
+    "as_of": "2023-12-29T00:00:00",
+    "sample_counts": {
+      "train": {
+        "input": 1637438,
+        "used": 1600726,
+        "excluded": 36712,
+        "horizons": {
+          "1": {
+            "samples": 408073,
+            "positive": 196236,
+            "negative_or_zero": 211837,
+            "full_loss": 0
+          },
+          "5": {
+            "samples": 405886,
+            "positive": 195432,
+            "negative_or_zero": 210454,
+            "full_loss": 0
+          },
+          "20": {
+            "samples": 399976,
+            "positive": 187361,
+            "negative_or_zero": 212615,
+            "full_loss": 0
+          },
+          "60": {
+            "samples": 386791,
+            "positive": 171157,
+            "negative_or_zero": 215634,
+            "full_loss": 0
+          }
+        }
+      },
+      "calibration": {
+        "input": 225317,
+        "used": 224847,
+        "excluded": 470,
+        "horizons": {
+          "1": {
+            "samples": 61511,
+            "positive": 28056,
+            "negative_or_zero": 33455,
+            "full_loss": 0
+          },
+          "5": {
+            "samples": 60467,
+            "positive": 27704,
+            "negative_or_zero": 32763,
+            "full_loss": 0
+          },
+          "20": {
+            "samples": 56577,
+            "positive": 25926,
+            "negative_or_zero": 30651,
+            "full_loss": 0
+          },
+          "60": {
+            "samples": 46292,
+            "positive": 19416,
+            "negative_or_zero": 26876,
+            "full_loss": 0
+          }
+        }
+      }
+    },
+    "parameters": {
+      "alpha": 10.0,
+      "scaler": "StandardScaler"
+    },
+    "return_basis": "CNY source-adjusted price return",
+    "cash_dividend_accounting": "Source-adjusted research return; no separate actual-share dividend cash entitlement implied.",
+    "sigma_basis": "historical unranked CNY source-adjusted daily log-price-return standard deviation",
+    "training_target": "fwd_return / sqrt(horizon); arithmetic returns include -1 without sigma division or return clipping",
+    "prediction_arithmetic_return": "regressor_prediction * sqrt(horizon)",
+    "interval_model": "held-out arithmetic-return residual quantiles around the point arithmetic-return prediction",
+    "baseline": {
+      "probability": "common legal historical training label frequency, independent of candidate feature missingness",
+      "quantiles": "exp(normal_quantile * historical sigma_daily * sqrt(horizon)) - 1"
+    },
+    "calibration": {
+      "probability": "per-horizon Platt logistic calibration on held-out raw margin (factor/linear: regression score)",
+      "probability_anchor": "held_out_logistic_without_training_rate_shift",
+      "probability_baseline_blend": {
+        "1": 0.0,
+        "5": 0.0,
+        "20": 0.0,
+        "60": 0.0
+      },
+      "probability_centering": "none",
+      "probability_anchor_offset": {
+        "1": 0.0,
+        "5": 0.0,
+        "20": 0.0,
+        "60": 0.0
+      },
+      "intervals": "per-horizon empirical log1p-return residual distribution",
+      "expected_return": "predicted_arithmetic_return + mean(held_out_arithmetic_return_residual) per horizon",
+      "residual_assumption": "Within each horizon, held-out arithmetic-return residuals represent prediction errors; the correction is unconditional within horizon.",
+      "residual_quantiles": {},
+      "interval_log_residual_quantiles": {
+        "1": [
+          -1.2718385005127568,
+          -0.09227935128511894,
+          1.2191650129604492
+        ],
+        "5": [
+          -1.325905811034277,
+          -0.11648646537346626,
+          1.2389656896634174
+        ],
+        "20": [
+          -1.3195264982108141,
+          -0.15730103075389074,
+          1.1929139579875976
+        ],
+        "60": [
+          -1.2787429838815518,
+          -0.15851206310736302,
+          1.1341921580112864
+        ]
+      },
+      "interval_log_residual_audit": {
+        "1": {
+          "fit_rows": 61511,
+          "excluded_invalid_point_or_scale_rows": 0,
+          "negative_infinity_atoms": 0,
+          "domain": "log1p_arithmetic_return"
+        },
+        "5": {
+          "fit_rows": 60467,
+          "excluded_invalid_point_or_scale_rows": 0,
+          "negative_infinity_atoms": 0,
+          "domain": "log1p_arithmetic_return"
+        },
+        "20": {
+          "fit_rows": 56577,
+          "excluded_invalid_point_or_scale_rows": 0,
+          "negative_infinity_atoms": 0,
+          "domain": "log1p_arithmetic_return"
+        },
+        "60": {
+          "fit_rows": 46292,
+          "excluded_invalid_point_or_scale_rows": 0,
+          "negative_infinity_atoms": 0,
+          "domain": "log1p_arithmetic_return"
+        }
+      },
+      "quantile_affine": {},
+      "mean_return_residual": {
+        "1": 0.0015490230247660391,
+        "5": 0.003295584088107963,
+        "20": 0.00724673968287125,
+        "60": 0.0006583951422353431
+      },
+      "interval_width_multiplier": {
+        "1": 1.0,
+        "5": 1.0,
+        "20": 1.0,
+        "60": 1.0
+      }
+    },
+    "train_start": "2016-04-06T00:00:00",
+    "train_end": "2022-12-29T00:00:00",
+    "calibration_start": "2023-01-03T00:00:00",
+    "calibration_end": "2023-12-28T00:00:00",
+    "latest_label_end": "2023-12-29T00:00:00",
+    "versions": {
+      "numpy": "2.5.2",
+      "sklearn": "1.9.0",
+      "lightgbm": "4.7.0"
+    },
+    "fit_executed_at": "2026-09-30T22:25:59.610148+00:00",
+    "evaluation_context": "Retrospective chronological research; not a claim of live deployment at the logical training cutoff",
+    "market": "CN",
+    "currency": "CNY",
+    "model_sha256": "cfa83c227c972bdcecde09a48c72bca7214895de8e4f80fb44937bf5b0ca41ac",
+    "feature_manifest_sha256": "c6aad80942e3004f98ec9abae54a97d8fe0c1b02aacafe056a5be6abd334f6df"
+  },
+  "readiness": {
+    "audited_at": "2026-09-30T22:13:23.589056+00:00",
+    "core_status": "complete",
+    "overall_status": "partial",
+    "checksums_verified": false,
+    "endpoints": {
+      "daily": {
+        "status": "complete",
+        "completed_dates": 2611,
+        "expected_dates": 2611,
+        "missing_dates": [],
+        "rows": 11217345,
+        "errors": []
+      },
+      "daily_basic": {
+        "status": "complete",
+        "completed_dates": 2611,
+        "expected_dates": 2611,
+        "missing_dates": [],
+        "rows": 11131947,
+        "errors": []
+      },
+      "adj_factor": {
+        "status": "complete",
+        "completed_dates": 2611,
+        "expected_dates": 2611,
+        "missing_dates": [],
+        "rows": 11630356,
+        "errors": []
+      },
+      "stk_limit": {
+        "status": "complete",
+        "completed_dates": 2611,
+        "expected_dates": 2611,
+        "missing_dates": [],
+        "rows": 11409296,
+        "errors": []
+      }
+    },
+    "optional_errors": [
+      {
+        "endpoint": "namechange",
+        "error": "namechange: duplicate keys; pagination overlap or source corruption",
+        "error_type": "CollectionError",
+        "failed_at": "2026-09-30T18:24:57.280747+00:00",
+        "params": {},
+        "requested_fields": "ts_code,name,start_date,end_date,ann_date,change_reason",
+        "requests": [
+          {
+            "endpoint": "namechange",
+            "fetched_at": "2026-09-30T18:24:12.886113+00:00",
+            "fields": "ts_code,name,start_date,end_date,ann_date,change_reason",
+            "params": {
+              "limit": 1000,
+              "offset": 0
+            },
+            "response_sha256": "80ab7155dcdfd2c47069fb90caa4e236707b0234874fef558f3687b7b08ca0f7",
+            "rows": 1000
+          },
+          {
+            "endpoint": "namechange",
+            "fetched_at": "2026-09-30T18:24:26.757899+00:00",
+            "fields": "ts_code,name,start_date,end_date,ann_date,change_reason",
+            "params": {
+              "limit": 1000,
+              "offset": 1000
+            },
+            "response_sha256": "d98fa207f306675aec82111fa1a726931e0fad7bf85e4bd24d34e2f4874445e7",
+            "rows": 1000
+          },
+          {
+            "endpoint": "namechange",
+            "fetched_at": "2026-09-30T18:24:36.032339+00:00",
+            "fields": "ts_code,name,start_date,end_date,ann_date,change_reason",
+            "params": {
+              "limit": 1000,
+              "offset": 2000
+            },
+            "response_sha256": "8d510f8a8b4599ae0d425cccddcd6b168786654ad497203628a027480c8e195b",
+            "rows": 1000
+          },
+          {
+            "endpoint": "namechange",
+            "fetched_at": "2026-09-30T18:24:50.627564+00:00",
+            "fields": "ts_code,name,start_date,end_date,ann_date,change_reason",
+            "params": {
+              "limit": 1000,
+              "offset": 3000
+            },
+            "response_sha256": "ea3ffc8ba1c3697ce1fb5ffb401ff808b0a8487d8df2f3b943803dc3d27df562",
+            "rows": 1000
+          }
+        ],
+        "started_at": "2026-09-30T18:24:12.886094+00:00",
+        "status": "error"
+      }
+    ],
+    "resolved_optional_errors": [],
+    "calendar_basis": "SSE trading sessions; BSE calendar not independently verified"
+  },
+  "terminal": {
+    "security_id": "600636.SH",
+    "successor_security_id": "400297",
+    "successor_name": "国化5",
+    "classification": "SSE-delisted holding continuing as a successor-security claim; off-model-market terminal valuation and disposal unresolved",
+    "dates": {
+      "suspension": "2026-04-30",
+      "delisting_period_start": "2026-06-01",
+      "final_sse_trading_day": "2026-06-22",
+      "post_period_halt": "2026-06-23",
+      "sse_delisting": "2026-06-29",
+      "successor_trading_start_from_issuer_mirror": "2026-08-28"
+    },
+    "cash_redemption_or_settlement_verified": false,
+    "september_30_executable_value_verified": false,
+    "zero_recovery_assumed": false,
+    "successor_quotes_in_model_universe": false,
+    "return_reporting_policy": "No total return, CAGR, drawdown or alpha certified while terminal portfolio valuation is unresolved; retain the holder claim and all pending-exit audit records",
+    "sources": [
+      {
+        "kind": "official_exchange",
+        "url": "https://www.sse.com.cn/disclosure/announcement/listing/stock/c/c_20260522_10819390.shtml",
+        "supports": "Termination decision and delisting-period rules"
+      },
+      {
+        "kind": "official_exchange",
+        "url": "https://big5.sse.com.cn/site/cht/www.sse.com.cn/disclosure/announcement/listing/stock/c/c_20260622_10823156.shtml",
+        "supports": "Final trading day June22 and delisting June29"
+      },
+      {
+        "kind": "issuer_original_pdf",
+        "url": "https://static.cninfo.com.cn/finalpage/2026-06-23/1225381763.PDF",
+        "supports": "June23 suspension and surviving shares transferring to delisted-company board"
+      },
+      {
+        "kind": "official_broker",
+        "url": "https://www.cs.ecitic.com/newsite/tzgg/ywgg/202607/t20260708_1214200.html",
+        "supports": "600636 to400297 holder/account conversion and custody continuity"
+      },
+      {
+        "kind": "issuer_text_mirror",
+        "url": "https://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=12548640&stockid=600636",
+        "supports": "Issuer transfer announcement:400297 国化5 trading fromAug28; official NEEQ-hosted original not located in bounded verification"
+      }
+    ]
+  },
+  "sources": {
+    "manifest": {
+      "path": "data/cn/universal/feature_manifest.json",
+      "sha256": "c6aad80942e3004f98ec9abae54a97d8fe0c1b02aacafe056a5be6abd334f6df"
+    },
+    "audit": {
+      "path": "data/cn/universal/data_audit.json",
+      "sha256": "303f8b3d423dade73f7e3cdc5df50214ba7a24c222e3a6d222408800046d9786"
+    },
+    "protocol": {
+      "path": "backtests/cn/universal/protocol.json",
+      "sha256": "4cbdc4b8a6588c5a04dee41441e4db20cc24d75e41afff1e23e8b55551923b27"
+    },
+    "selection": {
+      "path": "backtests/cn/universal/frozen_architecture.json",
+      "sha256": "b28941190cf6e88c1168a36fbb072b35db754a07c3d82d3c60f46bc11cd6f4cb"
+    },
+    "common": {
+      "path": "backtests/cn/universal/development_common_universe.json",
+      "sha256": "3b3f66d62a4714c7f4d0def92a10422018ef7dec8a0b8ac6083ca4d61b4427e4"
+    },
+    "confirmation": {
+      "path": "backtests/cn/universal/confirmation_summary.json",
+      "sha256": "7c689e0ff17d0722baada1a194ff731688208e716d8b357919bdd21cb356aa75"
+    },
+    "execution": {
+      "path": "backtests/cn/universal/execution_summary.json",
+      "sha256": "ac92adb21da86b096457153a3ae7338b8e5d3e3980e3ae3d558fb93a48da53ac"
+    },
+    "reference": {
+      "path": "backtests/cn/universal/reference_summary.json",
+      "sha256": "8e469f95719540c1abea00ee097e43dc39eaecae641197ab98c47e3f2b00a5e6"
+    },
+    "benchmarks": {
+      "path": "backtests/cn/universal/benchmark_summary.json",
+      "sha256": "b7d39159f101d5b81467424a01c366d8498b05fca075cb5bd12ad0450112e38e"
+    },
+    "actions": {
+      "path": "backtests/cn/universal/corporate_actions_status.json",
+      "sha256": "eb152d22d5da6651740e83d90df57c7223336cec9e9fbee61588f97b722d47cc"
+    },
+    "active": {
+      "path": "models/cn/universal/active.json",
+      "sha256": "dffc253c8739f249695ae1f3fa7928949bc1b7c7c9c9d592140cc36e0102c6a8"
+    },
+    "latest": {
+      "path": "models/cn/universal/snapshots/cn-linear-latest-20260930-v1/metadata.json",
+      "sha256": "f9114a601722ee689106b9d4d931c8a15c2b6eb346c571e1eea5a9129a46d12e"
+    },
+    "frozen": {
+      "path": "models/cn/universal/frozen/linear.json",
+      "sha256": "2e96c7f427c24378801c1fbec337d4563a0af0beee1c25e77af33ca5a3282ebd"
+    },
+    "readiness": {
+      "path": "backtests/cn/universal/source_readiness.json",
+      "sha256": "1f8444106806cbc24027822148293dc5482089bb02fbf305ff5d544890c3803a"
+    },
+    "terminal": {
+      "path": "backtests/cn/universal/terminal_claim_evidence.json",
+      "sha256": "9ee56bddb69dbde068500860b8b8bbf7cbd4eb6175a22ded95e65043cdaef521"
+    }
+  },
+  "pipeline_complete": true,
+  "public_projection": {
+    "description": "Aggregate-only report export; vendor market inputs and per-security source price records are not distributed.",
+    "historical_source_hashes": "sources contains original experiment evidence hashes. Omitted source files are not bundled; published-file hashes are in ASHARE_RELEASE.json.",
+    "omitted_source_detail": "Per-security adjustment-reference issues and corporate-action position identifiers; numerical research conclusions unchanged."
+  }
+}

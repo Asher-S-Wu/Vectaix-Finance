@@ -1,0 +1,34 @@
+{
+  "factor": {
+    "rank_ic_mean": -0.012841102391291326,
+    "ic_dates": 222,
+    "common_score_rows": 1283811,
+    "common_mature_rows": 1175479,
+    "universe": "intersection of contemporaneously score-available identities across all candidates",
+    "outcome_policy": "membership independent of unknown future outcomes; IC uses mature observed outcomes only"
+  },
+  "linear": {
+    "rank_ic_mean": 0.05559809440534042,
+    "ic_dates": 222,
+    "common_score_rows": 1283811,
+    "common_mature_rows": 1175479,
+    "universe": "intersection of contemporaneously score-available identities across all candidates",
+    "outcome_policy": "membership independent of unknown future outcomes; IC uses mature observed outcomes only"
+  },
+  "lightgbm_small": {
+    "rank_ic_mean": 0.0016159220430142227,
+    "ic_dates": 222,
+    "common_score_rows": 1283811,
+    "common_mature_rows": 1175479,
+    "universe": "intersection of contemporaneously score-available identities across all candidates",
+    "outcome_policy": "membership independent of unknown future outcomes; IC uses mature observed outcomes only"
+  },
+  "lightgbm_large": {
+    "rank_ic_mean": 0.026433199243157554,
+    "ic_dates": 222,
+    "common_score_rows": 1283811,
+    "common_mature_rows": 1175479,
+    "universe": "intersection of contemporaneously score-available identities across all candidates",
+    "outcome_policy": "membership independent of unknown future outcomes; IC uses mature observed outcomes only"
+  }
+}

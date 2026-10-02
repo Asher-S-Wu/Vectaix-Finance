@@ -1,0 +1,30 @@
+{
+  "status": "trained",
+  "selected_kind": "linear",
+  "snapshot": {
+    "schema_version": "ashare-v1",
+    "market": "CN",
+    "currency": "CNY",
+    "model_version": "cn-linear-latest-20260930-v1",
+    "data_as_of": "2026-09-30",
+    "forecast_path": "snapshots/cn-linear-latest-20260930-v1/forecasts.parquet",
+    "metadata_path": "snapshots/cn-linear-latest-20260930-v1/metadata.json",
+    "acceptance_path": "snapshots/cn-linear-latest-20260930-v1/acceptance.json",
+    "research_ready": true,
+    "eligible": false,
+    "execution_validated": false,
+    "model_path": "snapshots/cn-linear-latest-20260930-v1/model.pkl",
+    "model_sha256": "cf38bfbdcb9514fb019e91d9e05d8721b0a456601567a34879f737e2f34112b8",
+    "artifact_sha256": {
+      "forecast_path": "e6bd0f152302a6b63f5952c6f1059111a417b7c251e41f71d0cea3e3254da09e",
+      "metadata_path": "f9114a601722ee689106b9d4d931c8a15c2b6eb346c571e1eea5a9129a46d12e",
+      "acceptance_path": "e174f7b6a54039be91e1d4a3204b1e4e461696a18d622768e733538e98f94db1"
+    }
+  },
+  "completed_at": "2026-09-30T22:36:14.797912+00:00",
+  "python": "3.12.14",
+  "data_as_of": "2026-09-30",
+  "frozen_model_version": "cn-linear-frozen-20231229-v1",
+  "latest_model_version": "cn-linear-latest-20260930-v1",
+  "execution_replay_status": "complete_with_disclosed_limitations"
+}

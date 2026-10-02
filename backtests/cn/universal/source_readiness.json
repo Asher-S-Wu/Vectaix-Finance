@@ -1,0 +1,100 @@
+{
+  "audited_at": "2026-09-30T22:13:23.589056+00:00",
+  "core_status": "complete",
+  "overall_status": "partial",
+  "checksums_verified": false,
+  "endpoints": {
+    "daily": {
+      "status": "complete",
+      "completed_dates": 2611,
+      "expected_dates": 2611,
+      "missing_dates": [],
+      "rows": 11217345,
+      "errors": []
+    },
+    "daily_basic": {
+      "status": "complete",
+      "completed_dates": 2611,
+      "expected_dates": 2611,
+      "missing_dates": [],
+      "rows": 11131947,
+      "errors": []
+    },
+    "adj_factor": {
+      "status": "complete",
+      "completed_dates": 2611,
+      "expected_dates": 2611,
+      "missing_dates": [],
+      "rows": 11630356,
+      "errors": []
+    },
+    "stk_limit": {
+      "status": "complete",
+      "completed_dates": 2611,
+      "expected_dates": 2611,
+      "missing_dates": [],
+      "rows": 11409296,
+      "errors": []
+    }
+  },
+  "optional_errors": [
+    {
+      "endpoint": "namechange",
+      "error": "namechange: duplicate keys; pagination overlap or source corruption",
+      "error_type": "CollectionError",
+      "failed_at": "2026-09-30T18:24:57.280747+00:00",
+      "params": {},
+      "requested_fields": "ts_code,name,start_date,end_date,ann_date,change_reason",
+      "requests": [
+        {
+          "endpoint": "namechange",
+          "fetched_at": "2026-09-30T18:24:12.886113+00:00",
+          "fields": "ts_code,name,start_date,end_date,ann_date,change_reason",
+          "params": {
+            "limit": 1000,
+            "offset": 0
+          },
+          "response_sha256": "80ab7155dcdfd2c47069fb90caa4e236707b0234874fef558f3687b7b08ca0f7",
+          "rows": 1000
+        },
+        {
+          "endpoint": "namechange",
+          "fetched_at": "2026-09-30T18:24:26.757899+00:00",
+          "fields": "ts_code,name,start_date,end_date,ann_date,change_reason",
+          "params": {
+            "limit": 1000,
+            "offset": 1000
+          },
+          "response_sha256": "d98fa207f306675aec82111fa1a726931e0fad7bf85e4bd24d34e2f4874445e7",
+          "rows": 1000
+        },
+        {
+          "endpoint": "namechange",
+          "fetched_at": "2026-09-30T18:24:36.032339+00:00",
+          "fields": "ts_code,name,start_date,end_date,ann_date,change_reason",
+          "params": {
+            "limit": 1000,
+            "offset": 2000
+          },
+          "response_sha256": "8d510f8a8b4599ae0d425cccddcd6b168786654ad497203628a027480c8e195b",
+          "rows": 1000
+        },
+        {
+          "endpoint": "namechange",
+          "fetched_at": "2026-09-30T18:24:50.627564+00:00",
+          "fields": "ts_code,name,start_date,end_date,ann_date,change_reason",
+          "params": {
+            "limit": 1000,
+            "offset": 3000
+          },
+          "response_sha256": "ea3ffc8ba1c3697ce1fb5ffb401ff808b0a8487d8df2f3b943803dc3d27df562",
+          "rows": 1000
+        }
+      ],
+      "started_at": "2026-09-30T18:24:12.886094+00:00",
+      "status": "error"
+    }
+  ],
+  "resolved_optional_errors": [],
+  "calendar_basis": "SSE trading sessions; BSE calendar not independently verified"
+}

@@ -1,0 +1,50 @@
+{
+  "status": "passed",
+  "change_type": "post_training_algebraically_equivalent_portfolio_scalability",
+  "equivalence_cases": [
+    {
+      "case": "empty_holdings",
+      "status": "identical_integer_orders_and_costs",
+      "maximum_weight_difference": 0.0
+    },
+    {
+      "case": "frozen_overweight",
+      "status": "identical_integer_orders_and_costs",
+      "maximum_weight_difference": 0.0
+    },
+    {
+      "case": "star_bse",
+      "status": "identical_integer_orders_and_costs",
+      "maximum_weight_difference": 0.0
+    },
+    {
+      "case": "negative_preferences",
+      "status": "identical_integer_orders_and_costs",
+      "maximum_weight_difference": 0.0
+    },
+    {
+      "case": "cash_only",
+      "status": "identical_integer_orders_and_costs",
+      "maximum_weight_difference": 0.0
+    },
+    {
+      "case": "equal_weight",
+      "status": "identical_integer_orders_and_costs",
+      "maximum_weight_difference": 0.0
+    },
+    {
+      "case": "sellable_partial",
+      "status": "identical_integer_orders_and_costs",
+      "maximum_weight_difference": 0.0
+    }
+  ],
+  "source_of_warning": "CVXPY 1.9.2 Sum.shape_from_args sums uninitialized np.empty memory to infer shape; eliminated Sum atoms with equivalent inner products and sum_squares",
+  "sparse_constraint_red_nonzeros_for_100_candidates": 22303,
+  "sparse_constraint_green_nonzeros_for_100_candidates": [
+    1705,
+    2008
+  ],
+  "runtime_warning_as_error_real_universe": "passed",
+  "real_universe_candidates": 5439,
+  "real_smoke_elapsed_seconds": 18.624
+}

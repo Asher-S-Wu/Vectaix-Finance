@@ -1,0 +1,46 @@
+{
+  "security_id": "600636.SH",
+  "successor_security_id": "400297",
+  "successor_name": "国化5",
+  "classification": "SSE-delisted holding continuing as a successor-security claim; off-model-market terminal valuation and disposal unresolved",
+  "dates": {
+    "suspension": "2026-04-30",
+    "delisting_period_start": "2026-06-01",
+    "final_sse_trading_day": "2026-06-22",
+    "post_period_halt": "2026-06-23",
+    "sse_delisting": "2026-06-29",
+    "successor_trading_start_from_issuer_mirror": "2026-08-28"
+  },
+  "cash_redemption_or_settlement_verified": false,
+  "september_30_executable_value_verified": false,
+  "zero_recovery_assumed": false,
+  "successor_quotes_in_model_universe": false,
+  "return_reporting_policy": "No total return, CAGR, drawdown or alpha certified while terminal portfolio valuation is unresolved; retain the holder claim and all pending-exit audit records",
+  "sources": [
+    {
+      "kind": "official_exchange",
+      "url": "https://www.sse.com.cn/disclosure/announcement/listing/stock/c/c_20260522_10819390.shtml",
+      "supports": "Termination decision and delisting-period rules"
+    },
+    {
+      "kind": "official_exchange",
+      "url": "https://big5.sse.com.cn/site/cht/www.sse.com.cn/disclosure/announcement/listing/stock/c/c_20260622_10823156.shtml",
+      "supports": "Final trading day June22 and delisting June29"
+    },
+    {
+      "kind": "issuer_original_pdf",
+      "url": "https://static.cninfo.com.cn/finalpage/2026-06-23/1225381763.PDF",
+      "supports": "June23 suspension and surviving shares transferring to delisted-company board"
+    },
+    {
+      "kind": "official_broker",
+      "url": "https://www.cs.ecitic.com/newsite/tzgg/ywgg/202607/t20260708_1214200.html",
+      "supports": "600636 to400297 holder/account conversion and custody continuity"
+    },
+    {
+      "kind": "issuer_text_mirror",
+      "url": "https://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=12548640&stockid=600636",
+      "supports": "Issuer transfer announcement:400297 国化5 trading fromAug28; official NEEQ-hosted original not located in bounded verification"
+    }
+  ]
+}

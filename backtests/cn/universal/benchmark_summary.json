@@ -1,0 +1,26 @@
+{
+  "000001.SH": {
+    "status": "complete",
+    "missing_sessions": 0,
+    "total_return": 0.17766225774741895,
+    "cagr": 0.0984661658218473,
+    "max_drawdown": -0.11276586466888483,
+    "basis": "price index, excluding dividends and trading costs"
+  },
+  "000300.SH": {
+    "status": "complete",
+    "missing_sessions": 0,
+    "total_return": 0.14061903857485736,
+    "cagr": 0.0784882669333482,
+    "max_drawdown": -0.14208532900503035,
+    "basis": "price index, excluding dividends and trading costs"
+  },
+  "000905.SH": {
+    "status": "complete",
+    "missing_sessions": 0,
+    "total_return": 0.34067953625736025,
+    "cagr": 0.18337332484726598,
+    "max_drawdown": -0.19064680356447894,
+    "basis": "price index, excluding dividends and trading costs"
+  }
+}

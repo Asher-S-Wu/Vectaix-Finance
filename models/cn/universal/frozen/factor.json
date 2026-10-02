@@ -1,0 +1,176 @@
+{
+  "kind": "factor",
+  "model_version": "cn-factor-frozen-20231229-v1",
+  "features": [
+    "momentum_60",
+    "momentum_5",
+    "volatility_20",
+    "log_amount_20",
+    "log_horizon"
+  ],
+  "target_schema": "arithmetic-return-sqrt-horizon-v1",
+  "prediction_schema": "independent-task-availability-v1",
+  "horizons": [
+    1,
+    5,
+    20,
+    60
+  ],
+  "as_of": "2023-12-29T00:00:00",
+  "sample_counts": {
+    "train": {
+      "input": 1637438,
+      "used": 1605642,
+      "excluded": 31796,
+      "horizons": {
+        "1": {
+          "samples": 409343,
+          "positive": 196855,
+          "negative_or_zero": 212488,
+          "full_loss": 0
+        },
+        "5": {
+          "samples": 407138,
+          "positive": 196016,
+          "negative_or_zero": 211122,
+          "full_loss": 0
+        },
+        "20": {
+          "samples": 401188,
+          "positive": 187915,
+          "negative_or_zero": 213273,
+          "full_loss": 0
+        },
+        "60": {
+          "samples": 387973,
+          "positive": 171668,
+          "negative_or_zero": 216305,
+          "full_loss": 0
+        }
+      }
+    },
+    "calibration": {
+      "input": 225317,
+      "used": 224922,
+      "excluded": 395,
+      "horizons": {
+        "1": {
+          "samples": 61531,
+          "positive": 28064,
+          "negative_or_zero": 33467,
+          "full_loss": 0
+        },
+        "5": {
+          "samples": 60487,
+          "positive": 27720,
+          "negative_or_zero": 32767,
+          "full_loss": 0
+        },
+        "20": {
+          "samples": 56596,
+          "positive": 25943,
+          "negative_or_zero": 30653,
+          "full_loss": 0
+        },
+        "60": {
+          "samples": 46308,
+          "positive": 19427,
+          "negative_or_zero": 26881,
+          "full_loss": 0
+        }
+      }
+    }
+  },
+  "parameters": {
+    "weights": {
+      "momentum_60": 0.25,
+      "momentum_5": -0.25,
+      "volatility_20": -0.25,
+      "log_amount_20": 0.25
+    },
+    "definition": "Equal-weight trend, short reversal, low volatility and liquidity ranks; no fitted weights"
+  },
+  "return_basis": "CNY source-adjusted price return",
+  "cash_dividend_accounting": "Source-adjusted research return; no separate actual-share dividend cash entitlement implied.",
+  "sigma_basis": "historical unranked CNY source-adjusted daily log-price-return standard deviation",
+  "training_target": "fixed factor score; no fitted return weights",
+  "prediction_arithmetic_return": "factor_score * sigma_daily * sqrt(horizon)",
+  "interval_model": "held-out arithmetic-return residual quantiles around the point arithmetic-return prediction",
+  "baseline": {
+    "probability": "common legal historical training label frequency, independent of candidate feature missingness",
+    "quantiles": "exp(normal_quantile * historical sigma_daily * sqrt(horizon)) - 1"
+  },
+  "calibration": {
+    "probability": "per-horizon Platt logistic calibration on held-out raw margin (factor/linear: regression score)",
+    "probability_anchor": "held_out_logistic_without_training_rate_shift",
+    "probability_baseline_blend": {
+      "1": 0.0,
+      "5": 0.0,
+      "20": 0.0,
+      "60": 0.0
+    },
+    "probability_centering": "date_horizon_cross_section",
+    "probability_anchor_offset": {
+      "1": 0.0,
+      "5": 0.0,
+      "20": 0.0,
+      "60": 0.0
+    },
+    "intervals": "per-horizon empirical log1p-return residual distribution",
+    "expected_return": "predicted_arithmetic_return + mean(held_out_arithmetic_return_residual) per horizon",
+    "residual_assumption": "Within each horizon, held-out arithmetic-return residuals represent prediction errors; the correction is unconditional within horizon.",
+    "residual_quantiles": {
+      "1": [
+        -0.02494374244716674,
+        -0.001155796996259506,
+        0.026199960057076713
+      ],
+      "5": [
+        -0.0566005379934885,
+        -0.002888417728982873,
+        0.062137766687499436
+      ],
+      "20": [
+        -0.1113543133949969,
+        -0.007222806963674902,
+        0.12432908610236237
+      ],
+      "60": [
+        -0.19743497040864635,
+        -0.023916007684362976,
+        0.1907751916073021
+      ]
+    },
+    "interval_log_residual_quantiles": {},
+    "interval_log_residual_audit": {},
+    "quantile_affine": {},
+    "mean_return_residual": {
+      "1": 0.00033700897187892995,
+      "5": 0.0014118062510030248,
+      "20": 0.004804908211336561,
+      "60": -0.0025993585772565407
+    },
+    "interval_width_multiplier": {
+      "1": 1.0,
+      "5": 1.0,
+      "20": 1.0,
+      "60": 1.0
+    }
+  },
+  "train_start": "2016-04-05T00:00:00",
+  "train_end": "2022-12-29T00:00:00",
+  "calibration_start": "2023-01-03T00:00:00",
+  "calibration_end": "2023-12-28T00:00:00",
+  "latest_label_end": "2023-12-29T00:00:00",
+  "versions": {
+    "numpy": "2.5.2",
+    "sklearn": "1.9.0",
+    "lightgbm": "4.7.0"
+  },
+  "fit_executed_at": "2026-09-30T22:25:28.117490+00:00",
+  "evaluation_context": "Retrospective chronological research; not a claim of live deployment at the logical training cutoff",
+  "market": "CN",
+  "currency": "CNY",
+  "model_sha256": "be126215b6f81a35ca1d3c36273e8607c22ce0f5e7ce9772343dff678dd61757",
+  "feature_manifest_sha256": "c6aad80942e3004f98ec9abae54a97d8fe0c1b02aacafe056a5be6abd334f6df"
+}
