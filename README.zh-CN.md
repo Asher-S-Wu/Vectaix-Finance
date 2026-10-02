@@ -26,6 +26,8 @@ A股管线计算37项价格、成交量、市值和市场状态因子，在同�
 
 模型使用2016至2022年数据拟合，2023年单独校准。选型后冻结参数，在2025年起至2026-09-30的确认区间评估；确认数据不参与选型或调参。冻结模型的结果如下：
 
+![冻结 Ridge 在确认区间的1、5、20、60交易日平均日 Rank IC 及95%块自助法区间](docs/assets/cn/confirmation_ic.png)
+
 | 期限（交易日） | 平均日 Rank IC | 95%区间 | 上涨概率 Brier skill |
 | --- | ---: | --- | ---: |
 | 1 | 0.0608 | [0.0455, 0.0758] | -0.35% |
@@ -40,6 +42,26 @@ Rank IC 是每日横截面中评分与后续收益的 Spearman 相关系数。�
 仓库包含四个[冻结候选模型](models/cn/universal/frozen/)和[最新 Ridge 权重及元数据](models/cn/universal/snapshots/cn-linear-latest-20260930-v1/)。厂商原始输入和个股预测快照需使用者自行取得授权 Tushare 数据后准备。公开版没有可直接服务的完整快照；克隆后可以检查模型、运行合成测试，真实股票排名需要完整的本地输入。
 
 [公开版说明](ASHARE_RELEASE.zh-CN.md) · [中文研究报告 PDF](delivery_report/ashare_training_report.zh-CN.pdf) · [方法与复现](docs/ashare/README.md) · [确认区间指标](backtests/cn/universal/confirmation_summary.json) · [A股源码](ashare_quant/)
+
+### 开发集模型选择
+
+![2024年共同股票池20日 IC：Ridge 0.0556、大型 LightGBM 0.0264、小型 LightGBM 0.0016、因子评分 -0.0128](docs/assets/cn/model_selection.png)
+
+Ridge 在2024年选型比较中的平均日 Rank IC 为0.0556。四个候选模型使用相同的222个 IC 日期和1,175,479条已到期股票日期观测；图中展示的是当时用于冻结选型的开发集统计量。
+
+[模型比较 CSV](docs/showcase/cn/model_selection.csv) · [冻结选型记录](backtests/cn/universal/frozen_architecture.json)
+
+### 概率与收益区间检查
+
+![冻结 Ridge 的1、5、20、60日概率 Brier skill 分别为 -0.35%、-0.54%、-0.22%、-1.15%](docs/assets/cn/probability_skill.png)
+
+零线代表历史上涨频率基线。负值表示模型概率的 Brier 误差高于该基线；排序 IC 为正，并不表示概率预测已经优于基线。
+
+![q10–q90收益区间实际覆盖率为80.02%、80.32%、78.28%、77.26%，目标为80%](docs/assets/cn/interval_coverage.png)
+
+q10–q90收益预测区间的目标覆盖率为80%。1、5、20、60个交易日的实际覆盖率分别为80.02%、80.32%、78.28%、77.26%。分母仅包含收益已到期且区间可用的观测；存在重叠的股票日期观测不能当作独立样本。这些图对应冻结模型的确认结果，最新重训模型尚未完成样本外评估。
+
+[确认指标 CSV](docs/showcase/cn/confirmation.csv) · [图表来源与口径](docs/showcase/cn/summary.json)
 
 <a id="hong-kong"></a>
 
@@ -153,6 +175,16 @@ python -m pytest -q tests/test_ashare_*.py
 
 完整合成集成测试需手动启用，命令见[公开版说明](ASHARE_RELEASE.zh-CN.md#安装与验证)。它在临时目录生成数据，检查管线和API。全量测试范围及港股历史样例缺失情况见[验证记录](docs/ashare/verification.md)。
 
+### 重建A股图表
+
+四张A股图表及其 CSV 表格读取仓库内的聚合 JSON 指标。安装依赖后，在仓库根目录运行：
+
+```bash
+python -m scripts.build_ashare_showcase
+```
+
+[生成脚本](scripts/build_ashare_showcase.py)检查冻结选型记录和指标算术，输出到 `docs/assets/cn/` 与 `docs/showcase/cn/`。生成图表不需要厂商原始输入，也不会重新训练模型。
+
 ### 重建港股结果
 
 已具备本地冻结模型、预测、行情和本次回测结果时，在仓库根目录重建图表：
@@ -178,8 +210,9 @@ python -m hk_quant.fixed_backtest --forecast-root backtests/hk/fixed_models_2026
 | `backtests/cn/universal/` | 实验协议、选型记录与汇总评价 | 仅汇总 |
 | `docs/ashare/`、`delivery_report/` | A股方法、验证记录与中文报告 | 是 |
 | `hk_quant/` | 港股数据处理、因子、模型、冻结回测、API与组合建议 | 是 |
+| `scripts/build_ashare_showcase.py` | 读取已提交的聚合指标，生成A股评估图和表格 | 是 |
 | `scripts/build_showcase.py` | 读取港股既有结果，生成展示图和案例表格 | 是 |
-| `docs/assets/`、`docs/showcase/` | 港股README图片及可核对的轻量结果 | 是 |
+| `docs/assets/`、`docs/showcase/` | A股与港股README图片及可核对的轻量结果 | 是 |
 | `tests/` | A股与港股研究、服务测试 | 是 |
 | `legacy/` | 旧版A股及早期港股脚本、评价规则 | 是 |
 | `data/` | 厂商输入与生成的数据 | 否 |

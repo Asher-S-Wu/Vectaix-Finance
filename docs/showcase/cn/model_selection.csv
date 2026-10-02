@@ -1,0 +1,5 @@
+model,label,rank_ic_mean,ic_dates,common_score_rows,common_mature_rows,universe,outcome_policy
+factor,Factor score,-0.012841102391291326,222,1283811,1175479,intersection of contemporaneously score-available identities across all candidates,membership independent of unknown future outcomes; IC uses mature observed outcomes only
+linear,Ridge,0.05559809440534042,222,1283811,1175479,intersection of contemporaneously score-available identities across all candidates,membership independent of unknown future outcomes; IC uses mature observed outcomes only
+lightgbm_small,Small LightGBM,0.0016159220430142227,222,1283811,1175479,intersection of contemporaneously score-available identities across all candidates,membership independent of unknown future outcomes; IC uses mature observed outcomes only
+lightgbm_large,Large LightGBM,0.026433199243157554,222,1283811,1175479,intersection of contemporaneously score-available identities across all candidates,membership independent of unknown future outcomes; IC uses mature observed outcomes only

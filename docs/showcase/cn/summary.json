@@ -1,0 +1,24 @@
+{
+  "selected_model": "linear",
+  "model_version": "cn-linear-frozen-20231229-v1",
+  "development_start": "2024-01-01",
+  "development_end": "2024-12-31",
+  "confirmation_start": "2025-01-01",
+  "confirmation_end": "2026-09-30",
+  "source_sha256": {
+    "backtests/cn/universal/protocol.json": "4cbdc4b8a6588c5a04dee41441e4db20cc24d75e41afff1e23e8b55551923b27",
+    "backtests/cn/universal/frozen_architecture.json": "b28941190cf6e88c1168a36fbb072b35db754a07c3d82d3c60f46bc11cd6f4cb",
+    "backtests/cn/universal/development_common_universe.json": "3b3f66d62a4714c7f4d0def92a10422018ef7dec8a0b8ac6083ca4d61b4427e4",
+    "backtests/cn/universal/confirmation_summary.json": "7c689e0ff17d0722baada1a194ff731688208e716d8b357919bdd21cb356aa75",
+    "models/cn/universal/frozen/linear.json": "2e96c7f427c24378801c1fbec337d4563a0af0beee1c25e77af33ca5a3282ebd",
+    "backtests/cn/universal/development_summary.json": "859d5b7d8b986b371010b14e187a8375238eeb7795fbd687e8934dacac788364"
+  },
+  "schema": "ashare-aggregate-charts-v1",
+  "evaluation_context": "Retrospective chronological research with frozen parameters; confirmation did not select the model.",
+  "ic_interval_method": "95% circular 60-session block bootstrap; 2,000 draws",
+  "interval_target": "q10-q90 predicted return interval; nominal 80% coverage",
+  "sample_policy": "Only mature task-available outcomes enter each metric; counts are not independent sample sizes.",
+  "latest_refit_evaluated_out_of_sample": false,
+  "portfolio_returns_verified": false,
+  "portfolio_limit": "Unresolved corporate actions and terminal valuations prevent verification of equity, CAGR and drawdown."
+}

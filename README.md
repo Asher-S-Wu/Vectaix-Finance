@@ -26,6 +26,8 @@ The A-share pipeline calculates 37 price, volume, capitalization and market-cont
 
 Fitting uses 2016 to 2022, followed by separate calibration in 2023. The selected model is frozen for confirmation from 2025 through September 30, 2026; confirmation data is not used for selection or tuning. The published confirmation results are:
 
+![Frozen Ridge confirmation: mean daily rank IC and 95% block-bootstrap intervals at 1, 5, 20 and 60 sessions](docs/assets/cn/confirmation_ic.png)
+
 | Horizon (trading sessions) | Mean daily rank IC | 95% interval | Probability Brier skill |
 | --- | ---: | --- | ---: |
 | 1 | 0.0608 | [0.0455, 0.0758] | -0.35% |
@@ -40,6 +42,26 @@ Unresolved corporate actions and terminal security valuations prevent verificati
 The release contains four [frozen candidate models](models/cn/universal/frozen/) and the [latest Ridge model and metadata](models/cn/universal/snapshots/cn-linear-latest-20260930-v1/). Raw vendor inputs and per-security prediction snapshots require separately authorized Tushare data. The public package has no active service snapshot, so a fresh clone supports model inspection and synthetic tests; real-stock rankings require complete local inputs.
 
 [Public release guide (Chinese)](ASHARE_RELEASE.zh-CN.md) · [Research report (Chinese PDF)](delivery_report/ashare_training_report.zh-CN.pdf) · [Method and reproduction](docs/ashare/README.md) · [Confirmation metrics](backtests/cn/universal/confirmation_summary.json) · [A-share source](ashare_quant/)
+
+### Model selection on the development set
+
+![2024 common-universe 20-session IC: Ridge 0.0556, large LightGBM 0.0264, small LightGBM 0.0016, factor score -0.0128](docs/assets/cn/model_selection.png)
+
+Ridge led the saved 2024 comparison, with mean daily rank IC of 0.0556. All four candidates use the same 222 IC dates and 1,175,479 mature stock-date outcomes. The chart shows the development statistic that selected the frozen model.
+
+[Model comparison CSV](docs/showcase/cn/model_selection.csv) · [Saved selection](backtests/cn/universal/frozen_architecture.json)
+
+### Probability and return-interval checks
+
+![Frozen Ridge probability Brier skill: -0.35%, -0.54%, -0.22% and -1.15% at 1, 5, 20 and 60 sessions](docs/assets/cn/probability_skill.png)
+
+Zero matches the historical-frequency probability baseline. Negative skill means the model has higher Brier error than that baseline, even though its ranking IC is positive.
+
+![Observed q10–q90 return-interval coverage: 80.02%, 80.32%, 78.28% and 77.26%, against an 80% target](docs/assets/cn/interval_coverage.png)
+
+The predicted q10–q90 return interval targets 80% coverage. Observed coverage is 80.02%, 80.32%, 78.28% and 77.26% at 1, 5, 20 and 60 sessions. Each denominator includes only mature outcomes with an available interval; overlapping stock-date outcomes are not independent samples. These are frozen-model confirmation results; the latest refit's performance remains unevaluated.
+
+[Confirmation CSV](docs/showcase/cn/confirmation.csv) · [Chart sources and definitions](docs/showcase/cn/summary.json)
 
 <a id="hong-kong"></a>
 
@@ -153,6 +175,16 @@ python -m pytest -q tests/test_ashare_*.py
 
 The full synthetic end-to-end test is opt-in; its command is in the [release guide](ASHARE_RELEASE.zh-CN.md#安装与验证). It generates temporary data to check the pipeline and API. See the [verification record](docs/ashare/verification.md) for the broader test scope and known missing Hong Kong fixtures.
 
+### Rebuild the A-share figures
+
+The four A-share charts and their CSV tables use aggregate JSON files included in this repository. After installing the requirements, run:
+
+```bash
+python -m scripts.build_ashare_showcase
+```
+
+The [renderer](scripts/build_ashare_showcase.py) verifies the saved selection record and metric arithmetic, then writes to `docs/assets/cn/` and `docs/showcase/cn/`. It needs no vendor inputs and does not retrain the model.
+
 ### Rebuild the Hong Kong results
 
 With the saved local model, forecasts, market data, and completed replay available, rebuild the figures from the repository root:
@@ -178,8 +210,9 @@ See the [replay entry point](hk_quant/fixed_backtest.py) for local input paths a
 | `backtests/cn/universal/` | Experiment protocol, selection records and aggregate evaluation | Summaries only |
 | `docs/ashare/`, `delivery_report/` | A-share method, verification records and Chinese report | Yes |
 | `hk_quant/` | Hong Kong data processing, factors, models, frozen replay, API and portfolio advice | Yes |
+| `scripts/build_ashare_showcase.py` | A-share evaluation figures and tables from committed aggregate metrics | Yes |
 | `scripts/build_showcase.py` | Figures and case tables from existing Hong Kong results | Yes |
-| `docs/assets/`, `docs/showcase/` | Hong Kong README figures and compact evidence tables | Yes |
+| `docs/assets/`, `docs/showcase/` | A-share and Hong Kong README figures and compact evidence tables | Yes |
 | `tests/` | A-share and Hong Kong research and service tests | Yes |
 | `legacy/` | Earlier A-share and Hong Kong scripts and evaluation criteria | Yes |
 | `data/` | Vendor inputs and generated data | No |

@@ -26,6 +26,8 @@ A주 파이프라인은 가격, 거래량, 시가총액, 시장 상태에 관한
 
 2016년부터 2022년까지의 데이터로 학습하고 2023년 데이터로 별도 보정했습니다. 선정한 모델을 고정한 뒤 2025년부터 2026-09-30까지의 확인 구간에서 평가했습니다. 확인 데이터는 모델 선정이나 튜닝에 사용하지 않았습니다.
 
+![고정 Ridge 확인 구간의 1·5·20·60거래일 평균 일별 Rank IC와 95% 블록 부트스트랩 구간](docs/assets/cn/confirmation_ic.png)
+
 | 예측 기간(거래일) | 평균 일별 Rank IC | 95% 구간 | 상승 확률 Brier skill |
 | --- | ---: | --- | ---: |
 | 1 | 0.0608 | [0.0455, 0.0758] | -0.35% |
@@ -40,6 +42,26 @@ Rank IC는 매일 종목 간 점수와 이후 수익률의 Spearman 상관계수
 공개판에는 네 개의 [고정 후보 모델](models/cn/universal/frozen/)과 [최신 Ridge 가중치·메타데이터](models/cn/universal/snapshots/cn-linear-latest-20260930-v1/)가 포함됩니다. 공급업체 원본 입력과 개별 종목 예측 스냅샷은 사용자가 별도로 이용 허가를 받은 Tushare 데이터로 준비해야 합니다. 공개판에는 서비스용 전체 스냅샷이 없어 복제 직후에는 모델 확인과 합성 데이터 테스트를 실행할 수 있습니다. 실제 종목 순위에는 완전한 로컬 입력이 필요합니다.
 
 [공개판 안내(중국어)](ASHARE_RELEASE.zh-CN.md) · [연구 보고서 PDF(중국어)](delivery_report/ashare_training_report.zh-CN.pdf) · [방법과 재현 절차](docs/ashare/README.md) · [확인 구간 지표](backtests/cn/universal/confirmation_summary.json) · [A주 소스](ashare_quant/)
+
+### 개발 데이터에서 모델 선택
+
+![2024년 공통 종목군 20거래일 IC: Ridge 0.0556, 대형 LightGBM 0.0264, 소형 LightGBM 0.0016, 팩터 점수 -0.0128](docs/assets/cn/model_selection.png)
+
+Ridge의 2024년 개발 구간 평균 일별 Rank IC는 0.0556이었습니다. 네 후보는 동일한 222개 IC 날짜와 결과가 확정된 1,175,479개 종목·날짜 관측값으로 비교했습니다. 차트는 고정 모델 선택에 사용한 개발 통계량을 보여줍니다.
+
+[모델 비교 CSV](docs/showcase/cn/model_selection.csv) · [고정 선택 기록](backtests/cn/universal/frozen_architecture.json)
+
+### 확률과 수익률 구간 점검
+
+![고정 Ridge의 1·5·20·60거래일 확률 Brier skill: -0.35%, -0.54%, -0.22%, -1.15%](docs/assets/cn/probability_skill.png)
+
+0은 과거 상승 빈도 기준선과 같은 수준입니다. 음수는 모델의 Brier 오차가 해당 기준선보다 크다는 뜻입니다. 순위 IC가 양수여도 확률 예측이 기준선보다 우수하다는 의미는 아닙니다.
+
+![q10–q90 수익률 구간의 관측 포함률은 80.02%, 80.32%, 78.28%, 77.26%이며 목표는 80%](docs/assets/cn/interval_coverage.png)
+
+q10–q90 수익률 예측 구간은 80% 포함률을 목표로 합니다. 1·5·20·60거래일의 관측 포함률은 각각 80.02%, 80.32%, 78.28%, 77.26%였습니다. 분모에는 결과가 확정되고 구간을 계산할 수 있는 관측값만 포함됩니다. 기간이 겹치는 종목·날짜 관측값은 독립 표본이 아닙니다. 차트는 고정 모델의 확인 결과이며, 최신 재학습 모델의 표본 외 평가는 아직 없습니다.
+
+[확인 지표 CSV](docs/showcase/cn/confirmation.csv) · [차트 출처와 정의](docs/showcase/cn/summary.json)
 
 <a id="hong-kong"></a>
 
@@ -153,6 +175,16 @@ python -m pytest -q tests/test_ashare_*.py
 
 전체 합성 통합 테스트는 직접 활성화해야 하며, 명령은 [공개판 안내](ASHARE_RELEASE.zh-CN.md#安装与验证)에 있습니다. 임시 디렉터리에 데이터를 생성하고 파이프라인과 API를 확인합니다. 전체 테스트 범위와 누락된 홍콩 주식 과거 샘플은 [검증 기록](docs/ashare/verification.md)을 참고하세요.
 
+### A주 차트 재생성
+
+A주 차트 네 개와 CSV 표는 저장소에 포함된 집계 JSON 지표로 생성합니다. 의존성을 설치한 뒤 저장소 루트에서 실행합니다.
+
+```bash
+python -m scripts.build_ashare_showcase
+```
+
+[생성 스크립트](scripts/build_ashare_showcase.py)는 고정 선택 기록과 지표 계산을 확인하고 `docs/assets/cn/`와 `docs/showcase/cn/`에 저장합니다. 공급업체 원본 입력이 필요 없으며 모델을 다시 학습하지 않습니다.
+
 ### 홍콩 주식 결과 재생성
 
 저장된 모델, 예측, 시세와 이번 백테스트 결과가 있으면 저장소 루트에서 차트를 다시 생성할 수 있습니다.
@@ -178,8 +210,9 @@ python -m hk_quant.fixed_backtest --forecast-root backtests/hk/fixed_models_2026
 | `backtests/cn/universal/` | 실험 규약, 선정 기록과 요약 평가 | 요약만 |
 | `docs/ashare/`, `delivery_report/` | A주 방법, 검증 기록과 중국어 보고서 | 예 |
 | `hk_quant/` | 홍콩 데이터 처리, 팩터, 모델, 고정 모델 재생, API와 포트폴리오 제안 | 예 |
+| `scripts/build_ashare_showcase.py` | 저장된 집계 지표에서 A주 평가 차트와 표 생성 | 예 |
 | `scripts/build_showcase.py` | 기존 홍콩 결과에서 차트와 사례 표 생성 | 예 |
-| `docs/assets/`, `docs/showcase/` | 홍콩 README 이미지와 소규모 결과 표 | 예 |
+| `docs/assets/`, `docs/showcase/` | A주·홍콩 README 이미지와 소규모 결과 표 | 예 |
 | `tests/` | A주·홍콩 주식 연구 및 서비스 테스트 | 예 |
 | `legacy/` | 이전 A주·초기 홍콩 주식 스크립트와 평가 기준 | 예 |
 | `data/` | 공급업체 입력과 생성 데이터 | 아니요 |

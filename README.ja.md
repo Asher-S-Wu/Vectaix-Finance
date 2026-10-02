@@ -26,6 +26,8 @@ A株パイプラインは価格、売買高、時価総額、市場環境に関�
 
 2016年から2022年を学習、2023年を個別の校正に使用します。選定後のモデルを固定し、2025年から2026-09-30までの確認期間で評価しました。この確認データは選定や調整に使用していません。
 
+![固定Ridgeの確認期間における1・5・20・60営業日先の平均日次Rank ICと95%ブロック・ブートストラップ区間](docs/assets/cn/confirmation_ic.png)
+
 | 予測期間（営業日） | 平均日次Rank IC | 95%区間 | 上昇確率のBrier skill |
 | --- | ---: | --- | ---: |
 | 1 | 0.0608 | [0.0455, 0.0758] | -0.35% |
@@ -40,6 +42,26 @@ Rank ICは各日の銘柄横断で求めたスコアと将来リターンのSpea
 公開版には4つの[固定候補モデル](models/cn/universal/frozen/)と[最新Ridgeの重み・メタデータ](models/cn/universal/snapshots/cn-linear-latest-20260930-v1/)があります。ベンダーの元データと銘柄別予測スナップショットは、利用者が別途利用許諾を得たTushareデータで用意する必要があります。公開版にはサービス用の完全なスナップショットがないため、クローン直後はモデルの確認と合成データによるテストが可能です。実銘柄のランキングには完全なローカル入力が必要です。
 
 [公開版ガイド（中国語）](ASHARE_RELEASE.zh-CN.md) · [研究報告PDF（中国語）](delivery_report/ashare_training_report.zh-CN.pdf) · [手法と再現手順](docs/ashare/README.md) · [確認期間の指標](backtests/cn/universal/confirmation_summary.json) · [A株ソース](ashare_quant/)
+
+### 開発データによるモデル選定
+
+![2024年の共通銘柄群の20営業日IC：Ridge 0.0556、大型LightGBM 0.0264、小型LightGBM 0.0016、固定スコア -0.0128](docs/assets/cn/model_selection.png)
+
+Ridgeの2024年開発期間の平均日次Rank ICは0.0556でした。4候補は同じ222日分のICと、結果が確定した1,175,479件の銘柄・日付観測で比較しています。図は固定モデルの選定に使った開発統計量です。
+
+[モデル比較CSV](docs/showcase/cn/model_selection.csv) · [固定した選定記録](backtests/cn/universal/frozen_architecture.json)
+
+### 確率とリターン区間の検証
+
+![固定Ridgeの1・5・20・60営業日先の確率Brier skillは -0.35%、-0.54%、-0.22%、-1.15%](docs/assets/cn/probability_skill.png)
+
+ゼロは過去の上昇頻度を使う基準と同等です。負の値は、その基準よりモデルのBrier誤差が大きいことを表します。順位付けのICが正でも、確率予測が基準を上回るとは限りません。
+
+![q10–q90リターン区間の観測カバー率は80.02%、80.32%、78.28%、77.26%、目標は80%](docs/assets/cn/interval_coverage.png)
+
+q10–q90の予測リターン区間は80%のカバー率を目標とします。1・5・20・60営業日先の観測カバー率は80.02%、80.32%、78.28%、77.26%でした。分母は結果が確定し、区間を計算できた観測のみです。期間の重なる銘柄・日付観測は独立した標本ではありません。各図は固定モデルの確認結果で、最新再学習モデルのサンプル外評価はまだありません。
+
+[確認指標CSV](docs/showcase/cn/confirmation.csv) · [図の出典と定義](docs/showcase/cn/summary.json)
 
 <a id="hong-kong"></a>
 
@@ -153,6 +175,16 @@ python -m pytest -q tests/test_ashare_*.py
 
 完全な合成データ結合テストは手動で有効にします。コマンドは[公開版ガイド](ASHARE_RELEASE.zh-CN.md#安装与验证)にあります。一時ディレクトリでデータを生成し、パイプラインとAPIを確認します。全体のテスト範囲と香港株の不足サンプルは[検証記録](docs/ashare/verification.md)を参照してください。
 
+### A株の図を再生成
+
+4枚のA株の図とCSV表は、リポジトリに含まれる集計JSON指標から生成します。依存関係のインストール後、ルートで実行します。
+
+```bash
+python -m scripts.build_ashare_showcase
+```
+
+[生成スクリプト](scripts/build_ashare_showcase.py)は固定した選定記録と指標の計算を検査し、`docs/assets/cn/` と `docs/showcase/cn/` に出力します。ベンダーの元データは不要で、モデルの再学習も行いません。
+
 ### 香港株の結果を再生成
 
 保存済みモデル、予測、市場データと今回のバックテスト結果がある場合、リポジトリ直下から図を再生成できます。
@@ -178,8 +210,9 @@ python -m hk_quant.fixed_backtest --forecast-root backtests/hk/fixed_models_2026
 | `backtests/cn/universal/` | 実験手順、選定記録、集計評価 | 集計のみ |
 | `docs/ashare/`、`delivery_report/` | A株の手法、検証記録、中国語報告 | 対象 |
 | `hk_quant/` | 香港株のデータ処理、ファクター、モデル、固定モデル再生、API、ポートフォリオ提案 | 対象 |
+| `scripts/build_ashare_showcase.py` | 保存済み集計指標からA株の評価図と表を生成 | 対象 |
 | `scripts/build_showcase.py` | 香港株の既存結果から図と事例表を生成 | 対象 |
-| `docs/assets/`、`docs/showcase/` | 香港株のREADME用画像と小規模な結果表 | 対象 |
+| `docs/assets/`、`docs/showcase/` | A株・香港株のREADME用画像と小規模な結果表 | 対象 |
 | `tests/` | A株・香港株の研究とサービスのテスト | 対象 |
 | `legacy/` | 旧A株・初期香港株スクリプトと評価基準 | 対象 |
 | `data/` | ベンダー入力と生成データ | 対象外 |
