@@ -1,0 +1,42 @@
+{
+  "factor": {
+    "rank_ic_mean": 0.029215327791829747,
+    "ic_dates": 232,
+    "date_sha256": "41b4805ef41bb969ef17f06ba3bf5abd7e6812c2d7c491e1be11dc1f6f309038",
+    "constant_score_days": 0,
+    "common_score_rows": 22428,
+    "common_mature_rows": 20648,
+    "universe": "common contemporaneously score-available original-cohort identities",
+    "outcome_policy": "conditional observed mature endpoints; missing outcomes remain disclosed"
+  },
+  "linear": {
+    "rank_ic_mean": -0.055515905862186375,
+    "ic_dates": 232,
+    "date_sha256": "41b4805ef41bb969ef17f06ba3bf5abd7e6812c2d7c491e1be11dc1f6f309038",
+    "constant_score_days": 0,
+    "common_score_rows": 22428,
+    "common_mature_rows": 20648,
+    "universe": "common contemporaneously score-available original-cohort identities",
+    "outcome_policy": "conditional observed mature endpoints; missing outcomes remain disclosed"
+  },
+  "lightgbm_small": {
+    "rank_ic_mean": -0.008906418420524309,
+    "ic_dates": 232,
+    "date_sha256": "41b4805ef41bb969ef17f06ba3bf5abd7e6812c2d7c491e1be11dc1f6f309038",
+    "constant_score_days": 0,
+    "common_score_rows": 22428,
+    "common_mature_rows": 20648,
+    "universe": "common contemporaneously score-available original-cohort identities",
+    "outcome_policy": "conditional observed mature endpoints; missing outcomes remain disclosed"
+  },
+  "lightgbm_large": {
+    "rank_ic_mean": -0.0162145732732891,
+    "ic_dates": 232,
+    "date_sha256": "41b4805ef41bb969ef17f06ba3bf5abd7e6812c2d7c491e1be11dc1f6f309038",
+    "constant_score_days": 0,
+    "common_score_rows": 22428,
+    "common_mature_rows": 20648,
+    "universe": "common contemporaneously score-available original-cohort identities",
+    "outcome_policy": "conditional observed mature endpoints; missing outcomes remain disclosed"
+  }
+}

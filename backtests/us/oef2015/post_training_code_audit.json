@@ -1,0 +1,25 @@
+{
+  "change": "Fail-fast artifact preservation and explicit namespace CLI arguments only; no estimator/feature/evaluation math change",
+  "executed_pipeline_sha256": "853d55452a6f814fb0254a952e954d7171180499e3054e55542867609478b23c",
+  "current_pipeline_sha256": "4b49f8a55ec88fa4ceb5803b0f0e8ba99c3e5804672637d28b65da04e7b6e510",
+  "executed_code_archive": "executed_code/",
+  "archive_sha256": {
+    "us_quant/__init__.py": "c3d4aff15d0bb14259b7d4fef21f44b7bb0ab91e9a35abd588a4f6aeeffb2727",
+    "us_quant/collect.py": "c7ae4107a723e7b2f8495a85dd45df52507327ec1dea6681e3774a5a5713b7e5",
+    "us_quant/data.py": "d29f6d75e23b4f71323a6273723f973e7e8891fd92998685abb8bed23bc28014",
+    "us_quant/evaluation.py": "717c989da740877b062d670ed4595c961049c62530931236d374ba04eee3ef4d",
+    "us_quant/features.py": "00fddc529d5b019d962df18b7c031566c0bcbc39ce21240d7c66112c431b123c",
+    "us_quant/models.py": "e2b653d9c924e13718575bb1fea76e873f86411b86919fc3b734346fc33fb092",
+    "us_quant/pipeline.py": "853d55452a6f814fb0254a952e954d7171180499e3054e55542867609478b23c",
+    "us_quant/portfolio.py": "db171738ec83d86ce869571441f744e773661b779e8c8902d60d0deffb678b26",
+    "us_quant/training.py": "468add41164126cd651fb43d0d3ec22aa4c888554fdb13be0ca8ed43414162fe",
+    "hk_quant/models.py": "284df0fbfb7a4efffeec1877315fab1f09af9013fb61681d9879faa6e530428e",
+    "hk_quant/training.py": "dfa7f94959dae427deb7417767ed3f6b0f8e50dffd350983550012d53df34d95",
+    "hk_quant/market_context.py": "c01d13a22fd932c33dab64e86cae49569c4d36c2255f7420c3648752c05f49ee",
+    "hk_quant/prediction_tasks.py": "9f144271dd1bde16ddb0861258abe318b270b8b891ebb1416ac20633e3d4ef9e",
+    "hk_quant/contracts.py": "89fbbfe79b383f7aa3cef7693185dd497b1470545223fe401e493290cf382428"
+  },
+  "fitted_artifacts_unchanged": true,
+  "fit_rerun": false,
+  "confirmation_rerun": false
+}

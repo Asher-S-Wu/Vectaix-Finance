@@ -1,0 +1,69 @@
+{
+  "base_commit": "f66b1fc64a96b9f84659deaf96e4066b944d6f7c",
+  "verification_date_utc": "2026-10-02",
+  "us_tests_passed": 122,
+  "full_filtered_passed": 1094,
+  "full_filtered_failed": 26,
+  "full_filtered_skipped": 1,
+  "full_filtered_scope": "All tests except the five pre-existing missing tmp-module collection blockers listed below. requirements.txt, requirements-report.txt, pytest==9.1.1 and httpx==0.28.1 installed in a fresh Python 3.12 environment.",
+  "baseline_failure_comparison": "All 26 failing cases rerun against the original base commit in the same environment; exact failure names match.",
+  "new_failures": [],
+  "existing_failure_nodes": [
+    "tests/test_cash_catalog_timestamp_candidate.py::test_catalog_match_does_not_certify_archive_amount_publication",
+    "tests/test_hkex.py::test_saved_official_search_page_preserves_count_timezone_and_pdf_url",
+    "tests/test_hkex.py::test_search_page_count_mismatch_is_not_accepted_as_complete",
+    "tests/test_lot_evidence_candidates.py::test_an_empty_announcement_catalog_does_not_require_a_fabricated_chain",
+    "tests/test_lot_evidence_candidates.py::test_archive_current_lot_does_not_spread_to_other_counter",
+    "tests/test_lot_evidence_candidates.py::test_archive_does_not_map_source_counter_to_a_different_code",
+    "tests/test_lot_evidence_candidates.py::test_archive_does_not_use_overlapping_lifecycle_from_another_listing",
+    "tests/test_lot_evidence_candidates.py::test_archive_expired_listing_does_not_receive_current_snapshot",
+    "tests/test_lot_evidence_candidates.py::test_archive_maps_reit_identity_through_its_source_counter",
+    "tests/test_lot_evidence_candidates.py::test_archive_merge_keeps_daily_proof_and_excludes_unverified_intervals",
+    "tests/test_lot_evidence_candidates.py::test_archive_price_date_and_until_do_not_prove_verified_history",
+    "tests/test_lot_evidence_candidates.py::test_candidate_effective_announcement_is_not_verified",
+    "tests/test_lot_evidence_candidates.py::test_current_identity_is_scoped_to_code_isin_and_active_date[ambiguous_code]",
+    "tests/test_lot_evidence_candidates.py::test_current_identity_is_scoped_to_code_isin_and_active_date[delisting_day]",
+    "tests/test_lot_evidence_candidates.py::test_current_identity_is_scoped_to_code_isin_and_active_date[expired]",
+    "tests/test_lot_evidence_candidates.py::test_current_identity_is_scoped_to_code_isin_and_active_date[identity_expired]",
+    "tests/test_lot_evidence_candidates.py::test_current_identity_is_scoped_to_code_isin_and_active_date[identity_not_started]",
+    "tests/test_lot_evidence_candidates.py::test_current_identity_is_scoped_to_code_isin_and_active_date[wrong_isin]",
+    "tests/test_lot_evidence_candidates.py::test_current_list_proves_only_the_source_asof_date",
+    "tests/test_lot_evidence_candidates.py::test_current_merge_counts_only_verified_nonoverlapping_day_evidence",
+    "tests/test_lot_evidence_candidates.py::test_merge_accepts_verified_reit_identity_that_is_not_its_ticker",
+    "tests/test_lot_evidence_candidates.py::test_merge_rejects_stale_observation_even_when_stored_flags_claim_true",
+    "tests/test_lot_evidence_candidates.py::test_merge_rejects_true_flag_on_a_historical_interval_or_unknown_date_binding",
+    "tests/test_lot_evidence_candidates.py::test_merge_rejects_unverified_identity_even_if_the_code_matches",
+    "tests/test_prediction_evidence.py::test_file_and_audit_totals_preserve_partial_tasks_and_their_label_gaps",
+    "tests/test_prediction_evidence.py::test_saved_report_label_audit_does_not_restore_scorable_only_denominator"
+  ],
+  "existing_collection_blockers": [
+    "tests/test_endpoint_identity_review.py",
+    "tests/test_import_reviewed_cash_actions.py",
+    "tests/test_lot_document_identity.py",
+    "tests/test_lot_snapshot_facts.py",
+    "tests/test_lot_snapshot_partition_audit.py"
+  ],
+  "skipped": "Opt-in full synthetic A-share four-model integration smoke (ASHARE_SYNTHETIC_E2E not enabled).",
+  "us_command": "python -m pytest -q -p no:cacheprovider tests/test_us_*.py",
+  "full_filtered_command": "python -m pytest -q -rs -p no:cacheprovider --ignore=tests/test_endpoint_identity_review.py --ignore=tests/test_import_reviewed_cash_actions.py --ignore=tests/test_lot_document_identity.py --ignore=tests/test_lot_snapshot_facts.py --ignore=tests/test_lot_snapshot_partition_audit.py",
+  "chart_regeneration": {
+    "v1_files_compared": 10,
+    "v2_files_compared": 14,
+    "all_byte_identical": true,
+    "original_png_count": 10
+  },
+  "preservation": {
+    "unchanged_existing_non_readme_files": 239,
+    "all_legacy_readme_sections_unchanged": true,
+    "model_files_unchanged_from_sealed_research": 74,
+    "backtest_files_unchanged_from_sealed_research": 131
+  },
+  "public_source_review": "docs/us/publication_sources.json",
+  "research_retraining_performed": false,
+  "whitespace_check": "Passed with CSV CRLF treated as line endings and the immutable historical patch excluded (its blank diff-context lines require the leading space).",
+  "report_review": {
+    "pages": 6,
+    "docx_pdf_text_equivalent": true,
+    "all_pages_visually_checked": true
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "evaluation_status": "posthoc paired diagnostic on previously viewed2025–2026 outcomes",
+  "untouched_holdout": false,
+  "horizons": {
+    "1": {
+      "first_run_ic": -0.009505124933416906,
+      "second_run_ic": 0.008357268922969532,
+      "paired_ic_change": 0.01786239385638644,
+      "change_ci_lower": -0.0007587243799619285,
+      "change_ci_upper": 0.03564929302956573,
+      "ic_dates": 436,
+      "common_score_rows": 38893,
+      "common_mature_rows": 38804,
+      "date_sha256": "7f24a1d568b3a43ff6ad1b3353e297f013711ccc0e17c4db161348122ddbb5ce"
+    },
+    "5": {
+      "first_run_ic": -0.027090449875611662,
+      "second_run_ic": 0.016161360451367998,
+      "paired_ic_change": 0.04325181032697967,
+      "change_ci_lower": -0.007591249003244251,
+      "change_ci_upper": 0.09040491036958627,
+      "ic_dates": 432,
+      "common_score_rows": 38893,
+      "common_mature_rows": 38448,
+      "date_sha256": "008d5831d8677940587f852d5aea74c6d3baceda382f5cd9bf2e4fc9c1bee395"
+    },
+    "20": {
+      "first_run_ic": -0.07717853143768572,
+      "second_run_ic": 0.02328992781260181,
+      "paired_ic_change": 0.10046845925028751,
+      "change_ci_lower": 0.02109514390377829,
+      "change_ci_upper": 0.17875400677290437,
+      "ic_dates": 417,
+      "common_score_rows": 38893,
+      "common_mature_rows": 37113,
+      "date_sha256": "b6dd7ca7b1cb2925b310e1fcff1604733348a8f31e2f5b5571f7d3eeb38f615e"
+    },
+    "60": {
+      "first_run_ic": -0.09889542911976601,
+      "second_run_ic": 0.06897662585380526,
+      "paired_ic_change": 0.16787205497357124,
+      "change_ci_lower": 0.05812114329016073,
+      "change_ci_upper": 0.281716178634967,
+      "ic_dates": 377,
+      "common_score_rows": 38893,
+      "common_mature_rows": 33553,
+      "date_sha256": "4b107bb4c92187972a9496b546e2ce6a1527f601a0518e39540bfb5ffb19f2c6"
+    }
+  },
+  "first_predictions_sha256": "61acf7d7357ed576937cefdece0977b7b920d25d06ce79509942b69e043422ab",
+  "second_predictions_sha256": "1213314dea06a9d3e4c3736f31a306ea51ceeea8bd3f200342a3a810bd758b7e"
+}

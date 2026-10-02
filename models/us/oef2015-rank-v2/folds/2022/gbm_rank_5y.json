@@ -1,0 +1,94 @@
+{
+  "kind": "gbm_rank_5y",
+  "market": "US",
+  "currency": "USD",
+  "model_version": "us-v2-gbm_rank_5y-eval2022",
+  "as_of": "2021-12-31T00:00:00",
+  "horizons": [
+    20
+  ],
+  "features": [
+    "return_1",
+    "momentum_5",
+    "momentum_20",
+    "momentum_60",
+    "momentum_120",
+    "momentum_252",
+    "momentum_252_skip20",
+    "volatility_20",
+    "volatility_60",
+    "volatility_252",
+    "downside_volatility_60",
+    "max_return_20",
+    "return_skew_60",
+    "near_high_252",
+    "near_low_252",
+    "bias_20",
+    "bias_60",
+    "log_amount_20",
+    "amount_ratio_20_120",
+    "amount_cv_20",
+    "volume_cv_20",
+    "amihud_20",
+    "intraday_range",
+    "intraday_return"
+  ],
+  "parameters": {
+    "fit_window_years": 5,
+    "estimator": "LightGBM regression of cross-sectional rank labels",
+    "num_leaves": 7,
+    "n_estimators": 120,
+    "min_child_samples": 200,
+    "learning_rate": 0.03,
+    "reg_lambda": 20.0,
+    "random_state": 42,
+    "n_jobs": 8
+  },
+  "ranking_target": "within_date_horizon_centered_percentile",
+  "fitted_ranking_weights": true,
+  "calibration": {
+    "probability": "held-out per-horizon logistic",
+    "mean_return": "held-out nonnegative-slope affine transform of rank score; score itself is never reversed",
+    "interval": "empirical log1p-return residual quantiles scaled by historical daily sigma*sqrt(horizon)"
+  },
+  "interval_fit_audit": {
+    "20": {
+      "fit_rows": 20880,
+      "excluded_invalid_point_or_scale_rows": 0,
+      "negative_infinity_atoms": 0,
+      "domain": "log1p_arithmetic_return"
+    }
+  },
+  "mean_affine": {
+    "20": {
+      "offset": 0.020319017742672363,
+      "slope": 0.18563786955806919
+    }
+  },
+  "residual_quantiles": {
+    "20": [
+      -1.4146555314527811,
+      -0.07837783483244287,
+      1.1736850015470046
+    ]
+  },
+  "sample_counts": {
+    "20": {
+      "train": 119205,
+      "calibration": 20880,
+      "train_start": "2016-01-04",
+      "train_end": "2020-12-02",
+      "train_label_end": "2020-12-31",
+      "calibration_start": "2021-01-04",
+      "calibration_end": "2021-12-02",
+      "calibration_label_end": "2021-12-31"
+    }
+  },
+  "return_basis": "USD source-adjusted research-price arithmetic return; Yahoo plus explicitly reconstructed original identities",
+  "fit_executed_at": "2026-10-02T08:23:54.787592+00:00",
+  "eligible": false,
+  "execution_validated": false,
+  "protocol_sha256": "727d6ffe1703c41b2da4f052043077eeb38c7c2adf71a77d51ca36bec2fd688f",
+  "source_audit_sha256": "2f9d5bd974c8aa7cefdbe0e808c447370d243ed8ec85a1e270c9201a4fd39ed1",
+  "fold_evaluation_year": 2022
+}

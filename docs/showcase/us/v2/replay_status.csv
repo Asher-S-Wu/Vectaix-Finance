@@ -1,0 +1,5 @@
+strategy,performance_scope,performance_validated,execution_validated,valuation_gap_sessions,terminal_unknown_count,total_return,annualized_return,max_drawdown,fill_ratio,average_equity_exposure,total_fees,rebalance_count
+selected_15bps,reference_only,False,False,274,1,,,,0.43159611490586314,0.4295798677650278,16233.251356317487,21
+selected_30bps,reference_only,False,False,274,1,,,,0.433302801364219,0.42980946190800207,32215.221448495002,21
+cohort_101slots_15bps,reference_only,False,False,274,1,,,,0.5020496278113791,0.7991596449969155,2061.5288134992516,21
+spy_15bps,research_valuation_only,True,False,0,0,0.3083512489981526,0.16764319715356613,-0.17851765677127085,0.9460360731388184,0.948060136394983,1539.3778526263832,21

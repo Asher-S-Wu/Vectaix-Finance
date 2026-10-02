@@ -1,0 +1,103 @@
+{
+  "reviewed_at_utc": "2026-10-02T07:37:45.464684+00:00",
+  "status": "ready_for_conditional_research_fit",
+  "scope": "Independent pre-fit code and real-data methodological review; no estimator fitted by reviewer and no candidate performance used",
+  "source_audit_sha256": "1687df416df4e3a2b0ceb352cc82fd860f30966e84be84451f207bbf4ef52611",
+  "observed_counts": {
+    "declared_identities": 101,
+    "accepted_original_identities": 89,
+    "excluded_original_identities": 12,
+    "calendar_sessions": 3205,
+    "security_day_rows": 323705,
+    "training_examples": 619618,
+    "calibration_examples": 81346,
+    "candidate_feature_counts": {
+      "factor": 4,
+      "linear": 10,
+      "lightgbm_small": 31,
+      "lightgbm_large": 31
+    },
+    "status_rows": {
+      "ok": 279994,
+      "identity_unresolved": 16025,
+      "source_history_unavailable": 16025,
+      "identity_reused": 6410,
+      "insufficient_history": 5251
+    },
+    "training_by_horizon": {
+      "1": 156729,
+      "5": 156373,
+      "20": 155038,
+      "60": 151478
+    },
+    "calibration_by_horizon": {
+      "1": 22161,
+      "5": 21805,
+      "20": 20470,
+      "60": 16910
+    }
+  },
+  "expected_prediction_rows": {
+    "development_all_four_horizons_per_candidate": 101808,
+    "confirmation_all_four_horizons_selected_candidate": 176548,
+    "note": "Expected from the full cohort grid; post-fit output counts still require verification"
+  },
+  "chronology": {
+    "training_first_signal": "2016-01-04",
+    "training_last_signal_by_horizon": {
+      "1": "2022-12-29",
+      "5": "2022-12-22",
+      "20": "2022-12-01",
+      "60": "2022-10-05"
+    },
+    "training_latest_label_end": "2022-12-30",
+    "calibration_first_signal": "2023-01-03",
+    "calibration_last_signal_by_horizon": {
+      "1": "2023-12-28",
+      "5": "2023-12-21",
+      "20": "2023-11-30",
+      "60": "2023-10-04"
+    },
+    "calibration_latest_label_end": "2023-12-29"
+  },
+  "verified_checks": [
+    "Source-audit hashes match every listed raw JSON, bar parquet, derived feature/normalized/price panel, calendar, and code file",
+    "All three derived panels contain exactly one row per original identity and shared session, with no duplicate date/identity keys",
+    "All excluded identities retain missing prices and correct exclusion reasons; APC and EMC reused tickers cannot enter features",
+    "Every normalized feature rank matches an independent same-day percentile-rank recomputation; sigma_daily exactly retains unranked volatility_20/sqrt(252)",
+    "For all 101 identities and four horizons, returns and label dates match independent shared-calendar endpoint recomputation",
+    "For all 101 identities, 20-session momentum and historical log-return volatility match independent price-based recomputation",
+    "All four candidate training/calibration splits exclude warm-up dates, purge horizon boundaries, and contain only accepted identities",
+    "US candidate comparison now uses common rows and common dates, with explicit zero skill for constant predictions",
+    "Production bootstrap refuses confidence intervals with fewer than 60 calendar slots or 60 finite observations"
+  ],
+  "hash_verification_counts": {
+    "raw_json": 184,
+    "bar_parquet": 92,
+    "derived_panels_and_calendar": 4,
+    "code_files": 14
+  },
+  "test_run": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider tests/test_us_data_features.py tests/test_us_training.py tests/test_us_evaluation.py tests/test_us_collection.py tests/test_us_portfolio.py",
+    "passed": 45,
+    "failed": 0
+  },
+  "resolved_findings": [
+    "Warm-up observations cannot enter fitting or tree feature-availability selection",
+    "Constant-score dates no longer receive candidate-specific IC exclusion",
+    "APC is ARKO Petroleum rather than original Anadarko; EMC is an ETF rather than original EMC Corp.; both are explicitly quarantined",
+    "Underpowered circular-bootstrap histories no longer produce misleading zero-width confidence intervals",
+    "Source audit now binds raw/bar/price/calendar/code hashes and distinct identity-exclusion reasons"
+  ],
+  "method_limits": [
+    "Current-vintage public vendor history, not point-in-time vendor snapshots",
+    "Fixed 2015 cohort with 12/101 unavailable or unresolved identities; excluded names represent 6.935474964416771% of the original 2015 equity holding value, not current exposure",
+    "Conditional observable-subset research; neither survivorship-free full-cohort inference nor broad-US inference",
+    "Provider identity-name/history review is not a complete permanent-identifier or corporate-action entitlement audit",
+    "Adjusted research units and source dollar-volume proxies are not verified exchange-share accounting or implementable close-price execution",
+    "Confirmation performance, fitted model hashes, final task coverage, replay output, and latest-refit separation require post-fit verification"
+  ],
+  "files_changed_by_review": [
+    "docs/us/pre_fit_review.json"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "model_kind": "factor",
+  "affected_field": "calibration.intervals",
+  "saved_metadata_wording": "per-horizon empirical log1p-return residual distribution",
+  "actual_implementation": "per-horizon additive arithmetic-return residual quantiles around factor_score*sigma_daily*sqrt(horizon) plus calibrated mean residual",
+  "code_reference": "executed_code/hk_quant/models.py, UniversalModel.fit and predict factor branch",
+  "prediction_values_changed": false,
+  "weights_changed": false,
+  "refit_performed": false,
+  "note": "Ridge uses empirical log1p residual intervals; LightGBM uses jointly log1p-calibrated quantile regressors. This wording defect is inherited; saved evidence remains immutable."
+}

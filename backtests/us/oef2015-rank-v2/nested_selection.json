@@ -1,0 +1,42 @@
+{
+  "outer_path": [
+    {
+      "outer_year": 2022,
+      "inner_years": [
+        2020,
+        2021
+      ],
+      "selected_kind": "ridge_rank_5y",
+      "inner_mean_ic": 0.06659076264615348,
+      "outer_ic": -0.017457520186252122,
+      "own_outer_year_used_for_selection": false
+    },
+    {
+      "outer_year": 2023,
+      "inner_years": [
+        2020,
+        2021,
+        2022
+      ],
+      "selected_kind": "ridge_rank_5y",
+      "inner_mean_ic": 0.03857466836868494,
+      "outer_ic": 0.027521021561080185,
+      "own_outer_year_used_for_selection": false
+    },
+    {
+      "outer_year": 2024,
+      "inner_years": [
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "selected_kind": "ridge_rank_5y",
+      "inner_mean_ic": 0.03581125666678375,
+      "outer_ic": -0.007496313579227179,
+      "own_outer_year_used_for_selection": false
+    }
+  ],
+  "mean_outer_ic": 0.0008557292652002947,
+  "scope": "Chronological outer architecture choices use only earlier inner folds, still retrospective vendor data"
+}

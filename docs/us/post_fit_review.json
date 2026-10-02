@@ -1,0 +1,245 @@
+{
+  "reviewed_at_utc": "2026-10-02T07:51:00Z",
+  "status": "verified_research_artifacts_with_negative_confirmation_and_method_caveats",
+  "scope": "Independent post-fit metadata, provenance, common-universe selection, prediction reproduction, metric arithmetic, latest-refit purge, replay accounting and rerun-safety review",
+  "models_and_forecasts": {
+    "verification": "pass",
+    "models": {
+      "factor": {
+        "model_sha256": "f302ab18ca3f5be0b4a65b8d8b3177dac34b74aea6082442c2047cdea2edf324",
+        "development_prediction_sha256": "82344eb47c68a68fee4cfaeda564ab986ffbc995dce7b706c7887e1960d0cdf2",
+        "development_rows": 101808,
+        "common_rank_ic_20": 0.029215327791829747,
+        "common_dates": 232,
+        "fitted_metadata_matches_pickle": true
+      },
+      "linear": {
+        "model_sha256": "67cc93542e70964d101e49e73a303e438c82cf193f6d2d94775816521e50086d",
+        "development_prediction_sha256": "ce0903b8ce9f6f9146ee2583382a618fe765034fa225da291fb7cccba25cad6e",
+        "development_rows": 101808,
+        "common_rank_ic_20": -0.05551590586218637,
+        "common_dates": 232,
+        "fitted_metadata_matches_pickle": true
+      },
+      "lightgbm_small": {
+        "model_sha256": "195a841337f5739dabda7e1023b58e9ab3dbff8e0a065a9c3cf480d66bfa8846",
+        "development_prediction_sha256": "8df005651fc0d661065e565d0b94fecb9974bf51876adc0546aafce485a509e1",
+        "development_rows": 101808,
+        "common_rank_ic_20": -0.008906418420524306,
+        "common_dates": 232,
+        "fitted_metadata_matches_pickle": true
+      },
+      "lightgbm_large": {
+        "model_sha256": "dff59842949661108c2951e7c195bfeede5b240e9c63d041e1fec721cc24ce2e",
+        "development_prediction_sha256": "9bffc8312725fb1fc951721ff3370d369f36619de249717a2a55c3dfec2d31ab",
+        "development_rows": 101808,
+        "common_rank_ic_20": -0.0162145732732891,
+        "common_dates": 232,
+        "fitted_metadata_matches_pickle": true
+      }
+    },
+    "confirmation": {
+      "1": {
+        "rows": 44137,
+        "observed_outcomes": 38804,
+        "ic_dates": 436,
+        "rank_ic": -0.00950512493341691,
+        "ic_ci95": [
+          -0.02538328961740809,
+          0.006372655206382006
+        ],
+        "brier_skill": -0.00020706278716264848,
+        "nominal80_interval_coverage": 0.729486650860736
+      },
+      "5": {
+        "rows": 44137,
+        "observed_outcomes": 38448,
+        "ic_dates": 432,
+        "rank_ic": -0.027090449875611662,
+        "ic_ci95": [
+          -0.056202255552956513,
+          0.0019437547284679114
+        ],
+        "brier_skill": 0.000845073641117744,
+        "nominal80_interval_coverage": 0.7381918435289222
+      },
+      "20": {
+        "rows": 44137,
+        "observed_outcomes": 37113,
+        "ic_dates": 417,
+        "rank_ic": -0.07717853143768572,
+        "ic_ci95": [
+          -0.12332976746910747,
+          -0.020012248569869228
+        ],
+        "brier_skill": 0.0006281005855536259,
+        "nominal80_interval_coverage": 0.74674642308625
+      },
+      "60": {
+        "rows": 44137,
+        "observed_outcomes": 33553,
+        "ic_dates": 377,
+        "rank_ic": -0.09889542911976601,
+        "ic_ci95": [
+          -0.1562332648754151,
+          -0.04260353188974177
+        ],
+        "brier_skill": -0.028948044348612756,
+        "nominal80_interval_coverage": 0.6956754984651149
+      }
+    },
+    "latest": {
+      "model_sha256": "ccbfce1dd0fdc13e3a2791494ea491a6d115a6aa0f9b234c850fbb064f5f0a48",
+      "training_rows": 864546,
+      "calibration_rows": 81702,
+      "training_label_max": "2025-09-30",
+      "calibration_label_max": "2026-09-30",
+      "snapshot_rows": 404,
+      "out_of_sample_evaluated": false
+    },
+    "confirmation_prediction_sha256": "61acf7d7357ed576937cefdece0977b7b920d25d06ce79509942b69e043422ab",
+    "latest_prediction_sha256": "a0af72d27793cdbb22b46578bd2107e6514294b55faf454884233934fb9e1851",
+    "executed_code_archive_matches_original_manifest": true,
+    "current_code_changed_after_fit": [
+      "us_quant/pipeline.py"
+    ]
+  },
+  "replay": {
+    "selected_15bps": {
+      "total_return": 0.16008797982445988,
+      "annualized_return": 0.08940477855185924,
+      "max_drawdown": -0.16044276941777214,
+      "sessions": 437,
+      "fees_usd": 48681.86586268287,
+      "turnover_initial_capital_multiple": 32.4545772417886,
+      "average_equity_fraction": 0.9469829863615534,
+      "initial_equity_fraction": 0.95,
+      "local_trades_sha256": "ee806e0483b48605fee4bdfb89a2e872512451dd4f1ad30ac9a85daa236d5b73",
+      "independent_cash_units_nav_reconstruction": "pass",
+      "next_session_timing_selection_liquidity_fee_checks": "pass"
+    },
+    "selected_30bps": {
+      "total_return": 0.10905790706994467,
+      "annualized_return": 0.06150796867668973,
+      "max_drawdown": -0.16420659291878759,
+      "sessions": 437,
+      "fees_usd": 95159.29900015784,
+      "turnover_initial_capital_multiple": 31.719766333385998,
+      "average_equity_fraction": 0.947671176869481,
+      "initial_equity_fraction": 0.9500000000000001,
+      "local_trades_sha256": "51393054a5cdd29c07d6bfa844feb2244fdadc61550319df978b0a0a51f26a3f",
+      "independent_cash_units_nav_reconstruction": "pass",
+      "next_session_timing_selection_liquidity_fee_checks": "pass"
+    },
+    "cohort_101slots_15bps": {
+      "total_return": 0.274004372055058,
+      "annualized_return": 0.1498673981309131,
+      "max_drawdown": -0.12827492473380153,
+      "sessions": 437,
+      "fees_usd": 2987.2223809749426,
+      "turnover_initial_capital_multiple": 1.9914815873166332,
+      "average_equity_fraction": 0.8382577071415727,
+      "initial_equity_fraction": 0.8381812112090263,
+      "local_trades_sha256": "224aa12ac46b50f2a2f405c51c6dfe2ec1ea759ccffe646458a23e512513f93b",
+      "independent_cash_units_nav_reconstruction": "pass",
+      "next_session_timing_selection_liquidity_fee_checks": "pass"
+    },
+    "spy_15bps": {
+      "total_return": 0.3083512489981526,
+      "annualized_return": 0.16764319715356613,
+      "max_drawdown": -0.17851765677127085,
+      "sessions": 437,
+      "fees_usd": 1539.3778526263832,
+      "turnover_initial_capital_multiple": 1.0262519017509224,
+      "average_equity_fraction": 0.948060136394983,
+      "initial_equity_fraction": 0.95,
+      "local_trades_sha256": "469a52931b7bd74827cde3cf29972c957247962245fe1fd2a59035dbe1181ab1",
+      "independent_cash_units_nav_reconstruction": "pass",
+      "next_session_timing_selection_liquidity_fee_checks": "pass"
+    },
+    "interpretation": {
+      "selected_minus_cohort_total_return_pp": -11.391639223059812,
+      "selected_minus_spy_total_return_pp": -14.82632691736927,
+      "cohort_has_12_cash_slots": true,
+      "all_performance_is_conditional_adjusted_unit_research_only": true,
+      "replay_runner_sha256": "86f4bb5dd2f3619d54de9cd0b8658c6f9e7f2360e36b2481198cea6054c9024d",
+      "summary_sha256": "70c599263fd1259e6940635742e79292e97dd10b51ef9d61ed5b13cd34969660",
+      "curves_sha256": "49f5214644a55ce25660a33c5861f3607adf04b39199626621f03376859b0b11"
+    }
+  },
+  "findings": [
+    {
+      "severity": "conclusion",
+      "issue": "Selected model did not establish an out-of-sample ranking advantage",
+      "evidence": "20-session and 60-session IC bootstrap intervals are wholly below zero; all four mean confirmation ICs are negative",
+      "required_interpretation": "Preserve the negative result. Do not retune, invert scores, switch candidates using this confirmation, or describe the model as validated for live use"
+    },
+    {
+      "severity": "conclusion",
+      "issue": "Nominal 80% return intervals under-cover at every horizon",
+      "evidence": "Observed coverage ranges from 69.57% to 74.67%",
+      "required_interpretation": "Report undercoverage beside interval outputs; small positive 5/20-session Brier skill does not establish useful probability forecasting"
+    },
+    {
+      "severity": "metadata_erratum",
+      "issue": "Inherited factor interval-description field is inaccurate",
+      "location": "Frozen and latest factor metadata calibration.intervals",
+      "stored_description": "per-horizon empirical log1p-return residual distribution",
+      "correct_description": "Per-horizon additive arithmetic-return residual quantiles around the factor arithmetic-return point; no factor log1p residual transform",
+      "evidence": "Executed hk_quant/models.py factor branch fits np.quantile(arithmetic return residuals) and predicts point plus residual quantiles; interval_log_residual_quantiles is empty",
+      "disposition": "Retain immutable weights and original metadata hashes. This review records the erratum; document it in the method explanation. No numerical refit is required"
+    },
+    {
+      "severity": "resolved_integrity",
+      "issue": "Initial rerun guard omitted existing data predictions and sibling latest-model destinations",
+      "reproduction": "Fresh results/model roots with original data root passed the initial guard despite existing prediction outputs; a fresh frozen child shared the existing latest directory",
+      "resolution": "Guard now protects data/predictions and models.parent/latest in addition to original result/model destinations; regression tests and direct read-only guard calls pass"
+    },
+    {
+      "severity": "interpretation",
+      "issue": "Reference exposures differ by design",
+      "evidence": "Fixed cohort benchmark preserves 12 unavailable slots in cash; its average equity fraction is 83.83%, versus selected-model 94.70%",
+      "required_interpretation": "State the 101-slot/cash design. SPY is a separate 95%-target adjusted-price ETF reference. All returns are conditional research illustrations"
+    }
+  ],
+  "verified_checks": [
+    "All four frozen pickle SHA-256 values match fit metadata; JSON metadata equals loaded object metadata",
+    "Original 14-file executed-code archive matches original source-audit hashes; only current pipeline differs for post-fit write guards and CLI",
+    "Independent rank calculations reproduce all four development scores on the same 22,428 score rows, 20,648 mature rows and 232 dates",
+    "Selection digest and deterministic factor winner match saved development evidence",
+    "Reloaded frozen factor reproduces all 176,548 saved confirmation prediction rows exactly",
+    "Independent confirmation daily IC, 2,000-draw circular 60-session bootstrap, Brier skill and interval coverage calculations match saved summaries",
+    "Historical-frequency baselines match each horizon's actual legal training-label frequency",
+    "Latest refit has 864,546 training and 81,702 calibration rows, latest training labels 2025-09-30, latest calibration labels 2026-09-30, 404 snapshot rows and no out-of-sample evaluation claim",
+    "Independent replay reconstruction from stored trades and adjusted prices reproduces every daily cash, equity and NAV observation in four 437-session scenarios",
+    "Replay order dates, next-session execution, selected top-ten identities, participation limits, price arithmetic, fees and return statistics pass",
+    "After removing only newly inserted first-statement guard calls, every original pipeline function is AST-identical to executed code",
+    "Completed/partial artifact protection and shared prediction/latest-output collisions fail before writes; trained weights remain byte-identical"
+  ],
+  "test_run": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 python -m pytest -q -p no:cacheprovider tests/test_us*.py",
+    "passed": 74,
+    "failed": 0
+  },
+  "method_limits": [
+    "Current-vintage Yahoo public history does not establish historical point-in-time vendor availability",
+    "Only 89/101 original identities have usable histories; 12 retained missing identities produce survivorship/availability selection",
+    "Accepted issuer/provider checks are not a complete permanent-identifier, corporate-action entitlement or terminal-value audit",
+    "Overlapping stock-date labels are dependent; reported observation counts are not effective sample sizes",
+    "No actual-share corporate-action ledger or live/broker execution was validated",
+    "Latest refit is distinct and cannot inherit frozen-model confirmation performance"
+  ],
+  "reviewer_actions": {
+    "estimator_fits": 0,
+    "code_edits": 0,
+    "external_data_acquisition": 0,
+    "new_deliverable": "docs/us/post_fit_review.json"
+  },
+  "post_training_guard": {
+    "executed_pipeline_sha256": "853d55452a6f814fb0254a952e954d7171180499e3054e55542867609478b23c",
+    "current_pipeline_sha256": "4b49f8a55ec88fa4ceb5803b0f0e8ba99c3e5804672637d28b65da04e7b6e510",
+    "audit_sha256": "6ed186decc8ead5b7b4c281680a31ad973b7dcad36c95ffb11e3f6fe0d7330e6",
+    "original_functions_ast_unchanged_except_guard_calls": true,
+    "fitted_weights_unchanged": true
+  }
+}

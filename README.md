@@ -2,7 +2,7 @@
 
 # Vectaix Finance
 
-A-share and Hong Kong stock models, with trained weights and historical research results.
+Independent US, A-share and Hong Kong stock models, with trained weights and historical research results.
 
 [![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Ridge](https://img.shields.io/badge/Model-Ridge-546E7A)](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html)
@@ -16,7 +16,103 @@ A-share and Hong Kong stock models, with trained weights and historical research
 
 Vectaix Finance has separate research pipelines for mainland A shares in CNY and Hong Kong equities in HKD. The A-share release includes trained Ridge, factor-score and LightGBM models. The Hong Kong section documents a monthly stock-selection strategy and its trade-by-trade replay.
 
-[A-share model](#ashare) · [Hong Kong backtest](#hong-kong) · [Run locally](#run-locally)
+[Independent US model](#us) · [A-share model](#ashare) · [Hong Kong backtest](#hong-kong) · [Run locally](#run-locally)
+
+<a id="us"></a>
+
+## Independent US-equity model: Experiment 2
+
+**Recovered history and trained ranking weights improve the reused recent comparison, but a reliable out-of-sample advantage is still unproven.** The frozen `ridge_rank_5y` has positive recent IC point estimates, yet all four 95% intervals cross zero. Probability skill is negative at every horizon; the chronological nested outer mean is only **+0.0009**. The model remains ineligible for live use.
+
+The same OEF cohort contains **101 original share classes**, dated **2015-06-30** and published **2015-09-02**. All **12** previously unavailable identities now have bounded original-security history, adding **15,284** valid quotes. This means some historical coverage for 101/101 identities, not a complete point-in-time universe or complete terminal wealth. FOXA's source ends on **2018-03-27**, before its 2019-03-19 termination; DD begins on **2015-07-02** after an unmodeled noncash spinoff. Unsupported merger, cash-settlement and CVR outcomes remain unknown.
+
+### Rolling development and chronological selection
+
+![Six predeclared US v2 candidates: 2020–2024 annual common-cohort IC and equally weighted mean](docs/assets/us/v2/rolling_selection.png)
+
+Six predeclared candidates compare the fixed factor reference, 12–1 momentum, and independently trained Ridge/LightGBM ranking models with 3- or 5-year windows. The learned rank models use a fixed 24-feature input set and centered within-date return-rank targets; the baselines retain their declared scores. There are **30 candidate-fold fits**, with training before the preceding calibration year and evaluation on common rows/dates in each 2020–2024 fold. The selected five-year Ridge mean is **+0.0271**, positive in 3/5 years; this statistic selects the winner and is not its independent test.
+
+![Nested outer selection uses only earlier inner folds; outer ICs -0.0175, +0.0275 and -0.0075](docs/assets/us/v2/nested_selection.png)
+
+The nested choices use 2020–2021 to select the 2022 architecture, then only earlier folds for 2023 and 2024. All choose five-year Ridge. Outer IC is **−0.0175 / +0.0275 / −0.0075**, averaging **+0.0009** with only 1/3 positive years. This is stronger chronological separation, still subject to retrospective-source and cohort limits.
+
+### REUSED DIAGNOSTIC: 2025–2026 is not a new holdout
+
+![US v2 frozen Ridge rank IC with 95% block-bootstrap intervals, on the reused recent diagnostic](docs/assets/us/v2/reused_diagnostic_ic.png)
+
+The final four horizon heads train through 2023, calibrate on 2024 and stay frozen for **2025-01-01–2026-09-30**. That period was already examined in Experiment 1, so it cannot become fresh confirmation for Experiment 2.
+
+| Horizon (sessions) | Mean rank IC | 95% interval | Brier skill | Interval coverage |
+| --- | ---: | --- | ---: | ---: |
+| 1 | +0.0083 | [−0.0042, +0.0211] | −0.012% | 79.40% |
+| 5 | +0.0158 | [−0.0131, +0.0438] | −0.026% | 81.71% |
+| 20 | +0.0242 | [−0.0255, +0.0696] | −0.286% | 82.37% |
+| 60 | +0.0705 | [−0.0040, +0.1415] | −0.677% | 83.63% |
+
+On **37,113 identical mature stock-date outcomes / 417 IC dates**, the paired 20-session IC changes from v1 **−0.0772** to v2 **+0.0233**, a **+0.1005** change (95% paired interval **[+0.0211, +0.1788]**). This common-universe value differs from +0.0242 above because the latter includes additional recovered WBA observations. Model and training-data changes are coupled; this posthoc comparison neither isolates the cause nor establishes fresh confirmation.
+
+![US v2 probability Brier skill and q10–q90 coverage with mature-outcome denominators](docs/assets/us/v2/calibration_checks.png)
+
+IC intervals use 2,000 circular 60-session bootstrap draws. Brier skill compares with the historical-frequency baseline; negative means higher error. Interval coverage targets 80%. Overlapping outcomes are not independent samples. The **2026-09-30 latest refit is untested out of sample**.
+
+**Full-period portfolio performance is unavailable.** The selected strategy, cost-stress replay and 101-slot cohort retain an unresolved WBA holding after 2025-08-27, with **274 valuation-gap sessions**. Their total return, CAGR and maximum drawdown remain null. Stale-reference values are not validated returns; no wealth curve is promoted as performance.
+
+[Methods and boundaries](docs/us/v2/README.md) · [Recovered-history chart](docs/assets/us/v2/source_recovery.png) · [Rolling CSV](docs/showcase/us/v2/rolling_selection.csv) · [Nested CSV](docs/showcase/us/v2/nested_selection.csv) · [Diagnostic CSV](docs/showcase/us/v2/reused_diagnostic.csv) · [Paired comparison](docs/showcase/us/v2/paired_recent.csv) · [Replay status](docs/showcase/us/v2/replay_status.csv) · [Hashes and definitions](docs/showcase/us/v2/summary.json)
+
+Rebuild these five v2 charts and aggregate CSVs without data downloads or training: `python -m scripts.build_us_v2_showcase`
+
+The initial experiment remains intact below.
+
+<a id="us-v1"></a>
+
+## Independent US-equity model: Experiment 1
+
+**The frozen confirmation does not establish a ranking advantage.** Mean rank IC is negative at all four horizons; the 20- and 60-session 95% intervals are wholly below zero. Return-interval coverage is below 80% at every horizon. This model is not validated for live use.
+
+This initial public-data run uses a separate USD model trained on a fixed historical cohort of **101 original equity share classes** from the OEF holdings dated **2015-06-30**, published **2015-09-02**. Public Yahoo Finance history spans 2014-01-02 to 2026-09-30. Limited provider-name and history-window review accepts **89 histories**; **12 original identities** remain excluded or unavailable: five unresolved lineages, five missing histories and two reused tickers. Every original identity remains in the prediction denominator. This is bounded, current-vintage retrospective research, not a survivorship-free or full-US-market estimate. AKShare was checked as a secondary audit; incomplete adjustment history and reused symbols prevent it from being the training source.
+
+The US pipeline fits its own factor, Ridge, small LightGBM and large LightGBM candidates without reusing A-share or Hong Kong trained weights. Training uses 2016–2022, calibration uses 2023, and model choice uses 2024. Only the selected architecture is then evaluated with frozen parameters on 2025-01-01 through 2026-09-30 confirmation data.
+
+### US frozen confirmation
+
+![US frozen Factor score: daily rank IC and 95% 60-session block-bootstrap intervals](docs/assets/us/confirmation_ic.png)
+
+| Horizon (sessions) | Mean daily rank IC | 95% interval | Probability Brier skill | Return-interval coverage |
+| --- | ---: | --- | ---: | ---: |
+| 1 | -0.0095 | [-0.0254, 0.0064] | -0.02% | 72.95% |
+| 5 | -0.0271 | [-0.0562, 0.0019] | +0.08% | 73.82% |
+| 20 | -0.0772 | [-0.1233, -0.0200] | +0.06% | 74.67% |
+| 60 | -0.0989 | [-0.1562, -0.0426] | -2.89% | 69.57% |
+
+Rank IC is the daily cross-sectional Spearman correlation between score and subsequent adjusted-price return. The 95% intervals use 2,000 circular 60-session block-bootstrap draws, preserving missing-day slots. Metrics are conditional on observed mature outcomes; the cohort's historical gaps and provider adjustments limit interpretation.
+
+### US model choice and calibration checks
+
+![Four US candidate models compared on identical 2024 stock-date rows and IC dates](docs/assets/us/model_selection.png)
+
+The selected factor score uses preset ranking weights with probability and return-interval calibration fitted on US data.
+
+**Factor score** was selected with 20-session mean daily rank IC of **0.0292**, on the same **232 IC dates** and **20,648 mature stock-date outcomes** for all four candidates. Confirmation data did not select or tune the model.
+
+![US frozen-model probability Brier skill by horizon against the historical-frequency baseline](docs/assets/us/probability_skill.png)
+
+Zero matches the historical-frequency probability baseline; a negative value means higher Brier error. Positive ranking IC does not by itself establish probability skill.
+
+![US observed q10–q90 return-interval coverage against the nominal 80% target](docs/assets/us/interval_coverage.png)
+
+The q10–q90 return interval targets 80% coverage. Counts include only mature, task-available outcomes; overlapping stock-date outcomes are not independent samples. The separate 2026-09-30 latest refit has **no out-of-sample evaluation**. Execution remains unvalidated and eligibility is false; these forecast diagnostics do not establish investable portfolio returns or future performance.
+
+### Conditional US research replay
+
+![Experiment 1 conditional adjusted-unit replay: selected factor model trails both references](docs/assets/us/conditional_replay.png)
+
+The frozen factor strategy returned **+16.01%** in the conditional research replay, below the **+27.40%** fixed 101-slot cohort and **+30.84%** SPY adjusted-price proxy. Doubling one-way costs from 15 to 30 bps reduced the model result to **+10.91%**. This is a monthly top-10, next-session-close simulation with a 95% invested target. Missing cohort slots stay cash. Average equity exposure is 94.70% for the model and 83.83% for the cohort, so this is not an exposure-matched comparison. The USD source-adjusted units and returns are research illustrations; execution and the actual-share corporate-action ledger are unvalidated.
+
+[Replay curves CSV](docs/showcase/us/conditional_replay.csv) · [Replay metrics CSV](docs/showcase/us/conditional_replay_summary.csv) · [Replay assumptions](backtests/us/oef2015/replay_summary.json)
+
+[US source and method guide](docs/us/README.md) · [Source audit](backtests/us/oef2015/source_audit.json) · [Frozen candidates](models/us/oef2015/frozen/) · [Latest refit](models/us/oef2015/latest/) · [Selection CSV](docs/showcase/us/model_selection.csv) · [Confirmation CSV](docs/showcase/us/confirmation.csv) · [Chart definitions and hashes](docs/showcase/us/summary.json)
+
+Regenerate these five charts and CSVs from aggregate evidence, without market-data downloads or training: `python -m scripts.build_us_showcase`
 
 <a id="ashare"></a>
 

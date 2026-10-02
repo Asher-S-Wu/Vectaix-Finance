@@ -1,0 +1,88 @@
+{
+  "kind": "ridge_rank_5y",
+  "market": "US",
+  "currency": "USD",
+  "model_version": "us-v2-ridge_rank_5y-eval2023",
+  "as_of": "2022-12-31T00:00:00",
+  "horizons": [
+    20
+  ],
+  "features": [
+    "return_1",
+    "momentum_5",
+    "momentum_20",
+    "momentum_60",
+    "momentum_120",
+    "momentum_252",
+    "momentum_252_skip20",
+    "volatility_20",
+    "volatility_60",
+    "volatility_252",
+    "downside_volatility_60",
+    "max_return_20",
+    "return_skew_60",
+    "near_high_252",
+    "near_low_252",
+    "bias_20",
+    "bias_60",
+    "log_amount_20",
+    "amount_ratio_20_120",
+    "amount_cv_20",
+    "volume_cv_20",
+    "amihud_20",
+    "intraday_range",
+    "intraday_return"
+  ],
+  "parameters": {
+    "fit_window_years": 5,
+    "estimator": "Ridge",
+    "alpha": 100.0
+  },
+  "ranking_target": "within_date_horizon_centered_percentile",
+  "fitted_ranking_weights": true,
+  "calibration": {
+    "probability": "held-out per-horizon logistic",
+    "mean_return": "held-out nonnegative-slope affine transform of rank score; score itself is never reversed",
+    "interval": "empirical log1p-return residual quantiles scaled by historical daily sigma*sqrt(horizon)"
+  },
+  "interval_fit_audit": {
+    "20": {
+      "fit_rows": 20790,
+      "excluded_invalid_point_or_scale_rows": 0,
+      "negative_infinity_atoms": 0,
+      "domain": "log1p_arithmetic_return"
+    }
+  },
+  "mean_affine": {
+    "20": {
+      "offset": -0.0020803920861138087,
+      "slope": 0.0
+    }
+  },
+  "residual_quantiles": {
+    "20": [
+      -1.4772181740058992,
+      -0.03867862570721777,
+      1.2658406205691213
+    ]
+  },
+  "sample_counts": {
+    "20": {
+      "train": 116524,
+      "calibration": 20790,
+      "train_start": "2017-01-03",
+      "train_end": "2021-12-02",
+      "train_label_end": "2021-12-31",
+      "calibration_start": "2022-01-03",
+      "calibration_end": "2022-12-01",
+      "calibration_label_end": "2022-12-30"
+    }
+  },
+  "return_basis": "USD source-adjusted research-price arithmetic return; Yahoo plus explicitly reconstructed original identities",
+  "fit_executed_at": "2026-10-02T08:23:58.280709+00:00",
+  "eligible": false,
+  "execution_validated": false,
+  "protocol_sha256": "727d6ffe1703c41b2da4f052043077eeb38c7c2adf71a77d51ca36bec2fd688f",
+  "source_audit_sha256": "2f9d5bd974c8aa7cefdbe0e808c447370d243ed8ec85a1e270c9201a4fd39ed1",
+  "fold_evaluation_year": 2023
+}

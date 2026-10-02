@@ -1,0 +1,10 @@
+{
+  "selected_kind": "ridge_rank_5y",
+  "selection_statistic": 0.027149742617581567,
+  "selection_set": "2020–2024 rolling development",
+  "selection_rule": "Highest equally weighted mean of five annual common-row/common-date20-session ICs; report median, worst year, positive-year count and paired reference differences",
+  "recent_diagnostic_used_for_selection": false,
+  "annual_common_ic_sha256": "73da8c9121becc28a9c654fac583d009cd08f1b9598a4d59767b7b9904f4e38c",
+  "selection_sha256": "74c8a52846df522960b084aafa620435a577122da204733d46e5ee10f4c89edf",
+  "nested_selection_sha256": "89bbd17d13d5d54e603c32a4adb954e5c3ed72798bf97f64368d2126dba309a9"
+}

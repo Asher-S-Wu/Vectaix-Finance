@@ -1,0 +1,9 @@
+{
+  "BK": {
+    "symbol": "BNY",
+    "source": "https://www.bny.com/corporate/global/en/about-us/newsroom/press-release/bny-announces-planned-change-of-stock-ticker-symbol-to-bny-130465.html",
+    "announcement_date": "2026-05-11",
+    "effective_date_announced": "2026-05-21",
+    "reason": "Same issuer common stock changed ticker from BK to BNY; original cohort identity remains BK"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "FOXA": {
+    "source_supported_end": "2018-03-27",
+    "missing_price_interval": [
+      "2018-03-28",
+      "2019-03-18"
+    ],
+    "last_original_transitional_symbol": "TFCFA",
+    "last_original_trade": "2019-03-19",
+    "additional_public_probes": {
+      "Sina_TFCFA": "Only2019-03-19 original transitional quote plus postmerger ghost; no gap coverage",
+      "Yahoo_TFCFA": "HTTP404 no data found, symbol may be delisted"
+    },
+    "policy": "Sealed v2 data stops at supported March2018source boundary; no invented2018–2019prices or successor substitution"
+  },
+  "terminal_entitlements": "All recovered merged/delisted original-identity labels crossing unsupported price ends remain unknown. WBA cash+contingent-right value is not treated as a completed observable equity path.",
+  "full_cohort_wealth_reconstructed": false,
+  "historical_identity_coverage_complete": true,
+  "historical_daily_price_coverage_complete": false
+}

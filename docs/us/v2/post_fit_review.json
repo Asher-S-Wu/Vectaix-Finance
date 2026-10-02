@@ -1,0 +1,213 @@
+{
+  "status": "reproduced_research_result_without_validated_forecasting_or_full_period_portfolio_advantage",
+  "scope": "Independent post-fit model, chronology, target, selection, prediction, metric, paired-comparison and terminal-aware replay review",
+  "verified_summary": {
+    "candidate_fold_models": 30,
+    "final_model_artifacts": 2,
+    "all_fold_prediction_files_reproduced": true,
+    "all_ridge_fold_and_final_head_normal_equations_verified": true,
+    "frozen_recent_rows_including_2024_12_31_signal": 176952,
+    "reused_diagnostic_rows": 176548,
+    "latest_snapshot_rows": 404,
+    "source_and_executed_code_hashes_match": true,
+    "v1_weights_and_prediction_hashes_unchanged": true,
+    "targeted_v2_tests_passed": 24
+  },
+  "selection": {
+    "selected_kind": "ridge_rank_5y",
+    "mean_annual_development_ic": 0.027149742617581567,
+    "positive_development_years": 3,
+    "development_years": 5,
+    "nested_outer_mean_ic": 0.0008557292652002947,
+    "positive_nested_outer_years": 1,
+    "nested_outer_years": 3,
+    "selection_digest_and_common_rows_dates_recomputed": true
+  },
+  "reused_diagnostic": {
+    "1": {
+      "ic": 0.008337611436593088,
+      "ci95": [
+        -0.004239516034142972,
+        0.021148499011265653
+      ],
+      "brier_skill": -0.00011661712093680165,
+      "interval_coverage": 0.7940255607452651,
+      "rows": 44137,
+      "score_observed_rows": 38966
+    },
+    "5": {
+      "ic": 0.01583709518045509,
+      "ci95": [
+        -0.013138395365491504,
+        0.04382342232529012
+      ],
+      "brier_skill": -0.00026246978240340724,
+      "interval_coverage": 0.8171009687613324,
+      "rows": 44137,
+      "score_observed_rows": 38606
+    },
+    "20": {
+      "ic": 0.024206130499073674,
+      "ci95": [
+        -0.025539978303699907,
+        0.06959015058491654
+      ],
+      "brier_skill": -0.0028611270464307115,
+      "interval_coverage": 0.8237062486579343,
+      "rows": 44137,
+      "score_observed_rows": 37256
+    },
+    "60": {
+      "ic": 0.07052166432996762,
+      "ci95": [
+        -0.003975652560019084,
+        0.14145553885558504
+      ],
+      "brier_skill": -0.006766934970414695,
+      "interval_coverage": 0.8362847634894224,
+      "rows": 44137,
+      "score_observed_rows": 33656
+    }
+  },
+  "paired_same_outcome_comparison": {
+    "1": {
+      "first_ic": -0.009505124933416906,
+      "second_ic": 0.008357268922969532,
+      "paired_change": 0.017862393856386438,
+      "change_ci95": [
+        -0.0007587243799619274,
+        0.03564929302956572
+      ],
+      "common_rows": 38893,
+      "mature_rows": 38804,
+      "common_dates": 436,
+      "labels_exactly_equal": true
+    },
+    "5": {
+      "first_ic": -0.027090449875611662,
+      "second_ic": 0.016161360451367998,
+      "paired_change": 0.04325181032697965,
+      "change_ci95": [
+        -0.007591249003244257,
+        0.09040491036958626
+      ],
+      "common_rows": 38893,
+      "mature_rows": 38448,
+      "common_dates": 432,
+      "labels_exactly_equal": true
+    },
+    "20": {
+      "first_ic": -0.07717853143768572,
+      "second_ic": 0.02328992781260181,
+      "paired_change": 0.10046845925028751,
+      "change_ci95": [
+        0.021095143903778292,
+        0.17875400677290434
+      ],
+      "common_rows": 38893,
+      "mature_rows": 37113,
+      "common_dates": 417,
+      "labels_exactly_equal": true
+    },
+    "60": {
+      "first_ic": -0.09889542911976601,
+      "second_ic": 0.06897662585380526,
+      "paired_change": 0.16787205497357122,
+      "change_ci95": [
+        0.058121143290160736,
+        0.281716178634967
+      ],
+      "common_rows": 38893,
+      "mature_rows": 33553,
+      "common_dates": 377,
+      "labels_exactly_equal": true
+    }
+  },
+  "replay": {
+    "selected_15bps": {
+      "observed_full_period_return": null,
+      "reference_only_total_return": 0.08125179627805257,
+      "unknown_holding": "WBA",
+      "first_unknown_date": "2025-08-28",
+      "valuation_gap_sessions": 274,
+      "cash_units_reference_nav_reconstruction": "pass",
+      "trade_sha256": "cd993294bf463efdd452a7a44117815c35e4c539e7db7fda1067268d00fb644e"
+    },
+    "selected_30bps": {
+      "observed_full_period_return": null,
+      "reference_only_total_return": 0.06407304407051573,
+      "unknown_holding": "WBA",
+      "first_unknown_date": "2025-08-28",
+      "valuation_gap_sessions": 274,
+      "cash_units_reference_nav_reconstruction": "pass",
+      "trade_sha256": "fe24b71e12bc4e79161db2bf9615efd9813b5ab32ffecc50a5f049348bf50388"
+    },
+    "cohort_101slots_15bps": {
+      "observed_full_period_return": null,
+      "reference_only_total_return": 0.2531300510405423,
+      "unknown_holding": "WBA",
+      "first_unknown_date": "2025-08-28",
+      "valuation_gap_sessions": 274,
+      "cash_units_reference_nav_reconstruction": "pass",
+      "trade_sha256": "02e6d39d2bb9e89c75efa704c7628cbed6c339a8fb2ec0b831eecefe332fec88"
+    },
+    "spy_15bps": {
+      "observed_full_period_return": 0.3083512489981526,
+      "reference_only_total_return": 0.3083512489981526,
+      "unknown_holding": null,
+      "first_unknown_date": null,
+      "valuation_gap_sessions": 0,
+      "cash_units_reference_nav_reconstruction": "pass",
+      "trade_sha256": "469a52931b7bd74827cde3cf29972c957247962245fe1fd2a59035dbe1181ab1"
+    }
+  },
+  "latest_refit": {
+    "fit_start": "2020-10-01",
+    "last_training_label": "2025-09-30",
+    "calibration_start": "2025-10-01",
+    "last_calibration_label": "2026-09-30",
+    "four_horizon_metadata_counts_and_purges_verified": true,
+    "all_predictions_reproduced": true,
+    "out_of_sample_evaluated": false
+  },
+  "key_conclusions": [
+    "The selected 5-year Ridge has positive mean development IC, but its chronological nested selection path is near zero and positive in only one of three outer years",
+    "All four absolute recent IC confidence intervals cross zero; all four probability Brier skills are negative",
+    "Paired 20/60-session IC improves relative to v1 on exactly equal observed outcome keys, but the period was already viewed and the comparison is post hoc",
+    "Changing both data coverage and modeling means the paired comparison does not isolate the contribution of any one change",
+    "Both selected replays and the cohort hold unresolved WBA after 2025-08-27; their NAV is unavailable from 2025-08-28 for 274 sessions",
+    "The +8.13% base and +6.41% stress figures are stale-mark reference values, not valid full-period strategy returns; full-period return and annualized metrics remain withheld",
+    "Partial recovery for all 101 original identities does not establish complete histories, terminal entitlements, point-in-time vintages or survivorship-free results"
+  ],
+  "resolved_issue": {
+    "issue": "Paired comparator rejected semantically equal timestamps stored at millisecond versus microsecond resolution",
+    "fix": "Normalize both date and label_end to datetime64[ns] before key and endpoint comparisons",
+    "verification": "Original outcome values now match exactly on every paired key; mismatch rejection is retained; all paired metrics and block-bootstrap change intervals independently reproduced",
+    "impact": "Reporting/replay-runner fix only; no estimator refit or retuning"
+  },
+  "evidence_hashes": {
+    "frozen_recent_predictions": "1213314dea06a9d3e4c3736f31a306ea51ceeea8bd3f200342a3a810bd758b7e",
+    "latest_model": "0aa438fc52e5ed74d440f44223f61681301fd5f69800153f01311969f1e59937",
+    "latest_predictions": "87e26be9660a04ca2efcc6a2e2d317cf6a5dff6d8f8adff8a99decda0a584034",
+    "paired_summary": "6a1e1775fab420e853f66f8b073183b35dde90794e622d964c9faf51f93aeacb",
+    "replay_summary": "6aeebd2560e64f5f5996d30ea8341cca3dcc996cb3d5b7b1fe2c879c3f47c181",
+    "replay_curves": "69dc5a93a291213071affae01d3cdb6425e2aa1ea470ff9af2e61d49f2494164",
+    "paired_replay_runner": "8fa703cc8103adf7ad8bc49dddd388bd8f135029d970b9164b37332952dde38b",
+    "protocol.json": "727d6ffe1703c41b2da4f052043077eeb38c7c2adf71a77d51ca36bec2fd688f",
+    "source_audit.json": "2f9d5bd974c8aa7cefdbe0e808c447370d243ed8ec85a1e270c9201a4fd39ed1",
+    "fit_log.json": "6bde249385e258a03f8e467b69b52d9a0d42a08fc796d99906462e3a7d033b18",
+    "frozen_architecture.json": "6f0a4a3c6112cc2bdf492ba8071db531a5a9003d5eca8bb393fb6ce58d895c8c",
+    "annual_common_ic.json": "73da8c9121becc28a9c654fac583d009cd08f1b9598a4d59767b7b9904f4e38c",
+    "development_selection.json": "74c8a52846df522960b084aafa620435a577122da204733d46e5ee10f4c89edf",
+    "nested_selection.json": "89bbd17d13d5d54e603c32a4adb954e5c3ed72798bf97f64368d2126dba309a9",
+    "training_status.json": "26fb9e8d5093a45b8ca435cfcf047df30afdc714e2c22ca8e9a1b8f6bd72fe94"
+  },
+  "reviewer_actions": {
+    "real_data_estimator_fits": 0,
+    "retuning": 0,
+    "code_edits": 0,
+    "external_data_acquisition": 0,
+    "new_file": "docs/us/v2/post_fit_review.json"
+  },
+  "reviewed_at_utc": "2026-10-02T08:43:44.260350+00:00"
+}

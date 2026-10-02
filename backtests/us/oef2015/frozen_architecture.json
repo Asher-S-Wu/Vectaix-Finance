@@ -1,0 +1,8 @@
+{
+  "selected_kind": "factor",
+  "selection_statistic": 0.029215327791829747,
+  "selection_set": "development",
+  "confirmation_used": false,
+  "selection_rule": "maximum common-row/common-date 20-session mean daily rank IC",
+  "development_sha256": "62a47508f8445256138e921779c63e4e1160d2a44c53f3ef7a08e96900cce1a7"
+}

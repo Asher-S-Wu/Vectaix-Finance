@@ -1,0 +1,256 @@
+{
+  "status": "ready_for_declared_bounded_retrospective_research_fit",
+  "scope": "Pre-fit implementation and real-panel checks; reviewer performed no real-data estimator fitting or candidate performance selection",
+  "verified_counts": {
+    "identities": 101,
+    "shared_sessions": 3205,
+    "panel_rows": 323705,
+    "recovered_identity_segments": 12,
+    "recovered_valid_quotes": 15284,
+    "ordinary_actions": 224,
+    "source_files_hashed": 33,
+    "declared_candidates": 6,
+    "development_folds": 5,
+    "targeted_tests_passed": 21
+  },
+  "checks": [
+    "All copied source/export hashes and normalized/features/prices/calendar hashes match the sealed source audit",
+    "Every date retains all 101 original identities with unique date/identity keys",
+    "Independent split/cash adjustment reconstruction matches all 12 recovered bar segments",
+    "Split-adjusted price times reciprocally adjusted volume conserves each source raw-close times volume proxy",
+    "Disagreement masks, explicit gap fills and source-interval boundaries follow declared admission rules",
+    "Labels whose endpoints exceed each supported source cutoff remain unknown; no terminal liquidation or successor series is invented",
+    "Raw historical sigma and same-day cross-sectional feature ranks recompute exactly",
+    "All ten real 3y/5y fold splits obey training/calibration purges and declared early-window truncation",
+    "Rank targets are exactly zero-centered on a candidate-independent date/horizon population; feature missingness does not redefine target labels",
+    "Six live candidate settings equal the predeclared protocol",
+    "Annual evaluation cuts prevent December 2024 forward labels from entering 2025 selection evidence",
+    "Nested 2022/2023/2024 choices use only earlier annual fold metrics",
+    "Final frozen diagnostic fit trains through 2023 and calibrates in 2024; latest refit is separate",
+    "Interval helper audit counts are now retained; future-label features, backward label endpoints and missing probability-baseline outcomes are covered by tests",
+    "V1 derived-file and trained-model hashes remain unchanged; all 285245 original-history non-market feature rows preserve exact values, aside from datetime storage resolution"
+  ],
+  "recovered_segments": [
+    {
+      "identity": "CELG",
+      "valid_quotes": 1482,
+      "first_valid": "2014-01-02",
+      "last_valid": "2019-11-20",
+      "events": 1,
+      "adjustment_and_terminal_checks": "pass"
+    },
+    {
+      "identity": "MON",
+      "valid_quotes": 1112,
+      "first_valid": "2014-01-02",
+      "last_valid": "2018-06-06",
+      "events": 18,
+      "adjustment_and_terminal_checks": "pass"
+    },
+    {
+      "identity": "WBA",
+      "valid_quotes": 2675,
+      "first_valid": "2015-01-02",
+      "last_valid": "2025-08-27",
+      "events": 40,
+      "adjustment_and_terminal_checks": "pass"
+    },
+    {
+      "identity": "TWX",
+      "valid_quotes": 1012,
+      "first_valid": "2014-06-09",
+      "last_valid": "2018-06-14",
+      "events": 16,
+      "adjustment_and_terminal_checks": "pass"
+    },
+    {
+      "identity": "AGN",
+      "valid_quotes": 1235,
+      "first_valid": "2015-06-15",
+      "last_valid": "2020-05-08",
+      "events": 14,
+      "adjustment_and_terminal_checks": "pass"
+    },
+    {
+      "identity": "APC",
+      "valid_quotes": 1409,
+      "first_valid": "2014-01-02",
+      "last_valid": "2019-08-08",
+      "events": 22,
+      "adjustment_and_terminal_checks": "pass"
+    },
+    {
+      "identity": "EMC",
+      "valid_quotes": 675,
+      "first_valid": "2014-01-02",
+      "last_valid": "2016-09-06",
+      "events": 11,
+      "adjustment_and_terminal_checks": "pass"
+    },
+    {
+      "identity": "DOW",
+      "valid_quotes": 924,
+      "first_valid": "2014-01-02",
+      "last_valid": "2017-08-31",
+      "events": 15,
+      "adjustment_and_terminal_checks": "pass"
+    },
+    {
+      "identity": "DD",
+      "valid_quotes": 547,
+      "first_valid": "2015-07-02",
+      "last_valid": "2017-08-31",
+      "events": 9,
+      "adjustment_and_terminal_checks": "pass"
+    },
+    {
+      "identity": "RTN",
+      "valid_quotes": 1574,
+      "first_valid": "2014-01-02",
+      "last_valid": "2020-04-02",
+      "events": 24,
+      "adjustment_and_terminal_checks": "pass"
+    },
+    {
+      "identity": "FOXA",
+      "valid_quotes": 1066,
+      "first_valid": "2014-01-02",
+      "last_valid": "2018-03-27",
+      "events": 9,
+      "adjustment_and_terminal_checks": "pass"
+    },
+    {
+      "identity": "UTX",
+      "valid_quotes": 1573,
+      "first_valid": "2014-01-02",
+      "last_valid": "2020-04-02",
+      "events": 25,
+      "adjustment_and_terminal_checks": "pass"
+    }
+  ],
+  "real_fold_boundaries": [
+    {
+      "year": 2020,
+      "window": 3,
+      "train_rows": 72405,
+      "calibration_rows": 21913,
+      "train_start": "2016-01-04",
+      "train_last_label": "2018-12-31",
+      "calibration_last_label": "2019-12-31"
+    },
+    {
+      "year": 2020,
+      "window": 5,
+      "train_rows": 72405,
+      "calibration_rows": 21913,
+      "train_start": "2016-01-04",
+      "train_last_label": "2018-12-31",
+      "calibration_last_label": "2019-12-31"
+    },
+    {
+      "year": 2021,
+      "window": 3,
+      "train_rows": 70869,
+      "calibration_rows": 21127,
+      "train_start": "2017-01-03",
+      "train_last_label": "2019-12-31",
+      "calibration_last_label": "2020-12-31"
+    },
+    {
+      "year": 2021,
+      "window": 5,
+      "train_rows": 96218,
+      "calibration_rows": 21127,
+      "train_start": "2016-01-04",
+      "train_last_label": "2019-12-31",
+      "calibration_last_label": "2020-12-31"
+    },
+    {
+      "year": 2022,
+      "window": 3,
+      "train_rows": 68966,
+      "calibration_rows": 20880,
+      "train_start": "2018-01-02",
+      "train_last_label": "2020-12-31",
+      "calibration_last_label": "2021-12-31"
+    },
+    {
+      "year": 2022,
+      "window": 5,
+      "train_rows": 119205,
+      "calibration_rows": 20880,
+      "train_start": "2016-01-04",
+      "train_last_label": "2020-12-31",
+      "calibration_last_label": "2021-12-31"
+    },
+    {
+      "year": 2023,
+      "window": 3,
+      "train_rows": 67580,
+      "calibration_rows": 20790,
+      "train_start": "2019-01-02",
+      "train_last_label": "2021-12-31",
+      "calibration_last_label": "2022-12-30"
+    },
+    {
+      "year": 2023,
+      "window": 5,
+      "train_rows": 116536,
+      "calibration_rows": 20790,
+      "train_start": "2017-01-03",
+      "train_last_label": "2021-12-31",
+      "calibration_last_label": "2022-12-30"
+    },
+    {
+      "year": 2024,
+      "window": 3,
+      "train_rows": 66397,
+      "calibration_rows": 20700,
+      "train_start": "2020-01-02",
+      "train_last_label": "2022-12-30",
+      "calibration_last_label": "2023-12-29"
+    },
+    {
+      "year": 2024,
+      "window": 5,
+      "train_rows": 114236,
+      "calibration_rows": 20700,
+      "train_start": "2018-01-02",
+      "train_last_label": "2022-12-30",
+      "calibration_last_label": "2023-12-29"
+    }
+  ],
+  "remaining_limits": [
+    "All 101 identities having some history does not mean complete historical coverage or complete terminal returns",
+    "FOXA 2018-03-27 is a source cutoff, not its 2019 retirement date",
+    "WBA's unsupported 2025 terminal entitlement may invalidate portfolio valuation after its last supported quote; retain the holding and withhold validated full-period returns",
+    "Ordinary action histories are reconstructed with stated limits and targeted crosschecks, not exhaustive independent verification",
+    "Current-vintage source and retrospective protocol design prevent untouched-future-validation claims; 2025–2026 is explicitly reused",
+    "Repeated development/nested folds and overlapping stock-date outcomes are dependent; a selected winner is not automatically accepted for trading",
+    "Post-fit model/prediction hashes, actual fitted calibration counts, common-universe metrics and replay behavior still require review"
+  ],
+  "implementation_suggestions": {
+    "resolved": [
+      "Explicit diagnostic-fit and annual evaluation cutoffs",
+      "Candidate-independent centered rank targets and effective fold windows",
+      "Saved interval calibration audit counters",
+      "Explicit exported-file hashes and source-cutoff versus retirement distinction"
+    ],
+    "nonblocking": [
+      "Keep the proposed protocol unchanged during the entire fit; candidate constructors currently read its settings",
+      "Include the declared paired annual differences versus fixed references in the reporting outputs"
+    ]
+  },
+  "reviewer_changes": [
+    "docs/us/v2/pre_fit_review.json"
+  ],
+  "reviewed_at_utc": "2026-10-02T08:25:23.457629+00:00",
+  "source_audit_sha256": "2f9d5bd974c8aa7cefdbe0e808c447370d243ed8ec85a1e270c9201a4fd39ed1",
+  "proposed_protocol_sha256": "ab1d0fb5c88fa23b7a4d8742ec868fabbb0e4f2ebce6f8758a98697826d381fa",
+  "reviewed_v2_code_sha256": {
+    "recovery_v2.py": "bd628afab70adf0b457b2b78bca939be421418708816db683e2dcf0ad4b230e9",
+    "dataset_v2.py": "adc51f8e77c6a5467da0c69fcd1b9a12b3bcf623a678ad1f18ef51073fe43a96",
+    "ranking_v2.py": "a22dceb0307a9590c2ef888f48f6b0c4c5a9c47cb4432c4c2cde693654e1db1d",
+    "pipeline_v2.py": "c19dde7f9fe47fe378865124dbe02e3f21f19b539a29229311a2542abb0291b5"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "effective_date": "2025-08-28",
+  "last_valid_original_quote": "2025-08-27",
+  "currency": "USD",
+  "cash_contractual_consideration_per_old_share": 11.45,
+  "cash_receipt_date_verified": false,
+  "contingent_rights_per_old_share": 1,
+  "maximum_nominal_right_payment": 3.0,
+  "right_basis": "70% of qualifying net VillageMD-group monetization proceeds allocated per right, subject to contract conditions and3USD cap",
+  "initial_deadline": "2029-08-28",
+  "deadline_may_extend": true,
+  "transferability": "not freely tradable; narrow estate,trust,court,entity-distribution andnominee exceptions",
+  "observable_market_price_verified": false,
+  "complete_terminal_cash_resolution_verified": false,
+  "published_holder_mark": {
+    "holder": "The Arbitrage Fund",
+    "valuation_date": "2026-05-31",
+    "filing_date": "2026-08-05",
+    "per_right_usd": 0.5692975609756098,
+    "classification": "restricted Level3, significant unobservable inputs",
+    "source": "https://www.sec.gov/Archives/edgar/data/1105076/000110465926090986/tm2613589d1_ncsr.htm"
+  },
+  "undiscounted_per_old_share_scenarios": [
+    {
+      "right_assumption": 0.0,
+      "total_nominal_cash_plus_right": 11.45
+    },
+    {
+      "right_assumption": 0.5692975609756098,
+      "total_nominal_cash_plus_right": 12.019297560975609
+    },
+    {
+      "right_assumption": 3.0,
+      "total_nominal_cash_plus_right": 14.45
+    }
+  ],
+  "scenario_warning": "These are contractual/illustrative undiscounted per-original-share marks, not verified cash receipt, current market prices, tradable quotes or validated strategy returns. A third-party Level3 mark is not a unique terminal valuation. Scenarios are not substituted into the frozen replay.",
+  "sources": [
+    "https://www.sec.gov/Archives/edgar/data/1618921/000119312525190603/d87240d8k.htm",
+    "https://www.sec.gov/Archives/edgar/data/1618921/000119312525050096/d935649dex21.htm",
+    "https://www.sec.gov/Archives/edgar/data/1105076/000110465926090986/tm2613589d1_ncsr.htm"
+  ]
+}

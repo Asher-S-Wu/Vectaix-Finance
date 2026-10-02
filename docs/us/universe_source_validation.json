@@ -1,0 +1,21 @@
+{
+  "source_pdf_sha256": "f4226f40e85078c74439ffb45e5186f85d159b824c51cb805b127add12bfeace",
+  "source_url": "https://announcements.asx.com.au/asxpdf/20150902/pdf/4311bmqvg9p1d1.pdf",
+  "snapshot_date": "2015-06-30",
+  "publication_date": "2015-09-02",
+  "long_common_stock_positions": 101,
+  "extracted_position_values_usd": 4145770484,
+  "reported_total_common_stock_value_usd": 4145770484,
+  "all_issuer_names_matched": true,
+  "visual_review_pdf_pages": [
+    343,
+    344,
+    345
+  ],
+  "excluded_positions": [
+    "Money market fund/cash",
+    "E-mini S&P 500 futures",
+    "Short Chemours non-index corporate-action position"
+  ],
+  "ticker_mapping_caveat": "Issuer holdings are independently validated. Same-ticker mappings remain provider identity checks, not permanent security identifiers."
+}

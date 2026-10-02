@@ -1,0 +1,13 @@
+security_id,valid_start,supported_data_end,last_original_trade,valid_quote_rows,ordinary_action_rows,terminal_outcomes_verified,source_cutoff_not_delisting,identity_boundary_source
+CELG,2014-01-02,2019-11-20,2019-11-20,1482,1,False,False,https://nasdaqtrader.com/TraderNews.aspx?id=ECA2019-65
+MON,2014-01-02,2018-06-06,2018-06-06,1112,18,False,False,https://www.bayer.com/media/en-us/bayer-closes-monsanto-acquisition/
+WBA,2015-01-02,2025-08-27,2025-08-27,2675,40,False,False,https://www.nasdaqtrader.com/TraderNews.aspx?id=ECA2025-463
+TWX,2014-06-09,2018-06-14,2018-06-14,1012,16,False,False,https://www.sec.gov/Archives/edgar/data/1105705/000095015718000694/form8-k.htm
+AGN,2015-06-15,2020-05-08,2020-05-08,1235,14,False,False,https://news.abbvie.com/2020-05-08-AbbVie-Completes-Transformative-Acquisition-of-Allergan
+APC,2014-01-02,2019-08-08,2019-08-08,1409,22,False,False,https://www.sec.gov/Archives/edgar/data/797468/000079746820000004/oxy10k12-31x2019.htm
+EMC,2014-01-02,2016-09-06,2016-09-06,675,11,False,False,https://www.sec.gov/Archives/edgar/data/1571996/000157199617000004/delltechnologiesfy1710k.htm
+DOW,2014-01-02,2017-08-31,2017-08-31,924,15,False,False,https://www.investors.dupont.com/news-and-media/press-release-details/2017/DowDuPont-Merger-Successfully-Completed/default.aspx
+DD,2015-07-02,2017-08-31,2017-08-31,547,9,False,False,https://www.sec.gov/Archives/edgar/data/30554/000003055418000002/dd-12x31x201710xk.htm
+RTN,2014-01-02,2020-04-02,2020-04-02,1574,24,False,False,https://www.sec.gov/Archives/edgar/data/1047122/000119312520097237/d827106dex991.htm
+FOXA,2014-01-02,2018-03-27,2019-03-19,1066,9,False,True,https://nasdaqtrader.com/TraderNews.aspx?id=ECA2019-26
+UTX,2014-01-02,2020-04-02,2020-04-02,1573,25,False,False,https://www.sec.gov/Archives/edgar/data/1047122/000119312520097237/d827106dex991.htm

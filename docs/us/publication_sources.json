@@ -1,0 +1,60 @@
+{
+  "scope": "Public derivatives of selected sealed source reviews. The frozen protocols, source audits, model weights and experiment results retain their original hashes. A historical universe_sha256 or identity_review_sha256 refers to the sealed input record, not its public derivative.",
+  "transformed_files": [
+    {
+      "path": "docs/us/aapl_source_crosscheck.json",
+      "sealed_source_sha256": "72e05e2fac1f4e75df3bd6a41659d7bf3a095756db50863b8ac35fe4f6b4080e",
+      "public_sha256": "c4c40a345ab886e308fecbff66d430e533f7dcf7937eadcd6afa514881046bbb",
+      "transformation": "Publish aggregate source-comparison statistics and interpretation."
+    },
+    {
+      "path": "docs/us/public_source_research.json",
+      "sealed_source_sha256": "9acb4832e24620317e72a18d4e78e3a0b1f237d46679a88d10d4fa87c21d9072",
+      "public_sha256": "97afb6f2cf25460554be63d5dfb1d16ad2187887feda77e044f454484d4d8a94",
+      "transformation": "Publish source links, identity boundaries, availability counts and research limitations."
+    },
+    {
+      "path": "docs/us/identity_review.json",
+      "sealed_source_sha256": "95b058b706526d3b41f54609ed5e052cb7c4464e66912449b7953c8a39a43161",
+      "public_sha256": "fffa01ee94b85c66c67ad044e7ce80adcbdc7afd71ec9f8dad1eda8f40f63acb",
+      "transformation": "Publish identity admission and aggregate audit results."
+    },
+    {
+      "path": "docs/us/declared_universe.csv",
+      "sealed_source_sha256": "ad56c03875f0d368384f4f09147c563c1622a2a5933e5ae8a9f38a9ed78b51d4",
+      "public_sha256": "fb484817a6fecbe139dccf9aeb1249066b94fbcdb7c7535d7475a256456fe7bf",
+      "transformation": "Publish the 101 historical issuer identities and source/date/page provenance."
+    },
+    {
+      "path": "docs/us/pre_fit_review.json",
+      "sealed_source_sha256": "d2bdc69ebccf4bca7ef0bbef44c70ed944d5014021a6cf0fb7666359aff005c6",
+      "public_sha256": "e34f51d5c21ef31a5a2fb1abbc992f0ca29855ac23689c1c09946617e70b9cb0",
+      "transformation": "Use a repository-local test invocation in recorded review metadata."
+    },
+    {
+      "path": "docs/us/post_fit_review.json",
+      "sealed_source_sha256": "e89935b58724af26bc662cdcc64c362ed4b9b8652699e1427115cfc8525f7ff1",
+      "public_sha256": "df21eb6bb7ded5d23f5124665eced7d39d674cf2e80d8ada3108484e59ff7a1f",
+      "transformation": "Use a repository-local test invocation in recorded review metadata."
+    },
+    {
+      "path": "docs/us/v2/WBA_terminal_scenarios.json",
+      "sealed_source_sha256": "9925f2c68b53947ac736be40a6b5d86cfeffebdfbdf98be6f53585319b9b7cc5",
+      "public_sha256": "75c4bf83e7fc1777318375857d4d5360bb2d8c6834bd4e1d80703d0a2881ba70",
+      "transformation": "Publish per-right illustrative valuation and official filing provenance."
+    },
+    {
+      "path": "delivery_report/us/us_training_report.zh-CN.docx",
+      "sealed_source_sha256": "8879da959d11c2a44b7217383d81d593f8869eca7ea3893af984c3476f1f1583",
+      "public_sha256": "423e9a2fc608e4692f8debf222996532559ffe066595ba46ec755bb526e819bf",
+      "transformation": "Publish the per-right illustrative valuation and current research/service status. All six report pages visually verified; research results and figures preserved."
+    },
+    {
+      "path": "delivery_report/us/us_training_report.zh-CN.pdf",
+      "sealed_source_sha256": "d128fd45505016794fdb714c2dedfe9bc90a9658e68f94b998f6f45d3cb92909",
+      "public_sha256": "5be4cebfe3461254b97b1a9322473315944cd39985a2eff8317f43313ab9f664",
+      "transformation": "Publish the per-right illustrative valuation and current research/service status. All six report pages visually verified; research results and figures preserved."
+    }
+  ],
+  "retained": "Both experiment results, trained models, executed-code snapshots and ten original chart images."
+}

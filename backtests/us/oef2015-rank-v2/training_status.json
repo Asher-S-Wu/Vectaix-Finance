@@ -1,0 +1,13 @@
+{
+  "status": "complete",
+  "started_at": "2026-10-02T08:23:39.926024+00:00",
+  "finished_at": "2026-10-02T08:24:10.706390+00:00",
+  "selected_kind": "ridge_rank_5y",
+  "candidate_fold_fits": 30,
+  "frozen_model_sha256": "5482e34391710eca5e7f1f12a62e984e11dcf271ff08c40d2768f2fb4bab0cfd",
+  "latest_model_sha256": "0aa438fc52e5ed74d440f44223f61681301fd5f69800153f01311969f1e59937",
+  "untouched_recent_holdout": false,
+  "recent_period_used_for_selection": false,
+  "eligible": false,
+  "execution_validated": false
+}

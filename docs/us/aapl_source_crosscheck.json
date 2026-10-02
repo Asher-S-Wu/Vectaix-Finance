@@ -1,0 +1,28 @@
+{
+  "matched_sessions": 3204,
+  "yahoo_sessions": 3205,
+  "first": "2014-01-02",
+  "last": "2026-09-30",
+  "raw_close_abs_error": {
+    "min": 0.0,
+    "median": 3.662109378410605e-06,
+    "p95": 2.8076171929569682e-05,
+    "max": 0.819996948242192
+  },
+  "raw_close_relative_error": {
+    "min": 0.0,
+    "median": 2.170139508194115e-08,
+    "p95": 5.5436109218891914e-08,
+    "max": 0.007429527482487923
+  },
+  "reconstructed_as_traded_volume_relative_error": {
+    "min": 0.0,
+    "median": 1.1820916808126332e-06,
+    "p95": 0.017232812244391764,
+    "max": 7.7493359562979425
+  },
+  "close_differences_over_one_cent": 123,
+  "volume_documentation": "No explicit primary Yahoo volume-adjustment guarantee located. AAPL empirical comparison is supporting evidence only; label close*volume a dollar-volume proxy, not verified consolidated traded notional.",
+  "return_definition_note": "Sina affine coefficients recover cash/split arithmetic wealth returns when events are correct and complete. Yahoo documented backward dividend multipliers give slightly different ex-dividend return math; do not demand exact equality or silently mix definitions. AAPL latest dividend missing in Sina factors is an observed completeness failure.",
+  "scope": "Aggregate comparison statistics and interpretation; individual source observations are retained in the private research record."
+}

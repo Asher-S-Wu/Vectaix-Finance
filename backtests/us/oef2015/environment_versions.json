@@ -1,0 +1,9 @@
+{
+  "python": "3.12.14",
+  "numpy": "2.5.2",
+  "pandas": "3.0.5",
+  "sklearn": "1.9.0",
+  "lightgbm": "4.7.0",
+  "scipy": "1.18.1",
+  "matplotlib": "3.11.1"
+}

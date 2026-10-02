@@ -1,0 +1,107 @@
+{
+  "predictions": 25452,
+  "mature_labels": 20880,
+  "missing_or_immature_outcomes": 4572,
+  "task_failures": {
+    "score_status:ok": 22680,
+    "score_status:insufficient_model_inputs": 2772,
+    "probability_status:ok": 22680,
+    "probability_status:insufficient_model_inputs": 2772,
+    "interval_status:ok": 22680,
+    "interval_status:insufficient_model_inputs": 2772,
+    "expected_return_status:ok": 22680,
+    "expected_return_status:insufficient_model_inputs": 2772
+  },
+  "score_available": 20880,
+  "rank_ic_mean": 0.013392484846351537,
+  "ic_dates": 232,
+  "ic_calendar_slots": 232,
+  "ic_ci_lower": -0.042013261036794376,
+  "ic_ci_upper": 0.06816639932599311,
+  "probability_available": 20880,
+  "brier": 0.24140024434636748,
+  "baseline_brier": 0.24110620708673441,
+  "brier_skill": -0.0012195341761869205,
+  "direction_accuracy": 0.5943486590038314,
+  "actual_up_ratio": 0.5943486590038314,
+  "ece": 0.017380169309686222,
+  "probability_bins": [
+    {
+      "lower": 0.0,
+      "upper": 0.1,
+      "count": 0,
+      "mean_probability": null,
+      "observed_up": null
+    },
+    {
+      "lower": 0.1,
+      "upper": 0.2,
+      "count": 0,
+      "mean_probability": null,
+      "observed_up": null
+    },
+    {
+      "lower": 0.2,
+      "upper": 0.3,
+      "count": 0,
+      "mean_probability": null,
+      "observed_up": null
+    },
+    {
+      "lower": 0.3,
+      "upper": 0.4,
+      "count": 0,
+      "mean_probability": null,
+      "observed_up": null
+    },
+    {
+      "lower": 0.4,
+      "upper": 0.5,
+      "count": 0,
+      "mean_probability": null,
+      "observed_up": null
+    },
+    {
+      "lower": 0.5,
+      "upper": 0.6,
+      "count": 20880,
+      "mean_probability": 0.5769684896941452,
+      "observed_up": 0.5943486590038314
+    },
+    {
+      "lower": 0.6,
+      "upper": 0.7,
+      "count": 0,
+      "mean_probability": null,
+      "observed_up": null
+    },
+    {
+      "lower": 0.7,
+      "upper": 0.8,
+      "count": 0,
+      "mean_probability": null,
+      "observed_up": null
+    },
+    {
+      "lower": 0.8,
+      "upper": 0.9,
+      "count": 0,
+      "mean_probability": null,
+      "observed_up": null
+    },
+    {
+      "lower": 0.9,
+      "upper": 1.0,
+      "count": 0,
+      "mean_probability": null,
+      "observed_up": null
+    }
+  ],
+  "interval_available": 20880,
+  "interval_covered": 17547,
+  "interval_coverage": 0.8403735632183909,
+  "pinball": 0.017922344684504453,
+  "baseline_pinball": 0.01748399485548365,
+  "expected_return_available": 20880,
+  "mae": 0.05290134181119466
+}

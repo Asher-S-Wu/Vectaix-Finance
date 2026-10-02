@@ -1,0 +1,4 @@
+outer_year,inner_years,selected_kind,inner_mean_ic,outer_ic,own_outer_year_used_for_selection
+2022,"[2020, 2021]",ridge_rank_5y,0.06659076264615348,-0.017457520186252122,False
+2023,"[2020, 2021, 2022]",ridge_rank_5y,0.03857466836868494,0.027521021561080185,False
+2024,"[2020, 2021, 2022, 2023]",ridge_rank_5y,0.03581125666678375,-0.007496313579227179,False

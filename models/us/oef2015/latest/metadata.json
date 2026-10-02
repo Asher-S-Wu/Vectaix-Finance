@@ -1,0 +1,180 @@
+{
+  "kind": "factor",
+  "model_version": "us-oef2015-factor-latest-20260930-v1",
+  "features": [
+    "momentum_60",
+    "momentum_5",
+    "volatility_20",
+    "log_amount_20",
+    "log_horizon"
+  ],
+  "target_schema": "arithmetic-return-sqrt-horizon-v1",
+  "prediction_schema": "independent-task-availability-v1",
+  "horizons": [
+    1,
+    5,
+    20,
+    60
+  ],
+  "as_of": "2026-09-30T00:00:00",
+  "sample_counts": {
+    "train": {
+      "input": 864546,
+      "used": 864546,
+      "excluded": 0,
+      "horizons": {
+        "1": {
+          "samples": 217961,
+          "positive": 114110,
+          "negative_or_zero": 103851,
+          "full_loss": 0
+        },
+        "5": {
+          "samples": 217605,
+          "positive": 119545,
+          "negative_or_zero": 98060,
+          "full_loss": 0
+        },
+        "20": {
+          "samples": 216270,
+          "positive": 125178,
+          "negative_or_zero": 91092,
+          "full_loss": 0
+        },
+        "60": {
+          "samples": 212710,
+          "positive": 131374,
+          "negative_or_zero": 81336,
+          "full_loss": 0
+        }
+      }
+    },
+    "calibration": {
+      "input": 81702,
+      "used": 81702,
+      "excluded": 0,
+      "horizons": {
+        "1": {
+          "samples": 22250,
+          "positive": 11309,
+          "negative_or_zero": 10941,
+          "full_loss": 0
+        },
+        "5": {
+          "samples": 21894,
+          "positive": 11413,
+          "negative_or_zero": 10481,
+          "full_loss": 0
+        },
+        "20": {
+          "samples": 20559,
+          "positive": 11396,
+          "negative_or_zero": 9163,
+          "full_loss": 0
+        },
+        "60": {
+          "samples": 16999,
+          "positive": 10580,
+          "negative_or_zero": 6419,
+          "full_loss": 0
+        }
+      }
+    }
+  },
+  "parameters": {
+    "weights": {
+      "momentum_60": 0.25,
+      "momentum_5": -0.25,
+      "volatility_20": -0.25,
+      "log_amount_20": 0.25
+    },
+    "definition": "Equal-weight trend, short reversal, low volatility and liquidity ranks; no fitted weights"
+  },
+  "return_basis": "USD Yahoo split-and-distribution-adjusted research-price arithmetic return",
+  "cash_dividend_accounting": "Source-adjusted research returns; no separate actual-share dividend cash entitlement",
+  "sigma_basis": "unranked historical USD source-adjusted daily log-return volatility",
+  "training_target": "fixed factor score; no fitted return weights",
+  "prediction_arithmetic_return": "factor_score * sigma_daily * sqrt(horizon)",
+  "interval_model": "held-out arithmetic-return residual quantiles around the point arithmetic-return prediction",
+  "baseline": {
+    "probability": "common legal historical training label frequency, independent of candidate feature missingness",
+    "quantiles": "exp(normal_quantile * historical sigma_daily * sqrt(horizon)) - 1"
+  },
+  "calibration": {
+    "probability": "per-horizon Platt logistic calibration on held-out raw margin (factor/linear: regression score)",
+    "probability_anchor": "held_out_logistic_without_training_rate_shift",
+    "probability_baseline_blend": {
+      "1": 0.0,
+      "5": 0.0,
+      "20": 0.0,
+      "60": 0.0
+    },
+    "probability_centering": "date_horizon_cross_section",
+    "probability_anchor_offset": {
+      "1": 0.0,
+      "5": 0.0,
+      "20": 0.0,
+      "60": 0.0
+    },
+    "intervals": "per-horizon empirical log1p-return residual distribution",
+    "expected_return": "predicted_arithmetic_return + mean(held_out_arithmetic_return_residual) per horizon",
+    "residual_assumption": "Within each horizon, held-out arithmetic-return residuals represent prediction errors; the correction is unconditional within horizon.",
+    "residual_quantiles": {
+      "1": [
+        -0.020442324216456326,
+        0.0006555976275888057,
+        0.0234945024054611
+      ],
+      "5": [
+        -0.045092967147284176,
+        0.0029059251294981403,
+        0.05764871994689589
+      ],
+      "20": [
+        -0.08546284094572776,
+        0.011187919133829827,
+        0.13138346217092703
+      ],
+      "60": [
+        -0.12640446823807755,
+        0.04667670296881892,
+        0.2585097037813412
+      ]
+    },
+    "interval_log_residual_quantiles": {},
+    "interval_log_residual_audit": {},
+    "quantile_affine": {},
+    "mean_return_residual": {
+      "1": 0.001255443441529812,
+      "5": 0.004835572073789307,
+      "20": 0.019467775313595906,
+      "60": 0.06113236749721216
+    },
+    "interval_width_multiplier": {
+      "1": 1.0,
+      "5": 1.0,
+      "20": 1.0,
+      "60": 1.0
+    }
+  },
+  "train_start": "2016-01-04T00:00:00",
+  "train_end": "2025-09-29T00:00:00",
+  "calibration_start": "2025-10-01T00:00:00",
+  "calibration_end": "2026-09-29T00:00:00",
+  "latest_label_end": "2026-09-30T00:00:00",
+  "versions": {
+    "numpy": "2.5.2",
+    "sklearn": "1.9.0",
+    "lightgbm": "4.7.0"
+  },
+  "market": "US",
+  "currency": "USD",
+  "fit_executed_at": "2026-10-02T07:38:47.791672+00:00",
+  "evaluation_context": "Retrospective current-vintage public-price research, conditional on observable historical cohort coverage",
+  "execution_validated": false,
+  "eligible": false,
+  "out_of_sample_evaluated": false,
+  "architecture_source": "2024 development frozen selection",
+  "protocol_sha256": "31d36cffd8d245f71113be33830253a55e240c7ea08fca065beb7033052d71d4",
+  "source_audit_sha256": "1687df416df4e3a2b0ceb352cc82fd860f30966e84be84451f207bbf4ef52611"
+}

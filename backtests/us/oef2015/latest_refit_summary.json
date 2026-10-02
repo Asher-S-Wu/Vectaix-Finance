@@ -1,0 +1,9 @@
+{
+  "model_version": "us-oef2015-factor-latest-20260930-v1",
+  "kind": "factor",
+  "as_of": "2026-09-30",
+  "model_sha256": "ccbfce1dd0fdc13e3a2791494ea491a6d115a6aa0f9b234c850fbb064f5f0a48",
+  "out_of_sample_evaluated": false,
+  "eligible": false,
+  "execution_validated": false
+}

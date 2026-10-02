@@ -1,0 +1,166 @@
+{
+  "kind": "ridge_rank_5y",
+  "market": "US",
+  "currency": "USD",
+  "model_version": "us-v2-ridge_rank_5y-frozen-20241231",
+  "as_of": "2024-12-31T00:00:00",
+  "horizons": [
+    1,
+    5,
+    20,
+    60
+  ],
+  "features": [
+    "return_1",
+    "momentum_5",
+    "momentum_20",
+    "momentum_60",
+    "momentum_120",
+    "momentum_252",
+    "momentum_252_skip20",
+    "volatility_20",
+    "volatility_60",
+    "volatility_252",
+    "downside_volatility_60",
+    "max_return_20",
+    "return_skew_60",
+    "near_high_252",
+    "near_low_252",
+    "bias_20",
+    "bias_60",
+    "log_amount_20",
+    "amount_ratio_20_120",
+    "amount_cv_20",
+    "volume_cv_20",
+    "amihud_20",
+    "intraday_range",
+    "intraday_return"
+  ],
+  "parameters": {
+    "fit_window_years": 5,
+    "estimator": "Ridge",
+    "alpha": 100.0
+  },
+  "ranking_target": "within_date_horizon_centered_percentile",
+  "fitted_ranking_weights": true,
+  "calibration": {
+    "probability": "held-out per-horizon logistic",
+    "mean_return": "held-out nonnegative-slope affine transform of rank score; score itself is never reversed",
+    "interval": "empirical log1p-return residual quantiles scaled by historical daily sigma*sqrt(horizon)"
+  },
+  "interval_fit_audit": {
+    "1": {
+      "fit_rows": 22590,
+      "excluded_invalid_point_or_scale_rows": 0,
+      "negative_infinity_atoms": 0,
+      "domain": "log1p_arithmetic_return"
+    },
+    "5": {
+      "fit_rows": 22230,
+      "excluded_invalid_point_or_scale_rows": 0,
+      "negative_infinity_atoms": 0,
+      "domain": "log1p_arithmetic_return"
+    },
+    "20": {
+      "fit_rows": 20880,
+      "excluded_invalid_point_or_scale_rows": 0,
+      "negative_infinity_atoms": 0,
+      "domain": "log1p_arithmetic_return"
+    },
+    "60": {
+      "fit_rows": 17280,
+      "excluded_invalid_point_or_scale_rows": 0,
+      "negative_infinity_atoms": 0,
+      "domain": "log1p_arithmetic_return"
+    }
+  },
+  "mean_affine": {
+    "1": {
+      "offset": 0.0005547292668046917,
+      "slope": 0.008505468523800566
+    },
+    "5": {
+      "offset": 0.003002468413260357,
+      "slope": 0.0
+    },
+    "20": {
+      "offset": 0.01352287924874119,
+      "slope": 0.0
+    },
+    "60": {
+      "offset": 0.042994998879116536,
+      "slope": 0.0
+    }
+  },
+  "residual_quantiles": {
+    "1": [
+      -1.224214816267454,
+      0.01149359709632238,
+      1.2047158509027098
+    ],
+    "5": [
+      -1.3884194017166285,
+      0.006084899612100047,
+      1.3351706369237255
+    ],
+    "20": [
+      -1.4820754227694526,
+      -0.00017066825730677578,
+      1.372151685629729
+    ],
+    "60": [
+      -1.6190368044770567,
+      0.020761684318134018,
+      1.3058999376048155
+    ]
+  },
+  "sample_counts": {
+    "1": {
+      "train": 114475,
+      "calibration": 22590,
+      "train_start": "2019-01-02",
+      "train_end": "2023-12-28",
+      "train_label_end": "2023-12-29",
+      "calibration_start": "2024-01-02",
+      "calibration_end": "2024-12-30",
+      "calibration_label_end": "2024-12-31"
+    },
+    "5": {
+      "train": 114095,
+      "calibration": 22230,
+      "train_start": "2019-01-02",
+      "train_end": "2023-12-21",
+      "train_label_end": "2023-12-29",
+      "calibration_start": "2024-01-02",
+      "calibration_end": "2024-12-23",
+      "calibration_label_end": "2024-12-31"
+    },
+    "20": {
+      "train": 112670,
+      "calibration": 20880,
+      "train_start": "2019-01-02",
+      "train_end": "2023-11-30",
+      "train_label_end": "2023-12-29",
+      "calibration_start": "2024-01-02",
+      "calibration_end": "2024-12-02",
+      "calibration_label_end": "2024-12-31"
+    },
+    "60": {
+      "train": 108870,
+      "calibration": 17280,
+      "train_start": "2019-01-02",
+      "train_end": "2023-10-04",
+      "train_label_end": "2023-12-29",
+      "calibration_start": "2024-01-02",
+      "calibration_end": "2024-10-04",
+      "calibration_label_end": "2024-12-31"
+    }
+  },
+  "return_basis": "USD source-adjusted research-price arithmetic return; Yahoo plus explicitly reconstructed original identities",
+  "fit_executed_at": "2026-10-02T08:24:07.671187+00:00",
+  "eligible": false,
+  "execution_validated": false,
+  "protocol_sha256": "727d6ffe1703c41b2da4f052043077eeb38c7c2adf71a77d51ca36bec2fd688f",
+  "source_audit_sha256": "2f9d5bd974c8aa7cefdbe0e808c447370d243ed8ec85a1e270c9201a4fd39ed1",
+  "evaluation_context": "2025–2026 is an already-viewed reused diagnostic, not a fresh holdout"
+}

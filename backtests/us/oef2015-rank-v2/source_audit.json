@@ -1,0 +1,1634 @@
+{
+  "dataset_version": "oef2015-recovered-v2",
+  "declared_cohort": 101,
+  "identities_with_some_history": 101,
+  "fully_unavailable_identities": 0,
+  "recovered_identity_count": 12,
+  "recovered": [
+    {
+      "security_id": "CELG",
+      "raw_export_sha256": "3998164d76db2c2a76e83a7426706569bae384d94aca3d68d3b9a96365287b16",
+      "events_export_sha256": "bd05b8d9abe636ad1be290c3e761e71e93a590197f6a24b08ed8e05367ef7a6e",
+      "valid_start": "2014-01-02",
+      "supported_data_end": "2019-11-20",
+      "last_original_trade_date": "2019-11-20",
+      "valid_quote_rows": 1482,
+      "unsupported_terminal_labels": true,
+      "event_verification_scope": "reconstructed_with_explicit_checks_and_limits",
+      "source_notes": [
+        "A 2:1 split on June 26, 2014 is directly verified by SEC and OCC sources. The 2018 issuer 10-K states that no cash dividends had ever been paid. Price-based year-end cumulative returns for 2014, 2015 and 2018 match the issuer performance graph after rounding. Acquisition cash, stock and CVR consideration are not modeled."
+      ]
+    },
+    {
+      "security_id": "MON",
+      "raw_export_sha256": "ecc0a604a168ec24d159900c5a677f191c5a509e543b500f9c31a92a1db5d624",
+      "events_export_sha256": "03e4d0aff53779b78bede08c1fd7b42eff106e1c38a0a56db7355b29ba94c2e0",
+      "valid_start": "2014-01-02",
+      "supported_data_end": "2018-06-06",
+      "last_original_trade_date": "2018-06-06",
+      "valid_quote_rows": 1112,
+      "unsupported_terminal_labels": true,
+      "event_verification_scope": "reconstructed_with_explicit_checks_and_limits",
+      "source_notes": [
+        "Eighteen quarterly ordinary cash events are present from January 2014 to April 2018. The 2017 amounts and cadence are crosschecked against the issuer 10-K. Later MON identity and zero-price quotes after June 6, 2018 are excluded. The known $128 cash acquisition consideration is not modeled in these observations."
+      ]
+    },
+    {
+      "security_id": "WBA",
+      "raw_export_sha256": "09877f1d25eb058d03e23d20076bc6894be1ab1862f7932d642720631ffc7afa",
+      "events_export_sha256": "a40424b24cea178e6d83346f7641e0ff98a5a80799720fe0e454520bf94248e5",
+      "valid_start": "2015-01-02",
+      "supported_data_end": "2025-08-27",
+      "last_original_trade_date": "2025-08-27",
+      "valid_quote_rows": 2675,
+      "unsupported_terminal_labels": true,
+      "event_verification_scope": "reconstructed_with_explicit_checks_and_limits",
+      "source_notes": [
+        "Raw observations start January 2, 2015. No 2014 warmup is available. After the official November 2024 correction, the ledger contains four ordinary cash dividends per calendar year from 2015 to 2024, for 40 events. Further per-quarter issuer reconciliation is recommended. A duplicate-looking adjacent $0.315 event in the 2014 coefficient file is outside the admitted interval. The terminal DAP right is not valued."
+      ]
+    },
+    {
+      "security_id": "TWX",
+      "raw_export_sha256": "aee5b2bb6ebb54ad27c39bd78867235d709d60b26248277b1de649e00f94c278",
+      "events_export_sha256": "fb59302b7144d0d51d702e3d0e7ceafc9317461d45b3f1c97e48b800127f1ace",
+      "valid_start": "2014-06-09",
+      "supported_data_end": "2018-06-14",
+      "last_original_trade_date": "2018-06-14",
+      "valid_quote_rows": 1012,
+      "unsupported_terminal_labels": true,
+      "event_verification_scope": "reconstructed_with_explicit_checks_and_limits",
+      "source_notes": [
+        "The supplied interval starts June 9, 2014, after the Time Inc. spinoff. Earlier bars are omitted because the Sina factor file does not account for that stock distribution. Fourteen cash dividends in 2015–2018 match the amounts and counts in AT&T’s issuer history. Ex-dates come from Sina; issuer history supplies record and payment dates. The zero-volume stale quote on June 15, 2018 is excluded."
+      ]
+    },
+    {
+      "security_id": "AGN",
+      "raw_export_sha256": "549c9b8ad31409a1c04a85607864b0cd220c7c8cd93ab43fdba6599d6df40de8",
+      "events_export_sha256": "4fea9231e1cd1166d3c5b590dc29c04853b8ee188e1d5c044f0b4dfd629a1c5f",
+      "valid_start": "2015-06-15",
+      "supported_data_end": "2020-05-08",
+      "last_original_trade_date": "2020-05-08",
+      "valid_quote_rows": 1235,
+      "unsupported_terminal_labels": true,
+      "event_verification_scope": "reconstructed_with_explicit_checks_and_limits",
+      "source_notes": [
+        "The supplied interval begins June 15, 2015, the verified Actavis-to-Allergan same-issuer ticker change. Earlier Sina prices track Actavis while the factor file includes legacy Allergan dividends, so those earlier data are excluded. Initiation of ordinary dividends in 2017 is verified. Fourteen ordinary cash events occur in 2017–2020."
+      ]
+    },
+    {
+      "security_id": "APC",
+      "raw_export_sha256": "eca2a7310edaefa18ca56177bac5cd9c32efa28bfebfa65790201289e814943d",
+      "events_export_sha256": "abf124e35ef13844d302c1d46e193d21b21c6efd87be9f37ae389c13eb0aceb9",
+      "valid_start": "2014-01-02",
+      "supported_data_end": "2019-08-08",
+      "last_original_trade_date": "2019-08-08",
+      "valid_quote_rows": 1409,
+      "unsupported_terminal_labels": true,
+      "event_verification_scope": "reconstructed_with_explicit_checks_and_limits",
+      "source_notes": [
+        "Raw prices before August 9, 2019 independently crosschecked against archived daily data and SEC quarterly high/low tables for all 16 quarters in 2014–2017. Current Sina APC factor file belongs to ARKO and is rejected. Ordinary cash events reconstructed from issuer-specific archived Morningstar data with SEC amount checks. No split indicated within the supplied window. See apc_events_recovery_manifest.json for source access and completeness limitations."
+      ]
+    },
+    {
+      "security_id": "EMC",
+      "raw_export_sha256": "ed60ac8c940215f10fce09e37a736355c6aa2da05bbb662f11dbe1e3b3153db4",
+      "events_export_sha256": "681541de16f3c1d1e5473bc4b74ea3a9abdab3de89b23c07b5c11de22284cf47",
+      "valid_start": "2014-01-02",
+      "supported_data_end": "2016-09-06",
+      "last_original_trade_date": "2016-09-06",
+      "valid_quote_rows": 675,
+      "unsupported_terminal_labels": true,
+      "event_verification_scope": "11 archive cash events match old Sina coefficients; issuer quarter amount checks",
+      "source_notes": [
+        "Original EMC archive has nine quarterly high/low ranges matching primary issuer filings within $0.005. All raw OHLCV are positive and preserve the historical original issue. Old EMC raw history is absent from current Sina, so the archive is a separate source.",
+        "Archive is a mirror of public-domain WIKI data. The original provider stopped active support in April 2018 and warns against unvalidated analytical use. This EMC segment ends in September 2016 and has passed targeted checks, which do not establish exhaustive every-bar accuracy.",
+        "No adjusted WIKI columns are passed as total returns. Its ordinary events are explicit and separately crosschecked. Acquisition entitlement is $24.05 plus Dell tracking shares; the terminal event remains outside the admitted interval.",
+        "Dell FY2017 10-K explicitly identifies $29.05 as the original EMC closing price on the last trading day before the September 7, 2016 merger. This exactly matches the archive’s September 6 closing price. Exact merger ratio was 0.11146 Class V shares plus $24.05 cash, but is not modeled here."
+      ]
+    },
+    {
+      "security_id": "DOW",
+      "raw_export_sha256": "009bfaca2e67209e534bb6409aa70253c5e8ba2e56d86e660551cb26821944c8",
+      "events_export_sha256": "e8e9350bc9444ffacd573db3e6fee5804aedf9a453b33335d6be25546228e787",
+      "valid_start": "2014-01-02",
+      "supported_data_end": "2017-08-31",
+      "last_original_trade_date": "2017-08-31",
+      "valid_quote_rows": 924,
+      "unsupported_terminal_labels": true,
+      "event_verification_scope": "reconstructed_ordinary_actions_with_issuer_and_cross_source_checks; see original admission contract",
+      "source_notes": "Original The Dow Chemical Company; all 924 closes agree with independent Sina; all15cash events cross-checked."
+    },
+    {
+      "security_id": "DD",
+      "raw_export_sha256": "8f79ffc9a7d30c1c65ba7dabdf6c993fd8526b7cb05454c12640e9a07567ebd8",
+      "events_export_sha256": "0b854478ae437e1e3ae43360d9b441133ca1ba328ffae65830f5695a0894ff16",
+      "valid_start": "2015-07-02",
+      "supported_data_end": "2017-08-31",
+      "last_original_trade_date": "2017-08-31",
+      "valid_quote_rows": 547,
+      "unsupported_terminal_labels": true,
+      "event_verification_scope": "reconstructed_ordinary_actions_with_issuer_and_cross_source_checks; see original admission contract",
+      "source_notes": "Original E.I. du Pont; segment starts after 2015-07-01 Chemours noncash spin. Do not import WIKI ex-dividend3.20 as cash. Warmup must begin at/after valid_start."
+    },
+    {
+      "security_id": "RTN",
+      "raw_export_sha256": "abe4b70ade84729c89a703ed6bee4bf3a91e72a10c2e3bfa171dacb4d900378a",
+      "events_export_sha256": "517d34af7aafad7926656f7ebfb955515cb37967847ff1eb6688556c520b2b3a",
+      "valid_start": "2014-01-02",
+      "supported_data_end": "2020-04-02",
+      "last_original_trade_date": "2020-04-02",
+      "valid_quote_rows": 1574,
+      "unsupported_terminal_labels": true,
+      "event_verification_scope": "reconstructed_ordinary_actions_with_issuer_and_cross_source_checks; see original admission contract",
+      "source_notes": "Legacy Raytheon Company. Four exact cash amounts override WIKI rounding; 2018-01-02 dividend added. Sina raw prices retained; three small WIKI closing-price discrepancies logged."
+    },
+    {
+      "security_id": "FOXA",
+      "raw_export_sha256": "c1dcb2c4930630bc0970d55d2ae1b75ca3e7801a3feb2ff8fe26da350bd2bbf3",
+      "events_export_sha256": "d49cdf6e3f3ae83b1a6e4ce505e40454ac5f03519b406cfa1e4d121518e7b499",
+      "valid_start": "2014-01-02",
+      "supported_data_end": "2018-03-27",
+      "last_original_trade_date": "2019-03-19",
+      "valid_quote_rows": 1066,
+      "unsupported_terminal_labels": true,
+      "event_verification_scope": "reconstructed_ordinary_actions_with_issuer_and_cross_source_checks; see original admission contract",
+      "source_notes": "Original Twenty-First Century Fox Class A. Last quote is source cutoff2018-03-27; real identity continued as FOXA through2019-03-18 and TFCFA on2019-03-19. Missing2018-03-13dividend0.18added. Single interior missing WIKI row 2017-11-08 filled from archived Plotly/CamNugent data; all other raw rows WIKI. See per-row source."
+    },
+    {
+      "security_id": "UTX",
+      "raw_export_sha256": "d3b1d7e26cb430f74fbfec0cf62dcc8b6156732cfe56352e5a61a031c26061e2",
+      "events_export_sha256": "759001f274333106b1a4887e75024a37ad683fbbe955cbfcb49a9649a9e731a7",
+      "valid_start": "2014-01-02",
+      "supported_data_end": "2020-04-02",
+      "last_original_trade_date": "2020-04-02",
+      "valid_quote_rows": 1573,
+      "unsupported_terminal_labels": true,
+      "event_verification_scope": "reconstructed_ordinary_actions_with_issuer_and_cross_source_checks; see original admission contract",
+      "source_notes": "WIKI through2018-03-27; issuer legacy UTX.N thereafter and missing WIKI2017-11-08. Dividend table from issuer fixes missing late WIKI actions. Overlapping close discrepancies preserved in QA; no silent repair."
+    }
+  ],
+  "rows": 323705,
+  "calendar_sessions": 3205,
+  "coverage": [
+    {
+      "security_id": "BA",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "GD",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "HON",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "LMT",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "RTN",
+      "valid_quote_rows": 1574,
+      "eligible_rows": 1515,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2020-04-02",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 1573,
+        "5": 1569,
+        "20": 1554,
+        "60": 1514
+      }
+    },
+    {
+      "security_id": "UTX",
+      "valid_quote_rows": 1573,
+      "eligible_rows": 1514,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2020-04-02",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 1571,
+        "5": 1567,
+        "20": 1552,
+        "60": 1512
+      }
+    },
+    {
+      "security_id": "FDX",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "UPS",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "F",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "GM",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "BAC",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "C",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "JPM",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "USB",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "WFC",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "KO",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "PEP",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "AMGN",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "BIIB",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "CELG",
+      "valid_quote_rows": 1482,
+      "eligible_rows": 1423,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2019-11-20",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 1480,
+        "5": 1476,
+        "20": 1461,
+        "60": 1421
+      }
+    },
+    {
+      "security_id": "GILD",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "BK",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "GS",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "MS",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "DOW",
+      "valid_quote_rows": 924,
+      "eligible_rows": 865,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2017-08-31",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 923,
+        "5": 919,
+        "20": 904,
+        "60": 864
+      }
+    },
+    {
+      "security_id": "DD",
+      "valid_quote_rows": 547,
+      "eligible_rows": 488,
+      "first_valid_quote": "2015-07-02",
+      "last_valid_quote": "2017-08-31",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 546,
+        "5": 542,
+        "20": 527,
+        "60": 487
+      }
+    },
+    {
+      "security_id": "MON",
+      "valid_quote_rows": 1112,
+      "eligible_rows": 1053,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2018-06-06",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 1108,
+        "5": 1104,
+        "20": 1089,
+        "60": 1049
+      }
+    },
+    {
+      "security_id": "CSCO",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "QCOM",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "AXP",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "COF",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "BRK-B",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "T",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "VZ",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "EXC",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "SO",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "EMR",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "HAL",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "SLB",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "COST",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "CVS",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "WMT",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "WBA",
+      "valid_quote_rows": 2675,
+      "eligible_rows": 2616,
+      "first_valid_quote": "2015-01-02",
+      "last_valid_quote": "2025-08-27",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 2670,
+        "5": 2666,
+        "20": 2652,
+        "60": 2613
+      }
+    },
+    {
+      "security_id": "MDLZ",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "ABT",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "MDT",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "UNH",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "MCD",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "SBUX",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "CL",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "PG",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "MMM",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "GE",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "ALL",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "AIG",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "MET",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "AMZN",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "PCLN",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "EBAY",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "FB",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "GOOGL",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "GOOG",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "ACN",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "IBM",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "MA",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "V",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "CAT",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "CMCSA",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "TWX",
+      "valid_quote_rows": 1012,
+      "eligible_rows": 953,
+      "first_valid_quote": "2014-06-09",
+      "last_valid_quote": "2018-06-14",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 1010,
+        "5": 1006,
+        "20": 991,
+        "60": 951
+      }
+    },
+    {
+      "security_id": "FOXA",
+      "valid_quote_rows": 1066,
+      "eligible_rows": 1007,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2018-03-27",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 1065,
+        "5": 1061,
+        "20": 1046,
+        "60": 1006
+      }
+    },
+    {
+      "security_id": "DIS",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "TGT",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "APC",
+      "valid_quote_rows": 1409,
+      "eligible_rows": 1350,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2019-08-08",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 1407,
+        "5": 1403,
+        "20": 1388,
+        "60": 1348
+      }
+    },
+    {
+      "security_id": "CVX",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "COP",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "DVN",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "XOM",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "KMI",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "OXY",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "ABBV",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "AGN",
+      "valid_quote_rows": 1235,
+      "eligible_rows": 1176,
+      "first_valid_quote": "2015-06-15",
+      "last_valid_quote": "2020-05-08",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 1234,
+        "5": 1230,
+        "20": 1215,
+        "60": 1175
+      }
+    },
+    {
+      "security_id": "BMY",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "LLY",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "JNJ",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "MRK",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "PFE",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "SPG",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "NSC",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "UNP",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "INTC",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "TXN",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "MSFT",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "ORCL",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "HD",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "LOW",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "AAPL",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "EMC",
+      "valid_quote_rows": 675,
+      "eligible_rows": 616,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2016-09-06",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 674,
+        "5": 670,
+        "20": 655,
+        "60": 615
+      }
+    },
+    {
+      "security_id": "HPQ",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "NKE",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "MO",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    },
+    {
+      "security_id": "PM",
+      "valid_quote_rows": 3205,
+      "eligible_rows": 3146,
+      "first_valid_quote": "2014-01-02",
+      "last_valid_quote": "2026-09-30",
+      "source_status": "observed_original_identity_segment",
+      "mature_endpoint_rows": {
+        "1": 3204,
+        "5": 3200,
+        "20": 3185,
+        "60": 3145
+      }
+    }
+  ],
+  "first_experiment_preserved": true,
+  "original_source_audit_sha256": "1687df416df4e3a2b0ceb352cc82fd860f30966e84be84451f207bbf4ef52611",
+  "universe_sha256": "ad56c03875f0d368384f4f09147c563c1622a2a5933e5ae8a9f38a9ed78b51d4",
+  "source_files_sha256": {
+    "sources/admissions.json": "78a5ecc80b7ac9e1e659fc4b13f81f07ce68ba88ad181e132f810c06bf40f851",
+    "sources/lineage/RTN_actions.csv": "517d34af7aafad7926656f7ebfb955515cb37967847ff1eb6688556c520b2b3a",
+    "sources/lineage/UTX_raw.csv": "a0e43e5e26b2cc18cec49595c79aa4bcb191b1686420a6f91b2c32693585cd11",
+    "sources/lineage/DD_raw.csv": "8f79ffc9a7d30c1c65ba7dabdf6c993fd8526b7cb05454c12640e9a07567ebd8",
+    "sources/lineage/FOXA_raw.csv": "c1dcb2c4930630bc0970d55d2ae1b75ca3e7801a3feb2ff8fe26da350bd2bbf3",
+    "sources/lineage/wiki_identity_qa.json": "975523ca26c012ec56a6730185661838e95fe957af4bcc7ab2d0bdee6687e15d",
+    "sources/lineage/DD_actions.csv": "0b854478ae437e1e3ae43360d9b441133ca1ba328ffae65830f5695a0894ff16",
+    "sources/lineage/DOW_actions.csv": "e8e9350bc9444ffacd573db3e6fee5804aedf9a453b33335d6be25546228e787",
+    "sources/lineage/DOW_raw.csv": "009bfaca2e67209e534bb6409aa70253c5e8ba2e56d86e660551cb26821944c8",
+    "sources/lineage/UTX_official_wiki_qa.json": "a0b11907625a2b99cb8fe075e5f501973634aa923915ec55ed5bb6cd493e0588",
+    "sources/lineage/UTX_admission_view.csv": "d3b1d7e26cb430f74fbfec0cf62dcc8b6156732cfe56352e5a61a031c26061e2",
+    "sources/lineage/RTN_raw.csv": "abe4b70ade84729c89a703ed6bee4bf3a91e72a10c2e3bfa171dacb4d900378a",
+    "sources/lineage/FOXA_actions.csv": "d49cdf6e3f3ae83b1a6e4ce505e40454ac5f03519b406cfa1e4d121518e7b499",
+    "sources/lineage/admission_contracts.json": "3b1b414070ec6943ac391c31af94f3eb25d4b3c361c9ace29194349d56acbf79",
+    "sources/lineage/UTX_actions.csv": "759001f274333106b1a4887e75024a37ad683fbbe955cbfcb49a9649a9e731a7",
+    "sources/seven/validation.json": "b01c88594ddb51da582a7795ff773857e8c4c7115418a081cc0e38d35a2a03a7",
+    "sources/seven/WBA_actions.csv": "a40424b24cea178e6d83346f7641e0ff98a5a80799720fe0e454520bf94248e5",
+    "sources/seven/wiki_gap_fills.csv": "6857c3da9abc61cb3b8cb49e3bab1f376360ed5c14a2830af51eaad0dabadfd2",
+    "sources/seven/ordinary_actions.csv": "89ad5b4e750c6848d743987adcf481ceed5fab9a553f7e9d04501d4307c99bd3",
+    "sources/seven/TWX_actions.csv": "fb59302b7144d0d51d702e3d0e7ceafc9317461d45b3f1c97e48b800127f1ace",
+    "sources/seven/CELG_actions.csv": "bd05b8d9abe636ad1be290c3e761e71e93a590197f6a24b08ed8e05367ef7a6e",
+    "sources/seven/manifest.json": "be16e1c3aee4fbc1df8ce626456259078d1f29b06dad0f5bec898ae88838c49a",
+    "sources/seven/CELG_raw.csv": "3998164d76db2c2a76e83a7426706569bae384d94aca3d68d3b9a96365287b16",
+    "sources/seven/APC_raw.csv": "eca2a7310edaefa18ca56177bac5cd9c32efa28bfebfa65790201289e814943d",
+    "sources/seven/AGN_raw.csv": "549c9b8ad31409a1c04a85607864b0cd220c7c8cd93ab43fdba6599d6df40de8",
+    "sources/seven/WBA_raw.csv": "09877f1d25eb058d03e23d20076bc6894be1ab1862f7932d642720631ffc7afa",
+    "sources/seven/TWX_raw.csv": "aee5b2bb6ebb54ad27c39bd78867235d709d60b26248277b1de649e00f94c278",
+    "sources/seven/AGN_actions.csv": "4fea9231e1cd1166d3c5b590dc29c04853b8ee188e1d5c044f0b4dfd629a1c5f",
+    "sources/seven/EMC_raw.csv": "ed60ac8c940215f10fce09e37a736355c6aa2da05bbb662f11dbe1e3b3153db4",
+    "sources/seven/MON_raw.csv": "ecc0a604a168ec24d159900c5a677f191c5a509e543b500f9c31a92a1db5d624",
+    "sources/seven/EMC_actions.csv": "681541de16f3c1d1e5473bc4b74ea3a9abdab3de89b23c07b5c11de22284cf47",
+    "sources/seven/MON_actions.csv": "03e4d0aff53779b78bede08c1fd7b42eff106e1c38a0a56db7355b29ba94c2e0",
+    "sources/seven/APC_actions.csv": "abf124e35ef13844d302c1d46e193d21b21c6efd87be9f37ae389c13eb0aceb9"
+  },
+  "normalized_sha256": "534bd5523e12f4a3a56fe4891013660c8ef49c4de8d8fb0cef9574269a52ed52",
+  "features_sha256": "d8d25b52f0df6c86e79d27366798eb43dc96eed627b54a49a12fb5af41d9ce9f",
+  "prices_sha256": "0e014294ff93f9f725c68a3022cbc2ce05b0154bbe3a954ec392d704c37301f3",
+  "calendar_sha256": "023a067c3a15858fb322c47ce874cdcd9cd88b13c40585151b22f54ed3ff0247",
+  "vendor_vintages_point_in_time": false,
+  "survivorship_free": false,
+  "terminal_outcomes_complete": false,
+  "boundary": "All original identities remain in every date denominator. Recovered price histories do not establish complete post-merger entitlement/wealth paths."
+}

@@ -1,0 +1,207 @@
+{
+  "version": "us-oef2015-recovered-rank-v2",
+  "status": "declared_before_v2_fit_pending_source_recovery",
+  "original_cohort": "Same 101 original OEF equity share classes from June30 2015, public Sep2 2015",
+  "data_improvement": "Restore independently verified original-identity pretermination histories and split/cash events; retain unknown labels across unsupported merger/terminal outcomes",
+  "data_end": "2026-09-30",
+  "history_start": "2014-01-01 where verified; shorter recovered histories retain warm-up gaps",
+  "candidate_budget": 6,
+  "candidates": {
+    "factor_reference": {
+      "fit_window_years": 3,
+      "score": "unchanged v1 fixed four-factor score; not inverted"
+    },
+    "momentum_12_1": {
+      "fit_window_years": 3,
+      "score": "positive 252-session momentum skipping most recent20 sessions; fixed economic baseline"
+    },
+    "ridge_rank_3y": {
+      "fit_window_years": 3,
+      "estimator": "Ridge",
+      "alpha": 100.0
+    },
+    "ridge_rank_5y": {
+      "fit_window_years": 5,
+      "estimator": "Ridge",
+      "alpha": 100.0
+    },
+    "gbm_rank_3y": {
+      "fit_window_years": 3,
+      "estimator": "LightGBM regression of cross-sectional rank labels",
+      "num_leaves": 7,
+      "n_estimators": 120,
+      "min_child_samples": 200,
+      "learning_rate": 0.03,
+      "reg_lambda": 20.0,
+      "random_state": 42,
+      "n_jobs": 8
+    },
+    "gbm_rank_5y": {
+      "fit_window_years": 5,
+      "estimator": "LightGBM regression of cross-sectional rank labels",
+      "num_leaves": 7,
+      "n_estimators": 120,
+      "min_child_samples": 200,
+      "learning_rate": 0.03,
+      "reg_lambda": 20.0,
+      "random_state": 42,
+      "n_jobs": 8
+    }
+  },
+  "learning_target": "Within each date/horizon: average_rank/N - (N+1)/(2N); exactly zero-centered cross-sectional rank labels, minimum20 valid outcomes; unknown endpoints absent",
+  "features": [
+    "return_1",
+    "momentum_5",
+    "momentum_20",
+    "momentum_60",
+    "momentum_120",
+    "momentum_252",
+    "momentum_252_skip20",
+    "volatility_20",
+    "volatility_60",
+    "volatility_252",
+    "downside_volatility_60",
+    "max_return_20",
+    "return_skew_60",
+    "near_high_252",
+    "near_low_252",
+    "bias_20",
+    "bias_60",
+    "log_amount_20",
+    "amount_ratio_20_120",
+    "amount_cv_20",
+    "volume_cv_20",
+    "amihud_20",
+    "intraday_range",
+    "intraday_return"
+  ],
+  "selection_horizon": 20,
+  "walk_forward_years": [
+    2020,
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "fold_fit_end": "December31 two years before evaluation year, with every training label ending before calibration starts",
+  "fold_calibration": "Calendar year immediately before evaluation year; labels mature by final session of that year",
+  "minimum_training_date": "2016-01-01",
+  "fold_training_window": "3 or5 calendar years ending before calibration, truncated at2016; no postfit window tuning",
+  "preprocessing": "Same-day available-cohort feature ranks; training-only Ridge standardization; equal date weights; no missing-feature imputation from future",
+  "selection_rule": "Highest equally weighted mean of five annual common-row/common-date20-session ICs; report median, worst year, positive-year count and paired reference differences",
+  "tie_break": [
+    "factor_reference",
+    "momentum_12_1",
+    "ridge_rank_3y",
+    "ridge_rank_5y",
+    "gbm_rank_3y",
+    "gbm_rank_5y"
+  ],
+  "shared_evaluation_policy": "Minimum20 mature observations; constant score zero; one identical date set for all candidates within each fold",
+  "final_heads": [
+    1,
+    5,
+    20,
+    60
+  ],
+  "final_calibration": "Per-horizon held-out logistic probability calibration; nonnegative-slope affine mean-return calibration; empirical log1p residual intervals scaled by contemporaneous historical volatility",
+  "recent_diagnostic": "2025-01-01 through2026-09-30 already viewed in experiment1; reuse is explicitly posthoc, not a fresh independent holdout",
+  "prohibited_response_to_diagnostic": "No sign inversion, feature/hyperparameter retuning, candidate substitution or universe filtering based on2025\u20132026 results",
+  "latest_refit": "Selected window length immediately before calibration_start2025-10-01, no earlier than2016; calibration through2026-09-30, four separate horizons; no out-of-sample claim",
+  "portfolio": "Unchanged next-session monthly long-only USD policy, 95% target,10 slots,15/30bps per side,1% trading-value-proxy participation; unknown held values invalidate path performance",
+  "end_condition": "Complete the bounded6-candidate5-fold comparison, one reused recent diagnostic, evidence-backed recovered-data audit, truthful report and artifacts; unresolved public-source gaps are documented rather than guessed",
+  "final_frozen_diagnostic_fit": {
+    "training_end": "2023-12-31",
+    "calibration_start": "2024-01-01",
+    "calibration_label_end_max": "2024-12-31",
+    "as_of": "2024-12-31",
+    "frozen_through": "2026-09-30"
+  },
+  "evaluation_label_cutoff": "Every annual fold only scores outcomes with label_end no later than that year final session; late-year predictions retained as immature",
+  "target_universe": "Candidate-independent eligible original-cohort date/horizon observations with finite return>=-1 and positive raw sigma, regardless candidate feature missingness; minimum20 labels; average ties; exact zero centering",
+  "recovered_adjustment": {
+    "formula": "source-adjusted gross price return = split_ratio_new_per_old * raw_close_t / (raw_close_prev - cash_usd_per_pre_event_share_t)",
+    "implementation": "calendar-based cumulative multiplicative factor; event prior-session valid raw close required",
+    "volume": "source-reported shares; raw close times raw volume is trading-value proxy; split-adjusted OHLC and reciprocal volume preserve product",
+    "missing_sessions": "reindex full shared calendar; no horizon compression or quote forward fill",
+    "cross_source_disagreement_policy": "Retain provenance for all discrepancies; mask quote as unknown if absolute close difference exceeds0.1% of source close or OHLC/volume invalid; no replacement based on which price performs better",
+    "event_completeness": "Only explicitly accepted source intervals and event ledgers; reconstructed-with-limits is not complete independently verified action history",
+    "terminal": "No labels with endpoint after last verified original quote; no presumed acquirer substitution or cash liquidation"
+  },
+  "calibration_details": {
+    "probability": "LogisticRegression C1,random_state42,max_iter1000, binary log loss with equal date weights",
+    "mean_return": "weighted least squares affine score transform with slope constrained>=0; zero score variance gives slope0 and mean offset",
+    "interval": "unweighted empirical log1p residual order statistics q10,q50,q90, scaled by historical sigma*sqrt(h); invalid point<=-1 or sigma excluded and counted",
+    "minimum_samples": "at least30 training and30 calibration rows per horizon; calibration has both positive/nonpositive outcomes",
+    "invalid_outputs": "independent task availability; out-of-domain/crossed/nonfinite outputs remain unavailable, never clipped or re-sorted",
+    "training_weights": "inverse eligible feature-usable rows per date normalized to mean1"
+  },
+  "effective_windows": [
+    {
+      "evaluate": 2020,
+      "calibrate": 2019,
+      "3y_fit_start": "2016-01-01",
+      "5y_fit_start": "2016-01-01",
+      "fit_end": "2018-12-31",
+      "evaluation_label_cutoff": "2020-12-31"
+    },
+    {
+      "evaluate": 2021,
+      "calibrate": 2020,
+      "3y_fit_start": "2017-01-01",
+      "5y_fit_start": "2016-01-01",
+      "fit_end": "2019-12-31",
+      "evaluation_label_cutoff": "2021-12-31"
+    },
+    {
+      "evaluate": 2022,
+      "calibrate": 2021,
+      "3y_fit_start": "2018-01-01",
+      "5y_fit_start": "2016-01-01",
+      "fit_end": "2020-12-31",
+      "evaluation_label_cutoff": "2022-12-31"
+    },
+    {
+      "evaluate": 2023,
+      "calibrate": 2022,
+      "3y_fit_start": "2019-01-01",
+      "5y_fit_start": "2017-01-01",
+      "fit_end": "2021-12-31",
+      "evaluation_label_cutoff": "2023-12-31"
+    },
+    {
+      "evaluate": 2024,
+      "calibrate": 2023,
+      "3y_fit_start": "2020-01-01",
+      "5y_fit_start": "2018-01-01",
+      "fit_end": "2022-12-31",
+      "evaluation_label_cutoff": "2024-12-31"
+    }
+  ],
+  "nested_walk_forward": {
+    "outer_evaluation_years": [
+      2022,
+      2023,
+      2024
+    ],
+    "inner_selection_years": {
+      "2022": [
+        2020,
+        2021
+      ],
+      "2023": [
+        2020,
+        2021,
+        2022
+      ],
+      "2024": [
+        2020,
+        2021,
+        2022,
+        2023
+      ]
+    },
+    "rule": "For each outer year, pick kind using only mean annual common-IC from listed earlier inner years; evaluate that already-predefined candidate on outer-year predictions. No outer-year outcomes enter its own selection. Report this causal selection path separately from final six-candidate development comparison.",
+    "final_architecture": "After nested diagnostics, use all five2020\u20132024 development folds under unchanged mean-IC rule; 2025\u20132026 remains reused only"
+  }
+}

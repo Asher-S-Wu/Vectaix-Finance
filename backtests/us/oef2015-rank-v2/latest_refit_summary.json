@@ -1,0 +1,9 @@
+{
+  "kind": "ridge_rank_5y",
+  "model_version": "us-v2-ridge_rank_5y-latest-20260930",
+  "as_of": "2026-09-30",
+  "model_sha256": "0aa438fc52e5ed74d440f44223f61681301fd5f69800153f01311969f1e59937",
+  "out_of_sample_evaluated": false,
+  "eligible": false,
+  "execution_validated": false
+}

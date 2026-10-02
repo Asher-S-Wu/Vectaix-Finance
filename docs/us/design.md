@@ -1,0 +1,18 @@
+# Independent US-equity research model
+
+## Intent and scope
+Train a separate USD research model with real US equity data, four candidate families, 1/5/20/60-session outputs, reproducible evidence and README charts. Existing Hong Kong and A-share models, data, metrics and figures remain unchanged. No publication, live trading or purchase of data is part of this local task.
+
+## Data decision (to be sealed before fitting)
+Preferred source is an already-entitled full US historical feed with inactive identities. Without that entitlement, use a bounded, explicitly identified historical cohort and public Yahoo Finance daily research data. A dated official 2015 iShares S&P 100 holdings document is being examined as an ex-ante cohort. Keep all original identities and report unavailable histories; never replace a delisted name with a modern ticker merely because a ticker matches. The cohort and source gaps prevent broad-market or survivorship-free claims. Vendor inputs and per-security output are local only.
+
+## Method
+Reuse the repository's tested estimator mathematics through an independent US subclass. Candidate set: fixed factor, Ridge, small LightGBM and large LightGBM. Price/volume history supplies features; unavailable historical market capitalization and fundamentals will not be fabricated. All rolling features are backward-looking. Same-day cross-sectional ranks, raw historical volatility for uncertainty, training-only scaling and purged labels preserve chronology. Feature selection is restricted to training availability.
+
+Freeze a chronological protocol before any estimator fit: warm-up from 2014, training 2016–2022, calibration 2023, development 2024, confirmation 2025 to the final available completed source session no later than 2026-09-30. The cutoff must follow source availability. Training labels end before calibration; calibration labels end by 2023-12-29; development labels end by 2024-12-31. Pick the largest mean daily 20-session rank IC on the same score-available development universe; deterministic simple-first tie break. Confirmation is read only after selection is saved. Report rank IC with 60-session block bootstrap, probability Brier skill against training frequency, interval coverage and failure denominators.
+
+## Prices and replay
+Yahoo historical OHLC are split-adjusted; adjusted close also reflects dividend/capital distributions. Do not call these raw exchange prices. Use adjusted-price returns and clearly named adjusted research units, with no separate dividend double count. Use a next-session-close, monthly, long-only top-10 research replay, 95% invested cap, USD accounting, finite liquidity participation, 15 bps one-way combined fees/slippage and 30 bps stress. Compare the same-cohort equally weighted long-only benchmark and SPY adjusted-price total-return proxy. No short borrowing, leverage, margin or same-day round trips. Missing price or unresolved terminal holding is flagged, never filled as zero return or silently dropped. An unresolved valuation prevents validated portfolio performance claims.
+
+## Outputs and integrity
+US code lives under us_quant; raw/derived data under data/us; weights under models/us; aggregate evidence under backtests/us; figures under docs/assets/us. Save protocol, source/candidate hashes, model metadata, counts, environment versions, result tables and Chinese method report. Tests cover source semantics, invalid schemas, future leakage, chronology, unknown outcomes and model namespace isolation. Render and inspect every chart. Run scoped tests and record baseline repository failures separately. Aggregate artifacts and trained weights may be prepared for review; upstream data redistribution rights are not inferred from free access.

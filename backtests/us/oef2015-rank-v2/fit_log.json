@@ -1,0 +1,242 @@
+[
+  {
+    "year": 2020,
+    "kind": "factor_reference",
+    "seconds": 0.5912275669998053,
+    "model_sha256": "0261e4620ebe2b5793932cd6f1efdf4324e88f48d3c65c5fd830d5fdfc393ddd",
+    "train_rows": 72405,
+    "calibration_rows": 21913
+  },
+  {
+    "year": 2020,
+    "kind": "momentum_12_1",
+    "seconds": 0.584096643000521,
+    "model_sha256": "07e69b097287dbfe24c4103f15d6c87412741252657149814c8e31aef0e1f853",
+    "train_rows": 72405,
+    "calibration_rows": 21913
+  },
+  {
+    "year": 2020,
+    "kind": "ridge_rank_3y",
+    "seconds": 0.6465617319990997,
+    "model_sha256": "8a0d53dc14bd5a51abbfb6a95fa0d36bb55c197bab5ef6f2b67366b429e24ccd",
+    "train_rows": 72405,
+    "calibration_rows": 21913
+  },
+  {
+    "year": 2020,
+    "kind": "ridge_rank_5y",
+    "seconds": 0.607625744998586,
+    "model_sha256": "c8d95c28e371e65e2c88f0b05e2dfd13bd9c82f15482589e1f8bb45a2a21cb7f",
+    "train_rows": 72405,
+    "calibration_rows": 21913
+  },
+  {
+    "year": 2020,
+    "kind": "gbm_rank_3y",
+    "seconds": 0.853889659001652,
+    "model_sha256": "7c89db37091516b276a3397f9c43318286fa1f317043d3bd37893f19c93ba6c7",
+    "train_rows": 72405,
+    "calibration_rows": 21913
+  },
+  {
+    "year": 2020,
+    "kind": "gbm_rank_5y",
+    "seconds": 0.8689886539996223,
+    "model_sha256": "e5dde914dce853f7a46d58ade719ebbd14a4c1810ab4351de94c862f3d5847a3",
+    "train_rows": 72405,
+    "calibration_rows": 21913
+  },
+  {
+    "year": 2021,
+    "kind": "factor_reference",
+    "seconds": 0.5518774419997499,
+    "model_sha256": "db765285a166c0c900485cbcb9ca01136a57ad8c26e972e33d5d2522fa659959",
+    "train_rows": 70869,
+    "calibration_rows": 21127
+  },
+  {
+    "year": 2021,
+    "kind": "momentum_12_1",
+    "seconds": 0.6106015109999134,
+    "model_sha256": "000298142f6ec2f108b76e65934eba8250064a38673b0a2a0bf7b6ea37769f12",
+    "train_rows": 70869,
+    "calibration_rows": 21127
+  },
+  {
+    "year": 2021,
+    "kind": "ridge_rank_3y",
+    "seconds": 0.6312758719996054,
+    "model_sha256": "3a19555476a9d73e59a1a534532559d2d6526347d2dc536ec19bb4d1758a7628",
+    "train_rows": 70869,
+    "calibration_rows": 21127
+  },
+  {
+    "year": 2021,
+    "kind": "ridge_rank_5y",
+    "seconds": 0.6602705679997598,
+    "model_sha256": "8ea98a4318be0b0e604eb4d93121e3648db084f8047ca7c50ba3a9ed10b1eefd",
+    "train_rows": 96218,
+    "calibration_rows": 21127
+  },
+  {
+    "year": 2021,
+    "kind": "gbm_rank_3y",
+    "seconds": 0.8580437559994607,
+    "model_sha256": "a5eb31702ad8bf0e76b59a10aa8a073b2b07e23c5e86c72a05e62d9140b75443",
+    "train_rows": 70869,
+    "calibration_rows": 21127
+  },
+  {
+    "year": 2021,
+    "kind": "gbm_rank_5y",
+    "seconds": 1.0922111950003455,
+    "model_sha256": "8da6f4754989a7f2566b6311b8dc64c0bb10ba1eb4c64cc024f9f8fb099197eb",
+    "train_rows": 96218,
+    "calibration_rows": 21127
+  },
+  {
+    "year": 2022,
+    "kind": "factor_reference",
+    "seconds": 0.5384575009993569,
+    "model_sha256": "0ee2299c32c84bf10047d173d345937f1a9c226a1916cae6d34f34133a786958",
+    "train_rows": 68966,
+    "calibration_rows": 20880
+  },
+  {
+    "year": 2022,
+    "kind": "momentum_12_1",
+    "seconds": 0.514341581001645,
+    "model_sha256": "5d7896b0cc4b55fa58de60ce7c512b495a35048b51c320e48e6a694e0bf4f8dd",
+    "train_rows": 68966,
+    "calibration_rows": 20880
+  },
+  {
+    "year": 2022,
+    "kind": "ridge_rank_3y",
+    "seconds": 0.6090208829991752,
+    "model_sha256": "6ec7a4db4cddcbc394a1d9d3695115f177a36618c2be7e39c2a243e03c3c227d",
+    "train_rows": 68966,
+    "calibration_rows": 20880
+  },
+  {
+    "year": 2022,
+    "kind": "ridge_rank_5y",
+    "seconds": 0.7215988250009104,
+    "model_sha256": "c3ca0d98686be7170309010088c04a1b90b8da07a5865148a4aa5ff7b70d62d1",
+    "train_rows": 119205,
+    "calibration_rows": 20880
+  },
+  {
+    "year": 2022,
+    "kind": "gbm_rank_3y",
+    "seconds": 0.8372588080001151,
+    "model_sha256": "131c5856abdef7673ac9b6d36f631a583207605cfa44dc86c1dd492bfcc0598c",
+    "train_rows": 68966,
+    "calibration_rows": 20880
+  },
+  {
+    "year": 2022,
+    "kind": "gbm_rank_5y",
+    "seconds": 1.0333862790012063,
+    "model_sha256": "11e267e536e01fc580493e3d0fc40747b3fea905af98ce6c27d3c03d848d69ff",
+    "train_rows": 119205,
+    "calibration_rows": 20880
+  },
+  {
+    "year": 2023,
+    "kind": "factor_reference",
+    "seconds": 0.4971559619989421,
+    "model_sha256": "38cd0e91dc563013e37d9b2476cc0622b1f18f765ac21e5e3aba4e25eba0495d",
+    "train_rows": 67580,
+    "calibration_rows": 20790
+  },
+  {
+    "year": 2023,
+    "kind": "momentum_12_1",
+    "seconds": 0.49799970100139035,
+    "model_sha256": "3a8d811726e8fe2ce89e1784b112567ed37bc1ce005a0e987baf8544ece62ab6",
+    "train_rows": 67580,
+    "calibration_rows": 20790
+  },
+  {
+    "year": 2023,
+    "kind": "ridge_rank_3y",
+    "seconds": 0.628555466000762,
+    "model_sha256": "1c4b757ddadaa7d5d2698f3d1ba8518ba4cd2b9fadf688b0dad38de622504451",
+    "train_rows": 67580,
+    "calibration_rows": 20790
+  },
+  {
+    "year": 2023,
+    "kind": "ridge_rank_5y",
+    "seconds": 0.6763348960012081,
+    "model_sha256": "22c1a452078f684f26fd88485790806c81944531637ff8a6415deedd6f2f30e6",
+    "train_rows": 116536,
+    "calibration_rows": 20790
+  },
+  {
+    "year": 2023,
+    "kind": "gbm_rank_3y",
+    "seconds": 0.7659305380002479,
+    "model_sha256": "8d488b60d05706893ead81dee3b6789038de59d463d4d2aa4156394c2df2c3af",
+    "train_rows": 67580,
+    "calibration_rows": 20790
+  },
+  {
+    "year": 2023,
+    "kind": "gbm_rank_5y",
+    "seconds": 1.026497124999878,
+    "model_sha256": "2ad0a4b36e4772892d38755120ef4acfaddc5536b7fb53c54ee8a1bc4151f343",
+    "train_rows": 116536,
+    "calibration_rows": 20790
+  },
+  {
+    "year": 2024,
+    "kind": "factor_reference",
+    "seconds": 0.5475298110013682,
+    "model_sha256": "c70339808e71d1db1302a783c40398a5753eda2bfd7e178f25c442e3661c4e4c",
+    "train_rows": 66397,
+    "calibration_rows": 20700
+  },
+  {
+    "year": 2024,
+    "kind": "momentum_12_1",
+    "seconds": 0.527863035998962,
+    "model_sha256": "3ac27be684b7aea4fe60f748d948d9501b326a7b70d3e5f0784f9a2d5bad3dcf",
+    "train_rows": 66397,
+    "calibration_rows": 20700
+  },
+  {
+    "year": 2024,
+    "kind": "ridge_rank_3y",
+    "seconds": 0.5719667459998163,
+    "model_sha256": "86efe9d22ac096a3d4d793cc7cf29b2495269b7d778fb4dfbd410e9221a32791",
+    "train_rows": 66397,
+    "calibration_rows": 20700
+  },
+  {
+    "year": 2024,
+    "kind": "ridge_rank_5y",
+    "seconds": 0.6624851859996852,
+    "model_sha256": "19b43417d5cdb390e17d9d3d337d433ff696a07ddbce53f9610d6b5e00fb5473",
+    "train_rows": 114236,
+    "calibration_rows": 20700
+  },
+  {
+    "year": 2024,
+    "kind": "gbm_rank_3y",
+    "seconds": 0.7703432130001602,
+    "model_sha256": "7eaf8ecab7cdd3a860fb3c4b2dd361402143753ae663fd35c305db4e90524a75",
+    "train_rows": 66397,
+    "calibration_rows": 20700
+  },
+  {
+    "year": 2024,
+    "kind": "gbm_rank_5y",
+    "seconds": 0.9292465130001801,
+    "model_sha256": "be0a548babebe8894c0f101fa21f0c56ba7bbd56af639b271ee66a57e71e75f2",
+    "train_rows": 114236,
+    "calibration_rows": 20700
+  }
+]
