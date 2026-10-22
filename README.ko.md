@@ -315,7 +315,7 @@ python -m hk_quant.fixed_backtest --forecast-root backtests/hk/fixed_models_2026
 | `models/hk/`, `backtests/hk/` | 홍콩 가중치, 예측과 전체 재생 기록 | 아니요 |
 | `reports/`, `tmp/`, `output/` | 로컬 보고서, 임시 파일과 내보내기 | 아니요 |
 
-## API와 배포
+## 연구용 API
 
 두 FastAPI 서비스는 1·5·20·60거래일 예측에 대해 아래 엔드포인트를 제공합니다. 각 서비스에는 해당 시장 데이터와 완전한 예측 스냅샷이 필요합니다.
 
@@ -350,10 +350,6 @@ python -m hk_quant.api --host 0.0.0.0 --port 8000
 | POST | `/v1/portfolio/advice/csv` | CSV 보유 내역 기반 제안 |
 
 두 서비스 모두 상태 확인 외의 API는 `X-API-Key` 헤더가 필요합니다. 홍콩 포트폴리오 제안은 홍콩달러로 계산하며, 사용자가 판단할 수 있도록 매매 단위에 맞춘 주문 제안을 반환합니다.
-
-### 홍콩 주식 배포
-
-Railway Pro의 Python 환경에 배포합니다. 설치 명령은 `pip install -r requirements.txt`, 시작 명령은 `python -m hk_quant.api --host 0.0.0.0 --port $PORT`입니다. `HK_QUANT_API_KEY`를 설정하고 일치하는 데이터와 공식 스냅샷을 별도로 마운트합니다. Docker는 필요하지 않습니다.
 
 <a id="credentials"></a>
 

@@ -315,7 +315,7 @@ python -m hk_quant.fixed_backtest --forecast-root backtests/hk/fixed_models_2026
 | `models/hk/`、`backtests/hk/` | 港股权重、预测与完整回测明细 | 否 |
 | `reports/`、`tmp/`、`output/` | 本地报告、临时文件和导出 | 否 |
 
-## API与部署
+## 研究接口
 
 两套 FastAPI 服务均提供下表接口，预测期限为1、5、20、60个交易日。每套服务使用各自市场的数据和完整预测快照。
 
@@ -350,10 +350,6 @@ python -m hk_quant.api --host 0.0.0.0 --port 8000
 | POST | `/v1/portfolio/advice/csv` | CSV持仓建议 |
 
 除健康检查外，两套服务的接口均需 `X-API-Key` 请求头。港股持仓建议以港元记账，输出整手订单建议，供使用者决策。
-
-### 港股部署
-
-部署使用 Railway Pro 的 Python运行环境，安装命令为 `pip install -r requirements.txt`，启动命令为 `python -m hk_quant.api --host 0.0.0.0 --port $PORT`。设置 `HK_QUANT_API_KEY`，并单独挂载匹配的数据和正式快照，无需 Docker。
 
 <a id="credentials"></a>
 

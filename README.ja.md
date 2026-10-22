@@ -315,7 +315,7 @@ python -m hk_quant.fixed_backtest --forecast-root backtests/hk/fixed_models_2026
 | `models/hk/`、`backtests/hk/` | 香港株の重み、予測、全再生記録 | 対象外 |
 | `reports/`、`tmp/`、`output/` | ローカルレポート、一時ファイル、出力 | 対象外 |
 
-## APIとデプロイ
+## 研究用API
 
 両方のFastAPIサービスが、1・5・20・60営業日先の予測について下表のエンドポイントを提供します。それぞれの市場データと完全な予測スナップショットが必要です。
 
@@ -350,10 +350,6 @@ python -m hk_quant.api --host 0.0.0.0 --port 8000
 | POST | `/v1/portfolio/advice/csv` | CSV保有明細による提案 |
 
 両サービスともヘルスチェック以外のAPIには `X-API-Key` が必要です。香港株のポートフォリオ提案は香港ドルで計算し、利用者の判断に向けて売買単位に合わせた注文案を返します。
-
-### 香港株のデプロイ
-
-Railway ProのPython環境でデプロイします。インストールは `pip install -r requirements.txt`、起動は `python -m hk_quant.api --host 0.0.0.0 --port $PORT`。`HK_QUANT_API_KEY` を設定し、対応するデータと正式スナップショットを別途マウントします。Dockerは不要です。
 
 <a id="credentials"></a>
 

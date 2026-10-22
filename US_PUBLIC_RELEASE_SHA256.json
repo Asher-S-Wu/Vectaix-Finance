@@ -2,20 +2,20 @@
   "scope": "US publication files and the four updated README files; this manifest excludes itself.",
   "files": {
     "README.ja.md": {
-      "sha256": "8f44527cc6a28da7f097d6a848cffa601a4427df5b29b92b7c35c46142951712",
-      "bytes": 31924
+      "sha256": "ef08a808b177be5ddf364f2900508478a5a03421644f181c676093d292ac8faf",
+      "bytes": 31565
     },
     "README.ko.md": {
-      "sha256": "696415c9e7593b6ed5b790cf41a6ae144e14abf722b9e027b89d359a6bef8298",
-      "bytes": 31731
+      "sha256": "4eda4deb459af153884c9082c568029effe057a1d161473f7a57cc2f72c40493",
+      "bytes": 31375
     },
     "README.md": {
-      "sha256": "6b07e34a4515f275630ff2904b379ce108ae3d3c03839886982c3cd158f7b172",
-      "bytes": 28375
+      "sha256": "7e7594310cde85a6cf66af7305a2842a06d718bad9a0fbb180377e135e1f46c5",
+      "bytes": 28072
     },
     "README.zh-CN.md": {
-      "sha256": "25dee6b86e7d9fd4650b7cf78b13386a90456ad0b71d9fafe8544a5eddc19cab",
-      "bytes": 25760
+      "sha256": "0d61d8aea907f6839f267810b36f998a644f8c6e9588373d4380289449ce40aa",
+      "bytes": 25475
     },
     "US_RESEARCH_RELEASE.json": {
       "sha256": "fce19b848a2f59916b03f40afe69f715d0d1ee4c2ab498a00e2e8d165ac60439",

@@ -315,7 +315,7 @@ See the [replay entry point](hk_quant/fixed_backtest.py) for local input paths a
 | `models/hk/`, `backtests/hk/` | Hong Kong weights, predictions and full replay records | No |
 | `reports/`, `tmp/`, `output/` | Local reports, temporary files and exports | No |
 
-## API and deployment
+## Research API
 
 Both FastAPI services expose the endpoints below for 1, 5, 20 and 60 trading sessions. Each service uses its own market data and complete prediction snapshot.
 
@@ -350,10 +350,6 @@ python -m hk_quant.api --host 0.0.0.0 --port 8000
 | POST | `/v1/portfolio/advice/csv` | Advice from CSV holdings |
 
 Endpoints other than the health check require `X-API-Key`. Hong Kong portfolio advice uses HKD cash and returns whole-lot order suggestions for the user to assess.
-
-### Hong Kong deployment
-
-Deploy with the Python runtime on Railway Pro. Install with `pip install -r requirements.txt` and start with `python -m hk_quant.api --host 0.0.0.0 --port $PORT`. Set `HK_QUANT_API_KEY` and mount matching data and published snapshots separately. Docker is not required.
 
 <a id="credentials"></a>
 
