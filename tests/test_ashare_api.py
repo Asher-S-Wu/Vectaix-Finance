@@ -20,6 +20,12 @@ def test_auth_endpoints_and_no_key(cn_service):
     with pytest.raises(ValueError): create_app(cn_service,'')
 
 
+@pytest.mark.parametrize('key',[b'wrong-key',b'\xff'])
+def test_invalid_api_key_bytes_are_unauthorized(cn_service,key):
+    response=client(cn_service).get('/v1/model/status',headers=[(b'X-API-Key',key)])
+    assert response.status_code==401
+
+
 def test_json_and_csv_advice_have_same_output(cn_service):
     c=client(cn_service); h={'X-API-Key':'test-key'}
     record=dict(security_id='600000.SH',quantity=100,acquired_date='2024-06-03')

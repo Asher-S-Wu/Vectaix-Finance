@@ -69,6 +69,16 @@ def test_missing_held_valuation_stays_missing_and_never_becomes_zero():
     assert result['summary']['open_positions'] == 1
 
 
+def test_resumed_valuation_preserves_an_earlier_coverage_gap():
+    bars = market(['2024-01-01', '2024-01-02', '2024-01-15', '2024-02-01', '2024-02-02'],
+                  [10., 10., np.nan, 11., 12.], traded=[True, True, False, True, True])
+    result = run(bars, ['2024-01-01', '2024-02-01'])
+    assert result['summary']['ending_equity'] == 120.
+    assert result['summary']['missing_valuation_days'] == 1
+    assert result['summary']['status'] == 'incomplete_valuation'
+    assert result['summary']['max_drawdown_daily'] is None
+
+
 def test_terminal_cash_is_receivable_until_evidenced_payment_date():
     bars = market(['2024-01-01', '2024-01-02', '2024-02-01', '2024-02-02', '2024-02-05'],
                   [10., 10., np.nan, np.nan, np.nan], traded=[True, True, False, False, False])

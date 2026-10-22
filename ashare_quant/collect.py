@@ -8,7 +8,7 @@ Every successful partition has a checksummed Parquet file and a JSON manifest.
 from __future__ import annotations
 
 import argparse
-from concurrent.futures import ThreadPoolExecutor, as_completed, wait, FIRST_COMPLETED
+from concurrent.futures import ThreadPoolExecutor, wait, FIRST_COMPLETED
 from datetime import datetime, timezone
 import hashlib
 import json
@@ -239,7 +239,7 @@ def collect_query(client: HelperClient, endpoint: str, params: dict, fields: str
                     "endpoint": endpoint, "params": params, "fields": columns,
                     "requested_fields": fields, "started_at": started, "completed_at": _now(),
                     "status": "complete" if rows else "empty", "rows": len(rows),
-                    "artifact": str(artifact.relative_to(root)), "sha256": hashlib.sha256(artifact.read_bytes()).hexdigest(),
+                    "artifact": artifact.relative_to(root).as_posix(), "sha256": hashlib.sha256(artifact.read_bytes()).hexdigest(),
                     "requests": requests, "page_size": page_size, "duplicate_keys": 0}
         _write_json(manifest_path, manifest)
         return manifest

@@ -1,6 +1,5 @@
 """保留REIT原始价格和币种；复权由独立时点事件流程处理。"""
 import numpy as np
-import pandas as pd
 from pathlib import Path
 import pyarrow as pa
 import pyarrow.parquet as pq

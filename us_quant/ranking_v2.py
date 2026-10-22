@@ -19,7 +19,7 @@ def candidate_settings():
 
 
 def rank_targets(frame):
-    y=frame.fwd_return.where(np.isfinite(frame.fwd_return)&frame.fwd_return.ge(-1)&frame.status.eq('ok')&frame.sigma_daily.gt(0))
+    y=frame.fwd_return.where(np.isfinite(frame.fwd_return)&frame.fwd_return.ge(-1)&frame.status.eq('ok')&np.isfinite(frame.sigma_daily)&frame.sigma_daily.gt(0))
     groups=y.groupby([frame.date,frame.horizon]);count=groups.transform('count')
     return (groups.rank(method='average')/count-(count+1)/(2*count)).where(count.ge(20))
 

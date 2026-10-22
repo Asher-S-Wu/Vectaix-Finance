@@ -11,7 +11,8 @@ def market_context_from_inputs(inputs,calendar):
     level=(1+median).cumprod()
     result=pd.DataFrame({'date':calendar})
     for length in (20,60,252):
-        result[f'market_momentum_{length}']=(level/level.shift(length)-1).to_numpy()
+        complete=median.rolling(length).count().eq(length)
+        result[f'market_momentum_{length}']=(level/level.shift(length)-1).where(complete).to_numpy()
     result['market_volatility_60']=(median.rolling(60,min_periods=30).std()*np.sqrt(252)).to_numpy()
     valid=quoted&bias.notna()
     result['market_breadth_60']=((bias.gt(0)&valid).sum(axis=1)/valid.sum(axis=1)).to_numpy()

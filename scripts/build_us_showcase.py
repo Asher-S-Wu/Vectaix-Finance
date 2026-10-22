@@ -30,8 +30,8 @@ METRICS = ('rank_ic_mean', 'ic_ci_lower', 'ic_ci_upper', 'ic_dates', 'ic_calenda
            'interval_available', 'interval_covered', 'interval_coverage')
 INK, MUTED, TEAL, BLUE, RED = '#172C3C', '#60717C', '#00866F', '#467CB8', '#CE6651'
 PAPER, GRID = '#FAFAF6', '#E5E9E7'
-REPLAY_NAMES = {'selected_15bps': 'Factor score / 15 bps',
-                'selected_30bps': 'Factor score / 30 bps stress',
+REPLAY_NAMES = {'selected_15bps': '{model} / 15 bps',
+                'selected_30bps': '{model} / 30 bps stress',
                 'cohort_101slots_15bps': '101-slot cohort / 15 bps',
                 'spy_15bps': 'SPY adjusted proxy / 15 bps'}
 
@@ -275,7 +275,7 @@ def coverage_chart(evidence, destination):
 
 
 def write_csv(path, rows):
-    with path.open('w', newline='') as stream:
+    with path.open('w', newline='', encoding='utf-8') as stream:
         writer = csv.DictWriter(stream, fieldnames=list(rows[0]), lineterminator='\n')
         writer.writeheader()
         writer.writerows(rows)
@@ -324,7 +324,7 @@ def load_replay(root, evidence):
         if not math.isclose(nav[-1], record['final_nav'], rel_tol=1e-12) or not math.isclose(
                 total, record['return_metrics']['total_return'], abs_tol=1e-12):
             raise ValueError('Replay endpoint does not reconcile to its saved return')
-        metrics.append(dict(series=name, label=label, **record['return_metrics'],
+        metrics.append(dict(series=name, label=label.format(model=evidence['selected_label']), **record['return_metrics'],
                             fee_per_side=record['fee_per_side'], initial_cash=record['initial_cash'],
                             final_nav=record['final_nav'], execution_validated=False,
                             mean_equity_exposure=sum(float(row['equity'])/float(row['nav']) for row in rows)/len(rows)))
@@ -336,6 +336,7 @@ def load_replay(root, evidence):
 
 def replay_chart(evidence, replay, destination):
     totals = {row['series']: row['total_return'] for row in replay['metrics']}
+    labels = {row['series']: row['label'] for row in replay['metrics']}
     title = ('Conditional replay trails both references' if totals['selected_15bps'] < min(
              totals['cohort_101slots_15bps'], totals['spy_15bps']) else 'Conditional adjusted-price research replay')
     fig = frame(title, f'{replay["start"]} to {replay["end"]}  |  Source-adjusted research units; execution unvalidated')
@@ -346,7 +347,7 @@ def replay_chart(evidence, replay, destination):
         dates = [date.fromisoformat(row['date']) for row in rows]
         ax.plot(dates, [row['initial_capital_index'] for row in rows], color=color,
                 linestyle='--' if name == 'selected_30bps' else '-', linewidth=2.1,
-                label=REPLAY_NAMES[name]+f'  ({totals[name]:+.2%})')
+                label=labels[name]+f'  ({totals[name]:+.2%})')
     ax.axhline(100, color=MUTED, lw=.8)
     ax.grid(axis='y', color=GRID, linewidth=.9)
     ax.set_axisbelow(True)
@@ -397,7 +398,7 @@ def build(root=ROOT, destination=None):
         summary['replay'] = {key: value for key, value in replay.items() if key not in ['curves', 'source_sha256']}
         summary['replay_scope'] = 'Conditional bounded-cohort adjusted-unit illustration; research valuations reconcile, execution and actual-share action ledger remain unvalidated.'
         summary['source_sha256'] = dict(summary['source_sha256'], **replay['source_sha256'])
-    (tables/'summary.json').write_text(json.dumps(summary, ensure_ascii=False, indent=2)+'\n')
+    (tables/'summary.json').write_text(json.dumps(summary, ensure_ascii=False, indent=2)+'\n', encoding='utf-8', newline='\n')
     return evidence
 
 

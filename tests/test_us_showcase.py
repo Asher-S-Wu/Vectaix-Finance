@@ -8,6 +8,8 @@ import re
 import subprocess
 import sys
 
+import numpy as np
+from matplotlib.image import imread
 import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -141,7 +143,11 @@ def test_real_artifacts_regenerate_without_vendor_inputs(tmp_path):
     assert result.returncode == 0, result.stderr
     for path in tmp_path.rglob('*'):
         if path.is_file():
-            assert path.read_bytes() == (ROOT/'docs'/path.relative_to(tmp_path)).read_bytes()
+            expected=ROOT/'docs'/path.relative_to(tmp_path)
+            if path.suffix=='.png':
+                np.testing.assert_array_equal(imread(path),imread(expected))
+            else:
+                assert path.read_bytes()==expected.read_bytes()
     summary = json.loads((tmp_path/'showcase/us/summary.json').read_text())
     assert all(summary['source_sha256'][name] == value for name, value in evidence['source_sha256'].items())
     assert len(summary['source_sha256']) == 10
@@ -191,3 +197,15 @@ def test_replay_rejects_altered_aggregate_curves(tmp_path):
         stream.write('\n')
     with pytest.raises(ValueError, match='Replay curve hash'):
         module.load_replay(tmp_path, evidence)
+
+
+def test_replay_labels_follow_the_selected_model(tmp_path):
+    module = showcase()
+    for name in ['replay_summary.json', 'replay_curves.csv', 'source_audit.json']:
+        target=tmp_path/RESULTS/name
+        target.parent.mkdir(parents=True,exist_ok=True)
+        target.write_bytes((ROOT/RESULTS/name).read_bytes())
+    mutate(tmp_path,'replay_summary',lambda x:x.update(selected_kind='linear'))
+    replay=module.load_replay(tmp_path,dict(selected_model='linear',selected_label='Ridge'))
+    assert replay['metrics'][0]['label']=='Ridge / 15 bps'
+    assert replay['metrics'][1]['label']=='Ridge / 30 bps stress'

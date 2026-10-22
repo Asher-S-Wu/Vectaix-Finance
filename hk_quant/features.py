@@ -1,5 +1,4 @@
 """逐日因子与四期限标签，所有滚动计算只使用过去的数据。"""
-import argparse
 import json
 import re
 from pathlib import Path

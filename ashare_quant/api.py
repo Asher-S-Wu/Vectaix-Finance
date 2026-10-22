@@ -76,7 +76,7 @@ def create_app(service, api_key):
     app = FastAPI(title='A-share quantitative research API',description='CNY research snapshots; no order submission')
 
     def guard(key):
-        if key is None or not hmac.compare_digest(key,api_key):
+        if key is None or not hmac.compare_digest(key.encode('utf-8'),api_key.encode('utf-8')):
             raise HTTPException(401,'API密钥无效')
 
     def call(fn):

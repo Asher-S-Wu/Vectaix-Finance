@@ -3,7 +3,6 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 from hk_quant.features import security_features as _rolling_features
-from hk_quant.market_context import market_context_from_inputs
 from hk_quant.training import cross_sectional_inputs, sample_observations
 
 

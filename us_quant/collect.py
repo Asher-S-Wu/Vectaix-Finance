@@ -43,9 +43,11 @@ def collect(root,universe,start='2014-01-01',end='2026-09-30',delay=1.5,override
     records=[]
     requests=[dict(row) for row in cohort.to_dict('records')]+[dict(ticker_2015='SPY',yahoo_query_symbol='SPY',mapping_status='benchmark_etf',issuer_name='SPDR S&P 500 ETF Trust')]
     for index,row in enumerate(requests,1):
-        symbol=effective_symbol(row,overrides);identity=row['ticker_2015'];status='unavailable'
+        symbol=effective_symbol(row,overrides);identity=row['ticker_2015']
         record=dict(security_id=identity,query_symbol=symbol,mapping_status=row['mapping_status'],issuer_name=row['issuer_name'])
-        if previous.get(identity,{}).get('status')=='unavailable' and previous[identity].get('query_symbol')==symbol:
+        if (previous.get(identity,{}).get('status')=='unavailable'
+                and previous[identity].get('reason')=='HTTP 404'
+                and previous[identity].get('query_symbol')==symbol):
             record=previous[identity]
         elif row['mapping_status']=='complex_lineage_require_review':
             record.update(status='identity_unresolved',reason='Original 2015 identity cannot safely be joined to current/successor ticker')
@@ -67,12 +69,12 @@ def collect(root,universe,start='2014-01-01',end='2026-09-30',delay=1.5,override
                 record.update(status='downloaded_pending_identity_review',rows=len(frame),first_date=str(frame.date.min().date()),last_date=str(frame.date.max().date()),invalid_rows=int((~frame.data_valid).sum()),quoted_rows=int(frame.quote_present.sum()),provider_name=meta.get('longName',meta.get('shortName','')),exchange=meta.get('exchangeName'),instrument=meta.get('instrumentType'),raw_sha256=sha256(path),source_url=url)
             except HTTPError as exc:
                 action=classify_http_status(exc.code)
-                record.update(status='unavailable',reason=f'HTTP {exc.code}')
+                record.update(status='unavailable' if action=='unavailable' else 'paused' if action=='stop' else 'error',reason=f'HTTP {exc.code}')
                 if action=='stop':
                     records.append(record);write_json(root/'collection_progress.json',records)
                     raise RuntimeError(f'Provider access/rate limit HTTP {exc.code}; collection paused, no bypass') from None
             except (ValueError,KeyError,TimeoutError,OSError) as exc:
-                record.update(status='unavailable',reason=str(exc)[:220])
+                record.update(status='error',reason=str(exc)[:220])
         records.append(record);write_json(root/'collection_progress.json',records)
         print(f'{index}/{len(requests)} {identity}: {record["status"]}',flush=True)
     write_json(root/'collection_audit.json',dict(source='Yahoo Finance',declared_cohort_count=len(cohort),requested_benchmark_count=1,records=records,raw_redistribution_allowed=False,point_in_time_vendor_vintages=False,delisted_completeness=False))

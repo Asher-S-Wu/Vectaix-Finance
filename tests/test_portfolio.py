@@ -39,6 +39,15 @@ def test_missing_holding_price_is_data_error():
     assert advise_portfolio(*args)['status']=='data_error'
 
 
+def test_stale_holding_price_is_rejected_before_account_valuation():
+    args=list(inputs());args[1]=pd.DataFrame([dict(security_id='A',quantity=100)])
+    args[3].loc[0,'date']='2024-05-31'
+    result=advise_portfolio(*args)
+    assert result['status']=='data_error'
+    assert result['recommendations'].empty
+    assert '持仓缺少当日市价' in result['reason']
+
+
 def test_suspended_holding_cannot_be_sold():
     args=list(inputs());args[1]=pd.DataFrame([dict(security_id='A',quantity=100)])
     args[3].loc[0,'quote_present']=False

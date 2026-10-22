@@ -41,7 +41,7 @@ def collect_month(client, api, start, end, data_root=DATA):
     metadata_file = output.with_suffix('.json')
     if metadata_file.exists():
         metadata = json.loads(metadata_file.read_text(encoding='utf-8'))
-        if metadata['end_date'] == end and metadata['status'] == 'complete':
+        if metadata['start_date'] == start and metadata['end_date'] == end and metadata['status'] == 'complete':
             pd.read_parquet(output, columns=['ts_code', 'trade_date'])
             return metadata
     frames, requests, observed = [], [], set()
@@ -90,6 +90,8 @@ def collect_references(client, start, end, data_root=DATA):
     for status in ('L', 'D', 'P'):
         params = {'list_status': status}
         response = client.query('hk_basic', params)
+        if response['code'] != 0:
+            raise ValueError('hk_basic: 返回状态不符')
         write_json(references / f'hk_basic_{status}.json', {
             'api_name': 'hk_basic', 'params': params, 'http_status': 200,
             'queried_at': datetime.now().astimezone().isoformat(), 'response': response})
@@ -99,6 +101,8 @@ def collect_references(client, start, end, data_root=DATA):
     for year in range(int(start[:4]), int(end[:4]) + 1):
         params = {'start_date': max(start, f'{year}0101'), 'end_date': min(end, f'{year}1231')}
         response = client.query('hk_tradecal', params, 'cal_date,is_open,pretrade_date')
+        if response['code'] != 0:
+            raise ValueError('hk_tradecal: 返回状态不符')
         if len(response['data']['items']) == 2000:
             raise ValueError('交易日历被截断')
         write_json(references / f'hk_tradecal_{year}.json', {

@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import argparse
-import csv
 import hashlib
 import json
 import re
@@ -17,7 +16,7 @@ from html import unescape
 from html.parser import HTMLParser
 from http.cookiejar import CookieJar
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any
 
 import numpy as np
 import pandas as pd

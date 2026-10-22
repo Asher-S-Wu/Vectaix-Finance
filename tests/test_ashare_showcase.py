@@ -9,6 +9,7 @@ import subprocess
 import sys
 
 import pytest
+from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
 RESULTS = ROOT / 'backtests/cn/universal'
@@ -91,7 +92,12 @@ def test_build_is_reproducible_without_vendor_inputs(tmp_path):
         if path.is_file():
             relative = path.relative_to(tmp_path / 'first')
             assert path.read_bytes() == (tmp_path / 'second' / relative).read_bytes()
-            assert path.read_bytes() == (ROOT / 'docs' / relative).read_bytes(), f'Stale public chart or table: {relative}'
+            published = ROOT / 'docs' / relative
+            if path.suffix == '.png':
+                with Image.open(path) as actual, Image.open(published) as expected:
+                    assert (actual.mode, actual.size, actual.tobytes()) == (expected.mode, expected.size, expected.tobytes()), relative
+            else:
+                assert path.read_bytes() == published.read_bytes(), f'Stale public table: {relative}'
     assert before == {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in module.SOURCE_FILES}
 
 

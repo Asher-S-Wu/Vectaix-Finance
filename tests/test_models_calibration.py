@@ -1,4 +1,5 @@
 import numpy as np
+import pytest
 
 from hk_quant.models import UniversalModel
 from tests.test_models import fixture
@@ -40,3 +41,19 @@ def test_factor_probability_does_not_shift_a_held_out_calibrator_to_old_training
     model = UniversalModel('factor').fit(train, calibration, names, '2023-06-09')
     assert model.metadata['calibration']['probability_anchor'] == 'held_out_logistic_without_training_rate_shift'
     assert not hasattr(model, 'probability_anchor_shifts')
+
+
+@pytest.mark.parametrize('probability', [0., 1.])
+def test_calibrated_probability_boundaries_are_preserved_without_logit_round_trip(probability):
+    train, calibration, examples = fixture()
+    model = UniversalModel('linear').fit(train, calibration, ['x'], '2023-06-09')
+
+    class BoundaryCalibrator:
+        def predict_proba(self, matrix):
+            return np.tile([1. - probability, probability], (len(matrix), 1))
+
+    model.calibrators = {horizon: BoundaryCalibrator() for horizon in (1, 5, 20, 60)}
+    with np.errstate(divide='raise', invalid='raise'):
+        output = model.predict(examples)
+    assert output.probability_status.eq('ok').all()
+    assert output.probability_up.eq(probability).all()

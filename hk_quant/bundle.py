@@ -42,8 +42,9 @@ class MultiTaskBundle:
         keys=['date','security_id','horizon']
         if not set(keys)<=set(out):raise ValueError('统一推理缺少日期、证券或期限')
         if set(predictions)!=set(self.models):raise ValueError('预测来源与固定任务模型不一致')
+        predictions = {kind: frame.reset_index(drop=True) for kind, frame in predictions.items()}
         for kind,frame in predictions.items():
-            if len(frame)!=len(out) or not frame[keys].reset_index(drop=True).equals(out[keys]):
+            if len(frame)!=len(out) or not frame[keys].equals(out[keys]):
                 raise ValueError(f'{kind}改变了预测行顺序或证券日期')
             validate_task_outputs(frame)
         for column in NUMERIC_OUTPUTS:out[column]=np.nan

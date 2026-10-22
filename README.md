@@ -353,7 +353,7 @@ Endpoints other than the health check require `X-API-Key`. Hong Kong portfolio a
 
 ### Hong Kong deployment
 
-Deploy with the Python runtime on Zeabur Dev. Install with `pip install -r requirements.txt` and start with `python -m hk_quant.api --host 0.0.0.0 --port $PORT`. Set `HK_QUANT_API_KEY` and mount matching data and published snapshots separately. Docker is not required.
+Deploy with the Python runtime on Railway Pro. Install with `pip install -r requirements.txt` and start with `python -m hk_quant.api --host 0.0.0.0 --port $PORT`. Set `HK_QUANT_API_KEY` and mount matching data and published snapshots separately. Docker is not required.
 
 <a id="credentials"></a>
 

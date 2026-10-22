@@ -15,7 +15,8 @@ def benchmark_curves(source,dates):
     for code,group in source.groupby('ts_code'):
         group=group.copy();group['date']=pd.to_datetime(group.trade_date,format='%Y%m%d')
         if group.date.duplicated().any():raise ValueError('duplicate benchmark dates')
-        price=group.set_index('date').close.reindex(dates)
+        price=pd.to_numeric(group.set_index('date').close.reindex(dates),errors='coerce')
+        price=price.where(np.isfinite(price)&price.gt(0))
         missing=int(price.isna().sum())
         curve=price/price.iloc[0] if len(price) and price.iloc[0]>0 else price*np.nan
         output[code]=curve.to_numpy()

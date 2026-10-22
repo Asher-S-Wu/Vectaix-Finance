@@ -23,10 +23,9 @@ def run_daily_update(data_root, results_root, model_root):
     candidate = export_candidate(data_root, results_root, model_root)
     report = build_report(results_root, data_root)
     # 每日流程只生成可审阅候选；正式发布必须由 registry.publish_snapshot 写入发布证书。
-    published = False
     result = {
-        'status': 'published' if published else 'candidate_only',
-        'published': published,
+        'status': 'candidate_only',
+        'published': False,
         'model_version': candidate.get('model_version'),
         'data_as_of': candidate.get('data_as_of'),
         'model_trained_as_of': candidate.get('model_trained_as_of'),

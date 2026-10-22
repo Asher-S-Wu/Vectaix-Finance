@@ -353,7 +353,7 @@ python -m hk_quant.api --host 0.0.0.0 --port 8000
 
 ### 홍콩 주식 배포
 
-Zeabur Dev의 Python 환경에 배포합니다. 설치 명령은 `pip install -r requirements.txt`, 시작 명령은 `python -m hk_quant.api --host 0.0.0.0 --port $PORT`입니다. `HK_QUANT_API_KEY`를 설정하고 일치하는 데이터와 공식 스냅샷을 별도로 마운트합니다. Docker는 필요하지 않습니다.
+Railway Pro의 Python 환경에 배포합니다. 설치 명령은 `pip install -r requirements.txt`, 시작 명령은 `python -m hk_quant.api --host 0.0.0.0 --port $PORT`입니다. `HK_QUANT_API_KEY`를 설정하고 일치하는 데이터와 공식 스냅샷을 별도로 마운트합니다. Docker는 필요하지 않습니다.
 
 <a id="credentials"></a>
 

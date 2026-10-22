@@ -1,13 +1,12 @@
 import os
 import argparse
-import math
 import pandas as pd
 from fastapi import FastAPI, Header, HTTPException
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 from .service import ModelNotPublished, SecurityNotFound, RequestError,parse_holdings_csv
 
 class Holding(BaseModel):
-    model_config=ConfigDict(extra='forbid')
+    model_config=ConfigDict(extra='forbid',allow_inf_nan=False)
     security_id: str
     quantity: float = Field(ge=0)
     average_cost: float | None = Field(default=None,ge=0)
@@ -16,14 +15,9 @@ class Holding(BaseModel):
     def nonempty(cls,value):
         if not value.strip(): raise ValueError('security_id 不能为空')
         return value
-    @field_validator('quantity','average_cost')
-    @classmethod
-    def finite(cls,value):
-        if value is not None and not math.isfinite(value): raise ValueError('数值必须有限')
-        return value
 
 class RiskRequest(BaseModel):
-    model_config=ConfigDict(extra='forbid')
+    model_config=ConfigDict(extra='forbid',allow_inf_nan=False)
     max_position_weight: float | None = Field(default=None,gt=0)
     max_equity_weight: float | None = Field(default=None,gt=0,le=1)
     target_annual_volatility: float | None = Field(default=None,gt=0)
@@ -32,16 +26,11 @@ class RiskRequest(BaseModel):
     horizon: int | None = None
 
 class AdviceRequest(BaseModel):
-    model_config=ConfigDict(extra='forbid')
+    model_config=ConfigDict(extra='forbid',allow_inf_nan=False)
     holdings: list[Holding] | None = None
     cash: float | None = Field(default=None,ge=0)
     risk_profile: RiskRequest | None = None
     as_of: str | None = None
-    @field_validator('cash')
-    @classmethod
-    def cash_finite(cls,value):
-        if value is not None and not math.isfinite(value): raise ValueError('现金必须有限')
-        return value
 
 
 class CSVAdviceRequest(BaseModel):

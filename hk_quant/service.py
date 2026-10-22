@@ -128,5 +128,7 @@ class HKQuantService:
         except (TypeError,ValueError) as exc: raise RequestError(str(exc)) from exc
         try: result=advise_portfolio(forecast,holdings,float(cash),bars,sec,returns,profile)
         except (TypeError,ValueError) as exc: raise RequestError(str(exc)) from exc
-        result.update(model_version=active['model_version'],data_as_of=day,return_basis=forecast.get('return_basis',pd.Series([None])).dropna().iloc[0] if forecast.get('return_basis',pd.Series()).notna().any() else None)
+        return_basis = forecast.return_basis.dropna()
+        result.update(model_version=active['model_version'],data_as_of=day,
+                      return_basis=return_basis.iloc[0] if not return_basis.empty else None)
         return jsonable(result)

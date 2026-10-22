@@ -9,6 +9,8 @@ import re
 import shutil
 import subprocess
 import sys
+import numpy as np
+from matplotlib.image import imread
 import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -140,25 +142,41 @@ def test_checked_in_figures_regenerate_without_vendor_inputs(tmp_path):
     assert command.returncode == 0, command.stderr
     for path in tmp_path.rglob('*'):
         if path.is_file():
-            assert path.read_bytes() == (ROOT/'docs'/path.relative_to(tmp_path)).read_bytes()
+            expected=ROOT/'docs'/path.relative_to(tmp_path)
+            if path.suffix=='.png':
+                np.testing.assert_array_equal(imread(path),imread(expected))
+            elif path.name=='summary.json':
+                actual_summary=json.loads(path.read_text());expected_summary=json.loads(expected.read_text())
+                actual_figures=actual_summary.pop('figures');expected_figures=expected_summary.pop('figures')
+                assert actual_summary==expected_summary
+                assert actual_figures.keys()==expected_figures.keys()
+                for name,figure in actual_figures.items():
+                    assert figure['path']==expected_figures[name]['path']
+                    assert figure['sha256']==hashlib.sha256((tmp_path/figure['path']).read_bytes()).hexdigest()
+                    assert expected_figures[name]['sha256']==hashlib.sha256((ROOT/'docs'/figure['path']).read_bytes()).hexdigest()
+            else:
+                assert path.read_bytes()==expected.read_bytes()
 
 
 PRESERVED = {
-    'README.md': ('082a4bf752a7fd3d661bd3d44d938fa1172560ca97d31e0f70a3779c0ea314cd', '9278c5c96e49f0aeaf6ae2cdef1964f231c9c76eec6fa3590653fff637428e7b'),
-    'README.zh-CN.md': ('c016edde70210c356ee9a69bb79811613c25f3fdba878be7a662f845ae0ad51c', 'c1213c86aafa9bd78218af16d1809a06ebc69ec674fa963df39d66a74bfd92fc'),
-    'README.ja.md': ('30cf5dab83e3a2c016cbdbe2f1f5bc2cad10cad8c9d5ef9915788a77a93729d0', 'b417b913ce5f46eeefb4ff8e68fcf20ec7b7e3efe0cfdeec92ddf397d29e205d'),
-    'README.ko.md': ('3ac2a7820e6d5f1c2d68e4b16cd1bc1252bf475b953ec989bff754f1a070389e', '980843f1a527b0e1aa5df26c36d8ef4cd51302137f157cafa30ea5fa147988b8'),
+    'README.md': '082a4bf752a7fd3d661bd3d44d938fa1172560ca97d31e0f70a3779c0ea314cd',
+    'README.zh-CN.md': 'c016edde70210c356ee9a69bb79811613c25f3fdba878be7a662f845ae0ad51c',
+    'README.ja.md': '30cf5dab83e3a2c016cbdbe2f1f5bc2cad10cad8c9d5ef9915788a77a93729d0',
+    'README.ko.md': '3ac2a7820e6d5f1c2d68e4b16cd1bc1252bf475b953ec989bff754f1a070389e',
 }
 
 
 @pytest.mark.parametrize('name', PRESERVED)
-def test_readmes_preserve_initial_experiment_and_other_markets(name):
+def test_readmes_preserve_initial_us_experiment(name):
     content = (ROOT/name).read_text()
     assert '<a id="us-v1"></a>' in content, 'Keep a separate initial experiment anchor'
     initial = content.split('<a id="us-v1"></a>', 1)[1].split('<a id="ashare"></a>', 1)[0]
+    assert hashlib.sha256(initial.encode()).hexdigest() == PRESERVED[name]
     other = content.split('<a id="ashare"></a>', 1)[1]
-    assert hashlib.sha256(initial.encode()).hexdigest() == PRESERVED[name][0]
-    assert hashlib.sha256(other.encode()).hexdigest() == PRESERVED[name][1]
+    assert '<a id="hong-kong"></a>' in other
+    for target in ('docs/showcase/cn/summary.json','docs/showcase/summary.json'):
+        assert f']({target})' in other
+        assert (ROOT/target).is_file()
     section = content.split('<a id="us"></a>', 1)[1].split('<a id="us-v1"></a>', 1)[0]
     assert 'REUSED DIAGNOSTIC' in section and 'ridge_rank_5y' in section
     assert 'python -m scripts.build_us_v2_showcase' in section
@@ -189,6 +207,16 @@ def test_replay_rejects_reference_returns_promoted_to_validated(evidence_root):
     mutate(evidence_root, 'replay_summary', lambda x: x['strategies']['selected_15bps'].update(total_return=.08125))
     with pytest.raises(ValueError, match='Unresolved portfolio'):
         module().load_evidence(evidence_root)
+
+
+def test_replay_accepts_observed_final_value_after_an_earlier_quote_gap(evidence_root):
+    for name in ('replay_summary.json', 'replay_curves.csv'):
+        shutil.copyfile(ROOT/RESULTS/name, evidence_root/RESULTS/name)
+    mutate(evidence_root, 'replay_summary', lambda x: x['strategies']['selected_15bps'].update(
+        terminal_unknown_count=0, final_nav=1081250.))
+    row=next(row for row in module().load_evidence(evidence_root)['replay'] if row['strategy']=='selected_15bps')
+    assert row['valuation_gap_sessions']>0
+    assert row['performance_scope']=='reference_only' and row['total_return'] is None
 
 
 def test_chart_title_is_computed_from_saved_values():

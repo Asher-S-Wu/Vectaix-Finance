@@ -22,6 +22,43 @@ def test_build_features_retains_same_37_baseline_factors(tmp_path):
     assert (root/'risk_returns.parquet').is_file()
 
 
+def test_feature_rebuild_removes_obsolete_security_and_year_partitions(tmp_path):
+    from ashare_quant.dataset import build_features
+    from tests.test_ashare_core import bars_fixture
+    from ashare_quant.data import normalize_securities
+    bars,calendar=bars_fixture()
+    root=tmp_path/'cn';(root/'bars_by_security'/'600000.SH').mkdir(parents=True)
+    bars.to_parquet(root/'bars_by_security'/'600000.SH'/'2018.parquet',index=False)
+    pd.DataFrame({'cal_date':calendar,'is_open':1}).to_parquet(root/'calendar.parquet',index=False)
+    normalize_securities(pd.DataFrame([dict(ts_code='600000.SH',name='A',list_date='19910101',delist_date=None)])).to_parquet(root/'securities.parquet',index=False)
+    first=build_features(root)
+    stale=pd.read_parquet(root/'features'/'600000.SH.parquet').assign(security_id='600001.SH')
+    stale.to_parquet(root/'features'/'600001.SH.parquet',index=False)
+    for directory in ('normalized','training_samples'):
+        pd.read_parquet(root/directory/'2018.parquet').to_parquet(root/directory/'2017.parquet',index=False)
+    rebuilt=build_features(root)
+    assert rebuilt['rows']==first['rows']==len(calendar)
+    assert not (root/'features'/'600001.SH.parquet').exists()
+    for directory in ('normalized','training_samples'):
+        assert not (root/directory/'2017.parquet').exists()
+        assert set(pd.read_parquet(root/directory).security_id)=={'600000.SH'}
+    assert set(rebuilt['training_sample_sha256'])=={'2018.parquet','2019.parquet'}
+
+
+def test_normalized_year_refresh_removes_retired_security_partition(tmp_path):
+    from ashare_quant.dataset import save_normalized_year
+    from ashare_quant.data import normalize_securities
+    master=normalize_securities(pd.DataFrame([
+        dict(ts_code=sid,name=sid,list_date='19910101',delist_date=None)
+        for sid in ['600000.SH','600001.SH']]))
+    daily=pd.DataFrame([dict(ts_code='600000.SH',trade_date='20200102',open=10.,high=11.,low=9.,close=10.,vol=100.,amount=100.)])
+    empty=pd.DataFrame()
+    save_normalized_year(tmp_path,2020,daily,empty,empty,empty,master)
+    save_normalized_year(tmp_path,2020,daily.assign(ts_code='600001.SH'),empty,empty,empty,master)
+    assert not (tmp_path/'bars_by_security'/'600000.SH'/'2020.parquet').exists()
+    assert set(pd.read_parquet(tmp_path/'bars_by_security').security_id)=={'600001.SH'}
+
+
 def test_alias_mapping_does_not_merge_conflicting_quotes():
     assert importlib.util.find_spec('ashare_quant.dataset') is not None
     from ashare_quant.dataset import canonicalize_codes

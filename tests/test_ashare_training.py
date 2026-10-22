@@ -58,6 +58,7 @@ def test_snapshot_publish_is_research_only_and_has_hashes(tmp_path):
     assert active['research_ready'] and not active['eligible']
     assert active['market']=='CN' and active['currency']=='CNY'
     assert len(active['artifact_sha256'])>=3
+    assert all('\\' not in active[key] for key in ['forecast_path','metadata_path','acceptance_path','model_path'])
     assert json.loads((tmp_path/active['acceptance_path']).read_text())['execution_validated'] is False
 
 
@@ -91,8 +92,18 @@ def test_frozen_model_bytes_and_manifest_are_verified_before_loading(tmp_path):
     from hashlib import sha256
     payload=pickle.dumps({'fixture':'synthetic artifact'})
     model=tmp_path/'frozen.pkl';model.write_bytes(payload)
-    metadata=tmp_path/'metadata.json';metadata.write_text(json.dumps({'model_sha256':sha256(payload).hexdigest(),'feature_manifest_sha256':'expected'}))
+    metadata=tmp_path/'metadata.json';metadata.write_text(json.dumps({'model_revision':training.MODEL_REVISION,'model_sha256':sha256(payload).hexdigest(),'feature_manifest_sha256':'expected'}))
     assert training.load_frozen_model(model,metadata,'expected')['fixture']=='synthetic artifact'
     model.write_bytes(b'changed artifact')
     with pytest.raises(ValueError,match='hash'):
+        training.load_frozen_model(model,metadata,'expected')
+
+
+@pytest.mark.parametrize('revision',[None,'outdated-estimator'])
+def test_training_cache_rejects_missing_or_changed_estimator_revision(tmp_path,revision):
+    from hashlib import sha256
+    model=tmp_path/'frozen.pkl';model.write_bytes(pickle.dumps({'fixture':'cached model'}))
+    metadata=tmp_path/'metadata.json'
+    metadata.write_text(json.dumps({'model_revision':revision,'model_sha256':sha256(model.read_bytes()).hexdigest(),'feature_manifest_sha256':'expected'}))
+    with pytest.raises(ValueError,match='estimator revision'):
         training.load_frozen_model(model,metadata,'expected')

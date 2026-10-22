@@ -2,7 +2,7 @@
 from __future__ import annotations
 import numpy as np
 import pandas as pd
-from hk_quant.training import make_examples, sample_observations, cross_sectional_inputs, KINDS, FACTOR_FEATURES, LINEAR_FEATURES
+from hk_quant.training import make_examples, sample_observations, KINDS, FACTOR_FEATURES, LINEAR_FEATURES, MODEL_REVISION
 from .models import AShareModel
 from .paths import DATA,MODELS,RESULTS
 
@@ -200,14 +200,14 @@ def publish_research_snapshot(model,forecasts,model_root,limitations,data_lineag
     date=str(pd.Timestamp(forecasts.date.iloc[0]).date());version=model.model_version
     if any(c in version for c in ['/','\\','..']):raise ValueError('Unsafe model version')
     directory=root/'snapshots'/version;directory.mkdir(parents=True,exist_ok=True)
-    paths={key:str((directory/name).relative_to(root)) for key,name in [('forecast_path','forecasts.parquet'),('metadata_path','metadata.json'),('acceptance_path','acceptance.json')]}
+    paths={key:(directory/name).relative_to(root).as_posix() for key,name in [('forecast_path','forecasts.parquet'),('metadata_path','metadata.json'),('acceptance_path','acceptance.json')]}
     forecasts.to_parquet(root/paths['forecast_path'],index=False)
     write_json(root/paths['metadata_path'],{**model.metadata,'data_as_of':date,'model_trained_as_of':model.as_of.isoformat(),'data_lineage':data_lineage})
     write_json(root/paths['acceptance_path'],dict(model_version=version,data_as_of=date,research_ready=True,eligible=False,execution_validated=False,limitations=limitations))
     (directory/'model.pkl').write_bytes(pickle.dumps(model,protocol=pickle.HIGHEST_PROTOCOL))
     active=dict(schema_version='ashare-v1',market='CN',currency='CNY',model_version=version,data_as_of=date,
         **paths,research_ready=True,eligible=False,execution_validated=False,
-        model_path=str((directory/'model.pkl').relative_to(root)),model_sha256=hashlib.sha256((directory/'model.pkl').read_bytes()).hexdigest(),
+        model_path=(directory/'model.pkl').relative_to(root).as_posix(),model_sha256=hashlib.sha256((directory/'model.pkl').read_bytes()).hexdigest(),
         artifact_sha256={key:hashlib.sha256((root/path).read_bytes()).hexdigest() for key,path in paths.items()})
     write_json(root/'active.json',active)
     return active
@@ -252,6 +252,7 @@ def load_frozen_model(model_path,metadata_path,expected_manifest_hash):
     from pathlib import Path
     metadata=json.loads(Path(metadata_path).read_text())
     if metadata.get('feature_manifest_sha256')!=expected_manifest_hash:raise ValueError('Frozen model data lineage changed')
+    if metadata.get('model_revision')!=MODEL_REVISION:raise ValueError('Frozen model estimator revision changed; train in a separate model namespace')
     payload=Path(model_path).read_bytes()
     if hashlib.sha256(payload).hexdigest()!=metadata.get('model_sha256'):raise ValueError('Frozen model hash mismatch')
     return pickle.loads(payload)
@@ -278,7 +279,7 @@ def run_training(data_root=DATA,results_root=RESULTS,model_root=MODELS):
             print(f'training {kind}: authentic historical sample rows={len(samples)}',flush=True)
             model=fit_at(samples,kind,PROTOCOL['training_as_of'],f'cn-{kind}-frozen-20231229-v1',manifest['features'],PROTOCOL['calibration_start'])
             model_path.write_bytes(pickle.dumps(model,protocol=pickle.HIGHEST_PROTOCOL))
-            write_json(meta_path,{**model.metadata,'model_sha256':hashlib.sha256(model_path.read_bytes()).hexdigest(),'feature_manifest_sha256':hashlib.sha256((data_root/'feature_manifest.json').read_bytes()).hexdigest()})
+            write_json(meta_path,{**model.metadata,'model_revision':MODEL_REVISION,'model_sha256':hashlib.sha256(model_path.read_bytes()).hexdigest(),'feature_manifest_sha256':hashlib.sha256((data_root/'feature_manifest.json').read_bytes()).hexdigest()})
         candidates[kind]=model
         paths=predict_period(model,data_root,results_root/'development'/kind,PROTOCOL['development_start'],PROTOCOL['development_end'])
         development_paths[kind]=paths

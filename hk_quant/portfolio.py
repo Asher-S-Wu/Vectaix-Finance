@@ -18,6 +18,9 @@ def advise_portfolio(forecasts, holdings, cash, latest_bars, securities, returns
     if latest_bars.empty or latest_bars.security_id.duplicated().any() or securities.security_id.duplicated().any():
         return error('市价或证券身份缺失/重复')
     bars=latest_bars.set_index('security_id'); sec=securities.set_index('security_id')
+    bar_dates=pd.to_datetime(bars.date,errors='coerce')
+    if bar_dates.isna().any():return error('市价日期无效')
+    asof=bar_dates.max()
     def fx_valid(s):
         if s not in bars.index or s not in sec.index or 'currency' not in sec or 'fx_to_hkd' not in bars: return False
         currency=sec.loc[s,'currency'];fx=bars.loc[s,'fx_to_hkd']
@@ -26,11 +29,11 @@ def advise_portfolio(forecasts, holdings, cash, latest_bars, securities, returns
     for sid,q in owned.items():
         if q and (sid not in bars.index or not np.isfinite(bars.loc[sid,'raw_close']) or bars.loc[sid,'raw_close']<=0):
             return error('持仓缺少明确市价: '+str(sid))
+        if q and bar_dates.loc[sid]!=asof:return error('持仓缺少当日市价: '+str(sid))
         if q and not fx_valid(sid): return error('持仓缺少币种或当日有效汇率: '+str(sid))
     equity=float(cash+sum(q*bars.loc[s,'raw_close']*bars.loc[s,'fx_to_hkd'] for s,q in owned.items() if q))
     if equity<=0:
         return error('账户资产必须大于零')
-    asof=pd.to_datetime(latest_bars.date).max()
     f=forecasts.loc[(forecasts.horizon==profile.horizon)&(pd.to_datetime(forecasts.date)<=asof)].copy()
     if f.security_id.duplicated().any():
         return error('同一证券有重复预测')

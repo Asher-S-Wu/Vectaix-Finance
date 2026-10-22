@@ -57,6 +57,17 @@ class PublicationTests(unittest.TestCase):
             self.assertFalse(Path(active['acceptance_path']).is_absolute())
             self.assertTrue((root/active['acceptance_path']).is_file())
 
+    def test_numeric_strings_are_rejected_before_publishing(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);path=root/'forecast.parquet';self.forecasts(path)
+            frame=pd.read_parquet(path)
+            frame['score']=frame.score.astype(str)
+            frame.to_parquet(path,index=False)
+            with self.assertRaises(TypeError):
+                publish_snapshot(path,'candidate','2026-09-10',{'eligible':True},
+                                 {'critical_gap_count':0,'freshness_passed':True},root)
+            self.assertFalse((root/'active.json').exists())
+
     def test_publication_survives_moving_to_another_server_directory(self):
         from hk_quant.service import HKQuantService
         with tempfile.TemporaryDirectory() as directory:

@@ -11,7 +11,7 @@ DATA=ROOT/'data/us/oef2015';RESULTS=ROOT/'backtests/us/oef2015'
 
 def cohort_benchmark_scores(frame):
     f=frame[['date','security_id','status']].copy();f['horizon']=20;f['score']=0.
-    f['score_status']=f.status.where(f.status.ne('ok'),'ok')
+    f['score_status']=f.status
     return f.drop(columns='status')
 
 

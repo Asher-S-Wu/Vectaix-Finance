@@ -60,6 +60,11 @@ def test_rank_target_minimum_and_tied_label_center_are_fixed():
     f=examples(2020);f.fwd_return=1.;np.testing.assert_allclose(rank_targets(f),0.,atol=1e-15)
 
 
+def test_rank_target_minimum_excludes_nonfinite_volatility():
+    f=examples(2020).iloc[:20].copy();f.loc[0,'sigma_daily']=np.inf
+    assert rank_targets(f).isna().all()
+
+
 def test_unknown_training_outcome_is_not_negative_probability_baseline():
     tr=examples(2020);tr.loc[0,'fwd_return']=np.nan
     m=RankingModel('factor_reference').fit(tr,examples(2021),FEATURES,'2021-12-31')

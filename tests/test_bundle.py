@@ -56,6 +56,16 @@ def test_missing_task_never_switches_to_another_component_or_drops_security():
     assert out.reasons.str.contains('probability_up').all()
 
 
+def test_cached_component_indexes_do_not_change_positional_alignment():
+    models, heads, frame = inputs()
+    bundle = MultiTaskBundle(models, heads, 'v4')
+    expected = bundle.predict(frame, explain=True)
+    cached = {kind: model.predict(frame, explain=True) for kind, model in models.items()}
+    for offset, prediction in enumerate(cached.values(), start=1):
+        prediction.index = prediction.index + 10 * offset
+    pd.testing.assert_frame_equal(expected, bundle.combine_predictions(frame, cached, explain=True))
+
+
 @pytest.mark.parametrize('status', ['invalid_return_range', 'unrepresentable_prediction', 'invalid_quantile_order'])
 def test_bundle_preserves_model_output_failure_separately_from_missing_inputs(status):
     models, heads, frame = inputs()

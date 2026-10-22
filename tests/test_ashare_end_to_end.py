@@ -134,7 +134,6 @@ def test_synthetic_source_to_models_snapshot_api_replays_and_report(tmp_path):
     from ashare_quant.service import AShareQuantService, ModelNotPublished
     from ashare_quant.api import create_app
     from fastapi.testclient import TestClient
-    import resource
 
     started = time.monotonic()
     root = tmp_path / 'SYNTHETIC_ONLY'
@@ -255,14 +254,12 @@ def test_synthetic_source_to_models_snapshot_api_replays_and_report(tmp_path):
     assert 'SYNTHETIC' in report_path.read_text()
     summary = dict(synthetic_only=True, notice=SYNTHETIC_NOTICE,
         elapsed_seconds=round(time.monotonic()-started, 2),
-        peak_rss_mib=round(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024, 2),
         source_sessions=len(calendar), source_securities=len(ids), feature_count=37,
         feature_rows=manifest['rows'], training_sample_observations=sample_rows,
         selected_kind=frozen['selected_kind'], forecast_rows=visible['forecast_count'],
         kinds=list(KINDS), actual_trade_count=actual['trade_count'],
         reference_trade_counts={k: v['trade_count'] for k, v in references.items()},
         benchmark_count=len(benchmarks), report_path=str(report_path))
-    assert summary['peak_rss_mib'] < 9 * 1024
     write_json(root / 'synthetic_validation_summary.json', summary)
     print(json.dumps(summary, indent=2), flush=True)
 

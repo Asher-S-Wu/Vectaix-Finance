@@ -13,7 +13,7 @@ def test_market_namespaces_do_not_overlap_hk():
     p = module('paths')
     from hk_quant.paths import DATA, MODELS, RESULTS
     assert p.DATA != DATA and p.MODELS != MODELS and p.RESULTS != RESULTS
-    assert '/cn/' in str(p.DATA)
+    assert p.DATA.parts[-2:]==('cn','universal')
 
 
 def test_normalize_tushare_units_keeps_cny_raw_and_adjusted_distinct():
@@ -38,6 +38,25 @@ def test_normalize_does_not_invent_adjustment_or_limits():
     out,audit=m.normalize_daily(d,pd.DataFrame(),pd.DataFrame(),pd.DataFrame())
     assert not out.iloc[0].data_valid and pd.isna(out.iloc[0].up_limit)
     assert audit['missing_adjustment_rows']==1
+
+
+@pytest.mark.parametrize('field,value',[('open',12.),('close',8.),('high',np.inf),('low',np.nan),('open',np.inf)])
+def test_normalize_rejects_nonfinite_or_inconsistent_prices(field,value):
+    m=module('data')
+    daily=pd.DataFrame([dict(ts_code='600000.SH',trade_date='20200102',open=10.,high=11.,low=9.,close=10.,vol=100.,amount=100.)])
+    daily.loc[0,field]=value
+    factors=pd.DataFrame([dict(ts_code='600000.SH',trade_date='20200102',adj_factor=1.)])
+    out,audit=m.normalize_daily(daily,pd.DataFrame(),factors,pd.DataFrame())
+    assert not out.data_valid.iloc[0] and audit['invalid_rows']==1
+
+
+@pytest.mark.parametrize('field',['vol','amount','close'])
+def test_nonfinite_trade_values_are_not_counted_as_quotes(field):
+    m=module('data')
+    daily=pd.DataFrame([dict(ts_code='600000.SH',trade_date='20200102',open=10.,high=11.,low=9.,close=10.,vol=100.,amount=100.)])
+    daily.loc[0,field]=np.inf
+    out,audit=m.normalize_daily(daily,pd.DataFrame(),pd.DataFrame(),pd.DataFrame())
+    assert not out.quote_present.iloc[0] and audit['quote_rows']==0
 
 
 def test_duplicate_daily_keys_are_rejected():

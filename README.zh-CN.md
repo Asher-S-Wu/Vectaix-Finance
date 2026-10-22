@@ -353,7 +353,7 @@ python -m hk_quant.api --host 0.0.0.0 --port 8000
 
 ### 港股部署
 
-部署使用 Zeabur Dev 的 Python运行环境，安装命令为 `pip install -r requirements.txt`，启动命令为 `python -m hk_quant.api --host 0.0.0.0 --port $PORT`。设置 `HK_QUANT_API_KEY`，并单独挂载匹配的数据和正式快照，无需 Docker。
+部署使用 Railway Pro 的 Python运行环境，安装命令为 `pip install -r requirements.txt`，启动命令为 `python -m hk_quant.api --host 0.0.0.0 --port $PORT`。设置 `HK_QUANT_API_KEY`，并单独挂载匹配的数据和正式快照，无需 Docker。
 
 <a id="credentials"></a>
 

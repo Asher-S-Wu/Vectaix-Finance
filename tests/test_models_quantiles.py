@@ -5,8 +5,20 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from hk_quant.models import UniversalModel, NUMERIC_OUTPUTS
+from hk_quant.models import UniversalModel, NUMERIC_OUTPUTS, _fit_joint_quantile_log_affine
 from test_models import fixture
+
+
+@pytest.mark.parametrize('median', [-1., -1.1])
+def test_joint_quantile_calibration_starts_with_finite_parameters_at_full_loss_boundary(median):
+    raw=np.tile([median,median,-.5],(40,1))
+    actual=np.tile([-.8,.1],20)
+    with np.errstate(invalid='raise'):
+        fitted=_fit_joint_quantile_log_affine(raw,actual)
+    assert np.isfinite(fitted['location'])
+    assert np.isfinite(fitted['scale']) and fitted['scale']>0
+    assert np.isfinite(fitted['pinball'])
+    assert fitted['fit_rows']==40
 
 
 @pytest.mark.parametrize('kind',['linear','lightgbm_small','lightgbm_large'])

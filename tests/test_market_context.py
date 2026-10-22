@@ -17,6 +17,17 @@ def test_market_uses_daily_information_returns_not_snapshot_price_levels():
     pd.testing.assert_frame_equal(actual,market_context_from_inputs(source,dates))
 
 
+def test_market_momentum_retains_missing_daily_returns_until_outside_its_window():
+    dates=pd.bdate_range('2020-01-01',periods=300)
+    source=pd.DataFrame(dict(date=dates,security_id='A',return_1=.01,bias_60=.1,quote_present=True))
+    source.loc[30,'return_1']=np.nan
+    actual=market_context_from_inputs(source,dates)
+    for horizon in (20,60,252):
+        values=actual[f'market_momentum_{horizon}']
+        assert values.iloc[max(horizon,30):30+horizon].isna().all()
+        assert np.isclose(values.iloc[31+horizon],1.01**horizon-1)
+
+
 def test_risk_keeps_pit_dividend_return_and_identity_boundary():
     dates=pd.bdate_range('2020-01-01',periods=4)
     source=pd.DataFrame(dict(date=dates,security_id='A',return_1=[np.nan,0.,.01,-.5],

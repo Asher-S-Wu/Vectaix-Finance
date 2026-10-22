@@ -124,6 +124,11 @@ def save_normalized_year(data_root,year,daily,basic,factors,limits,securities,ma
     for sid,group in bars.groupby('security_id',sort=True):
         directory=root/'bars_by_security'/sid;directory.mkdir(parents=True,exist_ok=True)
         group.to_parquet(directory/f'{year}.parquet',index=False)
+    current_ids=set(bars.security_id)
+    for path in (root/'bars_by_security').glob(f'*/{year}.parquet'):
+        if path.parent.name not in current_ids:
+            path.unlink()
+            if not any(path.parent.iterdir()):path.parent.rmdir()
     write_json(root/'audits'/f'normalization-{year}.json',audit)
     return audit
 
@@ -212,6 +217,8 @@ def build_features(data_root=DATA):
             frame['quote_present']=False
             save_frame(frame,sid);identities_without_source_bars+=1
     if not files:raise ValueError('no source bars available')
+    for path in output.glob('*.parquet'):
+        if path.stem not in written:path.unlink()
     stats=[]
     for year in sorted(set(calendar.year)):
         minimal=read_feature_window(output,pd.Timestamp(year,1,1),pd.Timestamp(year+1,1,1),columns=['date','return_1','bias_60','quote_present'])
@@ -229,7 +236,7 @@ def build_features(data_root=DATA):
     market=market.drop(columns='market_return').rename_axis('date').reset_index()
     normalized_dir=root/'normalized';normalized_dir.mkdir(exist_ok=True)
     sample_dir=root/'training_samples';sample_dir.mkdir(exist_ok=True)
-    latest_features=[];latest_inputs=[];risk=[];columns=None;coverage_counts=None;normal_rows=0
+    latest_features=[];latest_inputs=[];risk=[];columns=None;coverage_counts=None;normal_rows=0;written_years=set()
     label_coverage={str(h):dict(eligible_mature=0,eligible_mature_observed=0,eligible_mature_missing=0) for h in HORIZONS}
     for year in sorted(set(calendar.year)):
         frame=read_feature_window(output,pd.Timestamp(year,1,1),pd.Timestamp(year+1,1,1))
@@ -250,12 +257,16 @@ def build_features(data_root=DATA):
         eligible_samples=normalized.loc[normalized.status.eq('ok')]
         sampled=sample_observations(eligible_samples) if not eligible_samples.empty else eligible_samples
         sampled.to_parquet(sample_dir/f'{year}.parquet',index=False)
+        written_years.add(str(year))
         latest_features.append(frame.loc[frame.date.eq(calendar[-1])])
         latest_inputs.append(normalized.loc[normalized.date.eq(calendar[-1])])
         risk.append(frame.loc[frame.date.ge(calendar[max(0,len(calendar)-300)]),['date','security_id','return_1']])
         print(f'normalized year={year} rows={len(frame)}',flush=True)
         del frame,normalized,eligible_samples,sampled,mature,observed
         gc.collect();pa.default_memory_pool().release_unused()
+    for directory in (normalized_dir,sample_dir):
+        for path in directory.glob('*.parquet'):
+            if path.stem not in written_years:path.unlink()
     pd.concat(latest_features,ignore_index=True).to_parquet(root/'latest_features.parquet',index=False)
     pd.concat(latest_inputs,ignore_index=True).to_parquet(root/'latest_inputs.parquet',index=False)
     pd.concat(risk,ignore_index=True).pivot(index='date',columns='security_id',values='return_1').reset_index().to_parquet(root/'risk_returns.parquet',index=False)
@@ -273,7 +284,7 @@ def build_features(data_root=DATA):
         limitations=['Provider historical revisions and terminal outcome completeness are not independently certified.',
           'Source-adjusted return is not an actual-share-plus-cash total-return account.',
           'Rows without observed horizon-end prices have missing labels, not assumed zero or fabricated liquidation.'])
-    manifest['artifact_sha256']={str(p.relative_to(root)):hashlib.sha256(p.read_bytes()).hexdigest() for p in [*sorted(normalized_dir.glob('*.parquet')),root/'latest_inputs.parquet',root/'securities.parquet',root/'calendar.parquet']}
+    manifest['artifact_sha256']={p.relative_to(root).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in [*sorted(normalized_dir.glob('*.parquet')),root/'latest_inputs.parquet',root/'securities.parquet',root/'calendar.parquet']}
     write_json(root/'feature_manifest.json',manifest)
     return manifest
 
@@ -300,7 +311,7 @@ def prepare_data(data_root=DATA,through_year=None,require_complete=True):
         if through_year is not None and year>through_year:continue
         expected={d.strftime('%Y%m%d') for d in calendar[calendar.year==year]}
         endpoints={}
-        source_hashes={'normalization_schema':'cn-v6',
+        source_hashes={'normalization_schema':'cn-v7',
             'master':hashlib.sha256(master.to_json(date_format='iso').encode()).hexdigest(),
             'aliases':hashlib.sha256(mapping.to_json(date_format='iso').encode()).hexdigest(),
             'stock_st':[m['sha256'] for _,m in iter_partitions(raw,'stock_st',year=year)]}

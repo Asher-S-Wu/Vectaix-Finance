@@ -1,4 +1,3 @@
-import json
 import pandas as pd
 from us_quant.pipeline import absent_features, validate_calendar, select_training_features
 from us_quant.features import ALL_FEATURES

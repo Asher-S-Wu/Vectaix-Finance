@@ -199,7 +199,7 @@ def coverage_chart(evidence, destination):
 
 
 def write_csv(path, rows):
-    with path.open('w', newline='') as stream:
+    with path.open('w', newline='', encoding='utf-8') as stream:
         writer = csv.DictWriter(stream, fieldnames=list(rows[0]), lineterminator='\n')
         writer.writeheader()
         writer.writerows(rows)
@@ -227,7 +227,8 @@ def build(root=ROOT, destination=None):
                    latest_refit_evaluated_out_of_sample=False,
                    portfolio_returns_verified=False,
                    portfolio_limit='Unresolved corporate actions and terminal valuations prevent verification of equity, CAGR and drawdown.')
-    (tables / 'summary.json').write_text(json.dumps(summary, ensure_ascii=False, indent=2) + '\n')
+    (tables / 'summary.json').write_text(json.dumps(summary, ensure_ascii=False, indent=2) + '\n',
+                                       encoding='utf-8', newline='\n')
     return evidence
 
 

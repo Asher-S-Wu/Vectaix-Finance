@@ -16,7 +16,7 @@ from .paths import DATA, MODELS, RESULTS
 
 KINDS = ('factor', 'linear', 'lightgbm_small', 'lightgbm_large')
 METHOD_VERSION = 'universal-20260911-v1'
-MODEL_REVISION = 'all-market-pit-task-outputs-v31'
+MODEL_REVISION = 'all-market-pit-task-outputs-v32'
 TRAIN_STOCKS_PER_DATE = 256
 PREDICTION_OUTPUTS = ('date','security_id','horizon','fwd_return','label_end','score',
                       'probability_up','expected_return','q10','q50','q90',

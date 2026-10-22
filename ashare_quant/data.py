@@ -37,9 +37,12 @@ def normalize_daily(daily,basic,factors,limits):
     out['free_mv']=out.free_share*out.raw_close
     out['turnover_ratio']=get('turnover_rate')/100.
     out['adj_close']=out.raw_close*out.adj_factor
-    out['quote_present']=out.volume.gt(0)&out.amount.gt(0)&out.raw_close.gt(0)
-    price_valid=out[['raw_open','raw_close','high','low']].gt(0).all(axis=1)
-    out['data_valid']=price_valid&out.adj_factor.gt(0)&np.isfinite(out.adj_factor)&out.high.ge(out.low)
+    traded=out[['volume','amount','raw_close']]
+    out['quote_present']=traded.gt(0).all(axis=1)&np.isfinite(traded).all(axis=1)
+    prices=out[['raw_open','raw_close','high','low']]
+    price_valid=prices.gt(0).all(axis=1)&np.isfinite(prices).all(axis=1)
+    within_range=out[['raw_open','raw_close']].ge(out.low,axis=0).all(axis=1)&out[['raw_open','raw_close']].le(out.high,axis=0).all(axis=1)
+    out['data_valid']=price_valid&within_range&out.adj_factor.gt(0)&np.isfinite(out.adj_factor)&np.isfinite(out.adj_close)
     audit=dict(rows=len(out),securities=int(out.security_id.nunique()),quote_rows=int(out.quote_present.sum()),
                missing_adjustment_rows=int(out.adj_factor.isna().sum()),missing_limit_rows=int(out[['up_limit','down_limit']].isna().any(axis=1).sum()),
                invalid_rows=int((~out.data_valid).sum()),source_units='daily: hands, CNY thousands; basic: shares/cap ten-thousands; turnover percent',

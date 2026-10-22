@@ -68,7 +68,6 @@ def _block_bootstrap_mean(values: np.ndarray) -> tuple[float | None, float | Non
     if len(values) < block_length:
         return None, None
     rng = np.random.default_rng(20260910)
-    positions = np.arange(len(values))
     estimates = np.empty(2000, dtype=float)
     block_offsets = np.arange(block_length)
     blocks_needed = ceil(len(values) / block_length)
@@ -368,6 +367,7 @@ def evaluate_portfolio(
     stress_benchmark = _equity_series(stress_benchmark_daily, "stress_benchmark_daily")
     _require_same_dates(portfolio, benchmark, "daily 与 benchmark_daily")
     _require_same_dates(stress, stress_benchmark, "stress_daily 与 stress_benchmark_daily")
+    _require_same_dates(portfolio, stress, "daily 与 stress_daily")
 
     running_peak = portfolio.cummax()
     max_drawdown = float((portfolio / running_peak - 1).min())

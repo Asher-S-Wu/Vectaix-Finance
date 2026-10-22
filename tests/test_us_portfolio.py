@@ -1,16 +1,8 @@
 """Chronology, missing observations, and USD research-unit accounting."""
-import importlib.util
-
 import numpy as np
 import pandas as pd
 import pytest
-
-
-def replay(*args, **kwargs):
-    # An absent implementation is an assertion failure during the red phase.
-    assert importlib.util.find_spec('us_quant.portfolio') is not None, 'US replay is not implemented'
-    from us_quant.portfolio import replay as implementation
-    return implementation(*args, **kwargs)
+from us_quant.portfolio import replay
 
 
 def prices(dates=('2024-01-30', '2024-01-31', '2024-02-01', '2024-02-02'), ids=('A', 'B', 'C')):

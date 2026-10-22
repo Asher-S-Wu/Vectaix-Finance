@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 import sklearn
 import lightgbm as lgb
-from scipy.optimize import minimize, minimize_scalar
+from scipy.optimize import minimize
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import Ridge, LogisticRegression
 from .contracts import FORECAST_RETURN_BASIS, CASH_DIVIDEND_ACCOUNTING
@@ -34,20 +34,17 @@ def _fit_joint_quantile_log_affine(raw, actual):
     with np.errstate(divide='ignore',invalid='ignore'):
         fit_raw=np.log1p(np.maximum(raw[usable],-1))
     fit_actual=actual[usable]
-    finite_actual=fit_actual>-1
-    initial_location=float(np.median(np.log1p(fit_actual[finite_actual])-
-                                     fit_raw[finite_actual,1])) if finite_actual.any() else 0.
     def objective(parameters):
         location=float(parameters[0]);scale=float(np.exp(parameters[1]))
         if not np.isfinite(location) or not np.isfinite(scale) or scale<=0:return np.inf
         predicted=np.expm1(location+scale*fit_raw)
         error=fit_actual[:,None]-predicted
         return float(np.maximum(QUANTILE_LEVELS*error,(QUANTILE_LEVELS-1)*error).mean())
-    result=minimize(objective,[initial_location,0.],method='Powell',bounds=[(-5.,5.),(-5.,5.)],
+    result=minimize(objective,[0.,0.],method='Powell',bounds=[(-5.,5.),(-5.,5.)],
                     options={'xtol':1e-7,'ftol':1e-10,'maxiter':500})
     if not result.success or not np.isfinite(result.fun):
         raise ValueError('联合分位校准未收敛')
-    location=float(result.x[0]);scale=float(np.exp(result.x[1]))
+    scale=float(np.exp(result.x[1]))
     return {'location':float(result.x[0]),'scale':scale,'fit_rows':int(usable.sum()),
             'excluded_unordered_or_nonfinite_rows':int((~usable).sum()),
             'boundary_represented_rows':int(boundary_rows.sum()),
@@ -323,7 +320,6 @@ class UniversalModel:
             mask=selected.horizon.to_numpy()==h
             if mask.any():
                 calibrated=self.calibrators[h].predict_proba(probability_margins[mask,None])[:,1]
-                calibrated=1.0/(1.0+np.exp(-np.log(calibrated/(1.0-calibrated))))
                 calibrated=calibrated+self.probability_anchor_offsets[h]
                 blend=self.probability_baseline_blend[h]
                 probabilities[mask]=(1.0-blend)*calibrated+blend*self.baseline_probability[h]

@@ -86,7 +86,7 @@ def test_helper_retries_transient_result_without_credential_access():
     client = HelperClient(runner=runner, sleep=sleeps.append, requests_per_minute=0, retries=2)
     assert client.query("daily", {"trade_date": "20260102"}, "close")["status"] == "success"
     assert len(calls) == 2 and sleeps == [1.0]
-    assert calls[0][1] == "/workspace/shared/tushare_persistent.py"
+    assert Path(calls[0][1]) == Path('/workspace/shared/tushare_persistent.py')
     assert calls[0][2:] == ["query", "daily", '{"trade_date":"20260102"}', "close"]
 
 

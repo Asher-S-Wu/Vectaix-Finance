@@ -173,6 +173,15 @@ def test_initial_equity_is_a_drawdown_peak_and_metrics_match_by_hand():
     assert result["stress_ann_excess"] == pytest.approx(expected_stress_excess)
 
 
+def test_portfolio_rejects_stress_results_from_a_different_period():
+    daily = pd.DataFrame({"date": pd.date_range("2024-01-01", periods=3), "equity": [100., 101., 102.]})
+    stress = pd.DataFrame({"date": pd.date_range("2025-01-01", periods=3), "equity": [100., 101., 102.]})
+    with pytest.raises(ValueError, match="daily 与 stress_daily 日期集合"):
+        evaluate_portfolio(daily, daily, stress, stress, {
+            "status": "complete", "gap_count": 0, "corporate_action_coverage": True,
+        })
+
+
 def passing_evaluation_pair():
     horizon = {
         "ic": {"ci_lower": .01, "positive_year_ratio": .75},

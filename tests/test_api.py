@@ -18,6 +18,21 @@ def test_empty_key_rejected(service):
     with pytest.raises(ValueError): create_app(service,'')
 
 
+@pytest.mark.parametrize('field', ['cash', 'quantity', 'average_cost', 'target_annual_volatility'])
+def test_nonfinite_account_values_are_rejected_before_advice(service, monkeypatch, field):
+    monkeypatch.setattr(service, 'advise', lambda *args: pytest.fail('Invalid values reached advice'))
+    body = {'holdings': [{'security_id': 'A', 'quantity': 100}], 'cash': 1000}
+    if field == 'cash':
+        body[field] = 'Infinity'
+    elif field == 'target_annual_volatility':
+        body['risk_profile'] = {field: 'Infinity'}
+    else:
+        body['holdings'][0][field] = 'Infinity'
+    response = TestClient(create_app(service, 'key')).post(
+        '/v1/portfolio/advice', headers={'X-API-Key': 'key'}, json=body)
+    assert response.status_code == 422
+
+
 def test_csv_account_input_reaches_same_advice_service(service,monkeypatch):
     captured={}
     def advice(holdings,cash,risk,day):

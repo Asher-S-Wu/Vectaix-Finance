@@ -195,7 +195,7 @@ def replay_prices(ranking, bars, calendar, *, initial_cash=1_000_000., equity_we
     ending = daily.equity.iloc[-1]
     covered = daily.equity.notna().all()
     elapsed = (end - first_entry).days
-    summary = dict(status='complete_adjusted_unit_replay' if np.isfinite(ending) else 'incomplete_valuation',
+    summary = dict(status='complete_adjusted_unit_replay' if covered else 'incomplete_valuation',
                    training_performed=False, execution_validated=False, initial_cash=initial_cash,
                    start_date=str(first_entry.date()), end_date=str(end.date()), ending_cash=cash,
                    ending_equity=float(ending) if np.isfinite(ending) else None,

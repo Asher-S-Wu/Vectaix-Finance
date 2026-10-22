@@ -15,12 +15,13 @@ ROOT=Path(__file__).resolve().parents[1];DATA=ROOT/'data/us/oef2015_v2';RUN='oef
 def paired_comparison(first,second,cutoff):
     out=dict(evaluation_status='posthoc paired diagnostic on previously viewed2025–2026 outcomes',untouched_holdout=False,horizons={})
     for h in [1,5,20,60]:
-        frames=[]
+        frames=[];calendar=pd.DatetimeIndex([])
         for frame in [first,second]:
             frame=frame.copy()
             for column in ['date','label_end']:frame[column]=pd.to_datetime(frame[column]).astype('datetime64[ns]')
             f=frame.loc[frame.horizon.eq(h)&frame.date.ge('2025-01-01')&frame.date.le(pd.Timestamp(cutoff))].set_index(['date','security_id'])
             if f.index.has_duplicates:raise ValueError('Duplicate prediction keys')
+            calendar=calendar.union(pd.DatetimeIndex(f.index.get_level_values('date')[f.label_end.le(pd.Timestamp(cutoff))].unique()))
             frames.append(f.loc[f.score_status.eq('ok')&np.isfinite(f.score)])
         common=frames[0].index.intersection(frames[1].index).sort_values();a,b=[f.reindex(common) for f in frames]
         if not np.allclose(a.fwd_return,b.fwd_return,equal_nan=True) or not a.label_end.equals(b.label_end):raise ValueError('Paired source labels disagree')
@@ -32,9 +33,11 @@ def paired_comparison(first,second,cutoff):
             newday=b.xs(date,level='date');new=0. if newday.score.nunique()<2 else float(newday.score.corr(newday.fwd_return,method='spearman'))
             values.append((date,old,new))
         if values:
-            dates=[x[0] for x in values];old=np.array([x[1] for x in values]);new=np.array([x[2] for x in values]);ci=block_bootstrap(new-old)
-            out['horizons'][str(h)]=dict(first_run_ic=float(old.mean()),second_run_ic=float(new.mean()),paired_ic_change=float((new-old).mean()),change_ci_lower=ci[0],change_ci_upper=ci[1],ic_dates=len(values),common_score_rows=len(common),common_mature_rows=len(a),date_sha256=hashlib.sha256('|'.join(str(d.date()) for d in dates).encode()).hexdigest())
-        else:out['horizons'][str(h)]=dict(ic_dates=0,common_score_rows=len(common),common_mature_rows=len(a))
+            dates=[x[0] for x in values];old=np.array([x[1] for x in values]);new=np.array([x[2] for x in values])
+            changes=pd.Series(new-old,index=dates).reindex(calendar.sort_values())
+            ci=block_bootstrap(changes.to_numpy())
+            out['horizons'][str(h)]=dict(first_run_ic=float(old.mean()),second_run_ic=float(new.mean()),paired_ic_change=float((new-old).mean()),change_ci_lower=ci[0],change_ci_upper=ci[1],ic_dates=len(values),ic_calendar_slots=len(calendar),common_score_rows=len(common),common_mature_rows=len(a),date_sha256=hashlib.sha256('|'.join(str(d.date()) for d in dates).encode()).hexdigest())
+        else:out['horizons'][str(h)]=dict(ic_dates=0,ic_calendar_slots=len(calendar),common_score_rows=len(common),common_mature_rows=len(a))
     return out
 
 

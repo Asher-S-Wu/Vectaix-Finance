@@ -203,7 +203,7 @@ def load_optional_evidence(root, evidence):
                 raise ValueError('Paired common sample counts do not reconcile')
             rows.append(row)
         evidence['paired'] = rows
-        evidence['source_sha256'][str(paired_file.relative_to(root))] = digest(paired_file)
+        evidence['source_sha256'][paired_file.relative_to(root).as_posix()] = digest(paired_file)
     replay_file = root/RESULTS/'replay_summary.json'
     if replay_file.exists():
         replay = json.loads(replay_file.read_text())
@@ -217,7 +217,8 @@ def load_optional_evidence(root, evidence):
         for name, row in replay['strategies'].items():
             if row['valuation_gap_sessions'] or row['terminal_unknown_count']:
                 if (row['performance_scope'] != 'reference_only' or row['performance_validated'] is not False
-                    or any(row[k] is not None for k in ('return_metrics','total_return','annualized_return','max_drawdown','final_nav'))):
+                    or any(row[k] is not None for k in ('return_metrics','total_return','annualized_return','max_drawdown'))
+                    or (row['terminal_unknown_count'] and row['final_nav'] is not None)):
                     raise ValueError('Unresolved portfolio must not promote stale-reference values to validated returns')
             rows.append(dict(strategy=name, **{k:row[k] for k in (
                 'performance_scope','performance_validated','execution_validated','valuation_gap_sessions',
@@ -225,7 +226,7 @@ def load_optional_evidence(root, evidence):
                 'average_equity_exposure','total_fees','rebalance_count')}))
         evidence['replay'] = rows
         for file in (replay_file, curve_file):
-            evidence['source_sha256'][str(file.relative_to(root))] = digest(file)
+            evidence['source_sha256'][file.relative_to(root).as_posix()] = digest(file)
 
 
 def style():
@@ -389,7 +390,7 @@ def source_chart(e,path):
 
 
 def write_csv(path,rows,fields):
-    with Path(path).open('w',newline='') as stream:
+    with Path(path).open('w',newline='',encoding='utf-8') as stream:
         writer=csv.DictWriter(stream,fieldnames=fields,extrasaction='ignore');writer.writeheader();writer.writerows(rows)
 
 
@@ -426,7 +427,7 @@ def build(root=ROOT,destination=None):
         summary['paired_comparison_scope'] = 'Same original-source common stock-date outcomes; posthoc joint method/data change, not causal attribution or fresh confirmation'
     if e.get('replay'):
         summary['replay_status'] = e['replay']
-    (tables/'summary.json').write_text(json.dumps(summary,indent=2,sort_keys=True,allow_nan=False)+'\n')
+    (tables/'summary.json').write_text(json.dumps(summary,indent=2,sort_keys=True,allow_nan=False)+'\n',encoding='utf-8',newline='\n')
     return summary
 
 
